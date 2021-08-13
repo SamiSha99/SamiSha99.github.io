@@ -5,7 +5,7 @@ var lines = [];
 var color = "rgb(120, 81, 169)";
 
 // When out of focus
-var timer, isPaused = false;
+var timer, timer2, isPaused, isInitialized;
 // Attributes
 const lineLength = 375, lineThickness = 6.5, maxSpeed = 15, minSpeed = 7.5;
 // Spawn rate
@@ -110,11 +110,15 @@ window.onfocus = function() {
     isPaused = false;
     clearTimeout(timer);
     AddNewLine();
+    if(!isInitialized)
+        setTimeout(function(){onStartUpDelay()}, 500);
 };
   
 window.onblur = function() {
     isPaused = true;
     clearTimeout(timer);
+    if(!isInitialized)
+       clearTimeout(timer2);
 };
 
 window.onload = function() {
@@ -133,11 +137,12 @@ window.onload = function() {
         time = 0;
     }
     document.body.style.background = color;
-    setTimeout(function(){onStartUpDelay()}, time);
+    timer2 = setTimeout(function(){onStartUpDelay()}, time);
 };
 
 function onStartUpDelay()
 {
+    isInitialized = true;
     AddNewLine();
     requestAnimationFrame(loop);
 }
