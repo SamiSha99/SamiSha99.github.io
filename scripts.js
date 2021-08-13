@@ -6,7 +6,9 @@ const maxDelayInterval = 150, minDelayInterval = 50; // in milliseconds
 var timer;
 var lines = [];
 
-function addNewLineValues(){
+var isPaused = false;
+
+function addNewLineValues() {
 
     let line = {};
     line.direction = GetDirection(Math.floor(Math.random() * 2));
@@ -52,27 +54,26 @@ function moveLine () {
     }
 }
 
-function GetDirection(val){
+function GetDirection(val) {
     
     return val ? "left" : "right";
 }
 
-function GetOffSet(){
+function GetOffSet() {
     var maxLength = canvas.height;
     var minLength = maxLength / 96;
     return Math.floor(Math.random() * (maxLength - minLength) + minLength); 
 }
 
-function GetLocation(dir){
+function GetLocation(dir) {
     return dir == "left" ? (canvas.width + lineLength * 1.25) : -lineLength * 1.25;
 }
 
-function GetSpeedDirection(dir){    
+function GetSpeedDirection(dir) {    
     return dir == "left" ? -1 : 1;
 }
 
-function shouldRemoveLine(i)
-{
+function shouldRemoveLine(i) {
     let direction = lines[i].direction;
     let location = lines[i].location;
     if(direction == "left" && location < -lineLength) return true;
@@ -81,8 +82,13 @@ function shouldRemoveLine(i)
 }
 
 function loop() {
+
+    if(!isPaused) Animate();
+    requestAnimationFrame(loop);
+}
+
+function Animate() {
     canvas.width = document.body.clientWidth;
-    //canvas.height = window.innerHeight;
     canvas.height = window.innerHeight;
     var grd = ctx.createLinearGradient(0, 0, canvas.width, 0);
     grd.addColorStop(0, "rgb(145, 53, 187)");
@@ -91,20 +97,18 @@ function loop() {
     ctx.strokeStyle = grd;
     ctx.lineWidth = 7;
     ctx.clearRect(0,0,canvas.width, canvas.height);
-    
     moveLine();
     drawLine();
-    requestAnimationFrame(loop);
 }
 
 window.onfocus = function() {
-    console.log('focus')
+    isPaused = false;
     clearTimeout(timer);
     addNewLineValues();
 };
   
-window.onblur = function(){
-    console.log('blur')
+window.onblur = function() {
+    isPaused = true;
     clearTimeout(timer);
 };
 
