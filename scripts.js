@@ -1,27 +1,32 @@
 var canvas = document.getElementById("canvas-background");
 var ctx = canvas.getContext("2d");
-
-const lineLength = 400, maxSpeed = 15, minSpeed = 5;
-const maxDelayInterval = 150, minDelayInterval = 50; // in milliseconds
-var timer;
 var lines = [];
 
-var isPaused = false;
+var color = "rgb(120, 81, 169)";
 
-function addNewLineValues() {
+// When out of focus
+var timer, isPaused = false;
+// Attributes
+const lineLength = 375, lineThickness = 6.5, maxSpeed = 15, minSpeed = 7.5;
+// Spawn rate
+const maxDelayInterval = 100, minDelayInterval = 50; // in milliseconds
+
+function AddNewLine() {
 
     let line = {};
+    
     line.direction = GetDirection(Math.floor(Math.random() * 2));
     line.offset = GetOffSet();
-    line.speed = (Math.random() * (15 - 5) + 5) * GetSpeedDirection(line.direction);
+    line.speed = (Math.random() * (maxSpeed - minSpeed) + minSpeed) * GetSpeedDirection(line.direction);
     line.location = GetLocation(line.direction);
+
     lines.push({
         direction: line.direction,
         offset: line.offset,
         speed: line.speed,
         location: line.location
     });
-    timer = setTimeout(function(){addNewLineValues()}, Math.random() * (maxDelayInterval - minDelayInterval) + maxDelayInterval);
+    timer = setTimeout(function(){AddNewLine()}, Math.random() * (maxDelayInterval - minDelayInterval) + maxDelayInterval);
 }
 
 function drawLine() {
@@ -48,9 +53,7 @@ function moveLine () {
     {
         lines[i].location += lines[i].speed;
         if(shouldRemoveLine(i))
-        {
             lines.splice(i,1);
-        }
     }
 }
 
@@ -91,11 +94,13 @@ function Animate() {
     canvas.width = document.body.clientWidth;
     canvas.height = window.innerHeight;
     var grd = ctx.createLinearGradient(0, 0, canvas.width, 0);
-    grd.addColorStop(0, "rgb(145, 53, 187)");
-    grd.addColorStop(0.5, "white");
-    grd.addColorStop(1, "rgb(145, 53, 187)");
+    grd.addColorStop(0, color);
+    grd.addColorStop(0.03, color);
+    grd.addColorStop(0.5, "rgba(255, 255, 255, 0.25)");
+    grd.addColorStop(0.97, color);
+    grd.addColorStop(1, color);
     ctx.strokeStyle = grd;
-    ctx.lineWidth = 7;
+    ctx.lineWidth = lineThickness;
     ctx.clearRect(0,0,canvas.width, canvas.height);
     moveLine();
     drawLine();
@@ -104,7 +109,7 @@ function Animate() {
 window.onfocus = function() {
     isPaused = false;
     clearTimeout(timer);
-    addNewLineValues();
+    AddNewLine();
 };
   
 window.onblur = function() {
@@ -112,6 +117,26 @@ window.onblur = function() {
     clearTimeout(timer);
 };
 
-addNewLineValues();
+window.onload = function() {
+    
+    var inHomePage = window.location.pathname.split("/").pop() == "index.html";
+    
+    if(inHomePage)
+    {
+        time = 2750;
+    }
+    else
+    {
+        var element = document.getElementById("nav");
+        element.classList.remove("fade-in-nav");
+        time = 0;
+    }
+    document.body.style.background = color;
+    setTimeout(function(){onStartUpDelay()}, time);
+};
 
-requestAnimationFrame(loop);
+function onStartUpDelay()
+{
+    AddNewLine();
+    requestAnimationFrame(loop);
+}
