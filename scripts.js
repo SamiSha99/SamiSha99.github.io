@@ -119,7 +119,8 @@ window.onblur = function() {
 
 window.onload = function() {
     
-    var inHomePage = window.location.pathname.split("/").pop() == "index.html";
+    var pageName = window.location.pathname.split("/").pop()
+    var inHomePage = (pageName == "index.html" || pageName == "");
     
     if(inHomePage)
     {
