@@ -53,7 +53,10 @@ function moveLine () {
     {
         lines[i].location += lines[i].speed;
         if(shouldRemoveLine(i))
+        {
             lines.splice(i,1);
+            i--;
+        }
     }
 }
 

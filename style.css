@@ -76,7 +76,7 @@ h2.page-title {
 }
 
 /* Animations */
-.fade-in, .fade-in a, #nav .fade-in, .fade-in-nav{
+.fade-in, .fade-in a, #nav .fade-in, .fade-in-nav {
 	animation: fadeIn-to-top 0.75s;
     animation-delay: 1s;
   	opacity: 0;
@@ -90,17 +90,36 @@ h2.page-title {
 .fade-in a:nth-child(5) { animation-delay: 2.5s }
 .fade-in-nav { animation-delay: 3.5s }
 
+.nav-bottom {
+    animation: fadeIn-to-bottom 0.75s;
+    animation-delay: 3.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    bottom: 0;
+    right: 0;
+}
 
 @keyframes fadeIn-to-top {
   from {
   	opacity: 0;
-    transform: translateY(1em);
+    transform: translateY(1.25em);
   }
   to {
  	opacity: 1;
     transform: translateY(0em);
   }
 }
+
+@keyframes fadeIn-to-bottom {
+    from {
+        opacity: 0;
+      transform: translateY(-1.25em);
+    }
+    to {
+       opacity: 1;
+      transform: translateY(0em);
+    }
+  }
 
 /* Font */
 @font-face {
@@ -168,6 +187,8 @@ div #nav {
     width: 85%; 
     left: 7.5%; 
 }
+
+
 #nav{
     z-index: 999;
 }
@@ -182,3 +203,8 @@ div #nav {
     background: #f8f8ff; 
     border-radius: 0.25em;
   }
+
+/* Font Awesome */
+.fab, .nav-bottom div p {
+    font-size: 48px;
+}
