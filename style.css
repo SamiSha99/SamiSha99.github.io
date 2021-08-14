@@ -8,6 +8,13 @@ canvas {
     padding: 0px;
 }
 
+p,
+div,
+h1,
+h2 {
+    cursor: default;
+}
+
 hr {
     background: rgb(120, 81, 169);
     height: 5px;
@@ -37,6 +44,7 @@ hr {
     padding-bottom: 20px;
     text-transform: uppercase;
     text-decoration: underline;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .info-block p {
@@ -90,6 +98,7 @@ h2.page-title {
     animation-delay: 1s;
     opacity: 0;
     animation-fill-mode: forwards;
+    user-select: none;
 }
 
 .fade-in a:nth-child(1) {
@@ -223,6 +232,7 @@ a:active {
 
 #nav {
     z-index: 999;
+    user-select: none;
 }
 
 /* Scroll Bar */
@@ -243,3 +253,9 @@ a:active {
     padding: 0px;
     margin: 0px;
 }
+
+/*
+.nav-bottom div p {
+    cursor: context-menu;
+}
+*/
