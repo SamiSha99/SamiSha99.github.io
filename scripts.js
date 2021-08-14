@@ -10,14 +10,15 @@ var timer, timer2, isPaused, isInitialized;
 const lineLength = 375,
     lineThickness = 6.5,
     maxSpeed = 15,
-    minSpeed = 7.5;
+    minSpeed = 7.5,
+    maxLines = 40;
 // Spawn rate
 const maxDelayInterval = 100,
     minDelayInterval = 50; // in milliseconds
 
 function AddNewLine() {
 
-    if (lines.length < 30) {
+    if (lines.length < maxLines) {
         let line = {};
         line.direction = GetDirection(Math.floor(Math.random() * 2));
         line.offset = GetOffSet();
