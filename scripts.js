@@ -11,7 +11,7 @@ const lineLength = 375,
     lineThickness = 6.5,
     maxSpeed = 15,
     minSpeed = 7.5,
-    maxLines = 40;
+    maxLines = 50;
 // Spawn rate
 const maxDelayInterval = 100,
     minDelayInterval = 50; // in milliseconds
