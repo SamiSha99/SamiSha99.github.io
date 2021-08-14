@@ -25,11 +25,12 @@ hr {
     font-size: normal;
     font-size: 32px;
     color: #f8f8ff;
-    margin: 0 80px;
-    padding: 20px;
+    margin: 0px 80px;
+    padding: 20px 25px;
     border: 10px solid rgba(102, 51, 153, 0.7);
     border-radius: 50px;
     background: rgba(55, 23, 88, 0.7);
+    position: relative;
 }
 
 .info-block h1 {
@@ -41,6 +42,7 @@ hr {
 .info-block p {
     font-size: 26px;
     padding-bottom: 15px;
+    line-height: 120%;
 }
 
 .info-block a,
