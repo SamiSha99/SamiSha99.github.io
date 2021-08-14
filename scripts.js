@@ -141,9 +141,8 @@ window.onload = function () {
     } else {
 
         if (pageName == "contact.html")
-        {
-           // _0x3c5033();
-        }
+           _0x3c5033();
+
         var element = document.getElementById("nav");
         element.classList.remove("fade-in-nav");
         time = 0;
@@ -162,6 +161,7 @@ function onStartUpDelay() {
 
 // go to to hell spam bots!
 function _0x3c5033() {
+    return; // disabled for now
     let _0x1d5b15 = "U1RKV2RGbFhiSE09";
     let _0x5bf685 = "WXpKR2RHRlROWHBoUjBaeVlUSTVNV05yUW05aU0xSjBXVmRzYzB4dFRuWmlVVDA5";
     let _0x93c7ae = "VkZocloxSlhNV2hoVjNjOQ==";
