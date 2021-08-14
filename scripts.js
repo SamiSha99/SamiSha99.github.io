@@ -141,8 +141,9 @@ window.onload = function () {
     } else {
 
         if (pageName == "contact.html")
-            _0x3c5033();
-
+        {
+           // _0x3c5033();
+        }
         var element = document.getElementById("nav");
         element.classList.remove("fade-in-nav");
         time = 0;
