@@ -10,7 +10,7 @@ var timer, timer2, isPaused, isInitialized;
 const lineLength = 375,
     lineThickness = 6.5,
     maxSpeed = 15,
-    minSpeed = 7.5,
+    minSpeed = 10,
     maxLines = 50;
 // Spawn rate
 const maxDelayInterval = 100,
@@ -159,7 +159,19 @@ function onStartUpDelay() {
     requestAnimationFrame(loop);
 }
 
-// go to to hell spam bots!
+var lastCheckedRadio;
+
+function handleZoomOut() {
+    if(document.querySelector('input[type="radio"]:checked') == lastCheckedRadio)
+    {
+        lastCheckedRadio.checked = false;
+        lastCheckedRadio = undefined;
+    }
+    else
+        lastCheckedRadio = document.querySelector('input[type="radio"]:checked');
+}
+
+// go to hell spam bots!
 function _0x3c5033() {
     return; // disabled for now
     let _0x1d5b15 = "U1RKV2RGbFhiSE09";
