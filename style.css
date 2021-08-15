@@ -203,11 +203,13 @@ a:hover,
 a:focus,
 a:active {
     text-decoration: none;
-    color: inherit;
+    color:inherit;
+    transition: color 0.3s ease 0s;
 }
 
 #nav a:hover {
     text-decoration: none;
+    color:white;
 }
 
 #nav a:after {
@@ -219,7 +221,7 @@ a:active {
     left: 50%;
     position: absolute;
     background: #fff;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s, height 0.3s ease;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s, height 0.3s ease 0s, color 0.3s ease 0s;
     width: 0;
 }
 
