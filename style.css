@@ -106,6 +106,8 @@ h2.page-title {
     opacity: 0;
     animation-fill-mode: forwards;
     user-select: none;
+    text-decoration: none;
+    color: #f8f8ff;
 }
 
 .fade-in a:nth-child(1) {
