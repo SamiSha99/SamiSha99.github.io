@@ -6,6 +6,7 @@ canvas {
 * {
     margin: 0px;
     padding: 0px;
+    scroll-behavior: smooth;
 }
 
 p,
@@ -26,13 +27,13 @@ hr {
     height: 100vh;
 }
 
-.info-block {
+.info-block, .content-block {
     font-family: vcr_osd_monoregular;
     font-weight: normal;
     font-size: normal;
     font-size: 32px;
     color: #f8f8ff;
-    margin: 0px 80px;
+    margin: 0px 80px 20px 80px;
     padding: 20px 25px;
     border: 10px solid rgba(102, 51, 153, 0.7);
     border-radius: 50px;
@@ -40,7 +41,7 @@ hr {
     position: relative;
 }
 
-.info-block h1 {
+h1 {
     padding-bottom: 20px;
     text-transform: uppercase;
     text-decoration: underline;
@@ -53,12 +54,18 @@ hr {
     line-height: 120%;
 }
 
-.info-block a,
-.info-block a:active,
-.info-block a:hover,
-.info-block a:focus {
+a,
+a:active,
+a:hover,
+a:focus {
     color: rgb(197, 197, 255);
     text-decoration: underline;
+}
+.content-block a {
+    text-decoration: none;
+}
+.content-block ol {
+    padding: 0px 0px 0px 8%;
 }
 
 h1.page-title {
@@ -199,9 +206,9 @@ div #nav {
 }
 
 #nav a,
-a:hover,
-a:focus,
-a:active {
+#nav a:hover,
+#nav a:focus,
+#nav a:active {
     text-decoration: none;
     color:inherit;
     transition: color 0.3s ease 0s;

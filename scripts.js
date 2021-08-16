@@ -161,7 +161,7 @@ function onStartUpDelay() {
 
 var lastCheckedRadio;
 
-function handleZoomOut() {
+function handleZoom() {
     if(document.querySelector('input[type="radio"]:checked') == lastCheckedRadio)
     {
         lastCheckedRadio.checked = false;
