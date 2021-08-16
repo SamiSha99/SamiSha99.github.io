@@ -92,6 +92,34 @@ h2.page-title {
 
 }
 
+@media only screen and (max-width: 768px) {
+
+    h1.page-title {
+        font-family: vcr_osd_monoregular;
+        font-weight: bold;
+        font-size: normal;
+        text-align: center;
+        font-size: 60px;
+        margin: 0px 10%;
+        color: #f8f8ff;
+        position: relative;
+        top: 40%;
+    }
+    
+    h2.page-title {
+        font-family: vcr_osd_monoregular;
+        font-weight: bold;
+        font-size: normal;
+        text-align: center;
+        text-align: center;
+        font-size: 20px;
+        color: #f8f8ff;
+        position: relative;
+        top: 42.5%;
+    
+    }
+}
+
 .gap {
     padding: 100px 0px;
 }
@@ -176,7 +204,8 @@ h2.page-title {
     font-style: normal;
 }
 
-/* Navigation bar */
+
+
 #nav {
     display: flex;
     font-family: vcr_osd_monoregular;
@@ -189,6 +218,28 @@ h2.page-title {
     color: #f8f8ff;
     position: absolute;
     margin: 25px 25px;
+}
+
+@media only screen and (max-width: 768px) {
+    #nav {
+        display: flex;
+        flex: 0 0 50%;
+        font-family: vcr_osd_monoregular;
+        font-weight: bold;
+        font-size: normal;
+        text-align: center;
+        text-transform: uppercase;
+        color: #f8f8ff;
+        position: absolute;
+        margin: 20px 0px 25px 0px;
+        justify-content: center;
+        font-size: auto;
+        flex-wrap: wrap;
+    }
+
+    .nav-bottom {
+        width: 100%;
+    }
 }
 
 #nav div {
