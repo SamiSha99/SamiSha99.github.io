@@ -41,6 +41,23 @@ hr {
     position: relative;
 }
 
+.beta {
+    margin: 0px;
+    padding: 10px 5px 0px 10px;
+    border-top: 0px;
+    border-right: 0px;
+    display: fixed;
+    border-radius: 0;
+    border-bottom-left-radius: 25px;
+    position: absolute;
+    right:0;
+    top:0;
+    z-index: 1000;
+    background: rgba(55, 23, 88, 1);
+    border-color: rgba(102, 51, 153, 1);
+    text-transform: uppercase;
+}
+
 h1 {
     padding-bottom: 20px;
     text-transform: uppercase;
