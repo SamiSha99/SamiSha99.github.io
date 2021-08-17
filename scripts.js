@@ -1,3 +1,5 @@
+const beta = true;  
+
 var canvas = document.getElementById("canvas-background");
 var ctx = canvas.getContext("2d");
 var lines = [];
@@ -141,6 +143,10 @@ window.onload = function () {
     var pageName = window.location.pathname.split("/").pop()
     var inHomePage = (pageName == "index.html" || pageName == "");
 
+    if(beta)
+    {
+        document.body.appendChild(GetBeta());
+    }
 
     if (inHomePage) {
         time = 2750;
@@ -175,6 +181,15 @@ function handleZoom() {
     }
     else
         lastCheckedRadio = document.querySelector('input[type="radio"]:checked');
+}
+
+function GetBeta()
+{
+    var div = document.createElement("div");
+    div.classList.add("info-block");
+    div.classList.add("beta");
+    div.innerHTML = "<p>Site Under Construction</p>"
+    return div;
 }
 
 // go to hell spam bots!
