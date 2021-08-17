@@ -17,8 +17,8 @@ const maxDelayInterval = 100,
     minDelayInterval = 50; // in milliseconds
 
 function AddNewLine() {
-
-    if (lines.length < maxLines) {
+    var multiplier = Math.max(canvas.height/1080 * 1.25, 1);
+    if (lines.length < Math.round(maxLines * multiplier)) {
         let line = {};
         line.direction = GetDirection(Math.floor(Math.random() * 2));
         line.offset = GetOffSet();
@@ -34,7 +34,7 @@ function AddNewLine() {
     }
     timer = setTimeout(function () {
         AddNewLine()
-    }, Math.random() * (maxDelayInterval - minDelayInterval) + maxDelayInterval);
+    }, Math.round((1/multiplier) * (Math.random() * (maxDelayInterval - minDelayInterval) + maxDelayInterval)));
 }
 
 function drawLine() {
@@ -99,7 +99,7 @@ function loop() {
 
 function Animate() {
     canvas.width = document.body.clientWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = GetScrollHeight();
     var grd = ctx.createLinearGradient(0, 0, canvas.width, 0);
     grd.addColorStop(0, color);
     grd.addColorStop(0.03, color);
@@ -111,6 +111,12 @@ function Animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     moveLine();
     drawLine();
+}
+
+function GetScrollHeight()
+{
+    var body = document.body, html = document.documentElement;
+    return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 }
 
 window.onfocus = function () {
