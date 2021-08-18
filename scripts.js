@@ -13,10 +13,10 @@ const lineLength = 350,
     lineThickness = 6.5,
     maxSpeed = 12,
     minSpeed = 8,
-    maxLines = 75;
+    maxLines = 70;
 // Spawn rate
-const maxDelayInterval = 75,
-    minDelayInterval = 50; // in milliseconds
+const maxDelayInterval = 80,
+    minDelayInterval = 40; // in milliseconds
 
 function AddNewLine() {
     var multiplier = Math.max(canvas.height/1080 * 1.25, 1);
