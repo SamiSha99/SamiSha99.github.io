@@ -9,13 +9,13 @@ var color = "rgb(120, 81, 169)";
 // When out of focus
 var timer, timer2, isPaused, isInitialized;
 // Attributes
-const lineLength = 375,
+const lineLength = 350,
     lineThickness = 6.5,
-    maxSpeed = 15,
-    minSpeed = 10,
-    maxLines = 50;
+    maxSpeed = 12,
+    minSpeed = 8,
+    maxLines = 75;
 // Spawn rate
-const maxDelayInterval = 100,
+const maxDelayInterval = 75,
     minDelayInterval = 50; // in milliseconds
 
 function AddNewLine() {
@@ -31,7 +31,8 @@ function AddNewLine() {
             direction: line.direction,
             offset: line.offset,
             speed: line.speed,
-            location: line.location
+            startSpeed: line.speed,
+            location: line.location,
         });
     }
     timer = setTimeout(function () {
@@ -59,6 +60,7 @@ function drawLine() {
 function moveLine() {
     for (i = 0; i < lines.length; i++) {
         lines[i].location += lines[i].speed;
+        lines[i].speed += lines[i].startSpeed * 1/60;
         if (shouldRemoveLine(i)) {
             lines.splice(i, 1);
             i--;
