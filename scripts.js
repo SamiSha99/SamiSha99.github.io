@@ -4,7 +4,7 @@ var canvas = document.getElementById("canvas-background");
 var ctx = canvas.getContext("2d");
 var lines = [];
 
-var color = "rgb(120, 81, 169)";
+var color = "rgb(120, 81, 169)", color2 = "rgba(255, 255, 255, 0.5)";
 
 // When out of focus
 var timer, timer2, isPaused, isInitialized;
@@ -40,15 +40,42 @@ function AddNewLine() {
     }, Math.round((1/multiplier) * (Math.random() * (maxDelayInterval - minDelayInterval) + maxDelayInterval)));
 }
 
+function clamp(n, min, max) {
+    if(min > max)
+    {
+        let tmp = min;
+        min = max;
+        max = tmp;
+    }
+    if(n < min)
+        return min;
+    if(n > max)
+        return max;
+    return n;
+}
+
 function drawLine() {
+    // clean the frame so we can draw the next one
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    var grd = undefined;
+    ctx.lineWidth = lineThickness;
     for (i = 0; i < lines.length; i++) {
         ctx.beginPath();
         switch (lines[i].direction) {
             case "left":
+                grd = ctx.createLinearGradient(0, 0, canvas.width, 0);
+                grd.addColorStop(clamp((lines[i].location + lineLength)/canvas.width, 0, 1), color);
+                grd.addColorStop(clamp((lines[i].location)/canvas.width, 0, 1), color2);
+                ctx.strokeStyle = grd;
                 ctx.moveTo(lines[i].location, lines[i].offset);
                 ctx.lineTo(lines[i].location + lineLength, lines[i].offset);
                 break;
             case "right":
+                grd = ctx.createLinearGradient(0, 0, canvas.width, 0);
+                grd.addColorStop(clamp((lines[i].location + lineLength)/canvas.width, 0, 1), color2);
+                grd.addColorStop(clamp((lines[i].location)/canvas.width, 0, 1), color);
+                ctx.strokeStyle = grd;
                 ctx.moveTo(lines[i].location + lineLength, lines[i].offset);
                 ctx.lineTo(lines[i].location, lines[i].offset);
                 break;
@@ -80,7 +107,7 @@ function GetOffSet() {
 }
 
 function GetLocation(dir) {
-    return dir == "left" ? (canvas.width + lineLength * 1.25) : -lineLength * 1.25;
+    return dir == "left" ? (canvas.width + lineLength) : -lineLength;
 }
 
 function GetSpeedDirection(dir) {
@@ -104,15 +131,6 @@ function loop() {
 function Animate() {
     canvas.width = document.body.clientWidth;
     canvas.height = GetScrollHeight();
-    var grd = ctx.createLinearGradient(0, 0, canvas.width, 0);
-    grd.addColorStop(0, color);
-    grd.addColorStop(0.03, color);
-    grd.addColorStop(0.5, "rgba(255, 255, 255, 0.25)");
-    grd.addColorStop(0.97, color);
-    grd.addColorStop(1, color);
-    ctx.strokeStyle = grd;
-    ctx.lineWidth = lineThickness;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     moveLine();
     drawLine();
 }
