@@ -1,10 +1,8 @@
 const beta = true;  
 
-var canvas = document.getElementById("canvas-background");
-var ctx = canvas.getContext("2d");
-var lines = [];
+var canvas, ctx, lines = [];
 
-var color = "rgb(120, 81, 169)", color2 = "rgba(255, 255, 255, 0.5)";
+var color = "rgb(120, 81, 169)", color2 = "rgba(255, 255, 255, 0.6)";
 
 // When out of focus
 var timer, timer2, isPaused, isInitialized;
@@ -173,21 +171,20 @@ window.onload = function () {
     }
 
     if (inHomePage) {
-        NavBar = AppendNavBar(false);
-        document.body.insertBefore(NavBar, document.body.firstChild);
+        AppendNavBar(false);
         time = 2750;
     } else {
 
         if (pageName == "contact.html")
            _0x3c5033();
         
-        NavBar = AppendNavBar();
-        document.body.insertBefore(NavBar, document.body.firstChild);
-        // I'm just... wtf
-        var element = document.getElementById("nav");
-        element.classList.remove("fade-in-nav");
+        AppendNavBar(true);
         time = 0;
     }
+    // Set up Canvas
+    AppendCanvas();
+    canvas = document.getElementById("canvas-background");
+    ctx = canvas.getContext("2d");
     document.body.style.background = color;
     timer2 = setTimeout(function () {
         onStartUpDelay()
@@ -219,7 +216,15 @@ function AppendNavBar(noFade = true)
     if(!noFade)
         div.classList.add("fade-in-nav");
     div.innerHTML = '<div class="nav-container-divider"><div><p>|</p></div><div><a href="./index.html">Home</a></div><div><p>|</p></div><div><a href="./about.html">About Me</a></div><div><p>|</p></div></div><div class="nav-container-divider"><div class="additional-line"><p>|</p></div><div><a href="./mywork.html">My Work</a></div><div><p>|</p></div><div><a href="./contact.html">Contact</a></div><div><p>|</p></div></div>'
-    return div;
+    document.body.insertBefore(div, document.body.firstChild);
+}
+
+function AppendCanvas()
+{
+    var canvas = document.createElement("canvas");
+    canvas.id = "canvas-background";
+    document.body.insertBefore(canvas, document.body.firstChild);
+    
 }
 
 function GetBeta()
