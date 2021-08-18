@@ -165,6 +165,7 @@ window.onload = function () {
 
     var pageName = window.location.pathname.split("/").pop()
     var inHomePage = (pageName == "index.html" || pageName == "");
+    var NavBar;
 
     if(beta)
     {
@@ -172,12 +173,17 @@ window.onload = function () {
     }
 
     if (inHomePage) {
+        NavBar = AppendNavBar(false);
+        document.body.insertBefore(NavBar, document.body.firstChild);
         time = 2750;
     } else {
 
         if (pageName == "contact.html")
            _0x3c5033();
-
+        
+        NavBar = AppendNavBar();
+        document.body.insertBefore(NavBar, document.body.firstChild);
+        // I'm just... wtf
         var element = document.getElementById("nav");
         element.classList.remove("fade-in-nav");
         time = 0;
@@ -204,6 +210,16 @@ function handleZoom() {
     }
     else
         lastCheckedRadio = document.querySelector('input[type="radio"]:checked');
+}
+
+function AppendNavBar(noFade = true)
+{
+    var div = document.createElement("div");
+    div.id = "nav";
+    if(!noFade)
+        div.classList.add("fade-in-nav");
+    div.innerHTML = '<div class="nav-container-divider"><div><p>|</p></div><div><a href="./index.html">Home</a></div><div><p>|</p></div><div><a href="./about.html">About Me</a></div><div><p>|</p></div></div><div class="nav-container-divider"><div class="additional-line"><p>|</p></div><div><a href="./mywork.html">My Work</a></div><div><p>|</p></div><div><a href="./contact.html">Contact</a></div><div><p>|</p></div></div>'
+    return div;
 }
 
 function GetBeta()
