@@ -57,29 +57,32 @@ function clamp(n, min, max) {
 function drawLine() {
     // clean the frame so we can draw the next one
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     var grd = undefined;
     ctx.lineWidth = lineThickness;
     for (i = 0; i < lines.length; i++) {
+        // begin
         ctx.beginPath();
+        // set up gradient canvas
+        grd = ctx.createLinearGradient(0, 0, canvas.width, 0);
         switch (lines[i].direction) {
             case "left":
-                grd = ctx.createLinearGradient(0, 0, canvas.width, 0);
+                // set up gradient going from left to right.
                 grd.addColorStop(clamp((lines[i].location + lineLength)/canvas.width, 0, 1), color);
                 grd.addColorStop(clamp((lines[i].location)/canvas.width, 0, 1), color2);
-                ctx.strokeStyle = grd;
                 ctx.moveTo(lines[i].location, lines[i].offset);
                 ctx.lineTo(lines[i].location + lineLength, lines[i].offset);
                 break;
             case "right":
-                grd = ctx.createLinearGradient(0, 0, canvas.width, 0);
+                // set up gradient going from right to left.
                 grd.addColorStop(clamp((lines[i].location + lineLength)/canvas.width, 0, 1), color2);
                 grd.addColorStop(clamp((lines[i].location)/canvas.width, 0, 1), color);
-                ctx.strokeStyle = grd;
                 ctx.moveTo(lines[i].location + lineLength, lines[i].offset);
                 ctx.lineTo(lines[i].location, lines[i].offset);
                 break;
         }
+        // apply gradient
+        ctx.strokeStyle = grd;
+        // end
         ctx.stroke();
     }
 }
