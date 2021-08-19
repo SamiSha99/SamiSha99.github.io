@@ -1,23 +1,24 @@
-const beta = true;  
+const beta = true;
 
 var canvas, ctx, lines = [];
 
-var color = "rgb(120, 81, 169)", color2 = "rgba(255, 255, 255, 0.55)";
+var color = "rgb(120, 81, 169)",
+    color2 = "rgba(255, 255, 255, 0.55)";
 
 // When out of focus
 var timer, timer2, isPaused, isInitialized;
 // Attributes
 const lineLength = 350,
     lineThickness = 6.5,
-    maxSpeed = 12,
-    minSpeed = 6,
+    maxSpeed = 1500,
+    minSpeed = 750,
     maxLines = 50;
 // Spawn rate
 const maxDelayInterval = 75,
     minDelayInterval = 50; // in milliseconds
 
 function AddNewLine() {
-    var multiplier = Math.max(canvas.height/1080 * 1.25, 1);
+    var multiplier = Math.max(canvas.height / 1080 * 1.25, 1);
     if (lines.length < Math.round(maxLines * multiplier)) {
         let line = {};
         line.direction = GetDirection(Math.floor(Math.random() * 2));
@@ -35,27 +36,24 @@ function AddNewLine() {
     }
     timer = setTimeout(function () {
         AddNewLine()
-    }, Math.round((1/multiplier) * randRange(minDelayInterval, maxDelayInterval)));
+    }, Math.round((1 / multiplier) * randRange(minDelayInterval, maxDelayInterval)));
 }
 
 function clamp(n, min, max) {
-    if(min > max)
-    {
+    if (min > max) {
         let tmp = min;
         min = max;
         max = tmp;
     }
-    if(n < min)
+    if (n < min)
         return min;
-    if(n > max)
+    if (n > max)
         return max;
     return n;
 }
 
-function randRange(min, max)
-{
-    if(min > max)
-    {
+function randRange(min, max) {
+    if (min > max) {
         let tmp = min;
         min = max;
         max = tmp;
@@ -64,9 +62,8 @@ function randRange(min, max)
     return Math.random() * (max - min) + min;
 }
 
-function randRangeInt(min, max)
-{
-    return Math.floor(randRange(min,max));
+function randRangeInt(min, max) {
+    return Math.floor(randRange(min, max));
 }
 
 function drawLine() {
@@ -82,15 +79,15 @@ function drawLine() {
         switch (lines[i].direction) {
             case "left":
                 // set up gradient going from left to right.
-                grd.addColorStop(clamp((lines[i].location + lineLength)/canvas.width, 0, 1), color);
-                grd.addColorStop(clamp((lines[i].location)/canvas.width, 0, 1), color2);
+                grd.addColorStop(clamp((lines[i].location + lineLength) / canvas.width, 0, 1), color);
+                grd.addColorStop(clamp((lines[i].location) / canvas.width, 0, 1), color2);
                 ctx.moveTo(lines[i].location, lines[i].offset);
                 ctx.lineTo(lines[i].location + lineLength, lines[i].offset);
                 break;
             case "right":
                 // set up gradient going from right to left.
-                grd.addColorStop(clamp((lines[i].location + lineLength)/canvas.width, 0, 1), color2);
-                grd.addColorStop(clamp((lines[i].location)/canvas.width, 0, 1), color);
+                grd.addColorStop(clamp((lines[i].location + lineLength) / canvas.width, 0, 1), color2);
+                grd.addColorStop(clamp((lines[i].location) / canvas.width, 0, 1), color);
                 ctx.moveTo(lines[i].location + lineLength, lines[i].offset);
                 ctx.lineTo(lines[i].location, lines[i].offset);
                 break;
@@ -102,10 +99,10 @@ function drawLine() {
     }
 }
 
-function moveLine() {
+function moveLine(delta) {
     for (i = 0; i < lines.length; i++) {
-        lines[i].location += lines[i].speed;
-        lines[i].speed += lines[i].startSpeed * 1/60;
+        lines[i].location += lines[i].speed * delta;
+        lines[i].speed += lines[i].startSpeed * delta;
         if (shouldRemoveLine(i)) {
             lines.splice(i, 1);
             i--;
@@ -140,26 +137,48 @@ function shouldRemoveLine(i) {
     return false;
 }
 
+// Time dilation with pause implementation
+var prevTime = undefined;
+const worldDilation = 1;
 function loop() {
+    var delta;
 
-    if (!isPaused) Animate();
+    if (!isPaused && isInitialized) {
+
+        var time = new Date();
+
+        if (prevTime != undefined) {
+
+            delta = time - prevTime;
+            console.log("time delta:" + delta);
+            delta /= 1000;
+            delta *= worldDilation;
+        }
+
+        prevTime = time;
+
+        if (delta != undefined)
+            Update(delta);
+    }
+
     requestAnimationFrame(loop);
 }
 
-function Animate() {
+function Update(delta) {
     canvas.width = document.body.clientWidth;
     canvas.height = GetScrollHeight();
-    moveLine();
+    moveLine(delta);
     drawLine();
 }
 
-function GetScrollHeight()
-{
-    var body = document.body, html = document.documentElement;
+function GetScrollHeight() {
+    var body = document.body,
+        html = document.documentElement;
     return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 }
 
 window.onfocus = function () {
+    prevTime = undefined;
     isPaused = false;
     clearTimeout(timer);
     AddNewLine();
@@ -170,6 +189,7 @@ window.onfocus = function () {
 };
 
 window.onblur = function () {
+    prevTime = undefined;
     isPaused = true;
     clearTimeout(timer);
     if (!isInitialized)
@@ -182,8 +202,7 @@ window.onload = function () {
     var inHomePage = (pageName == "index.html" || pageName == "");
     var NavBar;
 
-    if(beta)
-    {
+    if (beta) {
         document.body.appendChild(GetBeta());
     }
 
@@ -193,8 +212,8 @@ window.onload = function () {
     } else {
 
         if (pageName == "contact.html")
-           _0x3c5033();
-        
+            _0x3c5033();
+
         AppendNavBar(true);
         time = 0;
     }
@@ -211,41 +230,35 @@ window.onload = function () {
 function onStartUpDelay() {
     isInitialized = true;
     AddNewLine();
-    requestAnimationFrame(loop);
 }
 
 var lastCheckedRadio;
 
 function handleZoom() {
-    if(document.querySelector('input[type="radio"]:checked') == lastCheckedRadio)
-    {
+    if (document.querySelector('input[type="radio"]:checked') == lastCheckedRadio) {
         lastCheckedRadio.checked = false;
         lastCheckedRadio = undefined;
-    }
-    else
+    } else
         lastCheckedRadio = document.querySelector('input[type="radio"]:checked');
 }
 
-function AppendNavBar(noFade = true)
-{
+function AppendNavBar(noFade = true) {
     var div = document.createElement("div");
     div.id = "nav";
-    if(!noFade)
+    if (!noFade)
         div.classList.add("fade-in-nav");
     div.innerHTML = '<div class="nav-container-divider"><div><p>|</p></div><div><a href="./index.html">Home</a></div><div><p>|</p></div><div><a href="./about.html">About Me</a></div><div><p>|</p></div></div><div class="nav-container-divider"><div class="additional-line"><p>|</p></div><div><a href="./mywork.html">My Work</a></div><div><p>|</p></div><div><a href="./contact.html">Contact</a></div><div><p>|</p></div></div>'
     document.body.insertBefore(div, document.body.firstChild);
 }
 
-function AppendCanvas()
-{
+function AppendCanvas() {
     var canvas = document.createElement("canvas");
     canvas.id = "canvas-background";
     document.body.insertBefore(canvas, document.body.firstChild);
-    
+
 }
 
-function GetBeta()
-{
+function GetBeta() {
     var div = document.createElement("div");
     div.classList.add("info-block");
     div.classList.add("beta");
@@ -267,3 +280,5 @@ function _0x3c5033() {
     document.querySelector(_0x1d5b15).innerHTML = _0x93c7ae;
     document.querySelector(_0x1d5b15).href = "mailto:" + _0x5bf685;
 }
+
+requestAnimationFrame(loop);
