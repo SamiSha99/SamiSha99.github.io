@@ -2,7 +2,7 @@ const beta = true;
 
 var canvas, ctx, lines = [];
 
-var color = "rgb(120, 81, 169)", color2 = "rgba(255, 255, 255, 0.6)";
+var color = "rgb(120, 81, 169)", color2 = "rgba(255, 255, 255, 0.55)";
 
 // When out of focus
 var timer, timer2, isPaused, isInitialized;
@@ -10,11 +10,11 @@ var timer, timer2, isPaused, isInitialized;
 const lineLength = 350,
     lineThickness = 6.5,
     maxSpeed = 12,
-    minSpeed = 8,
-    maxLines = 70;
+    minSpeed = 6,
+    maxLines = 50;
 // Spawn rate
-const maxDelayInterval = 80,
-    minDelayInterval = 40; // in milliseconds
+const maxDelayInterval = 75,
+    minDelayInterval = 50; // in milliseconds
 
 function AddNewLine() {
     var multiplier = Math.max(canvas.height/1080 * 1.25, 1);
@@ -22,7 +22,7 @@ function AddNewLine() {
         let line = {};
         line.direction = GetDirection(Math.floor(Math.random() * 2));
         line.offset = GetOffSet();
-        line.speed = (Math.random() * (maxSpeed - minSpeed) + minSpeed) * GetSpeedDirection(line.direction);
+        line.speed = randRange(minSpeed, maxSpeed) * GetSpeedDirection(line.direction);
         line.location = GetLocation(line.direction);
 
         lines.push({
@@ -35,7 +35,7 @@ function AddNewLine() {
     }
     timer = setTimeout(function () {
         AddNewLine()
-    }, Math.round((1/multiplier) * (Math.random() * (maxDelayInterval - minDelayInterval) + maxDelayInterval)));
+    }, Math.round((1/multiplier) * randRange(minDelayInterval, maxDelayInterval)));
 }
 
 function clamp(n, min, max) {
@@ -50,6 +50,23 @@ function clamp(n, min, max) {
     if(n > max)
         return max;
     return n;
+}
+
+function randRange(min, max)
+{
+    if(min > max)
+    {
+        let tmp = min;
+        min = max;
+        max = tmp;
+    }
+
+    return Math.random() * (max - min) + min;
+}
+
+function randRangeInt(min, max)
+{
+    return Math.floor(randRange(min,max));
 }
 
 function drawLine() {
@@ -104,7 +121,7 @@ function GetDirection(val) {
 function GetOffSet() {
     var maxLength = canvas.height;
     var minLength = maxLength / 96;
-    return Math.floor(Math.random() * (maxLength - minLength) + minLength);
+    return randRangeInt(minLength, maxLength);
 }
 
 function GetLocation(dir) {
