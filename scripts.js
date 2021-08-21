@@ -11,11 +11,11 @@ var timer, timer2, isPaused, isInitialized;
 const lineLength = 350,
     lineThickness = 6.5,
     maxSpeed = 1500,
-    minSpeed = 750,
+    minSpeed = 500,
     maxLines = 50;
 // Spawn rate
-const maxDelayInterval = 75,
-    minDelayInterval = 50; // in milliseconds
+const maxDelayInterval = 100,
+    minDelayInterval = 70; // in milliseconds
 
 function AddNewLine() {
     var multiplier = Math.max(canvas.height / 1080 * 1.25, 1);
@@ -200,7 +200,6 @@ window.onload = function () {
 
     var pageName = window.location.pathname.split("/").pop()
     var inHomePage = (pageName == "index.html" || pageName == "");
-    var NavBar;
 
     if (beta) {
         document.body.appendChild(GetBeta());
