@@ -19,7 +19,7 @@ h2 {
 hr {
     background: rgb(120, 81, 169);
     height: 5px;
-    margin: 50px 10%;
+    margin: 25px 5%;
     border-width: 0px;
 }
 
@@ -39,6 +39,11 @@ hr {
     border-radius: 50px;
     background: rgba(55, 23, 88, 0.7);
     position: relative;
+}
+
+.info-block h1 {
+    text-align: center;
+    width: 100%;
 }
 
 .beta {
@@ -354,4 +359,33 @@ div #nav {
     font-size: 48px;
     padding: 0px;
     margin: 0px;
+}
+
+/* Skills */
+
+.skill-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px;
+}
+
+.skill {
+    display: flex;
+    width: 37.5%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.skill p {
+    font-size: 36px;
+    font-weight: bold;
+    flex-wrap: wrap;
+    float: left;
+}
+
+.skill i {
+    font-size: 42px;
+    float: right;
+    
 }
