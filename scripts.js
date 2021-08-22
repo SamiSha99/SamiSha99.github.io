@@ -150,7 +150,6 @@ function loop() {
         if (prevTime != undefined) {
 
             delta = time - prevTime;
-            console.log("time delta:" + delta);
             delta /= 1000;
             delta *= worldDilation;
         }
