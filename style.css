@@ -24,7 +24,7 @@ hr {
 }
 
 .vl {
-    border-left: 6px solid #f8f8ff;
+    border-left: 6px solid rgb(120, 81, 169);
 }
 
 .introduction {
@@ -37,10 +37,11 @@ hr {
     font-size: normal;
     font-size: 32px;
     color: #f8f8ff;
-    margin: 0px 80px 20px 80px;
+    margin: 0px 0px 20px 0px;
     padding: 20px 25px;
     border: 10px solid rgba(102, 51, 153, 0.7);
-    border-radius: 50px;
+    border-left: none;
+    border-right: none;
     background: rgba(55, 23, 88, 0.7);
     position: relative;
 }
@@ -65,6 +66,7 @@ hr {
     z-index: 1000;
     background: rgba(55, 23, 88, 1);
     border-color: rgba(102, 51, 153, 1);
+    border-left: 10px solid rgba(102, 51, 153, 1);
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -371,6 +373,7 @@ div #nav {
 .skill-container {
     display: flex;
     flex-wrap: nowrap;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -385,13 +388,13 @@ div #nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
     margin: 0px 0px;
 }
 
 .skill {
     display: flex;
-    width: 80%;
+    width: 100%;
     flex-wrap: nowrap;
     justify-content: space-between;
 }
@@ -407,4 +410,9 @@ div #nav {
     font-size: 42px;
     float: right;
     
+}
+
+.languages
+{
+    margin: 0px auto;
 }
