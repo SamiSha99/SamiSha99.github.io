@@ -7,7 +7,7 @@ skillMap = [
     {name: "Web Dev", rating: 4.5},
     {name: "HTML", rating: 5},
     {name: "CSS", rating: 5},
-    {name: "JavaScript", rating: 4},
+    {name: "JS", rating: 4},
     {name: "PHP", rating: 3}
 ];
 
