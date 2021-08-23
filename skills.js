@@ -32,9 +32,9 @@ function AppendLanguages() {
 
 function SetUpSkillList(start, amount, languageMap = false) {
     var innerHTML = "";
-    innerHTML += '<div class="skill-list' + (languagesMap ? ' languages' : '') +'">';
+    innerHTML += '<div class="skill-list' + (languageMap ? ' languages' : '') +'">';
     for(i = 0; i < amount; i++) {
-        innerHTML += '<div class="skill-tab"><div class="skill"><p>' + (languageMap ?  languagesMap[start + i].name : skillMap[start + i].name) + '</p><div>';
+        innerHTML += '<div class="skill-tab"><div class="skill"><p>' + (languageMap ?  languagesMap[start + i].name : skillMap[start + i].name) + '</p><div class="skill-star-container">';
         innerHTML += GetStars((languageMap ?  languagesMap[start + i].rating : skillMap[start + i].rating));
         innerHTML += '</div></div></div>'; //star div -> skill -> skill tab
     }
@@ -50,14 +50,15 @@ function GetStars(rating)
     
     if(half) empty--;
 
-    for(e = 0; e < empty; e++)
-        starinnerHTML += '<i class="far fa-star"></i>';
+    for(f = 0; f < filled; f++)
+        starinnerHTML += '<i class="fas fa-star"></i>';
 
     if(half)
         starinnerHTML += '<i class="fas fa-star-half-alt"></i>';
     
-    for(f = 0; f < filled; f++)
-        starinnerHTML += '<i class="fas fa-star"></i>';
+    for(e = 0; e < empty; e++)
+        starinnerHTML += '<i class="far fa-star"></i>';
+    
     return starinnerHTML;
 }
 

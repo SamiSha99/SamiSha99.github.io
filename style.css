@@ -404,18 +404,54 @@ div #nav {
     flex-wrap: nowrap;
     justify-content: space-between;
 }
+.skill-star-container {
+    text-align: none;
+}
 
 .skill p {
     font-size: 36px;
     font-weight: bold;
     flex-wrap: wrap;
-    float: left;
+    
 }
 
 .skill i {
     font-size: 42px;
-    float: right;
     
+}
+
+@media only screen and (max-width: 768px) {
+    .skill {
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0.5em 0em 0.75em 0em;
+
+        border-top: 2px solid rgb(120, 81, 169);
+    }
+
+    .skill-list {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .skill-tab {
+        width: 50%;
+        margin: 0px auto;
+    }
+
+    .skill-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .skill p {
+        text-align: center;
+    }
+
+    .skill-star-container {
+        text-align: center;
+    }
 }
 
 .languages
