@@ -27,6 +27,12 @@ hr {
     border-left: 6px solid rgb(120, 81, 169);
 }
 
+@media only screen and (max-width: 768px) {
+    .vl {
+        display: none;
+    }
+}
+
 .introduction {
     height: 100vh;
 }
