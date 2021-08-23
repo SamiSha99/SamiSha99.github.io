@@ -260,7 +260,7 @@ function GetBeta() {
     var div = document.createElement("div");
     div.classList.add("info-block");
     div.classList.add("beta");
-    div.innerHTML = "<p>Site Under Construction</p>"
+    div.innerHTML = "<p>Content not final</p>"
     return div;
 }
 
