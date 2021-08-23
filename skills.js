@@ -1,5 +1,5 @@
 skillMap = [
-    {name: "OOP", rating: 4},
+    {name: "OOP", rating: 4.5},
     {name: "C++", rating: 3.5},
     {name: "C#/Java", rating: 4.5},
     {name: "Unreal Engine", rating: 4},
