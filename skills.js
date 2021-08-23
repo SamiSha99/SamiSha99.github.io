@@ -35,7 +35,7 @@ function SetUpSkillList(start, amount, languageMap = false) {
     innerHTML += '<div class="skill-list' + (languagesMap ? ' languages' : '') +'">';
     for(i = 0; i < amount; i++) {
         innerHTML += '<div class="skill-tab"><div class="skill"><p>' + (languageMap ?  languagesMap[start + i].name : skillMap[start + i].name) + '</p><div>';
-        innerHTML += GetStars(skillMap[start + i].rating);
+        innerHTML += GetStars((languageMap ?  languagesMap[start + i].rating : skillMap[start + i].rating));
         innerHTML += '</div></div></div>'; //star div -> skill -> skill tab
     }
     innerHTML += '</div>'; // skill list
