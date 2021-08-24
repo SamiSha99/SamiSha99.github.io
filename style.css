@@ -421,7 +421,6 @@ div #nav {
 }
 
 .showcase-img img {
-    transform: translate(0, -50px);
     max-width: 70%;
     max-height: 70%;
     width: auto;
@@ -434,6 +433,8 @@ div #nav {
     border: 10px solid rgb(102, 51, 153);
     background: rgb(55, 23, 88);
     padding: 10px;
+    margin: 25px 10%;
+    line-height: 120%;
     border-radius: 10px;
     cursor: default;
 }
