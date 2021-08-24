@@ -419,7 +419,7 @@ div #nav {
     justify-content: center;
     align-items: center;
 
-    animation: fadeIn 0.35s;
+    animation: fadeIn 0.35s ease;
     animation-fill-mode: forwards;
     opacity: 0;
     animation-direction: normal;
