@@ -261,7 +261,7 @@ h2.page-title {
 
 @keyframes scaleIn {
     from {
-        transform: scale(0);
+        transform: scale(0.5);
     }
 
     to {
@@ -275,7 +275,7 @@ h2.page-title {
     }
 
     to {
-        transform: scale(0);
+        transform: scale(0.5);
     }
 }
 
@@ -419,7 +419,7 @@ div #nav {
     justify-content: center;
     align-items: center;
 
-    animation: fadeIn 0.35s ease;
+    animation: fadeIn 0.3s ease;
     animation-fill-mode: forwards;
     opacity: 0;
     animation-direction: normal;
@@ -427,27 +427,27 @@ div #nav {
 }
 
 .showcase-img-fadein {
-    animation: fadeIn 0.35s ease;
+    animation: fadeIn 0.3s ease;
     animation-fill-mode: forwards;
     opacity: 0;
     animation-direction: normal;
 }
 
 .showcase-img-fadeout {
-    animation: fadeOut 0.35s ease;
+    animation: fadeOut 0.3s ease;
     animation-fill-mode: forwards;
     opacity: 1;
     animation-direction: normal;
 }
 
 .showcase-img-scalein {
-    animation: scaleIn 0.35s ease;
+    animation: scaleIn 0.175s ease;
     animation-fill-mode: forwards;
     animation-direction: normal;
 }
 
 .showcase-img-scaleout {
-    animation: scaleOut 0.35s ease;
+    animation: scaleOut 0.175s ease;
     animation-fill-mode: forwards;
     animation-direction: normal;
 }

@@ -1,10 +1,13 @@
 imageMap = [
     {image:"ice.jpg", text:"Hello this is my all new mod!"},
-    {image:"test.jpg", text:"A walk in the park"}
+    {image:"test.jpg", text:"A walk in the park"},
+    {image:"freezing.jpg", text:"It sure is <b>freezing</b> around here..."}
 ];
 
 var divShowcase;
 var isShowcaseFadingOut, isShowcaseFadingIn;
+
+const clickTimeOut = 320;
 
 function showcaseImage(img) {
     let str = img.getAttribute("src");
@@ -20,7 +23,7 @@ function showcaseImage(img) {
     setTimeout(
         function () {
             isShowcaseFadingIn = false;
-        }, 375);
+        }, clickTimeOut);
 }
 
 function GetImageDescription(imgName) {
@@ -35,18 +38,21 @@ function removeImage(event) {
     if (divShowcase !== event.target || divShowcase == undefined || isShowcaseFadingOut || isShowcaseFadingIn) return;
     divShowcase.classList.remove("showcase-img-fadein")
     divShowcase.classList.add("showcase-img-fadeout");
-    let img = document.getElementById("shown-img");
-    img.classList.remove("showcase-img-scalein");
-    img.classList.add("showcase-img-scaleout");
-    let desc = document.getElementById("shown-description");
-    desc.classList.remove("showcase-img-scalein");
-    desc.classList.add("showcase-img-scaleout");
+
+    let child = document.getElementById("shown-img");
+    child.classList.remove("showcase-img-scalein");
+    child.classList.add("showcase-img-scaleout");
+    child = document.getElementById("shown-description");
+    child.classList.remove("showcase-img-scalein");
+    child.classList.add("showcase-img-scaleout");
+    
     isShowcaseFadingOut = true;
+    
     setTimeout(
         function () {
             divShowcase.innerHTML = '';
             divShowcase.remove();
             isShowcaseFadingOut = false;
             divShowcase = undefined;
-        }, 375);
+        }, clickTimeOut);
 }
