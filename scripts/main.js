@@ -242,18 +242,24 @@ function AppendNavBar(noFade = true) {
     if (!noFade)
         div.classList.add("fade-in-nav");
     
-    div.innerHTML += '<div class="nav-container-divider">';
+    var stringinnerHTML;
     let val = navbarURLsMap.length * 2 + 1;
     for(i = 0; i < val; i++)
     {
         if(IsEven(i))
-            div.innerHTML += GetDividerString();
+            stringinnerHTML += GetDividerString();
         else
-            div.innerHTML += GetLinkDataString(Math.floor(i/2));
-        if((i + 1) % 5 == 0)
-            div.innerHTML += "</div>";
+            stringinnerHTML += GetLinkDataString(Math.floor(i/2));
+
+        if(i == 0)
+            stringinnerHTML = '<div class="nav-container-divider">';
+        else if(i + 1 == val)
+            stringinnerHTML += '</div>';    
+        else if((i + 1) % 5 == 0)
+            stringinnerHTML += '</div><div class="nav-container-divider">';
     }
-    div.innerHTML += '</div>';
+    stringinnerHTML += '</div>';
+    div.innerHTML = stringinnerHTML;
     document.body.insertBefore(div, document.body.firstChild);
 }
 
