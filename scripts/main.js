@@ -242,7 +242,7 @@ function AppendNavBar(noFade = true) {
     if (!noFade)
         div.classList.add("fade-in-nav");
     
-    var stringinnerHTML;
+    var stringinnerHTML = '<div class="nav-container-divider">';
     let val = navbarURLsMap.length * 2 + 1;
     for(i = 0; i < val; i++)
     {
@@ -250,10 +250,7 @@ function AppendNavBar(noFade = true) {
             stringinnerHTML += GetDividerString();
         else
             stringinnerHTML += GetLinkDataString(Math.floor(i/2));
-
-        if(i == 0)
-            stringinnerHTML = '<div class="nav-container-divider">';
-        else if(i + 1 == val)
+        if(i + 1 == val)
             stringinnerHTML += '</div>';    
         else if((i + 1) % 5 == 0)
             stringinnerHTML += '</div><div class="nav-container-divider">';
