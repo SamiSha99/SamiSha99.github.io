@@ -195,8 +195,7 @@ window.onblur = function () {
         clearTimeout(timer2);
 };
 
-window.onload = function () {
-
+function PostBeginScriptRunning() {
     var pageName = window.location.pathname.split("/").pop()
     var inHomePage = (pageName == "index.html" || pageName == "");
 
@@ -223,7 +222,7 @@ window.onload = function () {
     timer2 = setTimeout(function () {
         onStartUpDelay()
     }, time);
-};
+}
 
 function onStartUpDelay() {
     isInitialized = true;
@@ -303,3 +302,4 @@ function _0x3c5033() {
 }
 
 requestAnimationFrame(loop);
+PostBeginScriptRunning();
