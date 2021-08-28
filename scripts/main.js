@@ -230,13 +230,46 @@ function onStartUpDelay() {
     AddNewLine();
 }
 
+navbarURLsMap = [
+    {url:"index.html", name:"home"},
+    {url:"about.html", name:"about me"},
+    {url:"mywork.html", name:"my work"},
+    {url:"contact.html", name:"contact"}
+];
+
 function AppendNavBar(noFade = true) {
     var div = document.createElement("div");
     div.id = "nav";
     if (!noFade)
         div.classList.add("fade-in-nav");
-    div.innerHTML = '<div class="nav-container-divider"><div><p>|</p></div><div><a href="./index.html">Home</a></div><div><p>|</p></div><div><a href="./about.html">About Me</a></div><div><p>|</p></div></div><div class="nav-container-divider"><div class="additional-line"><p>|</p></div><div><a href="./mywork.html">My Work</a></div><div><p>|</p></div><div><a href="./contact.html">Contact</a></div><div><p>|</p></div></div>'
+    
+    div.innerHTML += '<div class="nav-container-divider">';
+    let val = navbarURLsMap.length * 2 + 1;
+    for(i = 0; i < val; i++)
+    {
+        if(IsEven(i))
+            div.innerHTML += GetDividerString();
+        else
+            div.innerHTML += GetLinkDataString(Math.floor(i/2));
+        if((i + 1) % 5 == 0)
+            div.innerHTML += "</div>";
+    }
+    div.innerHTML += '</div>';
     document.body.insertBefore(div, document.body.firstChild);
+}
+
+function IsEven(num) {
+    return num % 2 == 0;
+}
+
+function GetDividerString()
+{
+    return "<div><p>|</p></div>";
+}
+
+function GetLinkDataString(indx)
+{
+    return '<div><a href="./' + navbarURLsMap[indx].url +'">' + navbarURLsMap[indx].name + '</a></div>';
 }
 
 function AppendCanvas() {
