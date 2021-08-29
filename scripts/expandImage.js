@@ -1,23 +1,16 @@
-imageMap = [
-    {image:"ice.jpg", text:"Hello this is my all new mod!"},
-    {image:"test.jpg", text:"A walk in the park"},
-    {image:"freezing.jpg", text:"It sure is <b>freezing</b> around here..."}
-];
-
 var divShowcase;
 var isShowcaseFadingOut, isShowcaseFadingIn;
 
 const clickTimeOut = 320;
 
 function showcaseImage(img) {
-    let str = img.getAttribute("src");
-    let imgName = str.substring(str.lastIndexOf("/") + 1, str.length);
+    //let imgName = str.substring(str.lastIndexOf("/") + 1, str.length);
     divShowcase = document.createElement("div");
     divShowcase.addEventListener("mousedown", removeImage, false);
     divShowcase.id = "image-showcase";
     divShowcase.classList.add("showcase-img");
-    divShowcase.innerHTML += '<img class="showcase-img-scalein" id="shown-img" src="./img/' + imgName + '" />';
-    divShowcase.innerHTML += GetImageDescription(imgName);
+    divShowcase.innerHTML += '<img class="showcase-img-scalein" id="shown-img" src="' + img.getAttribute("src") + '" />';
+    divShowcase.innerHTML += GetImageDescription(img);
     document.body.insertBefore(divShowcase, document.body.firstChild);
     isShowcaseFadingIn = true;
     setTimeout(
@@ -26,12 +19,26 @@ function showcaseImage(img) {
         }, clickTimeOut);
 }
 
-function GetImageDescription(imgName) {
-    for(let i = 0; i < imageMap.length; i++) {
-        if(imgName != imageMap[i].image) continue;
-        return '<p id="shown-description" class="showcase-img-scalein">' + imageMap[i].text + '</p>';
+function GetImageDescription(img) {
+    let str = img.getAttribute("title");
+    
+    if(IsEmptyOrSpaces(str))
+        str = "";
+    
+    switch(str)
+    {
+        case null:
+        case undefined:
+        case "":    
+            //console.warn("No description found, " + (img.hasAttribute("title") ? "title specifier has invalid text." : "title was not specified."));
+            str = "<i>No description found.</i>";
+            break;
     }
-    return '<p id="shown-description" class="showcase-img-scalein"><i>No description found.</i></p>';
+    return '<p id="shown-description" class="showcase-img-scalein">' + str + '</p>';
+}
+
+function IsEmptyOrSpaces(str){
+    return str === null || str.match(/^ *$/) !== null;
 }
 
 function removeImage(event) {
