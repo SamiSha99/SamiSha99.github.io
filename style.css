@@ -381,26 +381,27 @@ div #nav {
     user-select: none;
 }
 
+/* Expand images and images in general */
 .expand-img {
-    display: fixed;
+    display: flex;
+    width: 100%;
     text-align: center;
+    flex-wrap: wrap;
+    justify-content: center; 
 }
-.expand-img input[type=radio] {
-    display: none
-}
-  
+
 .expand-img img {
-    margin: 10px 0px;
+    margin: 12px 10px;
     width: 30%;
-    height: 30%;
+    height: 10%;
+    min-width: calc(90%/3);
     border: 5px solid rgb(197, 197, 255);
-    transition: transform 0.25s ease, top 0.25s ease, left 0.25s ease, position 0.25s ease;
+    transition: transform 0.15s ease;
     cursor: zoom-in
 }
 
-.expand-img input[type=radio]:checked~img {
-    transform: scale(2);
-    cursor: zoom-out
+.expand-img img:hover {
+    transform: scale(1.05) translateY(-10px);
 }
 
 .showcase-img {
