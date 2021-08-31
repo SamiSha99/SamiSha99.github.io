@@ -239,6 +239,7 @@ navbarURLsMap = [
 function AppendNavBar(noFade = true) {
     var div = document.createElement("div");
     div.id = "nav";
+    div.classList.add("nav-top");
     if (!noFade)
         div.classList.add("fade-in-nav");
     

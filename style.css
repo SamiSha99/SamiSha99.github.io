@@ -214,7 +214,9 @@ h2.page-title {
     left: 0;
     background: ghostwhite;
     width:100%;
+    height: 100px;
     margin: 0px;
+    display: flex;
 }
 
 .nav-bottom-animate {
@@ -231,6 +233,14 @@ h2.page-title {
 
 .nav-bottom#nav {
     margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-bottom#nav div {
+    padding: 0px;    
 }
 
 @keyframes fadeIn-to-top {
@@ -363,21 +373,21 @@ div #nav {
     padding: 0px 12px 0px 12px;
 }
 
-#nav a,
-#nav a:hover,
-#nav a:focus,
-#nav a:active {
+.nav-top#nav a,
+.nav-top#nav a:hover,
+.nav-top#nav a:focus,
+.nav-top#nav a:active {
     text-decoration: none;
     color:inherit;
     transition: color 0.3s ease 0s;
 }
 
-#nav a:hover {
+.nav-top#nav a:hover {
     text-decoration: none;
     color:white;
 }
 
-#nav a:after {
+.nav-top#nav a:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -390,16 +400,28 @@ div #nav {
     width: 0;
 }
 
-#nav a:hover:after {
+.nav-top#nav a:hover:after {
     height: 5px;
     width: 85%;
     left: 7.5%;
 }
-
+.nav-bottom-container {
+        
+}
 
 #nav {
     z-index: 999;
     user-select: none;
+}
+
+.nav-bottom#nav a i:hover {
+    transition: 0.3s ease;
+    transform: translateY(-10px);
+}
+
+.nav-bottom#nav a i {
+    transition: 0.3s ease;
+    transform: translateY(0px);
 }
 
 /* Expand images and images in general */
