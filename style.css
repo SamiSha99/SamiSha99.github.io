@@ -64,6 +64,11 @@ hr {
     text-decoration: none;
 }
 
+.info-block h2 {
+    border-bottom: 5px solid ghostwhite;
+    margin-bottom: 15px;
+}
+
 .beta {
     margin: 0px;
     padding: 5px;
