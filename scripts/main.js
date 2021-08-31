@@ -283,8 +283,8 @@ function AppendCanvas() {
 
 function GetBeta() {
     var div = document.createElement("div");
-    div.classList.add("info-block");
     div.classList.add("beta");
+    div.classList.add("info-block");
     div.innerHTML = "<p>Content not final</p>"
     return div;
 }

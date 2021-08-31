@@ -48,7 +48,6 @@ hr {
 .info-block, .content-block {
     font-family: vcr_osd_monoregular;
     font-weight: normal;
-    font-size: normal;
     font-size: 32px;
     color: #f8f8ff;
     margin: 0px 0px 20px 0px;
@@ -68,13 +67,13 @@ hr {
 
 .beta {
     margin: 0px;
-    padding: 10px 5px 0px 10px;
+    padding: 5px;
     border-top: 0px;
     border-right: 0px;
     display: fixed;
     border-radius: 0;
     border-bottom-left-radius: 25px;
-    position: absolute;
+    position: fixed;
     right:0;
     top:0;
     z-index: 1000;
