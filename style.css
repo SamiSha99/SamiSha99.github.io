@@ -52,11 +52,11 @@ hr {
     font-size: 32px;
     color: #f8f8ff;
     margin: 0px 0px 20px 0px;
-    padding: 20px 25px;
-    border: 10px solid rgba(102, 51, 153, 0.7);
+    padding: 20px 30px;
+    border: 10px solid rgba(102, 51, 153, 0.8);
     border-left: none;
     border-right: none;
-    background: rgba(55, 23, 88, 0.7);
+    background: rgba(55, 23, 88, 0.8);
     position: relative;
 }
 
@@ -93,9 +93,9 @@ h1 {
 }
 
 .info-block p {
-    font-size: 26px;
-    padding-bottom: 15px;
-    line-height: 120%;
+    font-family: VT323;
+    font-size: 32px;
+    padding-bottom: 10px;
 }
 
 a,
@@ -288,7 +288,14 @@ h2.page-title {
     font-style: normal;
 }
 
-
+@font-face {
+    font-family: 'VT323';
+    src: url('./fonts/VT323-Regular.woff2') format('woff2'),
+        url('./fonts/VT323-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 #nav {
     display: flex;
