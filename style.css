@@ -69,6 +69,17 @@ hr {
     margin-bottom: 15px;
 }
 
+.info-block-section {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+}
+
+.info-block-details {
+    width:70%;
+}
+
 .beta {
     margin: 0px;
     padding: 5px;
@@ -424,17 +435,18 @@ div #nav {
 /* Expand images and images in general */
 .expand-img {
     display: flex;
-    width: 100%;
+    width: 40%;
+    height: 100%;
     text-align: center;
     flex-wrap: wrap;
     justify-content: center; 
 }
 
 .expand-img img {
-    margin: 12px 10px;
-    width: 30%;
-    height: 10%;
-    min-width: calc(90%/3);
+    margin: 6px 5px;
+    width: 40%;
+    height: 100%;
+    max-width: 40%;
     border: 5px solid rgb(197, 197, 255);
     transition: transform 0.15s ease;
     cursor: zoom-in
