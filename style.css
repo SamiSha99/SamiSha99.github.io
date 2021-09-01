@@ -443,7 +443,7 @@ div #nav {
 }
 
 .expand-img img {
-    margin: 6px 5px;
+    margin: 5px;
     width: 40%;
     height: 100%;
     max-width: 40%;
@@ -453,7 +453,7 @@ div #nav {
 }
 
 .expand-img img:hover {
-    transform: scale(1.05) translateY(-10px);
+    transform: scale(1.025) translateY(-5px);
 }
 
 .showcase-img {
@@ -515,6 +515,8 @@ div #nav {
 }
 
 .showcase-img p {
+    font-family: VT323;
+    text-align: center;
     border: 10px solid rgb(102, 51, 153);
     background: rgb(55, 23, 88);
     padding: 10px;
