@@ -109,7 +109,7 @@ h1 {
 .info-block p {
     font-family: VT323;
     font-size: 32px;
-    padding-bottom: 10  px;
+    padding-bottom: 0.5em;
 }
 
 a,
