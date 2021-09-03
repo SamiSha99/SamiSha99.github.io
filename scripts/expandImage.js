@@ -3,14 +3,21 @@ var isShowcaseFadingOut, isShowcaseFadingIn;
 
 const clickTimeOut = 320;
 
-function showcaseImage(img) {
+function showcaseImage(img, isVideo = false, vidIndex = 0) {
     //let imgName = str.substring(str.lastIndexOf("/") + 1, str.length);
     divShowcase = document.createElement("div");
     divShowcase.addEventListener("mousedown", removeImage, false);
     divShowcase.id = "image-showcase";
     divShowcase.classList.add("showcase-img");
-    divShowcase.innerHTML += '<img class="showcase-img-scalein" id="shown-img" src="' + img.getAttribute("src") + '" />';
-    divShowcase.innerHTML += GetImageDescription(img);
+    if(isVideo) {
+        let source = img.getElementsByTagName("source");
+        divShowcase.innerHTML += '<video class="showcase-img-scalein" id="shown-img" controls autoplay="true"> <source src="'+ source[vidIndex].src +'" type="' + source[vidIndex].type + '" /> </video>'
+        divShowcase.innerHTML += GetImageDescription(source, true, vidIndex);
+    }
+    else {
+        divShowcase.innerHTML += '<img class="showcase-img-scalein" id="shown-img" src="' + img.getAttribute("src") + '" />';
+        divShowcase.innerHTML += GetImageDescription(img);
+    }
     document.body.insertBefore(divShowcase, document.body.firstChild);
     isShowcaseFadingIn = true;
     setTimeout(
@@ -19,8 +26,12 @@ function showcaseImage(img) {
         }, clickTimeOut);
 }
 
-function GetImageDescription(img) {
-    let str = img.getAttribute("title");
+function GetImageDescription(img, isVideo = false, vidIndex = 0) {
+    let str;
+    if(isVideo)
+        str = img[vidIndex].title;
+    else
+        str = img.getAttribute("title");
     
     if(IsEmptyOrSpaces(str))
         str = "";
@@ -47,12 +58,17 @@ function removeImage(event) {
     divShowcase.classList.add("showcase-img-fadeout");
 
     let child = document.getElementById("shown-img");
-    child.classList.remove("showcase-img-scalein");
-    child.classList.add("showcase-img-scaleout");
+    if(child != null)
+    {
+        child.classList.remove("showcase-img-scalein");
+        child.classList.add("showcase-img-scaleout");
+    }
     child = document.getElementById("shown-description");
-    child.classList.remove("showcase-img-scalein");
-    child.classList.add("showcase-img-scaleout");
-    
+    if(child != null)
+    {
+        child.classList.remove("showcase-img-scalein");
+        child.classList.add("showcase-img-scaleout");
+    }
     isShowcaseFadingOut = true;
     
     setTimeout(

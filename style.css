@@ -440,9 +440,20 @@ div #nav {
     text-align: center;
     flex-wrap: wrap;
     justify-content: center; 
+    
 }
 
-.expand-img img {
+.expand-video {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center; 
+    position: relative;
+}
+
+.expand-img img, .expand-img video {
     margin: 5px;
     width: 40%;
     height: 100%;
@@ -452,7 +463,19 @@ div #nav {
     cursor: zoom-in
 }
 
-.expand-img img:hover {
+.expand-video .fa-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 10px solid black;
+    padding: 10px 10px;
+    background-color: black;
+    border-radius: 50%;
+    cursor: zoom-in
+}
+
+.expand-img img:hover  {
     transform: scale(1.025) translateY(-5px);
 }
 
@@ -505,7 +528,7 @@ div #nav {
     animation-direction: normal;
 }
 
-.showcase-img img {
+.showcase-img img, .showcase-img video {
     max-width: 70%;
     max-height: 70%;
     width: auto;
