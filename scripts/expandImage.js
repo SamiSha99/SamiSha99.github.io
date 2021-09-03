@@ -4,7 +4,6 @@ var isShowcaseFadingOut, isShowcaseFadingIn;
 const clickTimeOut = 320;
 
 function showcaseImage(img, isVideo = false, vidIndex = 0) {
-    //let imgName = str.substring(str.lastIndexOf("/") + 1, str.length);
     divShowcase = document.createElement("div");
     divShowcase.addEventListener("mousedown", removeImage, false);
     divShowcase.id = "image-showcase";
@@ -41,7 +40,7 @@ function GetImageDescription(img, isVideo = false, vidIndex = 0) {
         case null:
         case undefined:
         case "":    
-            //console.warn("No description found, " + (img.hasAttribute("title") ? "title specifier has invalid text." : "title was not specified."));
+            console.warn("Could not find description, " + (img.hasAttribute("title") ? "title specifier has invalid text." : "title was not specified."));
             str = "<i>No description found.</i>";
             break;
     }
