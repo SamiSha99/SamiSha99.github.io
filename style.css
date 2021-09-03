@@ -468,11 +468,11 @@ div #nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 10px solid black;
-    padding: 10px 10px;
-    background-color: black;
+    border: 7px solid rgb(158, 128, 196);
+    padding: 15px 15px;
+    background-color: rgb(120, 81, 169);
     border-radius: 50%;
-    cursor: zoom-in
+    cursor: zoom-in;
 }
 
 .expand-img img:hover  {
