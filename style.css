@@ -454,11 +454,12 @@ div #nav {
 }
 
 .expand-img img, .expand-img video {
-    margin: 5px;
+    margin: 2.5px;
     width: 40%;
     height: 100%;
     max-width: 40%;
     border: 5px solid rgb(197, 197, 255);
+    background-color: rgb(197, 197, 255);
     transition: transform 0.15s ease;
     cursor: zoom-in
 }
@@ -468,15 +469,22 @@ div #nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: transform 0.15s ease;
     border: 7px solid rgb(158, 128, 196);
-    padding: 15px 15px;
+    padding: 15px;
     background-color: rgb(120, 81, 169);
     border-radius: 50%;
     cursor: zoom-in;
 }
 
-.expand-img img:hover  {
-    transform: scale(1.025) translateY(-5px);
+.expand-img img:hover, .expand-img .expand-video:hover video {
+    transform: scale(1.15);
+    z-index: 2;
+}
+
+.expand-img .expand-video:hover i {
+    transform: scale(1.15) translate(-42%, -42%);
+    z-index: 3;
 }
 
 .showcase-img {
