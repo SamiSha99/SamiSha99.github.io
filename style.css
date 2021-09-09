@@ -80,6 +80,20 @@ hr {
     width:70%;
 }
 
+.p-notice-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-notice {
+    display: inline-block;
+    font-size: 42px;
+    background-color: #EE204E;
+    padding: 10px;
+    align-items: center;
+}
+
 .beta {
     margin: 0px;
     padding: 5px;
