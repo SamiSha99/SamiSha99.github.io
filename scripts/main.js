@@ -6,16 +6,16 @@ var color = "rgb(120, 81, 169)",
     color2 = "rgba(255, 255, 255, 0.55)";
 
 // When out of focus
-var timer, timer2, isPaused, isInitialized;
+var onStartUpTimer, isPaused, isInitialized;
 // Attributes
 const lineLength = 350,
     lineThickness = 6.5,
     maxSpeed = 1500,
     minSpeed = 500,
-    maxLines = 50;
+    maxLines = 100;
 // Spawn rate
-const maxDelayInterval = 100,
-    minDelayInterval = 70; // in milliseconds
+const maxDelayInterval = 0.1,
+    minDelayInterval = 0.07; // in milliseconds
 
 function AddNewLine() {
     var multiplier = Math.max(canvas.height / 1080 * 1.25, 1);
@@ -33,10 +33,8 @@ function AddNewLine() {
             startSpeed: line.speed,
             location: line.location,
         });
+        spawnLineDelay = (1 / multiplier) * randRange(minDelayInterval, maxDelayInterval);
     }
-    timer = setTimeout(function () {
-        AddNewLine()
-    }, Math.round((1 / multiplier) * randRange(minDelayInterval, maxDelayInterval)));
 }
 
 function clamp(n, min, max) {
@@ -100,6 +98,9 @@ function drawLine() {
 }
 
 function moveLine(delta) {
+    
+    if(lines.length <= 0) return;
+
     for (i = 0; i < lines.length; i++) {
         lines[i].location += lines[i].speed * delta;
         lines[i].speed += lines[i].startSpeed * delta;
@@ -139,7 +140,7 @@ function shouldRemoveLine(i) {
 
 // Time dilation with pause implementation
 var prevTime = undefined;
-const worldDilation = 1;
+var worldDilation = 1;
 function loop() {
     var delta;
 
@@ -163,11 +164,16 @@ function loop() {
     requestAnimationFrame(loop);
 }
 
+var spawnLineDelay = 0;
 function Update(delta) {
     canvas.width = document.body.clientWidth;
     canvas.height = GetScrollHeight();
+
+    spawnLineDelay -= delta;
+    if(spawnLineDelay <= 0)
+        AddNewLine();
+    drawLine();    
     moveLine(delta);
-    drawLine();
 }
 
 function GetScrollHeight() {
@@ -179,7 +185,6 @@ function GetScrollHeight() {
 window.onfocus = function () {
     prevTime = undefined;
     isPaused = false;
-    clearTimeout(timer);
     AddNewLine();
     if (!isInitialized)
         setTimeout(function () {
@@ -190,9 +195,8 @@ window.onfocus = function () {
 window.onblur = function () {
     prevTime = undefined;
     isPaused = true;
-    clearTimeout(timer);
     if (!isInitialized)
-        clearTimeout(timer2);
+        clearTimeout(onStartUpTimer);
 };
 
 function PostBeginScriptRunning() {
@@ -219,7 +223,7 @@ function PostBeginScriptRunning() {
     canvas = document.getElementById("canvas-background");
     ctx = canvas.getContext("2d");
     document.body.style.background = color;
-    timer2 = setTimeout(function () {
+    onStartUpTimer = setTimeout(function () {
         onStartUpDelay()
     }, time);
 }
