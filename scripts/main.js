@@ -6,7 +6,9 @@ var color = "rgb(120, 81, 169)",
     color2 = "rgba(255, 255, 255, 0.55)";
 
 // When out of focus
-var onStartUpTimer, isPaused, isInitialized;
+var onStartUpTimer, isPaused; 
+// When Update function is valid.
+var isInitialized;
 // Attributes
 const lineLength = 350,
     lineThickness = 6.5,
