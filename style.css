@@ -601,6 +601,11 @@ div #nav {
     color: rgb(120, 81, 169);
 }
 
+.fa-star-half-alt
+{
+    margin: 0px 1.64px;
+}
+
 /* Skills */
 
 .skill-container {
