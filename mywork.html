@@ -17,77 +17,37 @@
     <div class="gap"></div>
 
     <div class="info-block">
-        <h1>Modding</h1>
-        <p>I consider myself rather a very avid modder, honestly its responsible to my interest in game design, in this work page there's going to be a lot of modding discussion and is mainly around a game called A Hat in Time, which has helped me understand how game dev actually works by utlizing it in those mods.</p>
-        <p>Note: All documented mods here mostly uses custom scripts and very little visual coding (Unreal Kismet aka the bootleg Blueprint of Unreal 4).</p>    
-        <hr />
-        <div class="info-block-section">    
-            <div class="info-block-details">
-                <h2>FrostBurn Cliffs:</h1>
-                <p>It's considered my "first big mod" project, a mod that tries to add environmental mechanics which gives speed, jump boost and powers focused around ice or fire.</p>
-                <p>The levels are fast paced so the player suppose to utilize these mechanics to overcome the level as fast as possible.</p> 
-                <p>During the development I've made a small <a target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=1964866705">demo</a> which got a lot of feedback <small><small>(thanks to the challenge road)</small></small>, both positive and negative, the feedback has helped me in improving the main mod itself.</p>
-                <p>The development had taken a whole year, with a lot of revamps and overhauls trying to get what is right and wrong. The final reception was overwhelmingly positive (98% positive upvotes).</p>
+        <div class="button-container">
+            <h1>Web Dev</h1>
+            <div class="button-list">
+                <button onclick="showContent(this.value)" value="Cipher Project">Cipher Project</button>
+                <button onclick="showContent(this.value)" value="MVC">MVC</button>
+                <button onclick="showContent(this.value)" value="PHP Webpage">PHP Webpage</button>
             </div>
-            <div class="expand-img">
-                <img src="./images/frostburn/fbc.jpg" title="" onclick="showcaseImage(this)" />
-                <img src="./images/frostburn/ice.jpg" title="A small icy cave from the first level." onclick="showcaseImage(this)" />
-                <img src="./images/frostburn/freezing.jpg" title="Freezing Fog, an ice hazard that slows and damages the player while inside, get out while you can!" onclick="showcaseImage(this)" />
-                <img src="./images/frostburn/lavafalls.jpg" title="Using the fire power, the player is able to climb lavafalls or run in lava lakes to reach places they cannot!" onclick="showcaseImage(this)" />
+            <h1>Modding</h1>
+            <div class="button-list">
+                <button onclick="showContent(this.value)" value="FrostBurn Cliffs">FrostBurn Cliffs</button>
+                <button onclick="showContent(this.value)" value="The Train Heist">The Train Heist</button>
+                <button onclick="showContent(this.value)" value="Acceleration Badge">Acceleration Badge</button>
+                <button onclick="showContent(this.value)" value="Death Defiance">Death Defiance</button>
+                <button onclick="showContent(this.value)" value="Beach Delivery">Beach Delivery</button>
+                <button onclick="showContent(this.value)" value="HAT" class="HAT">H.A.T.</button>
+                <button onclick="showContent(this.value)" >Journey through the Stars</button>
+                <button onclick="showContent(this.value)" value="Project Seasons">Project Seasons</button>
             </div>
-        </div>
-        <hr />
-        <div class="info-block-section">    
-            <div class="info-block-details">
-                <h2>The Train Heist:</h1>
-                <p>A mod that was done for the Battle of the Birds Modding Jam 2020.</p>
-                <p>We were supposed to make content based around one of two figures, the Conductor a wild west director or DJ Grooves a space/pop funk dancing director. During development I was struck with a huge roadblock for a content idea and decided that I will not contribute to the jam.</p> 
-                <p>That was of course... Till I got this shower thought out of nowhere and made this in less than 5 days.</p>
-                <p>The idea is you are suppose to defeat all the mafias and disarm all bombs, all in 120 seconds without falling off from the train. The concept is that this is a scene being "recorded" and you are the star of the show.</p>
-                <p>A lot of the development here is rather not scripted, I've made some kismet functionality that helped in adjusting a lot of the back end workflow, with a custom voice player for the disarm that goes from 1 - 5.</p>
-                <p>Bottom line is that, it was a rather fast neat concept idea I've came up with despite saying "I will not contribute".</p>
-            </div>
-            <div class="expand-img">
-                <img src="./images/trainheist/intro.jpg" title="Some girl to the rescue!" onclick="showcaseImage(this)" />
-                <img src="./images/trainheist/mafia.jpg" title="Taunting the heisters." onclick="showcaseImage(this)" />
-                <img src="./images/trainheist/bomb.jpg" title="Bombs on my Owl Express?!??" onclick="showcaseImage(this)" />
-                <img src="./images/trainheist/mafiagang.jpg" title="The Cowboy Mafia Gang strikes!" onclick="showcaseImage(this)"/>
-                <div class="expand-video" onclick="showcaseImage(this, true)">
-                    <video poster="./images/trainheist/intro.jpg">        
-                        <source src="./videos/train heist intro.mp4" title="The Train Heist Intro" type="video/mp4" /> 
-                    </video>
-                    <i class="fas fa-play"></i>
-                </div>
+            <h1>Unity</h1>
+            <div class="button-list">
+                <button onclick="showContent(this.value)" value="Unannounced Project">Unannounced Project</button>
             </div>
         </div>
-        <hr />
-        <div class="info-block-section">    
-            <div class="info-block-details">
-                <h2>Project Seasons:</h1>
-                <div class="p-notice-container">
-                    <p class="p-notice">Currently in development!</p>
-                </div>
-                <p>A mod that tries to create levels based on each Season using a mechanic that tries to fit to its theme!</p>
-                <p>From flowers filled with vatality when watered, to Falls filled with ancient ruins and... glowing mushrooms? Huh...</p>
-                <p>There's not much to discuss yet as its still a work in progress! Patience pls! :)</p>
-            </div>
-            <div class="expand-img">
-                <img src="./images/seasons/spring.jpg" title="Spring" onclick="showcaseImage(this)" />
-                <img src="./images/seasons/fall.jpeg" title="Fall" onclick="showcaseImage(this)" />
-            </div>
-        </div>
-        <hr />
-        <h1 id="web-dev">Web Dev</h1>
-        <p>Ever since High School I have done web development as a school project for a website using HTML4 (where I've used the css inside "&lt;style&gt;" 😬).</p>
-        <p>But in all honesty, that was just the beginning, after graduating from High School in 2017 I've taken a 16 week Web Dev bootcamp called "Founders & Coders" in Nazareth, in the course I've been taught the fundementals of web development while expanding onto web frameworks like React, Node and Elm.</p>
-    
-        <hr />
-        <div>
 
-        </div>
+        <hr />
+
+        <div id="showcasedContent"></div>
     </div>
     <script src="scripts/main.js"></script>
     <script src="scripts/expandImage.js"></script>
+    <script src="scripts/workData.js"></script>
 </body>
 
 </html>

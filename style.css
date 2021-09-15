@@ -449,8 +449,85 @@ div #nav {
     transform: translateY(0px);
 }
 
+/* Button */
+button {
+    font-family: vcr_osd_monoregular;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: ghostwhite;
+    background-color: rgba(102, 51, 153, 1);
+    border: none;
+    border-top: 4px solid rgb(231, 231, 231);
+    border-left: 4px solid rgb(231, 231, 231);
+    padding: 0.75em;
+    box-shadow: 7px 7px 0px 7px rgb(231, 231, 231);
+    transition: ease-in-out;
+    transition-duration: 0.25s;
+}
+
+button.HAT {
+    background-color: #ee204e;
+}
+
+button:hover {
+    background-color: rgb(125, 61, 189);
+}
+
+button.HAT:hover {
+    background-color: #ff466e;
+}
+
+button:active, button:focus {
+    background-color: rgb(125, 61, 189);
+    transform: translate(7px, 7px);
+    box-shadow: none;
+    box-shadow: 4px 4px 0px 4px rgb(231, 231, 231);
+}
+
+button.HAT:hover, button.HAT:active, button.HAT:focus {
+    background-color: #ff466e;
+}
+
+.button-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin: auto 5%;
+}
+
+.button-container h1 {
+    padding: 20px;
+}
+
+.button-container {
+    width: 90%;
+    margin: auto;
+}
+
+.button-list button {
+    margin: 15px;
+    padding: 15px 60px;
+}
+
+/* Details and summary */
+
+@keyframes slideInExpand {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+.details-animated {
+    animation: slideInExpand 1s ease;
+}
+
 /* Expand images and images in general */
-.expand-img {
+.expand-assets {
     display: flex;
     width: 40%;
     height: 100%;
@@ -470,7 +547,7 @@ div #nav {
     position: relative;
 }
 
-.expand-img img, .expand-img video {
+.expand-assets img, .expand-assets video {
     margin: 2.5px;
     width: 40%;
     height: 100%;
@@ -494,12 +571,12 @@ div #nav {
     cursor: zoom-in;
 }
 
-.expand-img img:hover, .expand-img .expand-video:hover video {
+.expand-assets img:hover, .expand-assets .expand-video:hover video {
     transform: scale(1.15);
     z-index: 2;
 }
 
-.expand-img .expand-video:hover i {
+.expand-assets .expand-video:hover i {
     transform: scale(1.15) translate(-42%, -42%);
     z-index: 3;
 }
