@@ -62,30 +62,31 @@ workData = [
 
 function showContent(contentName)
 {
+    // get data
     let c = GetContent(contentName);
     if(c == undefined) throw "Could not find the requested content!!!";
+    
+    // Get the container
     let showcaseContent = document.getElementById("showcasedContent");
     showcaseContent.classList.remove("details-animated");
+    
+    // Create the section container
     let section = document.createElement("div");
     section.classList.add("info-block-section");
-    let block;
 
+    // Text
     if(c.p.length != 0)
-    {
-        block = GetDetails(c.name, c.p, c.notice);
-        block.classList.add("info-block-details");
-        section.appendChild(block);
-    }
+        section.appendChild(GetDetails(c.name, c.p, c.notice));
     
-    if(c.images.length != 0 || c.videos.length != 0)
-    {
-        block = GetAssets(c.images, c.videos);
-        block.classList.add("expand-assets");
-        section.appendChild(block);
-    }
+    // Images, videos, assets, etc
+    if(c.images != undefined && c.images.length != 0 || c.videos != undefined && c.videos.length != 0)
+        section.appendChild(GetAssets(c.images, c.videos));
 
+    // remove content
     showcaseContent.innerHTML = "";
+    // keyframe animation
     section.classList.add("details-animated");
+    // replace with new content
     showcaseContent.appendChild(section);
     showcaseContent.scrollIntoView();
 }
@@ -100,6 +101,7 @@ function GetContent(contentName) {
 
 function GetDetails(name, descriptions, notice) {
     let div = document.createElement("div");
+    div.classList.add("info-block-details");
     div.innerHTML += "<h2>" + name + ":</h2>";
     
     if(notice != undefined)
@@ -113,6 +115,8 @@ function GetDetails(name, descriptions, notice) {
 function GetAssets(images, videos)
 {
     let div = document.createElement("div");
+    div.classList.add("expand-assets");
+
     let block;
     for(i = 0; i < images.length; i++)
     {
@@ -123,22 +127,23 @@ function GetAssets(images, videos)
         div.appendChild(block);
     }
 
-    if(videos.length != 0)
+    if(videos != undefined && videos.length != 0)
     {
-        let vidBlock = document.createElement("div");
+        block = document.createElement("div");
         let vid;
-        vidBlock.classList.add("expand-video");
-        vidBlock.setAttribute("onclick", "showcaseImage(this, true)");
+        block.classList.add("expand-video");
+        block.setAttribute("onclick", "showcaseImage(this, true)");
         for(i = 0; i < videos.length; i++)
         {
             vid = document.createElement("video");
             vid.poster="./images/" + videos[i].poster;
             vid.innerHTML += "<source src=\"./videos/" + videos[i].src + "\" title=\"" + videos[i].title + "\" type=\"" + videos[i].type + "\" />"
-            vidBlock.appendChild(vid);
-            vidBlock.appendChild(GetPlayIcon());
+            block.appendChild(vid);
+            block.appendChild(GetPlayIcon());
         }
-        div.appendChild(vidBlock);
+        div.appendChild(block);
     }
+
     return div.innerHTML != "" ? div : undefined;
 }
 
