@@ -49,11 +49,11 @@ hr {
     font-weight: normal;
     font-size: 32px;
     color: #f8f8ff;
-    margin: 0px 0px 20px 0px;
     padding: 20px 30px;
     border: 10px solid rgba(102, 51, 153, 0.8);
     border-left: none;
     border-right: none;
+    border-bottom: none;
     background: rgba(55, 23, 88, 0.8);
     position: relative;
 }
@@ -98,12 +98,11 @@ hr {
 }
 
 .beta {
+    padding: 0px 5px 0px 5px;
     margin: 0px;
-    padding: 5px;
-    border-top: 0px;
-    border-right: 0px;
+    border-top: none;
+    border-right: none;
     display: fixed;
-    border-radius: 0;
     border-bottom-left-radius: 25px;
     position: fixed;
     right:0;
@@ -112,8 +111,13 @@ hr {
     background: rgba(55, 23, 88, 1);
     border-color: rgba(102, 51, 153, 1);
     border-left: 10px solid rgba(102, 51, 153, 1);
+    border-bottom: 10px solid rgba(102, 51, 153, 1);
     text-transform: uppercase;
     font-weight: bold;
+}
+
+.info-block.beta p {
+    padding: 4px;
 }
 
 h1 {
