@@ -169,19 +169,13 @@ function loop() {
 var spawnLineDelay = 0;
 function Update(delta) {
     canvas.width = document.body.clientWidth;
-    canvas.height = GetScrollHeight();
+    canvas.height = document.body.clientHeight;
 
     spawnLineDelay -= delta;
     if(spawnLineDelay <= 0)
         AddNewLine();
     drawLine();    
     moveLine(delta);
-}
-
-function GetScrollHeight() {
-    var body = document.body,
-        html = document.documentElement;
-    return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 }
 
 window.onfocus = function () {
