@@ -60,8 +60,12 @@ workData = [
     }
 ];
 
-function showContent(contentName)
+var shownContentName = "", firstClick = false;
+
+
+function showContent(input)
 {
+    let contentName = input.value;
     // get data
     let c = GetContent(contentName);
     if(c == undefined) throw "Could not find the requested content!!!";
@@ -88,6 +92,13 @@ function showContent(contentName)
     section.classList.add("details-animated");
     // replace with new content
     showcaseContent.appendChild(section);
+
+    if(!firstClick)
+    {
+        let ib = document.getElementById("selection-box");   
+        ib.insertBefore(document.createElement("hr"), ib.childNodes[Array.from(ib.childNodes).indexOf(showcaseContent)]);
+        firstClick = true;
+    }
     showcaseContent.scrollIntoView();
 }
 
