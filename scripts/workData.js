@@ -66,12 +66,19 @@ var shownContentName = "", firstClick = false;
 function showContent(input)
 {
     let contentName = input.value;
+    // Get the container
+    let showcaseContent = document.getElementById("showcasedContent");
+    
+    if(contentName == shownContentName) 
+    {
+        showcaseContent.scrollIntoView();
+        return;
+    }
+
     // get data
     let c = GetContent(contentName);
     if(c == undefined) throw "Could not find the requested content!!!";
     
-    // Get the container
-    let showcaseContent = document.getElementById("showcasedContent");
     showcaseContent.classList.remove("details-animated");
     
     // Create the section container
@@ -93,12 +100,17 @@ function showContent(input)
     // replace with new content
     showcaseContent.appendChild(section);
 
+    // Add hr if we are clicking first time
     if(!firstClick)
     {
         let ib = document.getElementById("selection-box");   
         ib.insertBefore(document.createElement("hr"), ib.childNodes[Array.from(ib.childNodes).indexOf(showcaseContent)]);
         firstClick = true;
     }
+
+    // save last click
+    shownContentName = contentName;
+
     showcaseContent.scrollIntoView();
 }
 
