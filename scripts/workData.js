@@ -60,7 +60,7 @@ workData = [
     }
 ];
 
-var shownContentName = "", firstClick = false;
+var shownContentName = "";
 
 
 function showContent(input)
@@ -101,16 +101,21 @@ function showContent(input)
     showcaseContent.appendChild(section);
 
     // Add hr if we are clicking first time
-    if(!firstClick)
+    if(shownContentName == "")
     {
         let ib = document.getElementById("selection-box");   
         ib.insertBefore(document.createElement("hr"), ib.childNodes[Array.from(ib.childNodes).indexOf(showcaseContent)]);
-        firstClick = true;
     }
 
     // save last click
     shownContentName = contentName;
-
+    let b = document.getElementsByClassName("button-pressed");
+    
+    for(i = 0; i < b.length; i++)
+        b[i].classList.remove("button-pressed");
+    
+    input.classList.add("button-pressed")
+    
     showcaseContent.scrollIntoView();
 }
 
