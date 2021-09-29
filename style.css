@@ -392,7 +392,23 @@ h2.page-title {
 #nav div {
     display: table-cell;
     position: relative;
-    padding: 8px 0;
+    padding: 8px 20px;
+}
+
+.nav-block-first {
+    border-left: 5px solid ghostwhite;
+    border-image: linear-gradient(to bottom, rgba(128, 128, 128, 0) 25%, ghostwhite 25%, ghostwhite 75%,rgba(128, 128, 128, 0) 75%) 5;
+}
+
+.nav-block {
+    border-left: 5px solid ghostwhite;
+    border-right: 5px solid ghostwhite;
+    border-image: linear-gradient(to bottom, rgba(128, 128, 128, 0) 25%, ghostwhite 25%, ghostwhite 75%,rgba(128, 128, 128, 0) 75%) 5;
+}
+
+.nav-block-end {
+    border-right: 5px solid ghostwhite;
+    border-image: linear-gradient(to bottom, rgba(128, 128, 128, 0) 25%, ghostwhite 25%, ghostwhite 75%,rgba(128, 128, 128, 0) 75%) 5;
 }
 
 div #nav {
@@ -676,7 +692,8 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 .fa-youtube,
 .fa-twitter,
 .fa-github,
-.fa-coffee {
+.fa-coffee,
+.fa-envelope {
     color: rgb(120, 81, 169);
 }
 

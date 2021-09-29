@@ -6,7 +6,7 @@ var color = "rgb(120, 81, 169)",
     color2 = "rgba(255, 255, 255, 0.55)";
 
 // When out of focus
-var onStartUpTimer, isPaused; 
+var onStartUpTimer, isPaused;
 // When Update function is valid.
 var isInitialized;
 // Attributes
@@ -100,8 +100,8 @@ function drawLine() {
 }
 
 function moveLine(delta) {
-    
-    if(lines.length <= 0) return;
+
+    if (lines.length <= 0) return;
 
     for (i = 0; i < lines.length; i++) {
         lines[i].location += lines[i].speed * delta;
@@ -143,6 +143,7 @@ function shouldRemoveLine(i) {
 // Time dilation with pause implementation
 var prevTime = undefined;
 var worldDilation = 1;
+
 function loop() {
     var delta;
 
@@ -167,14 +168,15 @@ function loop() {
 }
 
 var spawnLineDelay = 0;
+
 function Update(delta) {
     canvas.width = document.body.clientWidth;
     canvas.height = document.body.clientHeight;
 
     spawnLineDelay -= delta;
-    if(spawnLineDelay <= 0)
+    if (spawnLineDelay <= 0)
         AddNewLine();
-    drawLine();    
+    drawLine();
     moveLine(delta);
 }
 
@@ -229,11 +231,18 @@ function onStartUpDelay() {
     AddNewLine();
 }
 
-navbarURLsMap = [
-    {url:"index.html", name:"home"},
-    {url:"about.html", name:"about me"},
-    {url:"mywork.html", name:"my work"},
-    {url:"contact.html", name:"contact"}
+navbarURLsMap = [{
+        url: "index.html",
+        name: "home"
+    },
+    {
+        url: "about.html",
+        name: "about me"
+    },
+    {
+        url: "mywork.html",
+        name: "my work"
+    }
 ];
 
 function AppendNavBar(noFade = true) {
@@ -242,37 +251,32 @@ function AppendNavBar(noFade = true) {
     div.classList.add("nav-top");
     if (!noFade)
         div.classList.add("fade-in-nav");
-    
-    var stringinnerHTML = '<div class="nav-container-divider">';
-    let val = navbarURLsMap.length * 2 + 1;
-    for(i = 0; i < val; i++)
-    {
-        if(IsEven(i))
-            stringinnerHTML += GetDividerString();
-        else
-            stringinnerHTML += GetLinkDataString(Math.floor(i/2));
-        if(i + 1 == val)
-            stringinnerHTML += '</div>';    
-        else if((i + 1) % 5 == 0)
-            stringinnerHTML += '</div><div class="nav-container-divider">';
+
+    var stringinnerHTML = "";
+    let val = navbarURLsMap.length;
+    for (i = 0; i < val; i++) {
+        stringinnerHTML += '<div class="' + GetIndexClassName(i) + '" ><a href="./' + navbarURLsMap[i].url + '">' + navbarURLsMap[i].name + '</a></div>';
+        if (i + 1 == val)
+            stringinnerHTML += '</div>';
+
     }
     stringinnerHTML += '</div>';
     div.innerHTML = stringinnerHTML;
     document.body.insertBefore(div, document.body.firstChild);
 }
 
-function IsEven(num) {
-    return num % 2 == 0;
+function AppendFooter(noFade = true) {
+
 }
 
-function GetDividerString()
-{
-    return "<div><p>|</p></div>";
-}
-
-function GetLinkDataString(indx)
-{
-    return '<div><a href="./' + navbarURLsMap[indx].url +'">' + navbarURLsMap[indx].name + '</a></div>';
+function GetIndexClassName(indx) {
+    
+    if(indx == 0)
+        return "nav-block-first";
+    else if (indx == navbarURLsMap.length - 1)
+        return "nav-block-end";
+    else
+        return "nav-block";
 }
 
 function AppendCanvas() {
