@@ -4,6 +4,7 @@ skillMap = [
     {name: "C#/Java", rating: 4.5},
     {name: "Unreal Engine", rating: 4},
     {name: "Unity", rating: 3.5},
+    {name: "Piano", rating:3},
     {name: "Web Dev", rating: 4.5},
     {name: "HTML", rating: 5},
     {name: "CSS", rating: 5},
