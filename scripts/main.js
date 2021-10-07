@@ -242,7 +242,12 @@ navbarURLsMap = [{
     {
         url: "mywork.html",
         name: "my work"
+    },
+    {
+        url: "contact.html",
+        name: "contact me"
     }
+
 ];
 
 function AppendNavBar(noFade = true) {
@@ -271,12 +276,10 @@ function AppendFooter(noFade = true) {
 
 function GetIndexClassName(indx) {
     
-    if(indx == 0)
-        return "nav-block-first";
-    else if (indx == navbarURLsMap.length - 1)
-        return "nav-block-end";
-    else
+    if (indx == navbarURLsMap.length - 1)
         return "nav-block";
+    else
+        return "nav-block-end";
 }
 
 function AppendCanvas() {
