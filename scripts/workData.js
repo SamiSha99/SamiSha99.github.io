@@ -57,6 +57,17 @@ workData = [
             {src:"seasons/fall.jpeg", title:"Fall"},
         ],
         videos: []
+    },
+    // Cipher Project
+    {
+        name: "Cipher Project",
+        p:
+        [
+            "A small encryption that uses Cipher algorithms such as Vernam, MonoAlphabetic or Columnar.",
+            "The algorithm runs using pure JavaScript thanks to \"FileReader\" and \"8UintArray\".",
+            "You can check the program <a href=\"https://samisha99.github.io/CipherProject/\">here</a>."
+
+        ]
     }
 ];
 
