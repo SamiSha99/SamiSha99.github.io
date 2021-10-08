@@ -37,8 +37,9 @@ workData = [
             {src:"trainheist/bomb.jpg", title:"Bombs on my Owl Express?!??"},
             {src:"trainheist/mafiagang.jpg", title:"The Cowboy Mafia Gang strikes!"},
         ],
-        videos: [
-            {src:"train_heist_intro.mp4", poster: "trainheist/intro.jpg", type: "video/mp4", title:"The Train Heist Intro"}
+        videos: 
+        [
+            {src:"train_heist_intro.mp4", poster: "trainheist/intro.jpg", type: "video/mp4", title:"The Train Heist Intro", playIcon: true}
         ]
     },
     // Seasons
@@ -58,6 +59,27 @@ workData = [
         ],
         videos: []
     },
+    // Acceleration Badge
+    {
+        name: "Acceleration Badge",
+        p:
+        [
+            "A script focused mod which allows the player to equip a badge that modifies the world time (time dilation), causing the environment to become faster and dangerous.",
+            "The badge provide the abiltiy to modify the values in the config, granting different modifiers which causes every playthrough to feel different and challenging.",
+            "It also has a custom challenge mode for those who want to up it with something slightly more difficult!"
+        ],
+        images:
+        [
+            {src:"accelerationbadge/Acceleration_Badge_Icon.png", title:"The badge icon!"},
+            {src:"accelerationbadge/hat_kid.png", title:""},
+            {src:"accelerationbadge/manor.png", title:"Run."},
+            {src:"accelerationbadge/config_menu.png", title:"Configuration Menu"}
+        ],
+        videos: 
+        [
+            //{src:"acceleration_badge_trailer.mp4", poster: "accelerationbadge/yt_trailer_thumbnail.png", type: "video/mp4", title:"Acceleration Badge 2.0 Trailer", playIcon: false}
+        ]
+    },
     // Cipher Project
     {
         name: "Cipher Project",
@@ -66,7 +88,10 @@ workData = [
             "A small encryption that uses Cipher algorithms such as Vernam, MonoAlphabetic or Columnar.",
             "The algorithm runs using pure JavaScript thanks to \"FileReader\" and \"8UintArray\".",
             "You can check the program <a href=\"https://samisha99.github.io/CipherProject/\">here</a>."
-
+        ],
+        images:
+        [
+            {src:"cipherproject/cipher_page.png", title:"The Web Page of the Cipher Project"}
         ]
     }
 ];
@@ -178,7 +203,8 @@ function GetAssets(images, videos)
             vid.poster="./images/" + videos[i].poster;
             vid.innerHTML += "<source src=\"./videos/" + videos[i].src + "\" title=\"" + videos[i].title + "\" type=\"" + videos[i].type + "\" />"
             block.appendChild(vid);
-            block.appendChild(GetPlayIcon());
+            if(videos[i].playIcon != undefined && videos[i].playIcon) 
+                block.appendChild(GetPlayIcon());
         }
         div.appendChild(block);
     }
