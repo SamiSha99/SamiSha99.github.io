@@ -77,7 +77,7 @@ workData = [
         ],
         videos: 
         [
-            //{src:"acceleration_badge_trailer.mp4", poster: "accelerationbadge/yt_trailer_thumbnail.png", type: "video/mp4", title:"Acceleration Badge 2.0 Trailer", playIcon: false}
+            {src:"acceleration_badge_trailer.mp4", poster: "accelerationbadge/yt_trailer_thumbnail.png", type: "video/mp4", title:"Acceleration Badge 2.0 Trailer", playIcon: false}
         ]
     },
     // Cipher Project
