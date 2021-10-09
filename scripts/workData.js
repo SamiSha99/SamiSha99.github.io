@@ -113,7 +113,7 @@ function showContent(input)
 
     // get data
     let c = GetContent(contentName);
-    if(c == undefined) throw "Could not find the requested content!!!";
+    if(c == undefined) throw "Could not find the requested content, looked up \"" + contentName + "\"!";
     
     showcaseContent.classList.remove("details-animated");
     
