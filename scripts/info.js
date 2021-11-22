@@ -21,7 +21,7 @@ languagesMap = [
 
 contactsMap = [
     {name: "Twitter", link:"https://twitter.com/SamiSha_", linkName:"SamiSha_"},
-    {name: "Discord", tag:"SamiSha#0001"},
+    //{name: "Discord", tag:"SamiSha#0001"},
     {name: "GitHub", link:"https://github.com/SamiSha99", linkName:"SamiSha99"},
     //{name:"LinkedIn", link:"https://www.linkedin.com/in/sami-shakkour/", linkName:"sami-shakkour"}
     {name: "Reddit", link:"https://www.reddit.com/user/SamiSha_", linkName:"SamiSha_"},
