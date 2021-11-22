@@ -297,18 +297,19 @@ function GetBeta() {
     return div;
 }
 
-// go to hell spam bots!
+// 🤫😅🤭🙈🙉🙊
 function _0x3c5033() {
-    return; // disabled for now
     let _0x1d5b15 = "U1RKV2RGbFhiSE09";
     let _0x5bf685 = "WXpKR2RHRlROWHBoUjBaeVlUSTVNV05yUW05aU0xSjBXVmRzYzB4dFRuWmlVVDA5";
-    let _0x93c7ae = "VkZocloxSlhNV2hoVjNjOQ==";
+    //let _0x93c7ae = "VkZocloxSlhNV2hoVjNjOQ==";
     for (let _0x35a4c9 = 0; _0x35a4c9 < 3; _0x35a4c9++) {
         _0x1d5b15 = atob(_0x1d5b15);
         _0x5bf685 = atob(_0x5bf685);
-        _0x93c7ae = atob(_0x93c7ae);
+        //_0x93c7ae = atob(_0x93c7ae);
     }
-    document.querySelector(_0x1d5b15).innerHTML = _0x93c7ae;
+
+    console.log(_0x1d5b15);
+    document.querySelector(_0x1d5b15).innerHTML = "Contact My Email!";//_0x93c7ae;
     document.querySelector(_0x1d5b15).href = "mailto:" + _0x5bf685;
 }
 

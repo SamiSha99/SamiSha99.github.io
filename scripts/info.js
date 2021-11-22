@@ -19,6 +19,16 @@ languagesMap = [
     {name: "English", rating: 4.5}
 ];
 
+contactsMap = [
+    {name: "Twitter", link:"https://twitter.com/SamiSha_", linkName:"SamiSha_"},
+    {name: "Discord", tag:"SamiSha#0001"},
+    {name: "GitHub", link:"https://github.com/SamiSha99", linkName:"SamiSha99"},
+    //{name:"LinkedIn", link:"https://www.linkedin.com/in/sami-shakkour/", linkName:"sami-shakkour"}
+    {name: "Reddit", link:"https://www.reddit.com/user/SamiSha_", linkName:"SamiSha_"},
+    {name: "Twitch", link:"https://www.twitch.tv/samisha_", linkName:"SamiSha_"},
+    {name: "YouTube", link:"https://www.youtube.com/c/SamiSha", linkName:"SamiSha"}
+]
+
 function AppendSkills() {
     let container = document.getElementById("skills");
     var firstHalf = Math.floor(skillMap.length/2), secondHalf = skillMap.length - firstHalf;
@@ -64,5 +74,53 @@ function GetStars(rating)
     return starinnerHTML;
 }
 
-AppendSkills()
-AppendLanguages();
+function AppendContactInfo()
+{
+    let container = document.getElementById("contact");
+    container.innerHTML += SetUpContactInfo();
+}
+
+function SetUpContactInfo()
+{
+    var innerHTML = "";
+    
+    innerHTML += '<div class="skill-list contacts">';
+
+    for(i = 0; i < contactsMap.length; i++) {
+        innerHTML += '<div class="skill-tab"><div class="skill"><p>' + contactsMap[i].name + '</p><div class="skill-star-container">';
+        innerHTML += GetRelevantContact(contactsMap[i]);
+        innerHTML += '</div></div></div>'; //link div -> skill -> skill tab
+    }
+    innerHTML += '</div>'; // skill list
+    return innerHTML;
+}
+
+function GetRelevantContact(c)
+{
+    if(c.link != undefined)
+        return "<a target='blank_' href='" + c.link + "'>" + c.linkName + "</a>";
+    if(c.tag != undefined)
+        return c.tag;
+
+    return "Invalid";
+}
+
+TryAppending();
+
+function TryAppending()
+{
+    let pageName = window.location.pathname.split("/").pop();
+    
+    switch(pageName)
+    {
+        case "about.html":
+            AppendSkills();
+            AppendLanguages();
+            break;
+        case "contact.html":
+            AppendContactInfo();
+            break;
+        default:
+            console.warn("We tried to append, but our location was invalid!");
+    }
+}

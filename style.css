@@ -9,7 +9,7 @@ canvas {
     scroll-behavior: smooth;
 }
 
-p {
+p, ul, li {
     font-family: vcr_osd_monoregular;
     font-weight: normal;
     font-size: 32px;
@@ -785,7 +785,7 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     }
 }
 
-.languages
+.languages, .contacts
 {
     margin: 0px auto;
 }
