@@ -11,13 +11,13 @@ var onStartUpTimer, isPaused;
 var isInitialized;
 // Attributes
 const lineLength = 350,
-    lineThickness = 6.5,
-    maxSpeed = 1500,
-    minSpeed = 500,
+    lineThickness = 4.25,
+    maxSpeed = 2000,
+    minSpeed = 1500,
     maxLines = 100;
 // Spawn rate
-const maxDelayInterval = 0.1,
-    minDelayInterval = 0.07; // in milliseconds
+const maxDelayInterval = 0.0875,
+    minDelayInterval = 0.0625; // in milliseconds
 
 function AddNewLine() {
     var multiplier = Math.max(canvas.height / 1080 * 1.25, 1);
@@ -200,21 +200,20 @@ window.onblur = function () {
 function PostBeginScriptRunning() {
     var pageName = window.location.pathname.split("/").pop()
     var inHomePage = (pageName == "index.html" || pageName == "");
-
+    let startUpDelay = 0;
     if (beta) {
         document.body.appendChild(GetBeta());
     }
 
     if (inHomePage) {
         AppendNavBar(false);
-        time = 2750;
+        startUpDelay = 2250;
     } else {
 
         if (pageName == "contact.html")
             _0x3c5033();
 
         AppendNavBar(true);
-        time = 0;
     }
     // Set up Canvas
     AppendCanvas();
@@ -223,7 +222,7 @@ function PostBeginScriptRunning() {
     document.body.style.background = color;
     onStartUpTimer = setTimeout(function () {
         onStartUpDelay()
-    }, time);
+    }, startUpDelay);
 }
 
 function onStartUpDelay() {
