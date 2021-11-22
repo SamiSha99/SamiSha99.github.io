@@ -309,7 +309,7 @@ function _0x3c5033() {
     }
 
     console.log(_0x1d5b15);
-    document.querySelector(_0x1d5b15).innerHTML = "Contact My Email!";//_0x93c7ae;
+    document.querySelector(_0x1d5b15).innerHTML = "Click Here!";//_0x93c7ae;
     document.querySelector(_0x1d5b15).href = "mailto:" + _0x5bf685;
 }
 
