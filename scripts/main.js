@@ -1,4 +1,4 @@
-const beta = true;
+const beta = false;
 
 var canvas, ctx, lines = [];
 
