@@ -209,7 +209,7 @@ h2.page-title {
 #nav .fade-in,
 .fade-in-nav {
     animation: fadeIn-to-top 0.75s;
-    animation-delay: 1s;
+    animation-delay: 0.75s;
     opacity: 0;
     animation-fill-mode: forwards;
     user-select: none;
@@ -218,27 +218,27 @@ h2.page-title {
 }
 
 .fade-in a:nth-child(1) {
-    animation-delay: 1.5s
+    animation-delay: 1.25s
 }
 
 .fade-in a:nth-child(2) {
-    animation-delay: 1.75s
+    animation-delay: 1.375s
 }
 
 .fade-in a:nth-child(3) {
-    animation-delay: 2s
+    animation-delay: 1.5s
 }
 
 .fade-in a:nth-child(4) {
-    animation-delay: 2.25s
+    animation-delay: 1.625s
 }
 
 .fade-in a:nth-child(5) {
-    animation-delay: 2.5s
+    animation-delay: 1.75s
 }
 
 .fade-in-nav {
-    animation-delay: 3.5s
+    animation-delay: 2.0s
 }
 
 .nav-bottom {
