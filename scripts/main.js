@@ -1,4 +1,4 @@
-const beta = false;
+const beta = true;
 
 var canvas, ctx, lines = [];
 
@@ -201,7 +201,7 @@ function PostBeginScriptRunning() {
     var pageName = window.location.pathname.split("/").pop()
     var inHomePage = (pageName == "index.html" || pageName == "");
     let startUpDelay = 0;
-    if (beta) {
+    if (beta && inHomePage) {
         document.body.appendChild(GetBeta());
     }
 
@@ -292,7 +292,7 @@ function GetBeta() {
     var div = document.createElement("div");
     div.classList.add("beta");
     div.classList.add("info-block");
-    div.innerHTML = "<p>Content not final</p>"
+    div.innerHTML = "<p>Mobile Not Supported</p>"
     return div;
 }
 

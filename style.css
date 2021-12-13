@@ -100,20 +100,31 @@ hr {
 .beta {
     padding: 0px 5px 0px 5px;
     margin: 0px;
-    border-top: none;
+    border-bottom: none;
     border-right: none;
     display: fixed;
-    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
     position: fixed;
     right:0;
-    top:0;
+    bottom:0;
     z-index: 1000;
-    background: rgba(55, 23, 88, 1);
-    border-color: rgba(102, 51, 153, 1);
-    border-left: 10px solid rgba(102, 51, 153, 1);
-    border-bottom: 10px solid rgba(102, 51, 153, 1);
+    background: rgb(189, 49, 49);
+    border-color: rgb(255, 63, 63);
+    border-left: 10px solid rgb(255, 63, 63);
+    border-top: 10px solid rgb(255, 63, 63);
     text-transform: uppercase;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+    .beta {
+        border-top-left-radius: 0px;
+        width: 100%;
+        text-align: center;
+    }
+    .beta {
+        display: inline-block;
+    }
 }
 
 .info-block.beta p {
