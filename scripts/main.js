@@ -201,8 +201,18 @@ function PostBeginScriptRunning() {
     var pageName = window.location.pathname.split("/").pop()
     var inHomePage = (pageName == "index.html" || pageName == "");
     let startUpDelay = 0;
-    if (beta && inHomePage) {
-        document.body.appendChild(GetBeta());
+    if (beta) {
+        switch(pageName)
+        {
+            case "index.html":
+                document.body.appendChild(GetAlert("Mobile Not Supported"));
+                break;
+            case "mywork.html":    
+                document.body.appendChild(GetAlert("Page is Work In Progress!"));
+                break;    
+            default:
+                break;    
+        }
     }
 
     if (inHomePage) {
@@ -288,11 +298,11 @@ function AppendCanvas() {
 
 }
 
-function GetBeta() {
+function GetAlert(str = "Mobile Not Supported") {
     var div = document.createElement("div");
     div.classList.add("beta");
     div.classList.add("info-block");
-    div.innerHTML = "<p>Mobile Not Supported</p>"
+    div.innerHTML = "<p>"+ str +"</p>"
     return div;
 }
 
