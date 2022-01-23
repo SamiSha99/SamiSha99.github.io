@@ -107,7 +107,7 @@ function showContent(input)
     
     if(contentName == shownContentName) 
     {
-        showcaseContent.scrollIntoView();
+        scrollIfOutOfSight(showcaseContent);
         return;
     }
 
@@ -137,11 +137,12 @@ function showContent(input)
     showcaseContent.appendChild(section);
 
     // Add hr if we are clicking first time
+    /*
     if(shownContentName == "")
     {
         let ib = document.getElementById("selection-box");   
         ib.insertBefore(document.createElement("hr"), ib.childNodes[Array.from(ib.childNodes).indexOf(showcaseContent)]);
-    }
+    }*/
 
     // save last click
     shownContentName = contentName;
@@ -152,7 +153,24 @@ function showContent(input)
     
     input.classList.add("button-pressed")
     
-    showcaseContent.scrollIntoView();
+    scrollIfOutOfSight(showcaseContent);
+}
+
+function scrollIfOutOfSight(element)
+{
+    t = document.getElementById("assetsTitle");
+    if(t != undefined && !isInViewport(t))
+        element.scrollIntoView();
+}
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
 }
 
 function GetContent(contentName) {
@@ -166,7 +184,7 @@ function GetContent(contentName) {
 function GetDetails(name, descriptions, notice) {
     let div = document.createElement("div");
     div.classList.add("info-block-details");
-    div.innerHTML += "<h2>" + name + ":</h2>";
+    div.innerHTML += "<h2 id=\"assetsTitle\">" + name + ":</h2>";
     
     if(notice != undefined)
         div.appendChild(GetNotice(notice));
