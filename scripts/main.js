@@ -170,8 +170,8 @@ function loop() {
 var spawnLineDelay = 0;
 
 function Update(delta) {
-    canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight;
+    canvas.width = Math.max(document.body.clientWidth, window.innerWidth, 0);
+    canvas.height = Math.max(document.body.clientHeight, window.innerHeight, 0);
 
     spawnLineDelay -= delta;
     if (spawnLineDelay <= 0)
@@ -208,7 +208,7 @@ function PostBeginScriptRunning() {
                 document.body.appendChild(GetAlert("Mobile Not Supported"));
                 break;
             case "mywork.html":    
-                document.body.appendChild(GetAlert("Page is Work In Progress!"));
+                document.body.appendChild(GetAlert("Page is Work In Progress, terrible on phone!!"));
                 break;    
             default:
                 break;    

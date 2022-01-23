@@ -93,6 +93,27 @@ workData = [
         [
             {src:"cipherproject/cipher_page.png", title:"The Web Page of the Cipher Project"}
         ]
+    },
+    // Times Since HotS Pathc
+    {
+        name: "Time Since HotS Patch",
+        p:
+        [
+            "A useless website that just shows how much times since the last <a href=\"https://en.wikipedia.org/wiki/Heroes_of_the_Storm\">Heroes of the Storm</a> patch, with a history list.",
+            "That's... really all of it, it was a good practice to learn about epoch time as a whole though.",
+            "You can give the website a look here <a href=\"https://samisha99.github.io/Time-Since-HotS-Patch/\">here</a>."
+        ]
+    },
+    // Web Crawler
+    {
+        name: "Web Crawler",
+        p:
+        [
+            "An experiment done through the GPU crisis to learn about how Web Crawlers as a whole work.",
+            "It was fun and yes I got my GPU during it and no this program didn't help with that :(.",
+            "Also made me learn Python.",
+            "Check the repository <a href=\"https://github.com/SamiSha99/web-crawler-experiment\">here</a>."
+        ]
     }
 ];
 
@@ -184,7 +205,7 @@ function GetContent(contentName) {
 function GetDetails(name, descriptions, notice) {
     let div = document.createElement("div");
     div.classList.add("info-block-details");
-    div.innerHTML += "<h2 id=\"assetsTitle\">" + name + ":</h2>";
+    div.innerHTML += "<h2 id=\"assetsTitle\">" + name + "</h2>";
     
     if(notice != undefined)
         div.appendChild(GetNotice(notice));

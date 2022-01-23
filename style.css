@@ -58,14 +58,19 @@ hr {
     position: relative;
 }
 
+.info-block .button-container {
+    padding: 0;
+}
+
 .work-block {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    top:10%;
+    bottom: 0;
     width: 100vw;
-    height: 90vh;
-    position: absolute;
+    height: 80vh;
+    padding: 20px 0;
+    position: fixed;
 }
 
 .info-block h1 {
@@ -230,7 +235,7 @@ h2.page-title {
     justify-content: space-between;
     width: 100vw;
     height: 10vh;
-    position: absolute;
+    position: fixed;
 }
 
 /* Animations */
@@ -503,7 +508,8 @@ div #nav {
 /* Button */
 button {
     font-family: vcr_osd_monoregular;
-    font-size: 32px;
+    font-size: 24px;
+    width: 100%;
     text-transform: uppercase;
     font-weight: bold;
     color: ghostwhite;
@@ -542,16 +548,20 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 90%;
+    width: 100%;
     margin: auto 5%;
 }
 
 .button-container h1 {
+    font-size: 48px;
     padding: 20px;
+    text-decoration: underline;
+    width: 100%;
 }
 
 .button-container {
     float: left;
+    direction: rtl;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -722,6 +732,12 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 
 ::-webkit-scrollbar-thumb {
     background: #f8f8ff;
+    border-radius: 0.25em;
+}
+
+.button-container::-webkit-scrollbar, .showcase-info::-webkit-scrollbar {
+    width: 0.5em;
+    background: #838383;
     border-radius: 0.25em;
 }
 
