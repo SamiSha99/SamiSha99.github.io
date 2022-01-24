@@ -204,6 +204,7 @@ function PostBeginScriptRunning() {
     if (beta) {
         switch(pageName)
         {
+            case "":
             case "index.html":
                 document.body.appendChild(GetAlert("Mobile Not Supported"));
                 break;
