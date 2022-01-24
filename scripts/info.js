@@ -16,7 +16,8 @@ skillMap = [
 languagesMap = [
     {name: "Arabic (Native)", rating: 5},
     {name: "Hebrew", rating: 3},
-    {name: "English", rating: 4.5}
+    {name: "English", rating: 4.5},
+    {name: "German", rating 1}
 ];
 
 contactsMap = [
