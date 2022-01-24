@@ -1,4 +1,4 @@
-const beta = true;
+const alert = true;
 
 var canvas, ctx, lines = [];
 
@@ -201,7 +201,7 @@ function PostBeginScriptRunning() {
     var pageName = window.location.pathname.split("/").pop()
     var inHomePage = (pageName == "index.html" || pageName == "");
     let startUpDelay = 0;
-    if (beta) {
+    if (alert) {
         switch(pageName)
         {
             case "":
@@ -301,7 +301,7 @@ function AppendCanvas() {
 
 function GetAlert(str = "Mobile Not Supported") {
     var div = document.createElement("div");
-    div.classList.add("beta");
+    div.classList.add("alert");
     div.classList.add("info-block");
     div.innerHTML = "<p>"+ str +"</p>"
     return div;
