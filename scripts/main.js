@@ -1,4 +1,4 @@
-const alert = true;
+const alert = false;
 
 var canvas, ctx, lines = [];
 
