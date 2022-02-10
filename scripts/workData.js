@@ -182,6 +182,8 @@ function scrollIfOutOfSight(element)
     t = document.getElementById("assetsTitle");
     if(t != undefined && !isInViewport(t))
         element.scrollIntoView();
+    else
+        element.scrollTop = 0;
 }
 
 function isInViewport(element) {
