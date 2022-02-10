@@ -17,7 +17,7 @@ languagesMap = [
     {name: "Arabic (Native)", rating: 5},
     {name: "Hebrew", rating: 3},
     {name: "English", rating: 4.5},
-    {name: "German", rating: 1}
+    {name: "German (New)", rating: 1}
 ];
 
 contactsMap = [
@@ -47,9 +47,16 @@ function SetUpSkillList(start, amount, languageMap = false) {
     var innerHTML = "";
     innerHTML += '<div class="skill-list' + (languageMap ? ' languages' : '') +'">';
     for(i = 0; i < amount; i++) {
+        /*
         innerHTML += '<div class="skill-tab"><div class="skill"><p>' + (languageMap ?  languagesMap[start + i].name : skillMap[start + i].name) + '</p><div class="skill-star-container">';
         innerHTML += GetStars((languageMap ?  languagesMap[start + i].rating : skillMap[start + i].rating));
         innerHTML += '</div></div></div>'; //star div -> skill -> skill tab
+        */
+        innerHTML += '<div class="skill-tab"><div class="skill">' +
+        '<p>' + (languageMap ? languagesMap[start + i].name : skillMap[start + i].name) + '</p>' +
+        '<div class="skill-star-container">' +
+        GetStars((languageMap ?  languagesMap[start + i].rating : skillMap[start + i].rating)) +
+        '</div></div></div>'; //star div -> skill -> skill tab
     }
     innerHTML += '</div>'; // skill list
     return innerHTML;

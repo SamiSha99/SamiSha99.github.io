@@ -170,7 +170,8 @@ function loop() {
 var spawnLineDelay = 0;
 
 function Update(delta) {
-    canvas.width = Math.max(document.body.clientWidth, window.innerWidth, 0);
+    canvas.width = Math.max(document.body.clientWidth, 0);
+    console.log("document.body.clientWidth: " + document.body.clientWidth + " vs window.innerWidth: " + window.innerWidth);
     canvas.height = Math.max(document.body.clientHeight, window.innerHeight, 0);
 
     spawnLineDelay -= delta;

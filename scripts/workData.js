@@ -205,7 +205,7 @@ function GetContent(contentName) {
 function GetDetails(name, descriptions, notice) {
     let div = document.createElement("div");
     div.classList.add("info-block-details");
-    div.innerHTML += "<h2 id=\"assetsTitle\">" + name + "</h2>";
+    div.innerHTML += "<h2 id=\"assetsTitle\">" + name.toUpperCase() + "</h2>";
     
     if(notice != undefined)
         div.appendChild(GetNotice(notice));
