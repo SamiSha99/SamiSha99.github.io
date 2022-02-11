@@ -122,6 +122,12 @@ hr {
     }
 }
 
+.showcase-info-start {
+    position: relative;
+    margin: auto;
+    font-size: 24px;
+}
+
 .info-block h1 {
     text-align: center;
     width: 100%;
@@ -134,14 +140,14 @@ hr {
 }
 
 .info-block-section {
-    display: flex;
-    flex-wrap: nowrap;
+    /*display: flex;*/
+    /*flex-wrap: nowrap;*/
     /*align-items: center;*/
     width: 100%;
 }
 
 .info-block-details {
-    width:70%;
+    width: 95%;
 }
 
 .p-notice-container {
@@ -661,7 +667,8 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 /* Expand images and images in general */
 .expand-assets {
     display: flex;
-    width: 40%;
+    width: 75%;
+    margin: 0 auto 50px auto;
     height: 10%;
     text-align: center;
     flex-wrap: wrap;
@@ -671,7 +678,7 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 
 .expand-video {
     display: flex;
-    width: 100%;
+    /*width: 100%;*/
     height: 100%;
     text-align: center;
     flex-wrap: wrap;
@@ -680,11 +687,11 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 }
 
 .expand-assets img, .expand-assets video {
-    margin: 2.5px;
+    margin: 4px;
     width: 240px;
     height: 135px;
     object-fit: cover;
-    max-width: 40%;
+    /*max-width: 40%;*/
     border: 5px solid rgb(197, 197, 255);
     background-color: rgb(197, 197, 255);
     transition: transform 0.15s ease;
@@ -693,7 +700,7 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 
 .expand-video .fa-play {
     position: absolute;
-    top: 62.5%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: transform 0.15s ease;
