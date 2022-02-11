@@ -43,6 +43,12 @@ function AppendLanguages() {
     container.innerHTML += SetUpSkillList(0, languagesMap.length, true);
 }
 
+const EPOCH_DATE_OF_BIRTH = 931001400; // 3rd of July 1999 11:30 AM
+
+function AppendAge() {
+    document.getElementById("age").innerHTML = Math.floor((Date.now()/1000 - EPOCH_DATE_OF_BIRTH)/60/60/24/365) + " years old";
+}
+
 function SetUpSkillList(start, amount, languageMap = false) {
     var innerHTML = "";
     innerHTML += '<div class="skill-list' + (languageMap ? ' languages' : '') +'">';
@@ -119,6 +125,7 @@ function TryAppending()
         case "about.html":
             AppendSkills();
             AppendLanguages();
+            AppendAge();
             break;
         case "contact.html":
             AppendContactInfo();
