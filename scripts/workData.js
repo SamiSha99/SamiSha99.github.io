@@ -99,9 +99,9 @@ workData = [
         name: "Time Since HotS Patch",
         p:
         [
-            "A useless website that just shows how much times since the last <a href=\"https://en.wikipedia.org/wiki/Heroes_of_the_Storm\">Heroes of the Storm</a> patch, with a history list.",
+            "A website that just shows how much times since the last <a href=\"https://en.wikipedia.org/wiki/Heroes_of_the_Storm\">Heroes of the Storm</a> patch, with a history list.",
             "That's... really all of it, it was a good practice to learn about epoch time as a whole though.",
-            "You can give the website a look here <a href=\"https://samisha99.github.io/Time-Since-HotS-Patch/\">here</a>."
+            "You can give the website a look <a href=\"https://samisha99.github.io/Time-Since-HotS-Patch/\">here</a>."
         ]
     },
     // Web Crawler
