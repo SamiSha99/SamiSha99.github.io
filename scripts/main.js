@@ -241,25 +241,6 @@ function onStartUpDelay() {
     AddNewLine();
 }
 
-navbarURLsMap = [{
-        url: "index.html",
-        name: "home"
-    },
-    {
-        url: "about.html",
-        name: "about me"
-    },
-    {
-        url: "mywork.html",
-        name: "my work"
-    },
-    {
-        url: "contact.html",
-        name: "contact me"
-    }
-
-];
-
 function AppendNavBar(noFade = true) {
     let div = document.createElement("div");
     div.id = "nav";

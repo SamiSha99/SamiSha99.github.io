@@ -1,35 +1,3 @@
-skillMap = [
-    {name: "OOP", rating: 4.5},
-    {name: "C++", rating: 3.5},
-    {name: "C#/Java", rating: 4.5},
-    {name: "Unreal Engine", rating: 4},
-    {name: "Unity", rating: 3.5},
-    {name: "Web Dev", rating: 4.5},
-    {name: "HTML", rating: 5},
-    {name: "CSS", rating: 5},
-    {name: "JS", rating: 4},
-    {name: "PHP", rating: 3},
-    {name: "Piano", rating: 3.5},
-    {name: "Swimming", rating: 5}
-];
-
-languagesMap = [
-    {name: "Arabic (Native)", rating: 5},
-    {name: "Hebrew", rating: 3},
-    {name: "English", rating: 4.5},
-    {name: "German (New)", rating: 1}
-];
-
-contactsMap = [
-    {name: "Twitter", link:"https://twitter.com/SamiSha_", linkName:"SamiSha_"},
-    //{name: "Discord", tag:"SamiSha#0001"},
-    {name: "GitHub", link:"https://github.com/SamiSha99", linkName:"SamiSha99"},
-    {name:"LinkedIn", link:"https://www.linkedin.com/in/sami-shakkour/", linkName:"sami-shakkour"},
-    {name: "Reddit", link:"https://www.reddit.com/user/SamiSha_", linkName:"SamiSha_"},
-    {name: "Twitch", link:"https://www.twitch.tv/samisha_", linkName:"SamiSha_"},
-    {name: "YouTube", link:"https://www.youtube.com/c/SamiSha", linkName:"SamiSha"}
-]
-
 function AppendSkills() {
     let container = document.getElementById("skills");
     var firstHalf = Math.floor(skillMap.length/2), secondHalf = skillMap.length - firstHalf;
