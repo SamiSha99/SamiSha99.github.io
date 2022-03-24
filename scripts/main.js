@@ -2,8 +2,8 @@ const alert = false;
 
 var canvas, ctx, lines = [];
 
-var color = "rgb(120, 81, 169)",
-    color2 = "rgba(255, 255, 255, 0.55)";
+var color = "rgb(120, 81, 169)";
+const transparentWhite = "rgba(255, 255, 255, 0.55)";
 
 // When out of focus
 var onStartUpTimer, isPaused;
@@ -80,13 +80,13 @@ function drawLine() {
             case "left":
                 // set up gradient going from left to right.
                 grd.addColorStop(clamp((lines[i].location + lineLength) / canvas.width, 0, 1), color);
-                grd.addColorStop(clamp((lines[i].location) / canvas.width, 0, 1), color2);
+                grd.addColorStop(clamp((lines[i].location) / canvas.width, 0, 1), transparentWhite);
                 ctx.moveTo(lines[i].location, lines[i].offset);
                 ctx.lineTo(lines[i].location + lineLength, lines[i].offset);
                 break;
             case "right":
                 // set up gradient going from right to left.
-                grd.addColorStop(clamp((lines[i].location + lineLength) / canvas.width, 0, 1), color2);
+                grd.addColorStop(clamp((lines[i].location + lineLength) / canvas.width, 0, 1), transparentWhite);
                 grd.addColorStop(clamp((lines[i].location) / canvas.width, 0, 1), color);
                 ctx.moveTo(lines[i].location + lineLength, lines[i].offset);
                 ctx.lineTo(lines[i].location, lines[i].offset);

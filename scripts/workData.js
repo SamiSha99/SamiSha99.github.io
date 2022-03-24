@@ -226,7 +226,7 @@ function GetAssets(images, videos)
     for(i = 0; i < images.length; i++)
     {
         block = document.createElement("img");
-        block.src = "./images/" + images[i].src;
+        block.src = "./assets/images/" + images[i].src;
         block.title = images[i].title;
         block.setAttribute("onclick", "showcaseImage(this)");
         div.appendChild(block);
@@ -241,8 +241,8 @@ function GetAssets(images, videos)
         for(i = 0; i < videos.length; i++)
         {
             vid = document.createElement("video");
-            vid.poster="./images/" + videos[i].poster;
-            vid.innerHTML += "<source src=\"./videos/" + videos[i].src + "\" title=\"" + videos[i].title + "\" type=\"" + videos[i].type + "\" />"
+            vid.poster="./assets/images/" + videos[i].poster;
+            vid.innerHTML += "<source src=\"./assets/videos/" + videos[i].src + "\" title=\"" + videos[i].title + "\" type=\"" + videos[i].type + "\" />"
             block.appendChild(vid);
             if(videos[i].playIcon != undefined && videos[i].playIcon) 
                 block.appendChild(GetPlayIcon());
