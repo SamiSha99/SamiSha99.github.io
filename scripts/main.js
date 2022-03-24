@@ -11,7 +11,7 @@ var onStartUpTimer, isPaused;
 var isInitialized;
 // Attributes
 const lineLength = 350,
-    lineThickness = 4.25,
+    lineThickness = 4.5,
     maxSpeed = 2000,
     minSpeed = 1500,
     maxLines = 100;
@@ -20,7 +20,7 @@ const maxDelayInterval = 0.0875,
     minDelayInterval = 0.0625; // in milliseconds
 
 function AddNewLine() {
-    var multiplier = Math.max(canvas.height / 1080 * 1.25, 1);
+    let multiplier = Math.max(canvas.height / 1080 * 1.25, 1);
     if (lines.length < Math.round(maxLines * multiplier)) {
         let line = {};
         line.direction = GetDirection(Math.floor(Math.random() * 2));
@@ -69,7 +69,7 @@ function randRangeInt(min, max) {
 function drawLine() {
     // clean the frame so we can draw the next one
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var grd = undefined;
+    let grd = undefined;
     ctx.lineWidth = lineThickness;
     for (i = 0; i < lines.length; i++) {
         // begin
@@ -198,8 +198,8 @@ window.onblur = function () {
 };
 
 function PostBeginScriptRunning() {
-    var pageName = window.location.pathname.split("/").pop()
-    var inHomePage = (pageName == "index.html" || pageName == "");
+    let pageName = window.location.pathname.split("/").pop()
+    let inHomePage = (pageName == "index.html" || pageName == "");
     let startUpDelay = 0;
     if (alert) {
         switch(pageName)
@@ -261,13 +261,13 @@ navbarURLsMap = [{
 ];
 
 function AppendNavBar(noFade = true) {
-    var div = document.createElement("div");
+    let div = document.createElement("div");
     div.id = "nav";
     div.classList.add("nav-top");
     if (!noFade)
         div.classList.add("fade-in-nav");
 
-    var stringinnerHTML = "";
+    let stringinnerHTML = "";
     let val = navbarURLsMap.length;
     for (i = 0; i < val; i++) {
         stringinnerHTML += '<div class="' + GetIndexClassName(i) + '" ><a href="./' + navbarURLsMap[i].url + '">' + navbarURLsMap[i].name + '</a></div>';
@@ -293,14 +293,14 @@ function GetIndexClassName(indx) {
 }
 
 function AppendCanvas() {
-    var canvas = document.createElement("canvas");
+    let canvas = document.createElement("canvas");
     canvas.id = "canvas-background";
     document.body.insertBefore(canvas, document.body.firstChild);
 
 }
 
 function GetAlert(str = "Mobile Not Supported") {
-    var div = document.createElement("div");
+    let div = document.createElement("div");
     div.classList.add("alert");
     div.classList.add("info-block");
     div.innerHTML = "<p>"+ str +"</p>"
@@ -319,5 +319,5 @@ function _0x3c5033() {
     document.querySelector(_0x1d5b15).href = "mailto:" + _0x5bf685;
 }
 
-requestAnimationFrame(loop);
 PostBeginScriptRunning();
+requestAnimationFrame(loop);

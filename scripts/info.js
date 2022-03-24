@@ -91,7 +91,7 @@ function AppendContactInfo()
 
 function SetUpContactInfo()
 {
-    var innerHTML = "";
+    let innerHTML = "";
     
     innerHTML += '<div class="skill-list contacts">';
 
