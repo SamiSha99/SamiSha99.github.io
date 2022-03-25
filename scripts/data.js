@@ -1,3 +1,6 @@
+// Dear CORS policy: 🖕
+
+// For the navbar
 navbarURLsMap = [{
     url: "index.html",
     name: "home"
@@ -14,10 +17,9 @@ navbarURLsMap = [{
     url: "contact.html",
     name: "contact me"
 }
-
 ];
 
-
+// About me star rating skills
 skillMap = [
     {name: "OOP", rating: 4.5},
     {name: "C++", rating: 3.5},
@@ -33,6 +35,7 @@ skillMap = [
     {name: "Swimming", rating: 5}
 ];
 
+// Same as the above but languages
 languagesMap = [
     {name: "Arabic (Native)", rating: 5},
     {name: "Hebrew", rating: 3},
@@ -40,6 +43,7 @@ languagesMap = [
     {name: "German (New)", rating: 1}
 ];
 
+// Info
 contactsMap = [
     {name: "Twitter", link:"https://twitter.com/SamiSha_", linkName:"SamiSha_"},
     //{name: "Discord", tag:"SamiSha#0001"},
@@ -50,6 +54,7 @@ contactsMap = [
     {name: "YouTube", link:"https://www.youtube.com/c/SamiSha", linkName:"SamiSha"}
 ]
 
+// My work page stuff
 workData = [
     // FrostBurn Cliffs
     {
