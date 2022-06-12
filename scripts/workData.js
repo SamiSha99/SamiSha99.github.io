@@ -1,34 +1,34 @@
 var shownContentName = "";
 
 
-function showContent(input)
-{
+function showContent(input) {
     let contentName = input.value;
     // Get the container
     let showcaseContent = document.getElementById("showcasedContent");
-    
-    if(contentName == shownContentName) 
-    {
+
+    if (contentName == shownContentName) {
         scrollIfOutOfSight(showcaseContent);
         return;
     }
 
     // get data
     let c = GetContent(contentName);
-    if(c == undefined) throw "Could not find the requested content, looked up \"" + contentName + "\"!";
-    
+    if (c == undefined) throw "Could not find the requested content, looked up \"" + contentName + "\"!";
+
     showcaseContent.classList.remove("details-animated");
-    
+
     // Create the section container
     let section = document.createElement("div");
     section.classList.add("info-block-section");
 
+    //section.appendChild(GetExpand());
+
     // Text
-    if(c.p.length != 0)
+    if (c.p.length != 0)
         section.appendChild(GetDetails(c.name, c.p, c.notice));
-    
+
     // Images, videos, assets, etc
-    if(c.images != undefined && c.images.length != 0 || c.videos != undefined && c.videos.length != 0)
+    if (c.images != undefined && c.images.length != 0 || c.videos != undefined && c.videos.length != 0)
         section.appendChild(GetAssets(c.images, c.videos));
 
     // remove content
@@ -38,30 +38,29 @@ function showContent(input)
     // replace with new content
     showcaseContent.appendChild(section);
 
-    // Add hr if we are clicking first time
-    /*
-    if(shownContentName == "")
-    {
-        let ib = document.getElementById("selection-box");   
-        ib.insertBefore(document.createElement("hr"), ib.childNodes[Array.from(ib.childNodes).indexOf(showcaseContent)]);
-    }*/
-
     // save last click
     shownContentName = contentName;
     let b = document.getElementsByClassName("button-pressed");
-    
-    for(i = 0; i < b.length; i++)
+
+    for (i = 0; i < b.length; i++)
         b[i].classList.remove("button-pressed");
-    
+
     input.classList.add("button-pressed")
+
+    if(window.innerWidth <= 768)
+        expandContent();
     
     scrollIfOutOfSight(showcaseContent);
 }
 
-function scrollIfOutOfSight(element)
-{
+function GetExpand() {
+    
+    return '<i class="fas fa-expand"></i>';
+}
+
+function scrollIfOutOfSight(element) {
     t = document.getElementById("assetsTitle");
-    if(t != undefined && !isInViewport(t))
+    if (t != undefined && !isInViewport(t))
         element.scrollIntoView();
     else
         element.scrollTop = 0;
@@ -78,8 +77,8 @@ function isInViewport(element) {
 }
 
 function GetContent(contentName) {
-    for(i = 0; i < workData.length; i++) {
-        if(workData[i].name == contentName)
+    for (i = 0; i < workData.length; i++) {
+        if (workData[i].name == contentName)
             return workData[i];
     }
     return undefined;
@@ -88,24 +87,26 @@ function GetContent(contentName) {
 function GetDetails(name, descriptions, notice) {
     let div = document.createElement("div");
     div.classList.add("info-block-details");
-    div.innerHTML += "<h2 id=\"assetsTitle\">" + name.toUpperCase() + "</h2>";
-    
-    if(notice != undefined)
+    div.innerHTML += "<div class=\"details-title\">" +
+     "<div class=\"div-assetTitle\"><h2 id=\"assetsTitle\">" + name.toUpperCase() + "</h2></div>" +
+    "<div title=\"Click to expand the content!\" class=\"div-expand-icon expand-icon\" onclick=\"expandContent()\">" + GetExpand() + "</div>" + 
+    "</div>";
+    if (notice != undefined)
         div.appendChild(GetNotice(notice));
 
-    for(i = 0; i < descriptions.length; i++)
-        div.innerHTML += "<p>" + descriptions[i] + "</p>";
+   let divDesc = document.createElement("div");
+    for (i = 0; i < descriptions.length; i++)
+        divDesc.innerHTML += "<p>" + descriptions[i] + "</p>";
+    div.appendChild(divDesc);
     return div.innerHTML != "" ? div : undefined;
 }
 
-function GetAssets(images, videos)
-{
+function GetAssets(images, videos) {
     let div = document.createElement("div");
     div.classList.add("expand-assets");
 
     let block;
-    for(i = 0; i < images.length; i++)
-    {
+    for (i = 0; i < images.length; i++) {
         block = document.createElement("img");
         block.src = "./assets/images/" + images[i].src;
         block.title = images[i].title;
@@ -113,20 +114,18 @@ function GetAssets(images, videos)
         div.appendChild(block);
     }
 
-    if(videos != undefined && videos.length != 0)
-    {
+    if (videos != undefined && videos.length != 0) {
         block = document.createElement("div");
         let vid;
         block.classList.add("expand-video");
         block.setAttribute("onclick", "showcaseImage(this, true)");
-        for(i = 0; i < videos.length; i++)
-        {
+        for (i = 0; i < videos.length; i++) {
             vid = document.createElement("video");
-            vid.poster="./assets/images/" + videos[i].poster;
+            vid.poster = "./assets/images/" + videos[i].poster;
             vid.innerHTML += "<source src=\"./assets/videos/" + videos[i].src + "\" title=\"" + videos[i].title + "\" type=\"" + videos[i].type + "\" />"
             block.appendChild(vid);
-            if(videos[i].playIcon != undefined && videos[i].playIcon) 
-                block.appendChild(GetPlayIcon());
+            //if (videos[i].playIcon != undefined && videos[i].playIcon)
+               /// block.appendChild(GetPlayIcon());
         }
         div.appendChild(block);
     }
@@ -141,8 +140,7 @@ function GetPlayIcon() {
     return i;
 }
 
-function GetNotice(notice)
-{
+function GetNotice(notice) {
     let div = document.createElement("div");
     div.classList.add("p-notice-container");
 
