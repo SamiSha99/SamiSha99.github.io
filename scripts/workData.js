@@ -6,7 +6,7 @@ function showContent(input) {
     // Get the container
     let showcaseContent = document.getElementById("showcasedContent");
 
-    if (contentName == shownContentName) {
+    if (contentName == shownContentName && window.innerWidth > 768) {
         scrollIfOutOfSight(showcaseContent);
         return;
     }
@@ -38,8 +38,8 @@ function showContent(input) {
     // replace with new content
     showcaseContent.appendChild(section);
 
-    // save last click
-    shownContentName = contentName;
+    // save last click (desktop only)
+    if(window.innerWidth > 768) shownContentName = contentName;
     let b = document.getElementsByClassName("button-pressed");
 
     for (i = 0; i < b.length; i++)
