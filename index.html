@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/FontAwesome/css/all.css">
 </head>
 
-<body style="overflow: hidden;">
+<body>
     <div class="introduction">
         <h1 class="page-title fade-in">Sami Shakkour</h1>
         <h2 class="page-title fade-in">
@@ -24,8 +24,74 @@
             <a id="gamer">GAMER</a>
         </h2>
     </div>
+    <div class="info-block">
+        <h1>About Me</h1>
+        <p>
+            Hello! My name is Sami Shakkour, but I go by the online alias SamiSha or just Sami, a <abbr title="Saturday, July 3, 1999 11:30 AM GMT" id="age"></abbr> Arab living in the Haifa District. Currently on my 4th year in Arab
+            American University of Palestine working on my <b>Bachelor of Science in Information Technology</b>, I like music, swimming but I spend
+            most of my time programming, problem solving and learning game development.
+        </p>
+        <p>
+            I consider myself fluent and knowledgeable in a lot of programming languages in which I've used in modding, development and game dev. I also consider myself really good in web development, as an example this website was made fully by me!
+        </p>
+        <p>
+            Please consider taking a look on <a href="./mywork.html">my work page</a>! As it represent projects I've made over the years, otherwise you can always try <a href="./contact.html">contacting me!</a>
+        </p>
+    </div>
+    <div>
+
+    <div class="info-block">
+        <h1>MY WORK</h1>
+    </div>
+    <div id="selection-box" class="info-block work-block">
+        <div class="button-container">
+            <h1>Web Dev</h1>
+            <div class="button-list">
+                <button onclick="showContent(this)" value="Cipher Project">Cipher Project</button>
+                <button onclick="showContent(this)" value="Time Since HotS Patch">Time Since HotS Patch</button>
+                <button onclick="showContent(this)" value="This Website">This Website</button>
+            </div>
+            <h1>Modding</h1>
+            <div class="button-list">
+                <button onclick="showContent(this)" value="FrostBurn Cliffs">FrostBurn Cliffs</button>
+                <button onclick="showContent(this)" value="The Train Heist">The Train Heist</button>
+                <button onclick="showContent(this)" value="Acceleration Badge">Acceleration Badge</button>
+                <button onclick="showContent(this)" value="The Relic Trials" class="HAT">The Relic Trials</button>
+                <button onclick="showContent(this)" value="Project Seasons">Project Seasons</button>
+            </div>
+            <h1>Unity</h1>
+            <div class="button-list">
+                <button onclick="showContent(this)" value="Unannounced Project" class="HAT">Unannounced Project</button>
+            </div>
+            <h1>Other</h1>
+            <div class="button-list">
+                <button onclick="showContent(this)" value="Web Crawler">Web Crawler</button>
+            </div>
+        </div>
+        <div class='vl'></div>
+        <div id="showcasedContent" class="showcase-info">
+            <div class="showcase-info-start">
+                <h1>Click A Button to Showcase!</h1>
+            </div>
+        </div>
+    </div>
+    <div class="info-block">
+        <h1>Skills</h1>
+        <div class="skill-container" id="skills"></div>
+        <hr />
+        <h1>Languages</h1>
+        <div id="languages"></div>
+    </div>
+    <div class="info-block">
+        <h1>Contact Me</h1>
+        <p align=center>Here's a list of all places you can contact me! Feel free to use whichever best suits you!</p>
+        <div id="contact"></div>
+    </div>
     <script src="./scripts/data.js"></script>
     <script src="./scripts/main.js"></script>
+    <script src="./scripts/info.js"></script>
+    <script src="./scripts/expandImage.js"></script>
+    <script src="./scripts/workData.js"></script>
 </body>
 
 </html>

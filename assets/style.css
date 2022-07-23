@@ -41,7 +41,7 @@ hr {
 }
 
 .introduction {
-    height: 100vh;
+    height: 60vh;
 }
 
 .info-block, .content-block {
@@ -64,13 +64,15 @@ hr {
 
 .work-block {
     display: flex;
-    flex-wrap: nowrap;
+    /*flex-wrap: nowrap;*/
+    
     justify-content: space-between;
     bottom: 0;
-    width: 100vw;
+    /*width: 100vw;*/
     height: 80vh;
-    padding: 20px 0;
-    position: fixed;
+    padding: 0 0 20px 0;
+    border: none;
+    /*position: fixed;*/
 }
 
 @media only screen and (max-width: 768px) {
@@ -96,9 +98,7 @@ hr {
     }
 
     .showcase-info .info-block-section {
-        /*display: none;*/
         flex-wrap: wrap;
-        /*align-items: center;*/
         width: 100vw;
     }
 
@@ -649,6 +649,7 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     width: 70vw;
     float: left;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .button-list button {
@@ -788,7 +789,7 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 }
 
 .showcase-expanded {
-    position: absolute;
+    position: fixed;
     width: 92.5%;
     height: 90%;
     margin: 5% 0 5% 0;
@@ -873,6 +874,10 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     line-height: 120%;
     border-radius: 10px;
     cursor: default;
+}
+
+.showcase-img {
+    position: fixed;
 }
 
 /* Scroll Bar */

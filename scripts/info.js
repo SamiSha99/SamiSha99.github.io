@@ -86,19 +86,8 @@ TryAppending();
 
 function TryAppending()
 {
-    let pageName = window.location.pathname.split("/").pop();
-    
-    switch(pageName)
-    {
-        case "about.html":
-            AppendSkills();
-            AppendLanguages();
-            AppendAge();
-            break;
-        case "contact.html":
-            AppendContactInfo();
-            break;
-        default:
-            console.warn("We tried to append, but our location was invalid!");
-    }
+    AppendSkills();
+    AppendLanguages();
+    AppendAge();
+    AppendContactInfo();
 }

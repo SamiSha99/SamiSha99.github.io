@@ -201,6 +201,7 @@ function PostBeginScriptRunning() {
     let pageName = window.location.pathname.split("/").pop()
     let inHomePage = (pageName == "index.html" || pageName == "");
     let startUpDelay = 0;
+    /*
     if (alert) {
         switch(pageName)
         {
@@ -215,19 +216,11 @@ function PostBeginScriptRunning() {
                 break;    
         }
     }
+    */
 
-    if (inHomePage) {
-        AppendNavBar(false);
-        startUpDelay = 2250;
-    } else {
-
-        //if (pageName == "contact.html")
-            //_0x3c5033();
-
-        AppendNavBar(true);
-    }
-    // Set up Canvas
+    //AppendNavBar(true);
     AppendCanvas();
+
     canvas = document.getElementById("canvas-background");
     ctx = canvas.getContext("2d");
     document.body.style.background = color;
