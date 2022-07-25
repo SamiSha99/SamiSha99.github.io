@@ -44,6 +44,10 @@ hr {
     height: 60vh;
 }
 
+.main-title {
+    height: 30vh;
+}
+
 .info-block, .content-block {
     font-family: vcr_osd_monoregular;
     font-weight: normal;
@@ -54,6 +58,18 @@ hr {
     border-left: none;
     border-right: none;
     border-bottom: none;
+    background: rgba(55, 23, 88, 0.8);
+    position: relative;
+}
+
+.project-showcase-info {
+    font-family: vcr_osd_monoregular;
+    font-weight: normal;
+    font-size: 32px;
+    color: #f8f8ff;
+    padding: 20px 30px;
+    margin: 0 5vh;
+    border: 10px solid rgba(102, 51, 153, 0.8);
     background: rgba(55, 23, 88, 0.8);
     position: relative;
 }
@@ -123,13 +139,13 @@ hr {
     font-size: 24px;
 }
 
-.info-block h1 {
+.info-block h1, .project-showcase-info h1 {
     text-align: center;
     width: 100%;
     text-decoration: none;
 }
 
-.info-block h2 {
+.info-block h2, .project-showcase-info h2 {
     border-bottom: 5px solid ghostwhite;
     margin-bottom: 15px;
 }
@@ -207,7 +223,7 @@ h1 {
     -webkit-tap-highlight-color: transparent;
 }
 
-.info-block p {
+.info-block p, .project-showcase-info p{
     font-family: VT323;
     font-size: 32px;
     padding: 0 0em 0.6em 0em;
@@ -236,6 +252,10 @@ h1.page-title {
     color: #f8f8ff;
     position: relative;
     top: 40%;
+}
+
+.main-title h1.page-title {
+    top:30%;
 }
 
 h2.page-title {
