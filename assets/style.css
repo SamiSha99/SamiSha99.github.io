@@ -9,7 +9,7 @@ canvas {
     scroll-behavior: smooth;
 }
 
-p, ul, li {
+p, ul, li, ol {
     font-family: vcr_osd_monoregular;
     font-weight: normal;
     font-size: 32px;
@@ -51,6 +51,28 @@ iframe {
 
 .main-title {
     height: 30vh;
+}
+
+.contents-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.contents-item {
+    font-family: vcr_osd_monoregular;
+    color: ghostwhite;
+    font-weight: normal;
+    font-size: 32px;
+}
+
+.contents-item h1 {
+    text-decoration: none;
+    font-size: 96px;
+}
+.contents-item li {
+    margin: 0 0 max(2.5vh,20px) 10%;
 }
 
 .info-block, .content-block {

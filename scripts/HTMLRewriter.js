@@ -12,7 +12,7 @@ const VIDEO_DIRECTORY = START_DIRECTORY + "/assets/videos/";
 function createContentSection(content) {
     let newContent = [];
     for(let i = 0; i < content.length; i++) {
-        let c = createDiv(ASSETS_CLASS);
+        let c = createDiv(content[i].hasAttribute("noClass") ? "" : ASSETS_CLASS);
         let childArr = Array.from(content[i].children);
 
         childArr.forEach(child => {
@@ -34,6 +34,8 @@ function createContent(child) {
             return reWriteImage(child);
         case "VID":
             return reWriteVideo(child);
+        case "BUT":
+            return reWriteButton(child);
         default:
             console.warn("Invalid content! Ignoring.");
             return undefined;
@@ -71,6 +73,16 @@ function reWriteVideo(child) {
     div.appendChild(video);
 
     return div;
+}
+
+function reWriteButton(child) {
+    let button = document.createElement("button");
+    button.style.width = "20vh";
+    button.title = child.innerHTML;
+    let clickLink = 'window.open("' + child.innerHTML + '", "_blank")';
+    button.setAttribute('onclick', clickLink);
+    button.innerHTML = child.getAttribute("desc");
+    return button;
 }
 
 function reWriteHTMLPage() {
