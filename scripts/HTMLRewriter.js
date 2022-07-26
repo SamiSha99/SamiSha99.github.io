@@ -66,7 +66,7 @@ function reWriteVideo(child) {
     source.setAttribute('src', VIDEO_DIRECTORY + child.getAttribute("src"));
     source.setAttribute('title', child.innerHTML);
     source.setAttribute('type', 'video/mp4');
-
+    video.muted = child.hasAttribute('muted');
     video.appendChild(source);
     div.appendChild(video);
 

@@ -30,6 +30,11 @@ hr {
     border-width: 0px;
 }
 
+iframe {
+    height: 50vh;
+    width: 50vw;
+}
+
 .vl {
     border-left: 6px solid rgb(120, 81, 169);
 }
@@ -269,6 +274,10 @@ h2.page-title {
     position: relative;
     top: 42.5%;
 
+}
+
+.main-title h2.page-title {
+    top:32.5%;
 }
 
 .details-title {
