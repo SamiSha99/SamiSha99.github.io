@@ -1,5 +1,5 @@
-# SamiSha99.github.io
+# samisha99.github.io
 
-A personal website that talks about myself.
+A personal website that talks about me, hi there!
 
-Visit at: [https://samisha99.github.io/](https://samisha99.github.io/)
+Learn more about me at: [https://samisha99.github.io/](https://samisha99.github.io/)
