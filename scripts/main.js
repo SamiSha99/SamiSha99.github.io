@@ -281,6 +281,10 @@ function GetAlert(str = "Mobile Not Supported") {
     return div;
 }
 
+function OpenProjectLink(button) {
+    window.open(button.title, '_blank');
+}
+
 // 🤫😅🤭🙈🙉🙊
 function _0x3c5033() {
     return;
