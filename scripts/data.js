@@ -40,17 +40,14 @@ languagesMap = [
     {name: "Arabic (Native)", rating: 5},
     {name: "Hebrew", rating: 3},
     {name: "English", rating: 4.5},
-    {name: "German (New)", rating: 1.5}
+    {name: "German (New)", rating: 2}
 ];
 
 // Info
 contactsMap = [
     {name: "Twitter", link:"https://twitter.com/SamiSha_", linkName:"SamiSha_"},
-    //{name: "Discord", tag:"SamiSha#0001"},
     {name: "GitHub", link:"https://github.com/SamiSha99", linkName:"SamiSha99"},
     {name:"LinkedIn", link:"https://www.linkedin.com/in/sami-shakkour/", linkName:"sami-shakkour"},
-    //{name: "Reddit", link:"https://www.reddit.com/user/SamiSha_", linkName:"SamiSha_"},
-    //{name: "Twitch", link:"https://www.twitch.tv/samisha_", linkName:"SamiSha_"},
     {name: "YouTube", link:"https://www.youtube.com/c/SamiSha", linkName:"SamiSha"}
 ]
 
@@ -97,6 +94,43 @@ workData = [
         videos: 
         [
             {src:"train_heist_intro.mp4", poster: "trainheist/intro.jpg", type: "video/mp4", title:"The Train Heist Intro", playIcon: true}
+        ]
+    },
+    // Typer Shark
+    {
+        name: "Typer Shark",
+        p:
+        [
+            "A mod made for \"Ocean Exploration Modding Jam 2022\", a typing game where you type words on the screen to eliminate sharks before they reach you.",
+            "Heavily inspired by a game with the same name, I wanted to make something from my childhood that fits the theme and to test how far I can push mehcnaics I can make, this mod was a blast to create and I would put it one of my favorite projects out there.",
+            "Game design, code were made by me, art assets were made by <a target=\"_blank\" href=\"https://twitter.com/habijob\">Habijob</a>, music and sound belong to PopCap."
+        ],
+        images:
+        [
+            {src:"typershark/portrait.png", title:"Portrait was made by <a target=\"_blank\" href=\"https://twitter.com/habijob\">Habijob</a>"},
+            {src:"typershark/sharks.jpg", title:"Sharks approaching the player!"},
+            {src:"typershark/pirahna.jpg", title:"I wish I had \"Pirahana\" meshes just pretend they look like one. :("},
+            {src:"typershark/tanky.jpg", title:"Like sharks, but they are blue and take twice the zapping!"},
+            {src:"typershark/glowey.jpg", title:"Glowing Sharks have random letters."}
+        ]
+
+    },
+    // The Relic Trials
+    {
+        name: "The Relic Trials",
+        p:
+        [
+            "A mod in which the player activate global modifiers that impact the game by making it harder, the reward? Just a better score!",
+            "Contains 7 modifiers with each of them required to be unlocked by completing the relic relivant to the modifier, relics are unlocked by exploring the game and finding them in hidden spots which when done they unlock a \"rift\", this mod capitalize on this feature by doing minor checks and subsequently applies a flag that unlocks the modifier to be used.",
+            "I've wrote around 4 thousand lines of code for the functionality, the animation part of the UI, the UI itself and pretty much everything here."
+        ],
+        images:
+        [
+            {src:"relictrials/portrait.png", title:"Portrait of the modd, made by me."},
+            {src:"relictrials/stand.jpg", title:"The altar the player can interact with to change their modifiers before loading a level."},
+            {src:"relictrials/uisystem.png", title:"Basic UI System (top of the screen)"},
+            {src:"relictrials/relic.png", title:"An unlocked relic."},
+            {src:"relictrials/locked.png", title:"A locked relic."}
         ]
     },
     // Seasons
@@ -149,16 +183,6 @@ workData = [
         images:
         [
             {src:"cipherproject/cipher_page.png", title:"The Web Page of the Cipher Project"}
-        ]
-    },
-    // Times Since HotS Pathc
-    {
-        name: "Time Since HotS Patch",
-        p:
-        [
-            "A website that just shows how much times since the last <a href=\"https://en.wikipedia.org/wiki/Heroes_of_the_Storm\">Heroes of the Storm</a> patch, with a history list.",
-            "That's... really all of it, it was a good practice to learn about epoch time as a whole though.",
-            "You can give the website a look <a href=\"https://samisha99.github.io/Time-Since-HotS-Patch/\">here</a>."
         ]
     },
     // Web Crawler
