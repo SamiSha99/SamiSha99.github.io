@@ -20,6 +20,7 @@ p,
 div,
 h1,
 h2 {
+    font-weight: normal;
     cursor: default;
 }
 
@@ -225,7 +226,7 @@ iframe {
     border-left: 10px solid rgb(255, 63, 63);
     border-top: 10px solid rgb(255, 63, 63);
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 @media only screen and (max-width: 768px) {
@@ -272,7 +273,7 @@ a:focus {
 
 h1.page-title {
     font-family: vcr_osd_monoregular;
-    font-weight: bold;
+    font-weight: normal;
     font-size: normal;
     text-align: center;
     font-size: 96px;
@@ -287,7 +288,7 @@ h1.page-title {
 
 h2.page-title {
     font-family: vcr_osd_monoregular;
-    font-weight: bold;
+    font-weight: normal;
     font-size: normal;
     text-align: center;
     text-align: center;
@@ -316,7 +317,7 @@ h2.page-title {
 
     h1.page-title {
         font-family: vcr_osd_monoregular;
-        font-weight: bold;
+        font-weight: normal;
         font-size: normal;
         text-align: center;
         font-size: 60px;
@@ -328,7 +329,7 @@ h2.page-title {
     
     h2.page-title {
         font-family: vcr_osd_monoregular;
-        font-weight: bold;
+        font-weight: normal;
         font-size: normal;
         text-align: center;
         text-align: center;
@@ -510,7 +511,7 @@ h2.page-title {
 #nav {
     display: flex;
     font-family: vcr_osd_monoregular;
-    font-weight: bold;
+    font-weight: normal;
     font-size: normal;
     text-align: center;
     text-transform: uppercase;
@@ -526,7 +527,7 @@ h2.page-title {
         display: flex;
         flex: 0 0 50%;
         font-family: vcr_osd_monoregular;
-        font-weight: bold;
+        font-weight: normal;
         font-size: normal;
         text-align: center;
         text-transform: uppercase;
@@ -626,7 +627,7 @@ button {
     font-size: 24px;
     width: 100%;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: normal;
     color: ghostwhite;
     background-color: rgba(102, 51, 153, 1);
     border: min(1.5vw, 10px) solid ghostwhite;
@@ -1023,7 +1024,7 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 .skill p {
     font-family: vcr_osd_monoregular;
     font-size: 32px;
-    font-weight: bold;
+    font-weight: normal;
     flex-wrap: wrap;
     
 }
