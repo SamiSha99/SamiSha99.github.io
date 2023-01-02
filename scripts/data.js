@@ -23,22 +23,22 @@ navbarURLsMap = [{
 skillMap = [
     {name: "OOP", rating: 4.5},
     {name: "C++", rating: 3.5},
-    {name: "C#/Java", rating: 4.5},
+    {name: "C#", rating: 4.5},
+    {name: "Java", rating: 4.5},
     {name: "Unreal Engine", rating: 4},
     {name: "Unity", rating: 3.5},
     {name: "Web Dev", rating: 4.5},
     {name: "HTML", rating: 5},
     {name: "CSS", rating: 5},
     {name: "JS", rating: 4},
+    {name: "React", rating: 4},
     {name: "PHP", rating: 3},
-    {name: "Piano", rating: 3.5},
-    {name: "Swimming", rating: 5}
 ];
 
 // Same as the above but languages
 languagesMap = [
     {name: "Arabic (Native)", rating: 5},
-    {name: "Hebrew", rating: 3},
+    {name: "Hebrew", rating: 3.5},
     {name: "English", rating: 4.5},
     {name: "German (New)", rating: 2}
 ];

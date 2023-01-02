@@ -1021,6 +1021,14 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     text-align: none;
 }
 
+#skills .skill-star-container {
+    display: none;
+}
+
+#skills .skill {
+    width: auto;
+}
+
 .skill p {
     font-family: vcr_osd_monoregular;
     font-size: 32px;
