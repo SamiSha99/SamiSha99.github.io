@@ -117,7 +117,7 @@ workData = [
     },
     // The Relic Trials
     {
-        name: "The Relic Trials",
+        name: "Relic Trials",
         p:
         [
             "A mod in which the player activate global modifiers that impact the game by making it harder, the reward? Just a better score!",
@@ -135,18 +135,19 @@ workData = [
     },
     // Seasons
     {
-        name: "Project Seasons",
-        notice: "Currently in development!",
+        name: "Flower Lake",
         p: 
         [
-            "A mod that tries to create levels based on each Season using a mechanic that tries to fit to its theme!",
-            "From flowers filled with vatality when watered, to Falls filled with ancient ruins and... glowing mushrooms? Huh...",
-            "There's not much to discuss yet as its still a work in progress! Patience pls! :)"
+            "A mod about flowers that increases bounce height after watering them. Including 2 side quests and a secret level.",
+            "The secret level is heavily inspired by the Terraria's Mushroom biome, with the mushrooms dancing to the beat of the music."
         ],
         images:
         [
-            {src:"seasons/spring.jpg", title:"Spring"},
-            {src:"seasons/fall.jpeg", title:"Fall"},
+            {src:"seasons/ancient.jpg", title:""},
+            {src:"seasons/wettled_flower.jpg", title:"In the center of the dry lake a wilted flower."},
+            {src:"seasons/waterball.jpg", title:"Waterball used as an objective to carry on and overcome obstacles."},
+            {src:"seasons/mushrooms.jpg", title:"Mushrooms."},
+            {src:"seasons/mushroom_cave.jpg", title:"More mushrooms."}
         ],
         videos: []
     },
