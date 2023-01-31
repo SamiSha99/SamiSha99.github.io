@@ -124,10 +124,7 @@ iframe {
         display: flex;
         flex-wrap: wrap;
         justify-content: normal;
-        bottom: -20vh;
         padding-top: 0vh;
-        width: 100vw;
-        height: 80vh;
         padding: 0 0;
         position: relative;
     }
@@ -963,8 +960,9 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 .fa-twitter,
 .fa-github,
 .fa-coffee,
-.fa-envelope {
-    color: rgb(120, 81, 169);
+.fa-envelope,
+.fa-linkedin {
+    color: ghostwhite;
 }
 
 .fa-regular.fa-maximize {
@@ -1003,6 +1001,11 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     width: 50%;
 }
 
+.contacts {
+    flex-wrap: nowrap;
+    width: 30%;
+}
+
 .skill-tab {
     display: flex;
     justify-content: center;
@@ -1029,6 +1032,10 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     width: auto;
 }
 
+.contacts .skill {
+    justify-content: center;
+}
+
 .skill p {
     font-family: vcr_osd_monoregular;
     font-size: 32px;
@@ -1050,6 +1057,18 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
         padding: 0.5em 0em 0.75em 0em;
 
         border-top: 3px solid rgb(120, 81, 169);
+    }
+
+    .contacts .skill {
+        border-top: none;
+        justify-content: center;
+        align-content: center;
+        flex-direction: none;
+        padding: 0;
+    }
+
+    .contacts.skill-list {
+        flex-direction: row;
     }
 
     .skill-list {

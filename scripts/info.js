@@ -64,9 +64,8 @@ function SetUpContactInfo()
     innerHTML += '<div class="skill-list contacts">';
 
     for(i = 0; i < contactsMap.length; i++) {
-        innerHTML += '<div class="skill-tab"><div class="skill"><p>' + contactsMap[i].name + '</p><div class="skill-star-container">'+
-        GetRelevantContact(contactsMap[i]) +
-        '</div></div></div>'; //link div -> skill -> skill tab
+        innerHTML += '<div class="skill-tab"><div class="skill"><a target="_blank" href="'+ contactsMap[i].link +'"><i class="fab fa-' + contactsMap[i].name + '"></i></a>'
+        + '</div></div>'; //link div -> skill -> skill tab
     }
     innerHTML += '</div>'; // skill list
     return innerHTML;

@@ -45,10 +45,10 @@ languagesMap = [
 
 // Info
 contactsMap = [
-    {name: "Twitter", link:"https://twitter.com/SamiSha_", linkName:"SamiSha_"},
-    {name: "GitHub", link:"https://github.com/SamiSha99", linkName:"SamiSha99"},
-    {name:"LinkedIn", link:"https://www.linkedin.com/in/sami-shakkour/", linkName:"sami-shakkour"},
-    {name: "YouTube", link:"https://www.youtube.com/c/SamiSha", linkName:"SamiSha"}
+    {name: "twitter", link:"https://twitter.com/SamiSha_", linkName:"SamiSha_"},
+    {name: "github", link:"https://github.com/SamiSha99", linkName:"SamiSha99"},
+    {name:"linkedin", link:"https://www.linkedin.com/in/sami-shakkour/", linkName:"sami-shakkour"},
+    {name: "youtube", link:"https://www.youtube.com/c/SamiSha", linkName:"SamiSha"}
 ]
 
 // My work page stuff
