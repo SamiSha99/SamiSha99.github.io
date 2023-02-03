@@ -16,8 +16,8 @@ const lineLength = 350,
     minSpeed = 1500,
     maxLines = 100;
 // Spawn rate
-const maxDelayInterval = 0.0875,
-    minDelayInterval = 0.0625; // in milliseconds
+const maxDelayInterval = 14.0,
+    minDelayInterval = 18.0; // in milliseconds
 
 function AddNewLine() {
     let multiplier = Math.max(canvas.height / 1080 * 1.25, 1);
@@ -35,7 +35,7 @@ function AddNewLine() {
             startSpeed: line.speed,
             location: line.location,
         });
-        spawnLineDelay = (1 / multiplier) * randRange(minDelayInterval, maxDelayInterval);
+        spawnLineDelay = (1 / multiplier) * randRange(1/minDelayInterval, 1/maxDelayInterval);
     }
 }
 
