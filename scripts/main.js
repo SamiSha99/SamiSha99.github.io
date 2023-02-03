@@ -16,8 +16,9 @@ const lineLength = 350,
     minSpeed = 1500,
     maxLines = 100;
 // Spawn rate
+// 1 / this -> in seconds
 const maxDelayInterval = 14.0,
-    minDelayInterval = 18.0; // in milliseconds
+    minDelayInterval = 18.0;
 
 function AddNewLine() {
     let multiplier = Math.max(canvas.height / 1080 * 1.25, 1);
