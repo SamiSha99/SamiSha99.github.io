@@ -108,18 +108,20 @@ iframe {
 
 .work-block {
     display: flex;
-    /*flex-wrap: nowrap;*/
-    
     justify-content: space-between;
     bottom: 0;
-    /*width: 100vw;*/
     height: 80vh;
     padding: 0 0 20px 0;
     border: none;
-    /*position: fixed;*/
 }
 
 @media only screen and (max-width: 768px) {
+    .beta {
+        border-top-left-radius: 0px;
+        width: 100%;
+        text-align: center;
+        display: inline-block;
+    }
     .work-block {
         display: flex;
         flex-wrap: wrap;
@@ -127,11 +129,11 @@ iframe {
         padding-top: 0vh;
         padding: 0 0;
         position: relative;
+        height: 52.5vh; /* 2.5vh+ to look cleaner when scrolling down */
     }
     .work-block .button-container {
-        
         width: 100vw;
-        height: 80vh;
+        height: 50vh;
     }
 
     #showcasedContent.showcase-info {
@@ -176,9 +178,6 @@ iframe {
 }
 
 .info-block-section {
-    /*display: flex;*/
-    /*flex-wrap: nowrap;*/
-    /*align-items: center;*/
     width: 100%;
 }
 
@@ -226,16 +225,7 @@ iframe {
     font-weight: normal;
 }
 
-@media only screen and (max-width: 768px) {
-    .beta {
-        border-top-left-radius: 0px;
-        width: 100%;
-        text-align: center;
-    }
-    .beta {
-        display: inline-block;
-    }
-}
+
 
 .info-block.beta p {
     padding: 4px;
@@ -621,25 +611,20 @@ div #nav {
 /* Button */
 button {
     font-family: vcr_osd_monoregular;
-    font-size: 24px;
     width: 100%;
     text-transform: uppercase;
     font-weight: normal;
+    font-size: 24px;
     color: ghostwhite;
     background-color: rgba(102, 51, 153, 1);
-    border: min(1.5vw, 10px) solid ghostwhite;
-    padding: 1.2vh 1.2vw;
-    
-    /*
-    box-shadow: 0 0 0 12px rgb(231, 231, 231);
-    */
+    border: none;
     transition: ease-in-out;
-    transition-duration: 0.2s;
-    border-radius: 0.15em;
+    transition-duration: 0.15s;
 }
 
 button.HAT {
     background-color: #ee204e;
+    border-color: #ee204e;
 }
 
 button:hover {
@@ -648,20 +633,16 @@ button:hover {
 
 button.HAT:hover {
     background-color: #ff466e;
+    border-color: #ee204e;
 }
 
 button:active, button:focus, .button-pressed {
-    background-color: rgb(125, 61, 189);
-    border-radius: 0.6em;
-    /*
-    background-color: rgb(125, 61, 189);
-    transform: translate(0, 0);
-    box-shadow: 0 0 0 14px rgb(231, 231, 231);
-    */
+    background-color: rgb(109, 80, 238);
 }
 
 button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed {
     background-color: #ff466e;
+    border-color: #ee204e;
 }
 
 .button-list {
@@ -669,12 +650,11 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin: auto 5%;
 }
 
 .button-container h1 {
-    font-size: 2.5vw;
-    padding: 1vw 2vh;
+    font-size: 2.25vw;
+    padding: 20px 0;
     text-decoration: underline;
     width: 100vw;
 }
@@ -689,6 +669,7 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     overflow-y: auto;
     max-width: 100vw;
     overflow-x: hidden;
+    align-items: center;
 }
 
 .showcase-info {
@@ -702,15 +683,41 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 }
 
 .button-list button {
-    margin: 2vh 1vw;
-    padding: 1.2vh 3.2vw;
+    padding: 1.5vh 3.2vw;
+    font-size: 1.5vw;
     max-width: 100vw;
-    font-size: 2vw;
+    border-top: 1px solid #9c4bec;
+}
+
+.button-list button.HAT {
+    background-color: #ee204e;
+    border-color: #ee204e;
+}
+
+.button-list button:hover {
+    background-color: rgb(125, 61, 189);
+    padding: 0 auto;
+    padding-right: 0vh;
+}
+
+.button-list button.HAT:hover {
+    background-color: #ff466e;
+    border-color: #ee204e;
+}
+
+.button-list button:active, .button-list button:focus, .button-list .button-pressed {
+    background-color: rgb(109, 80, 238);
+    border-color: rgb(109, 80, 238);
+}
+
+.button-list button.HAT:hover, .button-list button.HAT:active, .button-list button.HAT:focus, .button-list button.HAT.button-pressed {
+    background-color: #ff466e;
+    border-color: #ee204e;
 }
 
 @media only screen and (max-width: 768px) {
     .button-list button {
-        margin: 2vh 1vw;
+        margin:0;
         padding: 1.2vh 3.2vw;
         max-width: 100vw;
         font-size: 6vw;
@@ -718,6 +725,7 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     .button-container h1 {
         font-size: 12vw;
         padding: 1vw 2vh;
+        margin: 4vw 0;
         text-decoration: underline;
         width: 100vw;
     }
@@ -765,7 +773,6 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     width: 240px;
     height: 135px;
     object-fit: cover;
-    /*max-width: 40%;*/
     border: 5px solid rgb(197, 197, 255);
     background-color: rgb(197, 197, 255);
     transition: transform 0.15s ease;
@@ -814,9 +821,6 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     padding: 0px;
     top:0;
     left:0;
-    /*background-color: rgba(0, 0, 0, 0.95);*/
-    /*z-index: 1000;*/
-
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -834,7 +838,6 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     width: 100%;
     background-color: rgba(0, 0, 0, 0.975);
     height: 100%;
-    /*z-index: 999;*/
 }
 
 .showcase-expanded {
