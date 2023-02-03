@@ -619,7 +619,7 @@ button {
     background-color: rgba(102, 51, 153, 1);
     border: none;
     transition: ease-in-out;
-    transition-duration: 0.15s;
+    transition-duration: 0.2s;
 }
 
 button.HAT {
@@ -633,16 +633,17 @@ button:hover {
 
 button.HAT:hover {
     background-color: #ff466e;
-    border-color: #ee204e;
+    border-color: #ff466e;
 }
 
 button:active, button:focus, .button-pressed {
     background-color: rgb(109, 80, 238);
+    border-color: rgb(109, 80, 238);
 }
 
 button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed {
     background-color: #ff466e;
-    border-color: #ee204e;
+    border-color: #ff466e;
 }
 
 .button-list {
@@ -683,10 +684,15 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 }
 
 .button-list button {
-    padding: 1.5vh 3.2vw;
+    padding: 1.5vh;
     font-size: 1.5vw;
-    max-width: 100vw;
+    width: 92.5%;
+    margin-right: 7.5%;
     border-top: 1px solid #9c4bec;
+    border-right: 5px solid #9c4bec;
+    text-align: right;
+    transition-duration: 0.2s;
+    display: block;
 }
 
 .button-list button.HAT {
@@ -694,25 +700,35 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     border-color: #ee204e;
 }
 
+.button-list button:hover:before {
+    padding-right: 1%;
+}
+
 .button-list button:hover {
     background-color: rgb(125, 61, 189);
-    padding: 0 auto;
-    padding-right: 0vh;
+    width: 100%;
+    margin-right: 0;
 }
 
 .button-list button.HAT:hover {
     background-color: #ff466e;
-    border-color: #ee204e;
+    border-color: #ff466e;
+    width: 100%;
+    margin-right: 0;
 }
 
 .button-list button:active, .button-list button:focus, .button-list .button-pressed {
     background-color: rgb(109, 80, 238);
     border-color: rgb(109, 80, 238);
+    width: 100%;
+    margin-right: 0;
 }
 
 .button-list button.HAT:hover, .button-list button.HAT:active, .button-list button.HAT:focus, .button-list button.HAT.button-pressed {
     background-color: #ff466e;
-    border-color: #ee204e;
+    border-color: #ff466e;
+    width: 100%;
+    margin-right: 0;
 }
 
 @media only screen and (max-width: 768px) {
@@ -721,6 +737,7 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
         padding: 1.2vh 3.2vw;
         max-width: 100vw;
         font-size: 6vw;
+        border-right: none;
     }
     .button-container h1 {
         font-size: 12vw;
