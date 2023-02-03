@@ -700,10 +700,6 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
     border-color: #ee204e;
 }
 
-.button-list button:hover:before {
-    padding-right: 1%;
-}
-
 .button-list button:hover {
     background-color: rgb(125, 61, 189);
     width: 100%;
@@ -738,6 +734,7 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
         max-width: 100vw;
         font-size: 6vw;
         border-right: none;
+        text-align: center;
     }
     .button-container h1 {
         font-size: 12vw;
@@ -745,6 +742,29 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
         margin: 4vw 0;
         text-decoration: underline;
         width: 100vw;
+    }
+    .button-list button.HAT {
+        background-color: #ee204e;
+        border-color: #ee204e;
+    }
+    
+    .button-list button:hover {
+        background-color: rgb(125, 61, 189);
+    }
+    
+    .button-list button.HAT:hover {
+        background-color: #ff466e;
+        border-color: #ff466e;
+    }
+    
+    .button-list button:active, .button-list button:focus, .button-list .button-pressed {
+        background-color: rgb(109, 80, 238);
+        border-color: rgb(109, 80, 238);
+    }
+    
+    .button-list button.HAT:hover, .button-list button.HAT:active, .button-list button.HAT:focus, .button-list button.HAT.button-pressed {
+        background-color: #ff466e;
+        border-color: #ff466e;
     }
 }
 
