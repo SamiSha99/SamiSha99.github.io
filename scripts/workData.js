@@ -146,3 +146,22 @@ function GetNotice(notice) {
     div.appendChild(p)
     return div.innerHTML != "" ? div : undefined;
 }
+
+function resizeButtonTextToFit() {
+    let buttons = document.querySelectorAll(".button-list > button");   
+    let minimumHeight = -1;
+    
+    for(i = 0; i < buttons.length; i++) {
+        if(minimumHeight == -1 || minimumHeight > buttons[i].clientHeight) minimumHeight = buttons[i].clientHeight;
+    }
+
+    for(i = 0; i < buttons.length; i++) {
+        buttons[i].style.fontSize = "1.75vw";
+        if(buttons[i].clientHeight > minimumHeight) {
+            buttons[i].style.fontSize = (parseFloat(buttons[i].style.fontSize) - 0.25).toString() + "vw"; 
+        }
+    }
+}
+
+// slight fit
+resizeButtonTextToFit();
