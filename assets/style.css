@@ -637,8 +637,8 @@ button.HAT:hover {
 }
 
 button:active, button:focus, .button-pressed {
-    background-color: rgb(109, 80, 238);
-    border-color: rgb(109, 80, 238);
+    background-color: rgb(61, 95, 189);
+    border-color: rgb(68, 117, 252);
 }
 
 button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed {
@@ -702,20 +702,20 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 
 .button-list button:hover {
     background-color: rgb(125, 61, 189);
-    width: 100%;
-    margin-right: 0;
+    width: 96.25%;
+    margin-right: 3.75%;
 }
 
 .button-list button.HAT:hover {
     background-color: #ff466e;
     border-color: #ff466e;
-    width: 100%;
-    margin-right: 0;
+    width: 96.25%;
+    margin-right: 3.75%;
 }
 
-.button-list button:active, .button-list button:focus, .button-list .button-pressed {
-    background-color: rgb(109, 80, 238);
-    border-color: rgb(109, 80, 238);
+.button-list button:active, .button-list button:focus, .button-list .button-pressed, .button-list .button-pressed:focus {
+    background-color: rgb(61, 95, 189);
+    border-color: rgb(68, 117, 252);
     width: 100%;
     margin-right: 0;
 }

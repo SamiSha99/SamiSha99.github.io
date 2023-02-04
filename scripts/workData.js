@@ -10,6 +10,9 @@ function showContent(input) {
         scrollIfOutOfSight(showcaseContent);
         return;
     }
+    
+    let b = document.getElementsByClassName("button-pressed");
+    for (i = 0; i < b.length; i++) b[i].classList.remove("button-pressed");
 
     // get data
     let c = GetContent(contentName);
@@ -40,10 +43,7 @@ function showContent(input) {
 
     // save last click (desktop only)
     if(window.innerWidth > 768) shownContentName = contentName;
-    let b = document.getElementsByClassName("button-pressed");
-
-    for (i = 0; i < b.length; i++)
-        b[i].classList.remove("button-pressed");
+    
 
     input.classList.add("button-pressed")
 
