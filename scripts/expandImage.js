@@ -64,14 +64,8 @@ function GetZIndex(offset = 0) {
 }
 
 function GetImageDescription(img, isVideo = false, vidIndex = 0) {
-    let str;
-    if (isVideo)
-        str = img[vidIndex].title;
-    else
-        str = img.getAttribute("title");
-
-    if (IsEmptyOrSpaces(str))
-        str = "";
+    let str = isVideo ? img[vidIndex].title : img.getAttribute("title");
+    if (IsEmptyOrSpaces(str)) str = "";
 
     switch (str) {
         case null:
