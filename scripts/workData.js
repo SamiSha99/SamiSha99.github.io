@@ -121,8 +121,7 @@ function GetAssets(images, videos) {
             vid.poster = "./assets/images/" + videos[i].poster;
             vid.innerHTML += "<source src=\"./assets/videos/" + videos[i].src + "\" title=\"" + videos[i].title + "\" type=\"" + videos[i].type + "\" />"
             block.appendChild(vid);
-            //if (videos[i].playIcon != undefined && videos[i].playIcon)
-               /// block.appendChild(GetPlayIcon());
+            //if (videos[i].playIcon != undefined && videos[i].playIcon) block.appendChild(GetPlayIcon());
         }
         div.appendChild(block);
     }
