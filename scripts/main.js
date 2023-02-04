@@ -1,24 +1,13 @@
-const alert = false;
-
 var canvas, ctx, lines = [];
-
-var color = "rgb(120, 81, 169)";
-const transparentWhite = "rgba(255, 255, 255, 0.55)";
-
-// When out of focus
-var onStartUpTimer, isPaused;
-// When Update function is valid.
-var isInitialized;
-// Attributes
-const lineLength = 350,
-    lineThickness = 4.5,
-    maxSpeed = 2000,
-    minSpeed = 1500,
-    maxLines = 100;
+const color = "rgb(120, 81, 169)", transparentWhite = "rgba(255, 255, 255, 0.55)";
+var isPaused, isInitialized;
+// Line Attributes
+const lineLength = 350, lineThickness = 4.5, maxLines = 100;
+// Line Speed
+const speedRange = [1500, 2000];
 // Spawn rate
 // 1 / this -> in seconds
-const maxDelayInterval = 14.0,
-    minDelayInterval = 18.0;
+const spawnAmountRange = [14.0, 18.0];
 
 function AddNewLine() {
     let multiplier = Math.max(canvas.height / 1080 * 1.25, 1);
@@ -26,9 +15,8 @@ function AddNewLine() {
         let line = {};
         line.direction = GetDirection(Math.floor(Math.random() * 2));
         line.offset = GetOffSet();
-        line.speed = randRange(minSpeed, maxSpeed) * GetSpeedDirection(line.direction);
+        line.speed = randRange(speedRange[0], speedRange[1]) * GetSpeedDirection(line.direction);
         line.location = GetLocation(line.direction);
-
         lines.push({
             direction: line.direction,
             offset: line.offset,
@@ -36,7 +24,7 @@ function AddNewLine() {
             startSpeed: line.speed,
             location: line.location,
         });
-        spawnLineDelay = (1 / multiplier) * randRange(1/minDelayInterval, 1/maxDelayInterval);
+        spawnLineDelay = (1 / multiplier) * randRange(1/spawnAmountRange[0], 1/spawnAmountRange[1]);
     }
 }
 
@@ -120,8 +108,8 @@ function GetDirection(val) {
 }
 
 function GetOffSet() {
-    var maxLength = canvas.height;
-    var minLength = maxLength / 96;
+    let maxLength = canvas.height;
+    let minLength = maxLength / 96;
     return randRangeInt(minLength, maxLength);
 }
 
@@ -175,8 +163,7 @@ function Update(delta) {
     canvas.height = Math.max(document.body.clientHeight, window.innerHeight, 0);
 
     spawnLineDelay -= delta;
-    if (spawnLineDelay <= 0)
-        AddNewLine();
+    if (spawnLineDelay <= 0) AddNewLine();
     drawLine();
     moveLine(delta);
 }
@@ -185,54 +172,21 @@ window.onfocus = function () {
     prevTime = undefined;
     isPaused = false;
     AddNewLine();
-    if (!isInitialized)
-        setTimeout(function () {
-            onStartUpDelay()
-        }, 500);
 };
 
 window.onblur = function () {
     prevTime = undefined;
     isPaused = true;
-    if (!isInitialized)
-        clearTimeout(onStartUpTimer);
 };
 
 function PostBeginScriptRunning() {
-    let pageName = window.location.pathname.split("/").pop()
-    let inHomePage = (pageName == "index.html" || pageName == "");
-    let startUpDelay = 0;
-    /*
-    if (alert) {
-        switch(pageName)
-        {
-            case "":
-            case "index.html":
-                document.body.appendChild(GetAlert("Mobile Not Supported"));
-                break;
-            case "mywork.html":    
-                document.body.appendChild(GetAlert("Page is Work In Progress, terrible on phone!!"));
-                break;    
-            default:
-                break;    
-        }
-    }
-    */
-
-    //AppendNavBar(true);
     AppendCanvas();
-
     canvas = document.getElementById("canvas-background");
     ctx = canvas.getContext("2d");
     document.body.style.background = color;
-    onStartUpTimer = setTimeout(function () {
-        onStartUpDelay()
-    }, startUpDelay);
-}
-
-function onStartUpDelay() {
     isInitialized = true;
     AddNewLine();
+    requestAnimationFrame(loop);
 }
 
 function AppendNavBar(noFade = true) {
@@ -255,10 +209,6 @@ function AppendNavBar(noFade = true) {
     document.body.insertBefore(div, document.body.firstChild);
 }
 
-function AppendFooter(noFade = true) {
-
-}
-
 function GetIndexClassName(indx) {
     
     if (indx == navbarURLsMap.length - 1)
@@ -271,15 +221,6 @@ function AppendCanvas() {
     let canvas = document.createElement("canvas");
     canvas.id = "canvas-background";
     document.body.insertBefore(canvas, document.body.firstChild);
-
-}
-
-function GetAlert(str = "Mobile Not Supported") {
-    let div = document.createElement("div");
-    div.classList.add("alert");
-    div.classList.add("info-block");
-    div.innerHTML = "<p>"+ str +"</p>"
-    return div;
 }
 
 function OpenProjectLink(button) {
@@ -300,4 +241,3 @@ function _0x3c5033() {
 }
 
 PostBeginScriptRunning();
-requestAnimationFrame(loop);

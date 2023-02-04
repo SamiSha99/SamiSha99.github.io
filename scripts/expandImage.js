@@ -10,10 +10,8 @@ var expandDeepCount = 0;
 const ZINDEX_SHOWCASE = 1000;
 
 function showcaseImage(img, isVideo = false, vidIndex = 0) {
-
     let divShowcase = CreateShowcaseElement("showcase-img", "image-showcase");
     let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
-
     if (isVideo) {
         let source = img.getElementsByTagName("source");
         divShowcase.innerHTML += '<video class="showcase-img-scalein" id="shown-img" controls autoplay="true"> <source src="' + source[vidIndex].src + '" type="' + source[vidIndex].type + '" /> </video>'
@@ -35,17 +33,12 @@ function expandContent() {
 }
 
 function DoShowcase(darkenDiv, divShowcase) {
-
     isShowcaseFadingIn = true;
-
     if (expandDeepCount == 0 || expandDiv == undefined) AddExpanderDiv();
-    
     expandDiv.appendChild(darkenDiv);
     expandDiv.appendChild(divShowcase);
-
     contentArr[expandDeepCount] = {dark: darkenDiv, showcase: divShowcase};
     expandDeepCount++;
-
     setTimeout(
         function () {
             isShowcaseFadingIn = false;
@@ -84,7 +77,7 @@ function GetImageDescription(img, isVideo = false, vidIndex = 0) {
         case null:
         case undefined:
         case "":
-            console.warn("Could not find description, " + (img.hasAttribute("title") ? "title specifier has invalid text." : "title was not specified."));
+            //console.warn("Could not find description, " + (img.hasAttribute("title") ? "title specifier has invalid text." : "title was not specified."));
             str = "<i>No description found.</i>";
             break;
     }

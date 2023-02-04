@@ -91,12 +91,9 @@ function GetDetails(name, descriptions, notice) {
      "<div class=\"div-assetTitle\"><h2 id=\"assetsTitle\">" + name.toUpperCase() + "</h2></div>" +
     "<div title=\"Click to expand the content!\" class=\"div-expand-icon expand-icon\" onclick=\"expandContent()\">" + GetExpand() + "</div>" + 
     "</div>";
-    if (notice != undefined)
-        div.appendChild(GetNotice(notice));
-
-   let divDesc = document.createElement("div");
-    for (i = 0; i < descriptions.length; i++)
-        divDesc.innerHTML += "<p>" + descriptions[i] + "</p>";
+    if (notice != undefined) div.appendChild(GetNotice(notice));
+    let divDesc = document.createElement("div");
+    for (i = 0; i < descriptions.length; i++) divDesc.innerHTML += "<p>" + descriptions[i] + "</p>";
     div.appendChild(divDesc);
     return div.innerHTML != "" ? div : undefined;
 }
@@ -142,12 +139,10 @@ function GetPlayIcon() {
 
 function GetNotice(notice) {
     let div = document.createElement("div");
-    div.classList.add("p-notice-container");
-
     let p = document.createElement("p");
+    div.classList.add("p-notice-container");
     p.classList.add("p-notice")
     p.innerHTML += notice;
     div.appendChild(p)
-
     return div.innerHTML != "" ? div : undefined;
 }
