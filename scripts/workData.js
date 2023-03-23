@@ -2,7 +2,7 @@ var shownContentName = "";
 
 
 function showContent(input) {
-    let contentName = input.value;
+    let contentName = input.innerHTML;
     // Get the container
     let showcaseContent = document.getElementById("showcasedContent");
 
