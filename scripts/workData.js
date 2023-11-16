@@ -155,7 +155,7 @@ function resizeButtonTextToFit() {
     }
 
     for(i = 0; i < buttons.length; i++) {
-        buttons[i].style.fontSize = "1.75vw";
+        //buttons[i].style.fontSize = "1.75vw";
         if(buttons[i].clientHeight > minimumHeight) {
             buttons[i].style.fontSize = (parseFloat(buttons[i].style.fontSize) - 0.25).toString() + "vw"; 
         }

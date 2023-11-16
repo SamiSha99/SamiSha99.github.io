@@ -684,15 +684,26 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 }
 
 .button-list button {
-    padding: 1.5vh;
-    font-size: 1.75vw;
+    padding: 1.1vh;
+    font-size: 1.333vw;
+    font-style: italic;
     width: 92.5%;
     margin-right: 7.5%;
     border-top: 1px solid #9c4bec;
+    border-bottom: 1px solid #9c4bec;
     border-right: 5px solid #9c4bec;
     text-align: right;
+    
     transition-duration: 0.2s;
     display: block;
+}
+
+.button-list button:first-child {
+    border-top: 2px solid #9c4bec;
+}
+
+.button-list button:last-child {
+    border-bottom: 2px solid #9c4bec;
 }
 
 .button-list button.HAT {
@@ -702,15 +713,15 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 
 .button-list button:hover {
     background-color: rgb(125, 61, 189);
-    width: 96.25%;
-    margin-right: 3.75%;
+    width: 97.5%;
+    margin-right: 2.5%;
 }
 
 .button-list button.HAT:hover {
     background-color: #ff466e;
     border-color: #ff466e;
-    width: 96.25%;
-    margin-right: 3.75%;
+    width: 97.5%;
+    margin-right: 2.5%;
 }
 
 .button-list button:active, .button-list button:focus, .button-list .button-pressed, .button-list .button-pressed:focus {
@@ -723,8 +734,8 @@ button.HAT:hover, button.HAT:active, button.HAT:focus, button.HAT.button-pressed
 .button-list button.HAT:hover, .button-list button.HAT:active, .button-list button.HAT:focus, .button-list button.HAT.button-pressed {
     background-color: #ff466e;
     border-color: #ff466e;
-    width: 100%;
-    margin-right: 0;
+    width: 97.5%;
+    margin-right: 2.5%;
 }
 
 @media only screen and (max-width: 768px) {
