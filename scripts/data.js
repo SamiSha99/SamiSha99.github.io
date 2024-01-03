@@ -45,7 +45,7 @@ languagesMap = [
 
 // Info
 contactsMap = [
-    {name: "twitter", link:"https://twitter.com/SamiSha_", linkName:"SamiSha_"},
+    //{name: "twitter", link:"https://twitter.com/SamiSha_", linkName:"SamiSha_"},
     {name: "github", link:"https://github.com/SamiSha99", linkName:"SamiSha99"},
     {name:"linkedin", link:"https://www.linkedin.com/in/sami-shakkour/", linkName:"sami-shakkour"},
     {name: "youtube", link:"https://www.youtube.com/c/SamiSha", linkName:"SamiSha"}
