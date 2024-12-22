@@ -5,7 +5,7 @@ colorPicker.addEventListener('input', onChange, false);
 
 function onChange(event) {
     let c = hexToRGB(event.target.value);
-    color = {"R": c[0], "G": c[1], "B": c[2]};
+    color = { "R": c[0], "G": c[1], "B": c[2] };
     setBackgroundColor();
 }
 
@@ -15,7 +15,7 @@ function readURL() {
     let G = params.get("G") ? parseInt(params.get("G")) : 0;
     let B = params.get("B") ? parseInt(params.get("B")) : 0;
     colorPicker.value = rgbToHex(R, G, B);
-    color = {"R": R, "G": G, "B": B};
+    color = { "R": R, "G": G, "B": B };
     setBackgroundColor();
 }
 
@@ -28,6 +28,9 @@ function setBackgroundColor() {
     let hex = document.getElementById("color-hex");
     hex.style.color = black;
     hex.innerHTML = rgbToHex(color["R"], color["G"], color["B"]);
+
+    let text = document.getElementById("choose-text");
+    text.style.color = black;
 
     let header = document.getElementById("color-header");
     header.style.color = black;
