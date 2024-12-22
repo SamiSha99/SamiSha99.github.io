@@ -24,7 +24,7 @@ function AddNewLine() {
             startSpeed: line.speed,
             location: line.location,
         });
-        spawnLineDelay = (1 / multiplier) * randRange(1/spawnAmountRange[0], 1/spawnAmountRange[1]);
+        spawnLineDelay = (1 / multiplier) * randRange(1 / spawnAmountRange[0], 1 / spawnAmountRange[1]);
     }
 }
 
@@ -135,24 +135,17 @@ var worldDilation = 1;
 
 function loop() {
     var delta;
-
     if (!isPaused && isInitialized) {
-
         var time = new Date();
-
         if (prevTime != undefined) {
-
             delta = time - prevTime;
             delta /= 1000;
             delta *= worldDilation;
         }
-
         prevTime = time;
-
         if (delta != undefined)
             Update(delta);
     }
-
     requestAnimationFrame(loop);
 }
 
@@ -171,7 +164,7 @@ function Update(delta) {
 window.onfocus = function () {
     prevTime = undefined;
     isPaused = false;
-    AddNewLine();
+    // AddNewLine();
 };
 
 window.onblur = function () {
@@ -181,7 +174,7 @@ window.onblur = function () {
 
 function PostBeginScriptRunning() {
     AppendCanvas();
-    canvas = document.getElementById("canvas-background");
+    canvas = document.getElementById("mainCanvas");
     ctx = canvas.getContext("2d");
     document.body.style.background = color;
     isInitialized = true;
@@ -189,55 +182,13 @@ function PostBeginScriptRunning() {
     requestAnimationFrame(loop);
 }
 
-function AppendNavBar(noFade = true) {
-    let div = document.createElement("div");
-    div.id = "nav";
-    div.classList.add("nav-top");
-    if (!noFade)
-        div.classList.add("fade-in-nav");
-
-    let stringinnerHTML = "";
-    let val = navbarURLsMap.length;
-    for (i = 0; i < val; i++) {
-        stringinnerHTML += '<div class="' + GetIndexClassName(i) + '" ><a href="./' + navbarURLsMap[i].url + '">' + navbarURLsMap[i].name + '</a></div>';
-        if (i + 1 == val)
-            stringinnerHTML += '</div>';
-
-    }
-    stringinnerHTML += '</div>';
-    div.innerHTML = stringinnerHTML;
-    document.body.insertBefore(div, document.body.firstChild);
-}
-
-function GetIndexClassName(indx) {
-    
-    if (indx == navbarURLsMap.length - 1)
-        return "nav-block";
-    else
-        return "nav-block-end";
-}
-
-function AppendCanvas() {
-    let canvas = document.createElement("canvas");
-    canvas.id = "canvas-background";
-    document.body.insertBefore(canvas, document.body.firstChild);
-}
-
-function OpenProjectLink(button) {
-    window.open(button.title, '_blank');
-}
-
 // 🤫😅🤭🙈🙉🙊
 function _0x3c5033() {
-    return;
     let _0x1d5b15 = "U1RKV2RGbFhiSE09";
     let _0x5bf685 = "WXpKR2RHRlROWHBoUjBaeVlUSTVNV05yUW05aU0xSjBXVmRzYzB4dFRuWmlVVDA5";
     for (let _0x35a4c9 = 0; _0x35a4c9 < 3; _0x35a4c9++) {
         _0x1d5b15 = atob(_0x1d5b15);
         _0x5bf685 = atob(_0x5bf685);
     }
-    document.querySelector(_0x1d5b15).innerHTML = "Click Here!";
-    document.querySelector(_0x1d5b15).href = "mailto:" + _0x5bf685;
+    window.location.href = "mailto:" + _0x5bf685;
 }
-
-PostBeginScriptRunning();
