@@ -4,7 +4,7 @@ canvas {
 }
 
 body {
-    width: 70%;
+    width: min(640px, 95%);
     margin: auto;
     background-color: rgb(0, 0, 0);
     color: white;
