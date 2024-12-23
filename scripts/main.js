@@ -1,16 +1,12 @@
 var canvas, ctx, lines = [];
-const color = "rgb(120, 81, 169)", transparentWhite = "rgba(255, 255, 255, 0.55)";
+const color = "rgb(0, 0, 0)", transparentWhite = "rgba(255, 255, 255, 0.2)";
 var isPaused, isInitialized;
-// Line Attributes
-const lineLength = 350, lineThickness = 4.5, maxLines = 100;
-// Line Speed
-const speedRange = [1500, 2000];
-// Spawn rate
-// 1 / this -> in seconds
-const spawnAmountRange = [14.0, 18.0];
+const lineLength = 100, lineThickness = 2, maxLines = 100;
+const speedRange = [1200, 1600];
+const spawnAmountRange = [4, 8];
 
 function AddNewLine() {
-    let multiplier = Math.max(canvas.height / 1080 * 1.25, 1);
+    let multiplier = Math.max(canvas.height / 1080, 1);
     if (lines.length < Math.round(maxLines * multiplier)) {
         let line = {};
         line.direction = GetDirection(Math.floor(Math.random() * 2));
@@ -70,6 +66,7 @@ function drawLine() {
                 // set up gradient going from left to right.
                 grd.addColorStop(clamp((lines[i].location + lineLength) / canvas.width, 0, 1), color);
                 grd.addColorStop(clamp((lines[i].location) / canvas.width, 0, 1), transparentWhite);
+                console.log(lines[0].location, lines[0].offset);
                 ctx.moveTo(lines[i].location, lines[i].offset);
                 ctx.lineTo(lines[i].location + lineLength, lines[i].offset);
                 break;
@@ -91,7 +88,7 @@ function drawLine() {
 function moveLine(delta) {
 
     if (lines.length <= 0) return;
-
+    console.log("lines:", lines.length);
     for (i = 0; i < lines.length; i++) {
         lines[i].location += lines[i].speed * delta;
         lines[i].speed += lines[i].startSpeed * delta;
@@ -146,6 +143,7 @@ function loop() {
         if (delta != undefined)
             Update(delta);
     }
+    console.log("updating..");
     requestAnimationFrame(loop);
 }
 
@@ -164,7 +162,6 @@ function Update(delta) {
 window.onfocus = function () {
     prevTime = undefined;
     isPaused = false;
-    // AddNewLine();
 };
 
 window.onblur = function () {
@@ -173,10 +170,11 @@ window.onblur = function () {
 };
 
 function PostBeginScriptRunning() {
-    AppendCanvas();
-    canvas = document.getElementById("mainCanvas");
-    ctx = canvas.getContext("2d");
-    document.body.style.background = color;
+    const c = document.createElement("canvas");
+    c.id = "mainCanvas";
+    ctx = c.getContext("2d");
+    canvas = c;
+    document.body.insertBefore(c, document.body.firstChild)
     isInitialized = true;
     AddNewLine();
     requestAnimationFrame(loop);
@@ -196,3 +194,5 @@ function _0x3c5033() {
     }
     window.location.href = "mailto:" + _0x5bf685;
 }
+
+PostBeginScriptRunning();

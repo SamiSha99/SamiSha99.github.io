@@ -11,11 +11,14 @@ canvas {
 }
 
 body {
-    width: min(768px, 95%);
-    margin: auto;
     background-color: rgb(0, 0, 0);
     color: var(--primary-text-color);
     font-family: monospace;
+}
+
+#mainpage {
+    width: min(768px, 95%);
+    margin: auto;
 }
 
 button {
