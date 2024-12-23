@@ -55,6 +55,7 @@ function reWriteImage(child) {
     img.setAttribute('onclick', 'showcaseImage(this)');
     img.setAttribute('src', IMG_DIRECTORY + child.getAttribute("src"));
     img.setAttribute('title', child.innerHTML);
+    // img.appendChild(createLabel("image"));
     return img;
 }
 
@@ -64,14 +65,13 @@ function reWriteVideo(child) {
     let div = createDiv(VIDEO_CLASS);
 
     div.setAttribute('onclick', 'showcaseImage(this, true)');
-
     source.setAttribute('src', VIDEO_DIRECTORY + child.getAttribute("src"));
     source.setAttribute('title', child.innerHTML);
     source.setAttribute('type', 'video/mp4');
     video.muted = child.hasAttribute('muted');
     video.appendChild(source);
     div.appendChild(video);
-
+    div.appendChild(createLabel("video"));
     return div;
 }
 
@@ -83,6 +83,20 @@ function reWriteButton(child) {
     button.setAttribute('onclick', clickLink);
     button.innerHTML = child.getAttribute("desc");
     return button;
+}
+
+function createLabel(type = "image") {
+    const div = document.createElement("div");
+    div.classList.add("label-content");
+    switch (type) {
+        case "image":
+            div.innerHTML = '<i class="fas fa-images"></i>';
+            break;
+        case "video":
+            div.innerHTML = '<i class="fas fa-video"></i>';
+            break;
+    }
+    return div;
 }
 
 function reWriteHTMLPage() {

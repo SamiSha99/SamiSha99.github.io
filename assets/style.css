@@ -1,34 +1,57 @@
+:root {
+    --visited-link-color: rgb(79, 149, 255);
+    --hovered-link-color: rgb(242, 255, 61);
+    --content-expander-color: rgb(132, 113, 238);
+}
+
 canvas {
     position: absolute;
     z-index: -1;
 }
 
 body {
-    width: min(640px, 95%);
+    width: min(768px, 95%);
     margin: auto;
     background-color: rgb(0, 0, 0);
-    color: white;
+    color: ghostwhite;
     font-family: monospace;
 }
 
 button {
-    border: 2px dashed white;
+    border: 2px solid ghostwhite;
     padding: 5px;
     background-color: black;
-    color: white;
+    color: ghostwhite;
 }
 
 button:hover {
-    color: lime;
-    border: 2px dashed lime;
+    color: var(--hovered-link-color);
+    border: 2px solid var(--hovered-link-color);
     cursor: pointer;
 }
 
 hr {
-    background-color: white;
+    background-color: ghostwhite;
     border: 0 none;
-    color: white;
+    color: ghostwhite;
     height: 3px;
+}
+
+a:visited {
+    color: var(--visited-link-color);
+}
+
+a:hover {
+    color: var(--hovered-link-color);
+}
+
+/* 7abibi, ana ba3ref eno el bots saro kter mne7 */
+.e-hidden {
+    overflow-wrap: break-word;
+    text-decoration: underline;
+    hyphens: auto;
+    cursor: pointer;
+    color: var(--visited-link-color);
 }
 
 /* Expand images and images in general */
@@ -39,8 +62,8 @@ hr {
     height: 10%;
     text-align: center;
     flex-wrap: wrap;
-    justify-content: center; 
-    
+    justify-content: center;
+
 }
 
 .expand-video {
@@ -48,73 +71,62 @@ hr {
     height: 100%;
     text-align: center;
     flex-wrap: wrap;
-    justify-content: center; 
+    justify-content: center;
     position: relative;
+    margin: 5px;
+    transition: transform 0.15s ease;
 }
 
-.expand-assets img, .expand-assets video {
-    margin: 4px;
-    width: 240px;
-    height: 135px;
+.expand-assets img,
+.expand-assets video {
+    width: 200px;
+    height: 120px;
+    min-width: 200px;
+    min-height: 120px;
     object-fit: cover;
-    border: 5px solid rgb(255, 255, 255);
+    border: 5px solid var(--visited-link-color);
     background-color: rgb(255, 255, 255);
-    transition: transform 0.15s ease;
-    cursor: zoom-in
-}
-
-.expand-icon .fa-expand
-{
-    transition: transform 0.15s ease;
-    cursor: zoom-in
-}
-
-.expand-video .fa-play {
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.15s ease;
-    border: 7px solid rgb(255, 255, 255);
-    padding: 15px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
     cursor: zoom-in;
+    transition: transform 0.15s ease;
 }
 
-.expand-assets img:hover, .expand-assets .expand-video:hover video {
+.expand-assets img:hover,
+.expand-video:hover {
     transform: scale(1.15);
     z-index: 2;
 }
 
-.expand-icon .fa-expand:hover {
-    transform: scale(1.25);
-    z-index: 2;
-}
-
-.expand-assets .expand-video:hover i {
-    transform: scale(1.15) translate(-42%, -42%);
-    z-index: 3;
-}
-
-.showcase-img, .showcase-work {
+.label-content {
     position: absolute;
+    background-color: var(--visited-link-color);
+    left: 0;
+    top: 0;
+    padding: 5px;
+    font-size: 24px;
+}
+
+.showcase-img,
+.showcase-work {
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-
     animation: fadeIn 0.3s ease;
     animation-fill-mode: forwards;
     opacity: 0;
     animation-direction: normal;
     cursor: zoom-out;
+}
+
+#expand-div-content {
+    width: 100%;
+    height: 100%;
 }
 
 .showcase-darken {
@@ -187,12 +199,13 @@ hr {
     animation-direction: normal;
 }
 
-.showcase-img img, .showcase-img video {
+.showcase-img img,
+.showcase-img video {
     max-width: 70%;
     max-height: 70%;
     width: auto;
     height: auto;
-    border: 5px solid rgb(255, 255, 255);
+    border: 5px solid ghostwhite;
     cursor: default;
 }
 
@@ -226,6 +239,7 @@ hr {
         transform: translateY(3em);
         opacity: 1;
     }
+
     to {
         transform: translateY(0em);
         opacity: 1;
@@ -233,21 +247,41 @@ hr {
 }
 
 @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeOut {
-    from {opacity: 1;}
-    to {opacity: 0;}
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
 
 @keyframes scaleIn {
-    from {transform: scale(0.25);}
-    to {transform: scale(1);}
+    from {
+        transform: scale(0.25);
+    }
+
+    to {
+        transform: scale(1);
+    }
 }
 
 @keyframes scaleOut {
-    from {transform: scale(1);}
-    to {transform: scale(0.25);}
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0.25);
+    }
 }

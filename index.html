@@ -5,6 +5,8 @@
     <title>SamiSha</title>
     <meta charset="utf-8">
     <meta name="author" content="SamiSha">
+    <meta name="description" content="My Website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="./assets/FontAwesome/css/all.css">
@@ -19,12 +21,12 @@
             <a href="https://github.com/SamiSha99/" target="_blank"><i class="fab fa-github"
                     style="font-size:  32px"></i></a>
         </h1>
-        <h3>Email: <a onclick="_0x3c5033()" href=""
-                style=" overflow-wrap: break-word; hyphens: auto;">WXpKR2RHRlROWHBoUjBaeVlUSTVNV05yUW05aU0xSjBXVmRzYzB4dFRuWmlVVDA5</a>
+        <h3>Email: <a onclick="_0x3c5033()" class="e-hidden">&lt;hidden&gt;</a>
             (hello bots)</h3>
         <div>
             <p>
-                Hello! I also go by the online alias SamiSha or just simply Sami, an Arab living in the Haifa District.
+                Hello! I also go by the online alias SamiSha, you may have talked to me on social medias, Discord or
+                Forums, I am an Arab living in the Haifa District.
                 Graduated from the Arab American University with a <span
                     style="color: rgb(79, 149, 255);text-decoration: underline;">B.S in
                     Computer Science</span>, I like music, swim and spend the rest of my time solving
@@ -42,10 +44,12 @@
             <div>
                 <h2>3D Builder</h2>
                 <p>
-                    An online 3D editor to quickly modify models as needed for Orb-AR tools directly from the web.
+                    An online 3D editor to quickly modify models as needed for Orb-AR tools directly from the web. Can
+                    convert to any ThreeJS supported format for 3D Models and the ability to screenshot, play
+                    animations, and modify geometry.
                 </p>
                 <content>
-                    <vid src="3d_editor.mp4">3D Builder in action, built in ThreeJS, UI is <a
+                    <vid src="3d_editor.mp4">3D Builder in action, built in ThreeJS, UI was made using <a
                             href="https://ant.design/">AntDesign</a></vid>
                 </content>
             </div>
@@ -64,13 +68,21 @@
                     the Arab American University and the research took 4 weeks. VR Headset: Meta Quest Pro. Made with
                     Unity.
                 </p>
+                <p>
+                    Contains homebrew solution to localize Arabic correctly on UI elements which should work with other
+                    Right to Left languages such as Hebrew, Persian and so on.
+                </p>
             </div>
             <div>
                 <h2>Online Communication |
+                    <button title="https://github.com/SamiSha99/OnlineCommunication/"
+                        onclick="OpenProjectLink(this)">Repository</button>
                     <button title="https://www.youtube.com/watch?v=Ji-0uD2mBEM"
                         onclick="OpenProjectLink(this)">Trailer</button>
                     <button title="https://steamcommunity.com/sharedfiles/filedetails/?id=3276508705"
                         onclick="OpenProjectLink(this)">Steam Workshop</button>
+                    <button title="https://github.com/SamiSha99/OnlineCommunication/wiki"
+                        onclick="OpenProjectLink(this)">Mod Wiki</button>
                 </h2>
                 <p>
                     A communication mod that takes your actions and show it to everyone else in the lobby! The objective
@@ -81,10 +93,16 @@
                     to
                     appear in.
                 </p>
+                <p>
+                    Has modding support implemented on top of it, allowing modders to make packs desinged to add
+                    localization for custom objects in their mods or translate the packs with new text entirely in other
+                    supported languages.
+                </p>
                 <content>
                     <vid src="casual_conversation.mp4">The chat can work on players who don't even have the mod
                         installed
-                        and will print all their behaviors in readable format</vid>
+                        and will print all their behaviors in readable format
+                    </vid>
                     <vid src="self_made_ui_example.mp4">
                         UI settings using a custom homebrew solution.
                     </vid>
@@ -92,10 +110,10 @@
             </div>
             <div>
                 <h2>Point and Interact Framework |
-                    <button
-                        title="https://sami.shakkour.dev/projects/hat-point-and-interact-framework.html">Repository</button>
-                    <button
-                        title="https://sami.shakkour.dev/projects/hat-point-and-interact-framework.html">Page</button>
+                    <button title="https://sami.shakkour.dev/projects/hat-point-and-interact-framework.html"
+                        onclick="OpenProjectLink(this)">Repository</button>
+                    <button title="https://sami.shakkour.dev/projects/hat-point-and-interact-framework.html"
+                        onclick="OpenProjectLink(this)">Page</button>
                 </h2>
                 A framework for A Hat in Time modders, it implements a point and interact functionality between the
                 screen
@@ -112,6 +130,8 @@
                 </p>
             </div>
         </div>
+        <hr />
+        -Sami Shakkour | 2025
     </div>
     <br />
     <script src="./scripts/main.js"></script>
