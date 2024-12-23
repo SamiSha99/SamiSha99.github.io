@@ -75,6 +75,10 @@ a:hover {
     transition: transform 0.15s ease;
 }
 
+.expand-assets img {
+    margin: 5px;
+}
+
 .expand-assets img,
 .expand-assets video {
     width: 200px;
