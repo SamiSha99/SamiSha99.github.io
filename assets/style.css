@@ -69,11 +69,6 @@ a:hover {
 }
 
 .expand-video {
-    display: flex;
-    height: 100%;
-    text-align: center;
-    flex-wrap: wrap;
-    justify-content: center;
     position: relative;
     margin: 5px;
     transition: transform 0.15s ease;
@@ -87,8 +82,6 @@ a:hover {
 .expand-assets video {
     width: 200px;
     height: 120px;
-    min-width: 200px;
-    min-height: 120px;
     object-fit: cover;
     border: 5px solid var(--visited-link-color);
     background-color: rgb(255, 255, 255);
@@ -104,11 +97,12 @@ a:hover {
 
 .label-content {
     position: absolute;
+    display: inline-block;
     background-color: var(--visited-link-color);
     left: 0;
     top: 0;
-    padding: 5px;
-    font-size: 24px;
+    padding: 5px 7px;
+    font-size: 28px;
 }
 
 .showcase-img,
