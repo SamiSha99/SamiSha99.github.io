@@ -14,13 +14,13 @@ function showcaseImage(img, isVideo = false, vidIndex = 0) {
     let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
     if (isVideo) {
         let source = img.getElementsByTagName("source");
-        divShowcase.innerHTML += '<video class="showcase-img-scalein" id="shown-img" controls autoplay="true"> <source src="' + source[vidIndex].src + '" type="' + source[vidIndex].type + '" /> </video>'
+        divShowcase.innerHTML += '<video class="showcase-img-scalein" id="shown-img" controls autoplay="true" muted> <source src="' + source[vidIndex].src + '" type="' + source[vidIndex].type + '" /> </video>'
         divShowcase.innerHTML += GetImageDescription(source, true, vidIndex);
     } else {
         divShowcase.innerHTML += '<img class="showcase-img-scalein" id="shown-img" src="' + img.getAttribute("src") + '" />';
         divShowcase.innerHTML += GetImageDescription(img);
     }
-    DoShowcase(darkenDiv,divShowcase);
+    DoShowcase(darkenDiv, divShowcase);
 }
 
 function expandContent() {
@@ -29,7 +29,7 @@ function expandContent() {
     let dsE = divShowcase.getElementsByClassName("expand-icon");
     dsE[0].innerHTML = '';
     dsE[0].remove();
-    DoShowcase(darkenDiv,divShowcase);
+    DoShowcase(darkenDiv, divShowcase);
 }
 
 function DoShowcase(darkenDiv, divShowcase) {
@@ -37,7 +37,7 @@ function DoShowcase(darkenDiv, divShowcase) {
     if (expandDeepCount == 0 || expandDiv == undefined) AddExpanderDiv();
     expandDiv.appendChild(darkenDiv);
     expandDiv.appendChild(divShowcase);
-    contentArr[expandDeepCount] = {dark: darkenDiv, showcase: divShowcase};
+    contentArr[expandDeepCount] = { dark: darkenDiv, showcase: divShowcase };
     expandDeepCount++;
     setTimeout(
         function () {

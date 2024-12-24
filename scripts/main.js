@@ -1,9 +1,9 @@
 var canvas, ctx, lines = [];
-const color = "rgb(0, 0, 0)", transparentWhite = "rgba(255, 255, 255, 0.2)";
+const color = "rgb(0, 0, 0)", transparentWhite = "rgba(248, 248, 255, 0.3)";
 var isPaused, isInitialized;
 const lineLength = 100, lineThickness = 2, maxLines = 100;
 const speedRange = [1200, 1600];
-const spawnAmountRange = [4, 8];
+const spawnAmountRange = [7, 15];
 
 function AddNewLine() {
     let multiplier = Math.max(canvas.height / 1080, 1);
@@ -150,9 +150,6 @@ function loop() {
 var spawnLineDelay = 0;
 
 function Update(delta) {
-    canvas.width = Math.max(document.body.clientWidth, 0);
-    canvas.height = Math.max(document.body.clientHeight, window.innerHeight, 0);
-
     spawnLineDelay -= delta;
     if (spawnLineDelay <= 0) AddNewLine();
     drawLine();
@@ -174,6 +171,8 @@ function PostBeginScriptRunning() {
     c.id = "mainCanvas";
     ctx = c.getContext("2d");
     canvas = c;
+    c.width = Math.max(document.body.clientWidth, 0);
+    c.height = Math.max(document.body.clientHeight, window.innerHeight, 0);
     document.body.insertBefore(c, document.body.firstChild)
     isInitialized = true;
     AddNewLine();
