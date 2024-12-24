@@ -1,9 +1,9 @@
 var canvas, ctx, lines = [];
 const color = "rgb(0, 0, 0)", transparentWhite = "rgba(248, 248, 255, 0.3)";
 var isPaused, isInitialized;
-const lineLength = 100, lineThickness = 2, maxLines = 100;
-const speedRange = [1200, 1600];
-const spawnAmountRange = [7, 15];
+const lineLength = 25, lineThickness = 2.5, maxLines = 150;
+const speedRange = [75, 250];
+const spawnAmountRange = [15, 40];
 
 function AddNewLine() {
     let multiplier = Math.max(canvas.height / 1080, 1);
@@ -30,10 +30,8 @@ function clamp(n, min, max) {
         min = max;
         max = tmp;
     }
-    if (n < min)
-        return min;
-    if (n > max)
-        return max;
+    if (n < min) return min;
+    if (n > max) return max;
     return n;
 }
 
@@ -52,33 +50,28 @@ function randRangeInt(min, max) {
 }
 
 function drawLine() {
+    console.log(lines.length);
     // clean the frame so we can draw the next one
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    let grd = undefined;
+    ctx.fillStyle = "rgb(0 0 0)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     ctx.lineWidth = lineThickness;
     for (i = 0; i < lines.length; i++) {
         // begin
         ctx.beginPath();
-        // set up gradient canvas
-        grd = ctx.createLinearGradient(0, 0, canvas.width, 0);
         switch (lines[i].direction) {
             case "left":
-                // set up gradient going from left to right.
-                grd.addColorStop(clamp((lines[i].location + lineLength) / canvas.width, 0, 1), color);
-                grd.addColorStop(clamp((lines[i].location) / canvas.width, 0, 1), transparentWhite);
                 ctx.moveTo(lines[i].location, lines[i].offset);
                 ctx.lineTo(lines[i].location + lineLength, lines[i].offset);
                 break;
             case "right":
-                // set up gradient going from right to left.
-                grd.addColorStop(clamp((lines[i].location + lineLength) / canvas.width, 0, 1), transparentWhite);
-                grd.addColorStop(clamp((lines[i].location) / canvas.width, 0, 1), color);
                 ctx.moveTo(lines[i].location + lineLength, lines[i].offset);
                 ctx.lineTo(lines[i].location, lines[i].offset);
                 break;
         }
         // apply gradient
-        ctx.strokeStyle = grd;
+        ctx.strokeStyle = transparentWhite;
+        ctx.lineCap = "round";
         // end
         ctx.stroke();
     }
@@ -145,9 +138,10 @@ function loop() {
 }
 
 var spawnLineDelay = 0;
-
+var time = 0;
 function Update(delta) {
     spawnLineDelay -= delta;
+    time += delta;
     if (spawnLineDelay <= 0) AddNewLine();
     drawLine();
     moveLine(delta);
@@ -167,6 +161,7 @@ function PostBeginScriptRunning() {
     const c = document.createElement("canvas");
     c.id = "mainCanvas";
     ctx = c.getContext("2d");
+
     canvas = c;
     canvas.width = Math.max(document.body.clientWidth, 0);
     canvas.height = Math.max(document.body.clientHeight, window.innerHeight, 0);
