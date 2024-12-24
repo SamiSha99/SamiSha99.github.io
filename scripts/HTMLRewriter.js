@@ -16,6 +16,9 @@ function createContentSection(content) {
     let newContent = [];
     for (let i = 0; i < content.length; i++) {
         let c = createDiv(content[i].hasAttribute("noClass") ? "" : ASSETS_CLASS);
+        if (content[i].hasAttribute("scrollable")) {
+            c.classList.add("expand-assets-scrollable");
+        }
         let childArr = Array.from(content[i].children);
 
         childArr.forEach(child => {
