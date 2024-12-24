@@ -53,7 +53,6 @@ a:hover {
 
 /* 7abibi, ana ba3ref eno el robots asba7o azkeya  */
 .e-hidden {
-    overflow-wrap: break-word;
     text-decoration: underline;
     hyphens: auto;
     cursor: pointer;

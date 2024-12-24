@@ -66,7 +66,6 @@ function drawLine() {
                 // set up gradient going from left to right.
                 grd.addColorStop(clamp((lines[i].location + lineLength) / canvas.width, 0, 1), color);
                 grd.addColorStop(clamp((lines[i].location) / canvas.width, 0, 1), transparentWhite);
-                console.log(lines[0].location, lines[0].offset);
                 ctx.moveTo(lines[i].location, lines[i].offset);
                 ctx.lineTo(lines[i].location + lineLength, lines[i].offset);
                 break;
@@ -88,7 +87,6 @@ function drawLine() {
 function moveLine(delta) {
 
     if (lines.length <= 0) return;
-    console.log("lines:", lines.length);
     for (i = 0; i < lines.length; i++) {
         lines[i].location += lines[i].speed * delta;
         lines[i].speed += lines[i].startSpeed * delta;
@@ -143,7 +141,6 @@ function loop() {
         if (delta != undefined)
             Update(delta);
     }
-    console.log("updating..");
     requestAnimationFrame(loop);
 }
 
@@ -171,8 +168,8 @@ function PostBeginScriptRunning() {
     c.id = "mainCanvas";
     ctx = c.getContext("2d");
     canvas = c;
-    c.width = Math.max(document.body.clientWidth, 0);
-    c.height = Math.max(document.body.clientHeight, window.innerHeight, 0);
+    canvas.width = Math.max(document.body.clientWidth, 0);
+    canvas.height = Math.max(document.body.clientHeight, window.innerHeight, 0);
     document.body.insertBefore(c, document.body.firstChild)
     isInitialized = true;
     AddNewLine();
