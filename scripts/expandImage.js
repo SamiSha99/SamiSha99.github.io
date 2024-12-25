@@ -4,7 +4,7 @@ var contentArr = [],
 var expandDiv;
 var isShowcaseFadingOut, isShowcaseFadingIn;
 
-const clickTimeOut = 175;
+const clickTimeOut = 125;
 
 var expandDeepCount = 0;
 const ZINDEX_SHOWCASE = 1000;

@@ -1,5 +1,5 @@
 var canvas, ctx, lines = [];
-const color = "rgb(0, 0, 0)", transparentWhite = "rgba(248, 248, 255, 0.3)";
+const color = "rgb(0, 0, 0)", transparentWhite = "rgba(248, 248, 255, 0.5)";
 var isPaused, isInitialized;
 const lineLength = 25, lineThickness = 2.5, maxLines = 150;
 const speedRange = [75, 250];
@@ -50,7 +50,6 @@ function randRangeInt(min, max) {
 }
 
 function drawLine() {
-    console.log(lines.length);
     // clean the frame so we can draw the next one
     ctx.fillStyle = "rgb(0 0 0)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
