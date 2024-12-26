@@ -1,9 +1,9 @@
 var canvas, ctx, lines = [];
 const color = "rgb(0, 0, 0)", transparentWhite = "rgba(248, 248, 255, 0.5)";
 var isPaused, isInitialized;
-const lineLength = 25, lineThickness = 2.5, maxLines = 150;
-const speedRange = [75, 250];
-const spawnAmountRange = [15, 40];
+const lineLength = 25, lineThickness = 2.5, maxLines = 200;
+const speedRange = [100, 250];
+const spawnAmountRange = [15, 30];
 
 function AddNewLine() {
     let multiplier = Math.max(canvas.height / 1080, 1);
@@ -70,7 +70,6 @@ function drawLine() {
         }
         // apply gradient
         ctx.strokeStyle = transparentWhite;
-        ctx.lineCap = "round";
         // end
         ctx.stroke();
     }
@@ -81,7 +80,7 @@ function moveLine(delta) {
     if (lines.length <= 0) return;
     for (i = 0; i < lines.length; i++) {
         lines[i].location += lines[i].speed * delta;
-        lines[i].speed += lines[i].startSpeed * delta;
+        lines[i].speed += lines[i].startSpeed * delta * 0.4;
         if (shouldRemoveLine(i)) {
             lines.splice(i, 1);
             i--;
