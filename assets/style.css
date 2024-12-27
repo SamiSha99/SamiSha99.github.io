@@ -1,5 +1,8 @@
+@import url("./FontAwesomeV6/css/all.css");
+
 :root {
     --primary-text-color: ghostwhite;
+    --primary-background-color: black;
     --highlight-text-color: rgb(185, 131, 255);
     --visited-link-color: rgb(79, 149, 255);
     --hovered-link-color: rgb(242, 255, 61);
@@ -22,7 +25,7 @@ canvas {
 }
 
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--primary-background-color);
     color: var(--primary-text-color);
     font-family: monospace;
 }
@@ -35,7 +38,7 @@ body {
 button {
     border: 2px solid var(--primary-text-color);
     padding: 5px;
-    background-color: black;
+    background-color: var(--primary-background-color);
     color: var(--primary-text-color);
 }
 

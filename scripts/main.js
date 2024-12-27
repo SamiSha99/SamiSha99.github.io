@@ -160,30 +160,6 @@ function run() {
     c.id = "mainCanvas";
     ctx = c.getContext("2d");
 
-    // paths
-    const START_DIRECTORY = window.location.pathname.includes("/projects/") ?
-        window.location.pathname.split("/projects/")[0] :
-        window.location.pathname.replace(new RegExp("\/[^/]*$", "gm"), "");
-    const STYLE_PATH = START_DIRECTORY + "/assets/style.css";
-    const FONT_AWESOME_PATH = START_DIRECTORY + "/assets/FontAwesomeV6/css/all.css";
-
-    const head = document.getElementsByTagName("head")[0],
-        cssLink = document.createElement("link");
-    cssLink.href = STYLE_PATH;
-    cssLink.id = "dynamic-css";
-    cssLink.media = "screen";
-    cssLink.type = "text/css";
-    cssLink.rel = "stylesheet";
-
-    const faLink = document.createElement("link");
-    faLink.href = FONT_AWESOME_PATH;
-    faLink.id = "dynamic-css";
-    faLink.media = "screen";
-    faLink.type = "text/css";
-    faLink.rel = "stylesheet";
-    head.appendChild(cssLink);
-    head.appendChild(faLink);
-
     canvas = c;
     canvas.width = Math.max(document.body.clientWidth, 0);
     canvas.height = Math.max(document.body.clientHeight, window.innerHeight, 0);
