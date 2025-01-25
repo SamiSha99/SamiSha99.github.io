@@ -2,6 +2,7 @@
 layout: post
 title:  "PTR Patch Notes | April 1, 2020"
 date:   2020-04-01 12:00:00 +0200
+categories : ['april-fools', 'heroes-of-the-storm']
 ---
 
 ![](/assets/images/hots-april-fools/patch-notes.jpg "Heroes of the Storm Logo")
