@@ -5,81 +5,65 @@ date:   2021-04-01 12:00:00 +0200
 categories : ['april-fools', 'heroes-of-the-storm']
 ---
 
-<div align=center>
-<img src=https://bnetcmsus-a.akamaihd.net/cms/blog_header/sv/SVR8D7VWHIZZ1538765823812.jpg title="">
-</div>
+![](/assets/images/hots-april-fools/patch-notes.jpg "Heroes of the Storm Logo")
 
 Our next Heroes of the Storm patch has just hit the Public Test Realm and will be available for playtesting until April 8th. As always, if you encounter any bugs during your PTR play sessions, please stop by the  [PTR Bug Report](https://us.forums.blizzard.com/en/heroes/c/ptr-bug-report) forum to let us know about your experiences.
 
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
-<a name="top"></a>
 
-# Quick Navigation:
+# Quick Navigation: {#top}
 
-* <a href="#blackthorne">New Hero: Blackthorne</a>
-* <a href="#card-system">Introducing Cards</a>
-* <a href="#steam">Steam</a>
-* <a href="#general">General</a>
-* <a href="#collection">Collection</a>
-* <a href="#nova-rework">Nova Rework</a>
-* <a href="#heroes">Heroes</a>
-* <a href="#bugfixes">Bug Fixes</a>
+* [New Hero: Blackthorne](#blackthorne)
+* [Introducing Cards](#card-system)
+* [Steam](#steam)
+* [General](#general)
+* [Collection](#collection)
+* [Nova Rework](#nova-rework)
+* [Heroes](#heroes)
+* [Bug Fixes](#bugfixes)
 
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
-<a name="blackthorne"></a>
+# New Hero: Blackthorne (Ranged Assassin) {#blackthorne}
 
-# New Hero: Blackthorne (Ranged Assassin)
-
-<div align=center>
-<img src=https://i.imgur.com/2m9AD1B.jpg title="Blackthorne | King of Androth">
-</div>
+![](/assets/images/hots-april-fools/2021/blackthorne.jpeg "Blackthorne, King of Androth")
 
 After years of waiting his destiny on Earth, Kyle Blackthorne has finally come home to face the galaxy's most terrifying mutant monsters and goblin hordes. With brute strength, animal cunning and a lead-spewing shotgun he's on a quest to reclaim his once peaceful Planet Tuul.
 
 With his home world saved, Blackthorne, now roaming the world again in pursuit of his destiny, finds himself in the Nexus.
 
-<h2><img src=https://i.imgur.com/GBTym5w.png height=100 title="King of Androth">King of Androth [Trait]</h2>
+## ![](/assets/images/hots-april-fools/2021/king-of-androth.png){: height="100" } King of Androth [Trait]
+
 Basic attacks splash in a cone in front of you, each time you attack a target your damage increases against them by 5% up to 50%, lasts for 5 seconds per target.
 
-<h2><img src=https://i.imgur.com/5gS1SFs.png height=100 title="Grenade Launcher">Grenade Launcher [Q]</h2>
-<div align=justified>Fire a grenade that explodes in the targeted location, dealing 200 damage and causing the next Basic Attack against hit enemies to deal 100% additional damage and heal for 20% of the damage dealt, increased to 40% against heroes.</div>
+## ![](/assets/images/hots-april-fools/2021/grenade-launcher.png){: height="100" } Grenade Launcher [Q]
 
-<h2><img src=https://i.imgur.com/IcMXmYZ.png height=100 title="Hover Bomb">Hover Bomb [W]</h2>
+Fire a grenade that explodes in the targeted location, dealing 200 damage and causing the next Basic Attack against hit enemies to deal 100% additional damage and heal for 20% of the damage dealt, increased to 40% against heroes.
+
+## ![](/assets/images/hots-april-fools/2021/hover-bomb.png){: height="100" } Hover Bomb [W]
 
 Send forth a hovering bomb that can bounce off terrain and Structures. If an enemy hero gets close to the bomb, it detonates, dealing 140 damage in an area and slowing enemies hit by 35% for 2 seconds.
 
-<h2><img src=https://i.imgur.com/NilLm8w.png height=100 title="Dash">Dash [E]</h2>
+## ![](/assets/images/hots-april-fools/2021/dash.png){: height="100" } Dash [E]
+
 Dash to the target area. While Dashing and for 0.5 seconds, Blackthorne evade enemy Basic Attacks.
 
-<h2><img src=https://i.imgur.com/RATtBxw.png height=100 title="Wasp">Wasp [R1]</h2>
-<div align=justified>Deploy a Wasp with 300 health to an enemy Hero, dealing 240 damage over 3 seconds, then explodes dealing 400 damage to all nearby enemies and silencing them for 2 seconds.</div>
+## ![](/assets/images/hots-april-fools/2021/wasp.png){: height="100" } Wasp [R1]
 
-<h2><img src=https://i.imgur.com/Ha72un4.png height=100 title="Fire Bomb">Fire Bomb [R2]</h2>
-<div align=justified>Throw a Fire Bomb that explodes at a target location, dealing 300 damage in a large area and lighting it on fire, dealing 40 damage per second and slowing enemies by 50%. Lasts 5 seconds.</div>
+Deploy a Wasp with 300 health to an enemy Hero, dealing 240 damage over 3 seconds, then explodes dealing 400 damage to all nearby enemies and silencing them for 2 seconds.
 
-<br/>
+## ![](/assets/images/hots-april-fools/2021/fire-bomb.png){: height="100" } Fire Bomb [R2]
 
-<a href="#top">Return to Top</a>
+Throw a Fire Bomb that explodes at a target location, dealing 300 damage in a large area and lighting it on fire, dealing 40 damage per second and slowing enemies by 50%. Lasts 5 seconds.
 
-<br/>
+[Return to Top](#top)
 
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
-<a name="card-system"></a>
+# Introducing Cards {#card-system}
 
-# Introducing Cards
-
-<div align=center>
-<img src=https://i.imgur.com/Rv7mV4f.jpg title="Cards">
-</div>
+![](/assets/images/hots-april-fools/2021/cards.jpeg "Cards")
 
 Cards is a new system that makes unlocking new heroes much easier and more fun, this should allow players to own heroes more quickly.
 
@@ -93,8 +77,6 @@ Cards will replace hero drops from loot chests and will **allow you to unlock an
 
 Additionally new players will get the following cards as they gradually level up their new account as follows:
 
-<div align=center>
-
 |Level|Card Reward|Rarity Level|
 |:---:|:---:|:---:|
 |5 |Wild Card|Legendary|
@@ -103,7 +85,6 @@ Additionally new players will get the following cards as they gradually level up
 |30|Bruiser Card|Epic|
 |40|Ranged Assassin Card|Legendary|
 |50|Support Card|Legendary|
-</div>
 
 To all our veterans and already above level 50, you will receive a role card for each role as follows:
 
@@ -115,15 +96,11 @@ To all our veterans and already above level 50, you will receive a role card for
 * Epic Bruiser Card.
 
 
-[quote]
-**Developer Comment:** In an attempt to make the nexus more accessible and grants more motivation to play, we came up with the Cards system! This should replace our previous level up system for new players and help them getting a nice boost in expanding their current rooster with at least 1 for each role, causing them to pretty much fill in every single role possible by playing the game normally.
-[/quote]
+> **Developer Comment:** In an attempt to make the nexus more accessible and grants more motivation to play, we came up with the Cards system! This should replace our previous level up system for new players and help them getting a nice boost in expanding their current rooster with at least 1 for each role, causing them to pretty much fill in every single role possible by playing the game normally.
+ 
+[Return to Top](#top)
 
-<a href="#top">Return to Top</a>
-
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
 <a name="steam"></a>
 
@@ -137,40 +114,26 @@ Enjoy your favorite games now with more unique features like a Community Hub, Gu
 
 And don't worry about your progress, simply connect your Steam account with your Blizzard account to continue playing like you normally do!
 
-<div align=center>
-<img src=https://i.imgur.com/r3J9kQd.png title=" ">
-</div>
+![](/assets/images/hots-april-fools/2021/steam.png)
 
-[quote]
-**Developer Comment:** We'll see you all in the Nexus!
-[/quote]
+> **Developer Comment:** We'll see you all in the Nexus!
+ 
+[Return to Top](#top)
 
-<a href="#top">Return to Top</a>
+![](/assets/images/hots-april-fools/hr.png)
 
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
-
-<a name="general"></a>
-
-# General
+# General {#general}
 
 **Storm League**
 * Now requires a party of 2 or 3 to queue up in Storm League.
 
-[quote]
-**Developer Comment:** Heroes of the Storm has always been a team based game, and therefore we believe ranked play would be much better with everyone always being in a group.
-[/quote]
+> **Developer Comment:** Heroes of the Storm has always been a team based game, and therefore we believe ranked play would be much better with everyone always being in a group.
+ 
+[Return to Top](#top)
 
-<a href="#top">Return to Top</a>
+![](/assets/images/hots-april-fools/hr.png)
 
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
-
-<a name="collection"></a>
-
-# Collection
+# Collection {#collection}
 
 * **New Bundles (Limited Time Only!)**
   * Blackthorne Heroic Bundle
@@ -214,17 +177,13 @@ And don't worry about your progress, simply connect your Steam account with your
 * **New Content**
   * Several new Portraits, Emoji Packs and other items have been added to the Collection!
 
-<a href="#top">Return to Top</a>
+[Return to Top](#top)
 
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
-<a name="nova-rework"></a>
+# Nova Rework {#nova-rework}
 
-# Nova Rework
-
-<img src=https://i.imgur.com/OSmHzpJ.png>
+![](/assets/images/hots-april-fools/heroes/nova.png)
 
 **General**
 
@@ -347,10 +306,6 @@ And don't worry about your progress, simply connect your Steam account with your
     * 300 seconds cooldown.
     * Does not work on Probius.
 
-<br/>
-
-<div align=center>
-
 |Level (Tier)|   |Nova TALENTS|   |   | |
 |:---|:---|:--------|:---|:---|:---|
 |1 (1)|*Tactical Stealth Suit* (Trait)|*Phase Reactor Suit (Trait)*|**Apollo Suit (Trait)**|||
@@ -360,92 +315,29 @@ And don't worry about your progress, simply connect your Steam account with your
 |13 (5)|Ionic Force Field (Passive)|*Stim Infusion (Active)*|*Flashbang Grenades (Active)*|||
 |16 (6)|*Boom Headshot! (Q)*|*Breaching Charge (W)*|**Holo Decoy (Active)**|||
 |20 (7)|Precision Barrage (R\)|*1000k Degree Module (R\)*|**Psionic Efficiency (Q)**|*Domination (Activate)*|*Break Neck (Activate)*|
-</div>
 
 * (!) indicates a Questing Talent.
 * *Italic text* indicates a ***NEW*** Talent.
 * **Bold text** indicates a **MOVED** Talent.
 
-[quote]
-**Developer Comment:** Nova has found a stash in the woods filled with Terran Dominion arsenals, please use them as intended.
-[/quote]
+> **Developer Comment:** Nova has found a stash in the woods filled with Terran Dominion arsenals, please use them as intended.
+ 
+[Return to Top](#top)
 
-<a href="#top">Return to Top</a>
+![](/assets/images/hots-april-fools/hr.png)
 
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+# Heroes {#heroes}
 
-<a name="heroes"></a>
+|TANK|BRUISER|SUPPORT|HEALER|MELEE|RANGED|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|Anub'arak|Artanis|Abathur|Anduin|Maiev|Falstad|
+|Cho|Dehaka|The Lost Vikings|Brightwing|Murky|Gall|
+|Diablo|D.Va||Kharazim|Samuro|Kael'thas|
+|E.T.C.|Hogger||Tyrande|Zeratul|Lunara|
+|Johanna|Imperius||Whitemane||Probius|
+|Stitches|Thrall||||Tracer|
 
-# Heroes
-
-<div align=center>
-<table>
-<tr>
-<th><div align=center><a href="#tank">TANK</a></div></th>
-<th><div align=center><a href="#bruiser">BRUISER</a></div></th>
-<th><div align=center><a href="#support">SUPPORT</a></div></th>
-<th><div align=center><a href="#healer">HEALER</a></div></th>
-<th><div align=center><a href="#melee">MELEE</a></div></th>
-<th><div align=center><a href="#ranged">RANGED</a></div></th>
-</tr>
-<tr>
-<th><div align=center><a href="#anubarak">Anub'arak</a></div></th>
-<th><div align=center><a href="#artanis">Artanis</a></th>
-<th><div align=center><a href="#abathur">Abathur</a></th>
-<th><div align=center><a href="#anduin">Anduin</a></div></th>
-<th><div align=center><a href="#maiev">Maiev</a></div></th>
-<th><div align=center><a href="#falstad">Falstad</a></div></th>
-</tr>
-<tr>
-<th><div align=center><a href="#cho">Cho</a></div></th>
-<th><div align=center><a href="#D.Va">Dehaka</a></th>
-<th><div align=center><a href="#tlv">The Lost Vikings</a></th>
-<th><div align=center><a href="#brightwing">Brightwing</a></div></th>
-<th><div align=center><a href="#murky">Murky</a></div></th>
-<th><div align=center><a href="#gall">Gall</a></div></th>
-</tr>
-<tr>
-<th><div align=center><a href="#diablo">Diablo</a></div></th>
-<th><div align=center><a href="#dva">D.Va</a></div></th>
-<th></th>
-<th><div align=center><a href="#kharazim">Kharazim</a></div></th>
-<th><div align=center><a href="#samuro">Samuro</a></div></th>
-<th><div align=center><a href="#kaelthas">Kael'thas</a></div></th>
-</tr>
-<tr>
-<th><div align=center><a href="#etc">E.T.C.</a></div></th>
-<th><div align=center><a href="#hogger">Hogger</a></div></th>
-<th></th>
-<th><div align=center><a href="#tyrande">Tyrande</a></div></th>
-<th><div align=center><a href="#zeratul">Zeratul</a></div></th>
-<th><div align=center><a href="#lunara">Lunara</a></div></th>
-</tr>
-<tr>
-<th><div align=center><a href="#johanna">Johanna</a></div></th>
-<th><div align=center><a href="#imperius">Imperius</a></div></th>
-<th></th>
-<th><div align=center><a href="#whitemane">Whitemane</a></div></th>
-<th></th>
-<th><div align=center><a href="#probius">Probius</a></div></th>
-</tr>
-<tr>
-<th><div align=center><a href="#stitches">Stitches</a></div></th>
-<th><div align=center><a href="#thrall">Thrall</a></div></th>
-<th></th>
-<th></th>
-<th></th>
-<th><div align=center><a href="#tracer">Tracer</a></div></th>
-</tr>
-</table>
-</div>
-
-<br/>
-
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
 <a name="tank"></a>
 
@@ -467,11 +359,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * Hive Master (R\)
     * Now can target allies who's health are higher than 50%. Can be disabled.
 
-[quote]
-**Developer Comment:** The Traitor King still has a few more tricks to show off.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** The Traitor King still has a few more tricks to show off.
+ 
+[Return to Top](#top)
 
 <a name="cho"></a>
 
@@ -489,11 +379,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * Surging Dash (Q)
     * Now grants unstoppable.
 
-[quote]
-**Developer Comment:** What could possibly go wrong?
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** What could possibly go wrong?
+ 
+[Return to Top](#top)
 
 <a name="diablo"></a>
 
@@ -507,11 +395,9 @@ And don't worry about your progress, simply connect your Steam account with your
     * Adjusted functionality: Channel for 1 second to steal 10% of the maximum Health of nearby enemy heroes and fear them  for 2.5 seconds.
     * Cooldown increased from 60 to 90.
 
-[quote]
-**Developer Comment:** We always felt like the Lord of Terror isn't really living up to his name, this should do it.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** We always felt like the Lord of Terror isn't really living up to his name, this should do it.
+ 
+[Return to Top](#top)
 
 <a name="etc"></a>
 
@@ -531,11 +417,9 @@ And don't worry about your progress, simply connect your Steam account with your
  * Encore (W)
    * Cooldown reduction increased from 5% to 7%.
 
-[quote]
-**Developer Comment:**  E.T.C. has been underperforming lately, hopefully these changes should bring him back in line with the other tanks.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:**  E.T.C. has been underperforming lately, hopefully these changes should bring him back in line with the other tanks.
+ 
+[Return to Top](#top)
 
 <a name="johanna"></a>
 
@@ -548,11 +432,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * Holy Fury 
     * Damage reduced from 12 to 10.
 
-[quote]
-**Developer Comment:** Holy Fury is too strong, we are tuning down its damage a bit to allow more talent variety.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Holy Fury is too strong, we are tuning down its damage a bit to allow more talent variety.
+ 
+[Return to Top](#top)
 
 <a name="stitches"></a>
 
@@ -570,15 +452,11 @@ And don't worry about your progress, simply connect your Steam account with your
   * **New talent: Shish Kabob (Q)**
     * Hook pulls all targets in its path.
 
-[quote]
-**Developer Comment:** Stitches still hungry for flesh, and we'll give him what he’s asking for.
-[/quote]
+> **Developer Comment:** Stitches still hungry for flesh, and we'll give him what he’s asking for.
+ 
+[Return to Top](#top)
 
-<a href="#top">Return to Top</a>
-
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
 <a name="bruiser"></a>
 
@@ -599,11 +477,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * Protector of Aiur (Passive)
     * Bonus per stack increased from 0.1% to 0.15%.
 
-[quote]
-**Developer Comment:** Artanis could use more buffs.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Artanis could use more buffs.
+ 
+[Return to Top](#top)
 
 <a name="dehaka"></a>
 
@@ -617,9 +493,8 @@ And don't worry about your progress, simply connect your Steam account with your
 
 [quote] 
 **Developer Comment:** Evolution has no limit and neither does Dehaka!
-[/quote]
-
-<a href="#top">Return to Top</a>
+ 
+[Return to Top](#top)
 
 <a name="dva"></a>
 
@@ -642,11 +517,9 @@ And don't worry about your progress, simply connect your Steam account with your
     * Pilot Mode: Whenever D.Va eject from Mech, grant Unstoppable for 1 seconds and 100% movement speed decaying over 2 seconds.
     * Passive: Call Mech's cooldown reduction from Basic Attacks increased to 1 second.
 
-[quote]
-**Developer Comment:** "Headshot!" & "Stop and Pop" despite their cool concept have been performing underwhelmingly, in the case of "Stop and Pop" we've brought back some of its older variation before the rework while replacing "Headshot!" with a whole new talent.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** "Headshot!" & "Stop and Pop" despite their cool concept have been performing underwhelmingly, in the case of "Stop and Pop" we've brought back some of its older variation before the rework while replacing "Headshot!" with a whole new talent.
+ 
+[Return to Top](#top)
 
 <a name="hogger"></a>
 
@@ -659,11 +532,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * No Control (Active)
     * New functionality: Activate to set all Hogger's Basic Abilities cooldowns to 2 seconds for the next 10 seconds but you are unable to target, and instead Hogger will trigger random abilities automatically while targeting the nearest enemy, prioritizing heroes.
 
-[quote]
-**Developer Comment:** Hogger's No Control is *out of control*, we'll be giving it a whole new functionality that should put it more *in control*, but that's for you to decide.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Hogger's No Control is *out of control*, we'll be giving it a whole new functionality that should put it more *in control*, but that's for you to decide.
+ 
+[Return to Top](#top)
 
 <a name="imperius"></a>
 
@@ -688,11 +559,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * Holy Fervor (Active)
     * Additional functionality: Each Valorous Brand consumed reduces Holy Fervor cooldown by 1 second.
 
-[quote]
-**Developer Comment:** We've been looking into some of Imperius' underperforming talents and we saw some potential for some buffs, we also swapped his Level 7 talent with his Level 4 talent to make his power spike come a little earlier, allowing him to fill more roles than just a main tank.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** We've been looking into some of Imperius' underperforming talents and we saw some potential for some buffs, we also swapped his Level 7 talent with his Level 4 talent to make his power spike come a little earlier, allowing him to fill more roles than just a main tank.
+ 
+[Return to Top](#top)
 
 <a name="thrall"></a>
 
@@ -705,15 +574,11 @@ And don't worry about your progress, simply connect your Steam account with your
   * **Worldbreaker (R\)**
     * New functionality: Sundering now continuous in its path indefinitely and goes around the world until Sundering gets recasted again. Each time Sundering impacts in its path, it leaves behind an impassable rift, blocking unit movement for 3 seconds.
 
-[quote]
-**Developer Comment:** “Earthquake” is more picked than “Sundering” due its heroic upgrade “Earthen Shield”, because of that, we believe “Sundering” could use a similar level 20 power spike. We're also buffing “Worldbreaker” to give Thrall a way to break both the pickrate and winrate.
-[/quote]
+> **Developer Comment:** “Earthquake” is more picked than “Sundering” due its heroic upgrade “Earthen Shield”, because of that, we believe “Sundering” could use a similar level 20 power spike. We're also buffing “Worldbreaker” to give Thrall a way to break both the pickrate and winrate.
+ 
+[Return to Top](#top)
 
-<a href="#top">Return to Top</a>
-
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
 <a name="support"></a>
 
@@ -732,11 +597,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * **(New Talent) The Imposter (R\)**
      * Abathur can use Ultimate Evolution on visible enemy heroes, cloned enemy heroes receive 15% more damage from their clone.
 
-[quote]
-**Developer Comment:** We believe we can make more interesting talent choices for Abathur so we are replacing Evolutionary Link with a talent that will make his enemies go into suspiciousness.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** We believe we can make more interesting talent choices for Abathur so we are replacing Evolutionary Link with a talent that will make his enemies go into suspiciousness.
+ 
+[Return to Top](#top)
 
 <a name="abathur"></a>
 
@@ -746,15 +609,11 @@ And don't worry about your progress, simply connect your Steam account with your
 
 * This Hero has been removed from the game.
 
-[quote]
-**Developer Comment:** The Lost Vikings seems lost, we will try to bring them back next patch.
-[/quote]
+> **Developer Comment:** The Lost Vikings seems lost, we will try to bring them back next patch.
+ 
+[Return to Top](#top)
 
-<a href="#top">Return to Top</a>
-
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
 <a name="healer"></a>
 
@@ -785,11 +644,9 @@ And don't worry about your progress, simply connect your Steam account with your
     * New functionality: Damaging an enemy Hero grants Anduin 2.5% Movement Speed for 6 seconds, up to 15%. Ally Heroes who are marked with Flash Heal benefit from this bonus.
   * Enchanted Boots - Lion's Speed (Trait)
     * Additional functionality: Rooting enemy heroes with Chastise reduces Leap of Faith cooldown by 5.
-[quote]
-**Developer Comment:** Ever since Anduin’s release, Pursued by Grace has simply been underwhelming while at the same time, Bold Strategy dominated the level 1 talent tier. That leaves Renew only to be picked in very niche situations and in order to fix this, we are adding a new functionality to Flash Heal that should serve something similar to Pursued by Grace, while at it, we’ve fleshened out his talent tree a bit.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Ever since Anduin’s release, Pursued by Grace has simply been underwhelming while at the same time, Bold Strategy dominated the level 1 talent tier. That leaves Renew only to be picked in very niche situations and in order to fix this, we are adding a new functionality to Flash Heal that should serve something similar to Pursued by Grace, while at it, we’ve fleshened out his talent tree a bit.
+ 
+[Return to Top](#top)
 
 <a name="brightwing"></a>
 
@@ -801,11 +658,9 @@ And don't worry about your progress, simply connect your Steam account with your
 * Level 7
   *  Peekaboo! (Z)
      * New functionality: Phase Shifting to an ally apply to nearby enemy Heroes 15% Movement Speed and cause them to run in fear for 1 second.
-[quote]
-**Developer Comment:** Ooh, terrified enemies! Tasty!
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Ooh, terrified enemies! Tasty!
+ 
+[Return to Top](#top)
 
 <a name="kharazim"></a>
 
@@ -817,11 +672,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * Additionally functionality: Gives 25% increased Move Speed for 2.5 seconds.
   * Moved from Iron Fists, Transcendence and Insight to baseline.
 
-[quote]
-**Developer Comment:** Moving on.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Moving on.
+ 
+[Return to Top](#top)
 
 <a name="tyrande"></a>
 
@@ -836,11 +689,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * Darnassian Archery (Passive)
     * Additional functionality: Everytime Tyrande attacks an enemy Hero 4 times her next basic attack against them fires twice.
 
-[quote]
-**Developer Comment:** We believe Tyrande is in an ok place but some of her talents could use more love, we are giving Darnassian Archery an interesting buff that should allow her to heal more in the process on the risk of not picking "Celestial Attunement".
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** We believe Tyrande is in an ok place but some of her talents could use more love, we are giving Darnassian Archery an interesting buff that should allow her to heal more in the process on the risk of not picking "Celestial Attunement".
+ 
+[Return to Top](#top)
 
 <a name="whitemane"></a>
 
@@ -855,16 +706,12 @@ And don't worry about your progress, simply connect your Steam account with your
   * **New Talent: The Disciplinary Action (Passive)**
     * Basic attacks against allied heroes deal 50 damage and grant 15% increased movement speed to them and Whitemane for 2 seconds.
 
-[quote]
-**Developer Comment:** The Scarlet Crusade will not withstand your incompetence.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** The Scarlet Crusade will not withstand your incompetence.
+ 
+[Return to Top](#top)
 
 
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
 <a name="melee"></a>
 
@@ -885,11 +732,9 @@ And don't worry about your progress, simply connect your Steam account with your
 * Level 20
   * Shadow Orb: Vengeance (Active)
     * Now replenish all Spirit of Vengeance's charges.
-[quote]
-**Developer Comment:** We believe Bonds of Justice could use an interesting buff that hopefully should make it more unique and fun, while at it, we've given Pursuit of Vengeance a new functionality.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** We believe Bonds of Justice could use an interesting buff that hopefully should make it more unique and fun, while at it, we've given Pursuit of Vengeance a new functionality.
+ 
+[Return to Top](#top)
 
 <a name="murky"></a>
 
@@ -901,11 +746,9 @@ And don't worry about your progress, simply connect your Steam account with your
 * ... And A Shark Too! (R\)
   * Damage increased from 13700% to 42000%
   * Additional functionality: Reduces the cooldown from 3 to 2.5.
-[quote]
-**Developer Comment:** The murloc found a better shark.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** The murloc found a better shark.
+ 
+[Return to Top](#top)
 
 <a name="samuro"></a>
 
@@ -926,11 +769,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * Crushing Blow (Passive)
     * No longer has a stack limit. 
 
-[quote]
-**Developer Comment:** Samuro has been in a struggle ever since the last patch, these changes should address some problems with his kit and make it more versatile while still being effective.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Samuro has been in a struggle ever since the last patch, these changes should address some problems with his kit and make it more versatile while still being effective.
+ 
+[Return to Top](#top)
 
 <a name="zeratul"></a>
 
@@ -948,15 +789,11 @@ And don't worry about your progress, simply connect your Steam account with your
 * Level 1
   * Shadow Hunter (E)
     * Cooldown reduction from basic attacks upon quest completion reduced from 1.5 to 1. 
-[quote]
-**Developer Comment:** Zeratul isn't mobile enough like Tracer and Genji are, we believe a Blink cooldown reduction should help fix this.
-[/quote]
+> **Developer Comment:** Zeratul isn't mobile enough like Tracer and Genji are, we believe a Blink cooldown reduction should help fix this.
+ 
+[Return to Top](#top)
 
-<a href="#top">Return to Top</a>
-
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
 <a name="ranged"></a>
 
@@ -972,11 +809,9 @@ And don't worry about your progress, simply connect your Steam account with your
 * Lightning Rod (W)
   * New functionality: Select an enemy hero from your top panel to cast Lightning Rod regardless of being visible or how far they are, deal 150 to an enemy, and an additional 125 damage per second for 4 seconds. Damage dealt is increased by 50% based on the Rarity level of the skin, up to 200% against Legendary skins.
 
-[quote]
-**Developer Comment:**  As we specified in one of our Reddit posts, we agree that Falstad only having 66% chance to kill players with Lightning Rod is simply unacceptable, and we'll buff it to make sure that Falstad players will be guaranteed a kill whenever they use Lightning Rod.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:**  As we specified in one of our Reddit posts, we agree that Falstad only having 66% chance to kill players with Lightning Rod is simply unacceptable, and we'll buff it to make sure that Falstad players will be guaranteed a kill whenever they use Lightning Rod.
+ 
+[Return to Top](#top)
 
 <a name="gall"></a>
 
@@ -988,11 +823,9 @@ And don't worry about your progress, simply connect your Steam account with your
 * Level 20
   * The Will of Gall (Passive)
     * New functionality: Gall now controls the movement instead of Cho.
-[quote]
-**Developer Comment:** Gall is just simply sick of it, he's taking over.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Gall is just simply sick of it, he's taking over.
+ 
+[Return to Top](#top)
 
 <a name="kaelthas"></a>
 
@@ -1004,11 +837,9 @@ And don't worry about your progress, simply connect your Steam account with your
 * Level 20
   * Presence of Mind (R\)
     * New functionality: Pyroblast instead deals 100% of current health as damage over 10 seconds.
-[quote]
-**Developer Comment:** We believe Pyroblast is outperformed by Phoenix and could use a much stronger level 20 presence.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** We believe Pyroblast is outperformed by Phoenix and could use a much stronger level 20 presence.
+ 
+[Return to Top](#top)
 
 <a name="lunara"></a>
 
@@ -1021,11 +852,9 @@ And don't worry about your progress, simply connect your Steam account with your
   * Endless Spores (W)
     * New functionality: Mana cost reduced by 10. Casting Crippling Spores while at least 2 Heroes are afflicted by Nature's Toxin reduces the cooldown by 2 seconds per affected hero, up to 8 seconds.
 
-[quote]
-**Developer Comment:** Lunara will be showing her enemies the true wrath of the forest, or until she runs out of mana.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Lunara will be showing her enemies the true wrath of the forest, or until she runs out of mana.
+ 
+[Return to Top](#top)
 
 <a name="probius"></a>
 
@@ -1041,11 +870,9 @@ And don't worry about your progress, simply connect your Steam account with your
     * Activate to cover an area around Probius with a Guardian Shield giving all nearby allied Heroes a Shield for 10% of their Maximum Health and 20 armor while near Probius. Guardian Shield last for 6 seconds.
     * 60 seconds cooldown.
 
-[quote]
-**Developer Comment:** Probius has been upgraded with some Sentry arsenal and is ready to support his team with style.
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Probius has been upgraded with some Sentry arsenal and is ready to support his team with style.
+ 
+[Return to Top](#top)
 
 <a name="tracer"></a>
 
@@ -1059,16 +886,12 @@ And don't worry about your progress, simply connect your Steam account with your
 * Level 13
   * Telefrag (E)
     * New functionality: Recall cooldown increased by 10 seconds, when Tracer arrives at her Recall location, nearby enemy heroes on the Recall return point die.
-[quote]
-**Developer Comment:** Get telefragged!
-[/quote]
-
-<a href="#top">Return to Top</a>
+> **Developer Comment:** Get telefragged!
+ 
+[Return to Top](#top)
 
 
-<div align=center>
-<img src=https://i.imgur.com/ur511pJ.png>
-</div>
+![](/assets/images/hots-april-fools/hr.png)
 
 <a name="bugfixes"></a>
 
@@ -1085,7 +908,7 @@ And don't worry about your progress, simply connect your Steam account with your
 * Fixed an issue where Mei enables the Snowing Weather Anomaly after casting Blizzard on Cursed Hollow's objective.
 * Several AI fixes and improvements.
 
-<a href="#top">Return to Top</a>
+[Return to Top](#top)
 
 <br/>
 
