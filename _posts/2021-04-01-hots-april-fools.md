@@ -102,9 +102,7 @@ To all our veterans and already above level 50, you will receive a role card for
 
 ![](/assets/images/hots-april-fools/hr.png)
 
-<a name="steam"></a>
-
-# Steam
+# Steam {#steam}
 
 **Heroes of the Storm and all Blizzard games are now available on Steam!**
 
@@ -217,9 +215,9 @@ And don't worry about your progress, simply connect your Steam account with your
 * **New ability: Defensive Drone (E)** 
   * Nova summons a Defensive Drone. Every 1.5 seconds Defensive Drone grants 25 armor for nearby heroes that lasts for 3 seconds reducing damage taken by 25%. Defensive Drone lasts for 8 seconds or until the effects were applied 4 times.
   * 75 Mana, 16 seconds cooldown, 25 Range.
-* Triple Tap (R\)
+* Triple Tap (R)
    *  Removed.
-* **New ability: Monomolecular Blade (R\)**
+* **New ability: Monomolecular Blade (R)**
   *  Nova pulls out an energy sword for 6 seconds, While active, basic attacks are 25% faster, deals 50% more damage, and ignore armor, additionally Monomolecular Blade can be activated to dash forward, dealing 240 damage in its path. 
   * 100 seconds cooldown, 100 mana cost.
 * Ghost Protocol (Active)
@@ -288,7 +286,7 @@ And don't worry about your progress, simply connect your Steam account with your
     * Lethal Decoy (E)
       * Removed.
 * Level 20
-  * Fast Reload (R\)
+  * Fast Reload (R)
     * Removed.
   * Apollo Suit (Trait)
     * Moved to level 1.
@@ -296,7 +294,7 @@ And don't worry about your progress, simply connect your Steam account with your
     * Passive: Maximum Health increased by 10%.
   * Rewind (Active)
     * Removed.
-  * **New talent: 1000k Degree Module (R\)**
+  * **New talent: 1000k Degree Module (R)**
     * Monomolecular Blade deals an additional 50% damage and slows enemy Movement Speed by 20% for 1 second.
   * **New talent: Domination (Active)**
     * After 1 second, mind control the selected enemy hero, allowing you to move or cast abilities, enemy heroes during this state deal 75% less damage and can attack their allies. Nova is revealed, takes 25% more damage and cannot move while mind controlling. Lasts for 2.5 seconds or until cancelled.
@@ -311,10 +309,10 @@ And don't worry about your progress, simply connect your Steam account with your
 |1 (1)|*Tactical Stealth Suit* (Trait)|*Phase Reactor Suit (Trait)*|**Apollo Suit (Trait)**|||
 |4 (2)|Covert Mission (Active)|*Leeching Shot (Q)*|*On the Offense (E)*|||
 |7 (3)|Perfect Shot (Q)|Anti-Armor Shells (Passive)|*EMP Shot (W)*|||
-|10 (4)|Precision Strike (R\)|*Monomolecular Blade (R\)*||||
+|10 (4)|Precision Strike (R)|*Monomolecular Blade (R)*||||
 |13 (5)|Ionic Force Field (Passive)|*Stim Infusion (Active)*|*Flashbang Grenades (Active)*|||
 |16 (6)|*Boom Headshot! (Q)*|*Breaching Charge (W)*|**Holo Decoy (Active)**|||
-|20 (7)|Precision Barrage (R\)|*1000k Degree Module (R\)*|**Psionic Efficiency (Q)**|*Domination (Activate)*|*Break Neck (Activate)*|
+|20 (7)|Precision Barrage (R)|*1000k Degree Module (R)*|**Psionic Efficiency (Q)**|*Domination (Activate)*|*Break Neck (Activate)*|
 
 * (!) indicates a Questing Talent.
 * *Italic text* indicates a ***NEW*** Talent.
@@ -330,44 +328,38 @@ And don't worry about your progress, simply connect your Steam account with your
 
 |TANK|BRUISER|SUPPORT|HEALER|MELEE|RANGED|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|Anub'arak|Artanis|Abathur|Anduin|Maiev|Falstad|
-|Cho|Dehaka|The Lost Vikings|Brightwing|Murky|Gall|
-|Diablo|D.Va||Kharazim|Samuro|Kael'thas|
-|E.T.C.|Hogger||Tyrande|Zeratul|Lunara|
-|Johanna|Imperius||Whitemane||Probius|
-|Stitches|Thrall||||Tracer|
+|[Anub'arak](#anubarak)|[Artanis](#artanis)|[Abathur](#abathur)|[Anduin](#anduin)|[Maiev](#maiev)|[Falstad](#falstad)|
+|[Cho](#cho)|[Dehaka](#dehaka)|[The Lost Vikings](#vikings)|[Brightwing](#brightwing)|[Murky](#murky)|[Gall](#gall)|
+|[Diablo](#diablo)|[D.Va](#dva)||[Kharazim](#kharazim)|[Samuro](#samuro)|[Kael'thas](#kaelthas)|
+|[E.T.C.](#etc)|[Hogger](#hogger)||[Tyrande](#tyrande)|[Zeratul](#zeratul)|[Lunara](#lunara)|
+|[Johanna](#johanna)|[Imperius](#imperius)||[Whitemane](#whitemane)||[Probius](#probius)|
+|[Stitches](#stitches)|[Thrall](#thrall)||||[Tracer](#tracer)|
 
 ![](/assets/images/hots-april-fools/hr.png)
 
-<a name="tank"></a>
+# Tank {#tank}
 
-# Tank
+## Anub'arak {#anubarak}
 
-<a name="anubarak"></a>
-
-## Anub'arak
-
-<img src=https://i.imgur.com/ncNzMAi.png title="Anub'arak">
+![](/assets/images/hots-april-fools/heroes/anubarak.png)
 
 **Talents**
 * Level 16
   * Beetle, Juiced (Trait)
      * New functionality: If a Beetle attacks a hero 5 times its duration is refreshed, becomes fully healed, and gains 100% bonus health and damage. This effect can occur only once per Beetle.
 * Level 20
-  * Cryptweave (R\)
+  * Cryptweave (R)
     * New functionality: Reduce Cocoon cooldown by 20. Staying near the Cocoon allows Anub'arak to extend the duration by up to 5 seconds per Cocoon and causes Cocoon spawn a Beetle every second.
-  * Hive Master (R\)
+  * Hive Master (R)
     * Now can target allies who's health are higher than 50%. Can be disabled.
 
 > **Developer Comment:** The Traitor King still has a few more tricks to show off.
  
 [Return to Top](#top)
 
-<a name="cho"></a>
+## Cho {#cho}
 
-## Cho
-
-<img src=https://i.imgur.com/Tse5Lki.png title="Cho">
+![](/assets/images/hots-april-fools/heroes/cho.png)
 
 **Talents**
 * Level 1
@@ -383,11 +375,9 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="diablo"></a>
+## Diablo {#diablo}
 
-## Diablo
-
-<img src=https://i.imgur.com/lCoLAQ0.png title="Diablo">
+![](/assets/images/hots-april-fools/heroes/diablo.png)
 
 **Talents**
 * Level 20
@@ -399,11 +389,9 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="etc"></a>
+## E.T.C. {#etc}
 
-## E.T.C.
-
-<img src=https://i.imgur.com/FIO9BZV.png title="E.T.C.">
+![](/assets/images/hots-april-fools/heroes/etc.png)
 
 **Stats**
 * Health increased from 2250 to 2300.
@@ -421,11 +409,9 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="johanna"></a>
+## Johanna {#johanna}
 
-## Johanna
-
-<img src=https://i.imgur.com/Ky6e2ft.png title="Johanna">
+![](/assets/images/hots-april-fools/heroes/johanna.png)
 
 **Talents**
 * Level 13 (Passive)
@@ -436,11 +422,9 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="stitches"></a>
+## Stitches {#stitches}
 
-## Stitches
-
-<img src=https://i.imgur.com/Vg56Lde.png title="Stitches">
+![](/assets/images/hots-april-fools/heroes/stitches.png)
 
 **Talents**
 * Level 13
@@ -458,15 +442,11 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ![](/assets/images/hots-april-fools/hr.png)
 
-<a name="bruiser"></a>
+# Bruiser {#bruiser}
 
-# Bruiser
+## Artanis {#artanis}
 
-<a name="artanis"></a>
-
-## Artanis
-
-<img src=https://i.imgur.com/Hf1UEhc.png title="Artanis">
+![](/assets/images/hots-april-fools/heroes/artanis.png)
 
 **Abilities**
 * Blade Dash
@@ -481,26 +461,21 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="dehaka"></a>
+## Dehaka {#dehaka}
 
-## Dehaka
-
-<img src=https://i.imgur.com/beqI5KF.png title="Dehaka">
+![](/assets/images/hots-april-fools/heroes/dehaka.png)
 
 **Abilities**
-* **Adaptation (R\)**
+* **Adaptation (R)**
   * Additional functionality: Every 50 essence collected grants Dehaka a permanent 5% increase to his Maximum Health and Basic Attack Damage and increases his size by 0.75%.
 
-[quote] 
-**Developer Comment:** Evolution has no limit and neither does Dehaka!
+> **Developer Comment:** Evolution has no limit and neither does Dehaka!
  
 [Return to Top](#top)
 
-<a name="dva"></a>
+## D.Va {#dva}
 
-## D.Va
-
-<img src=https://i.imgur.com/KrQa4NL.png title="D.Va">
+![](/assets/images/hots-april-fools/heroes/dva.png)
 
 **Abilities**
 * Big Shot (Pilot/R)
@@ -521,11 +496,9 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="hogger"></a>
+## Hogger {#hogger}
 
-## Hogger
-
-<img src=https://i.imgur.com/g1LJnlD.png title="Hogger">
+![](/assets/images/hots-april-fools/heroes/hogger.png)
 
 **Talents**
 * Level 20
@@ -536,11 +509,9 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="imperius"></a>
+## Imperius {#imperius}
 
-## Imperius
-
-<img src=https://i.imgur.com/Fun4s8z.png title="Imperius">
+![](/assets/images/hots-april-fools/heroes/imperius.png)
 
 **Talents**
 * Level 1
@@ -563,15 +534,13 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="thrall"></a>
+## Thrall {#thrall}
 
-## Thrall
-
-<img src=https://i.imgur.com/qKnPReq.png title="Thrall">
+![](/assets/images/hots-april-fools/heroes/thrall.png)
 
 **Talents**
 * Level 20
-  * **Worldbreaker (R\)**
+  * **Worldbreaker (R)**
     * New functionality: Sundering now continuous in its path indefinitely and goes around the world until Sundering gets recasted again. Each time Sundering impacts in its path, it leaves behind an impassable rift, blocking unit movement for 3 seconds.
 
 > **Developer Comment:** “Earthquake” is more picked than “Sundering” due its heroic upgrade “Earthen Shield”, because of that, we believe “Sundering” could use a similar level 20 power spike. We're also buffing “Worldbreaker” to give Thrall a way to break both the pickrate and winrate.
@@ -580,32 +549,26 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ![](/assets/images/hots-april-fools/hr.png)
 
-<a name="support"></a>
+# Support {#support}
 
-# Support
+## Abathur {#abathur}
 
-<a name="abathur"></a>
-
-## Abathur
-
-<img src=https://i.imgur.com/ZyQyxQf.png title="Abathur">
+![](/assets/images/hots-april-fools/heroes/abathur.png)
 
 **Talents**
 * Level 20
-  *  Evolutionary Link (R\)
+  *  Evolutionary Link (R)
      * Removed.
-  * **(New Talent) The Imposter (R\)**
+  * **(New Talent) The Imposter (R)**
      * Abathur can use Ultimate Evolution on visible enemy heroes, cloned enemy heroes receive 15% more damage from their clone.
 
 > **Developer Comment:** We believe we can make more interesting talent choices for Abathur so we are replacing Evolutionary Link with a talent that will make his enemies go into suspiciousness.
  
 [Return to Top](#top)
 
-<a name="abathur"></a>
+## The Lost Vikings {#vikings}
 
-## The Lost Vikings
-
-<img src=https://i.imgur.com/fQ1x4SI.png title="Abathur">
+![](/assets/images/hots-april-fools/heroes/vikings.png)
 
 * This Hero has been removed from the game.
 
@@ -615,15 +578,12 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ![](/assets/images/hots-april-fools/hr.png)
 
-<a name="healer"></a>
+# Healer {#healer}
 
-# Healer
+## Anduin {#anduin}
 
-<a name="anduin"></a>
+![](/assets/images/hots-april-fools/heroes/anduin.png)
 
-## Anduin
-
-<img src=https://i.imgur.com/A0SqMNL.png title="Anduin">
 **Abilities**
 * Flash Heal (Q)
   * Cooldown increased from 4 to 5.
@@ -644,29 +604,28 @@ And don't worry about your progress, simply connect your Steam account with your
     * New functionality: Damaging an enemy Hero grants Anduin 2.5% Movement Speed for 6 seconds, up to 15%. Ally Heroes who are marked with Flash Heal benefit from this bonus.
   * Enchanted Boots - Lion's Speed (Trait)
     * Additional functionality: Rooting enemy heroes with Chastise reduces Leap of Faith cooldown by 5.
+
 > **Developer Comment:** Ever since Anduin’s release, Pursued by Grace has simply been underwhelming while at the same time, Bold Strategy dominated the level 1 talent tier. That leaves Renew only to be picked in very niche situations and in order to fix this, we are adding a new functionality to Flash Heal that should serve something similar to Pursued by Grace, while at it, we’ve fleshened out his talent tree a bit.
  
 [Return to Top](#top)
 
-<a name="brightwing"></a>
+## Brightwing {#brightwing}
 
-## Brightwing
-
-<img src=https://i.imgur.com/aZHx1UO.png title="Brightwing">
+![](/assets/images/hots-april-fools/heroes/brightwing.png)
 
 **Talents**
 * Level 7
   *  Peekaboo! (Z)
      * New functionality: Phase Shifting to an ally apply to nearby enemy Heroes 15% Movement Speed and cause them to run in fear for 1 second.
+
 > **Developer Comment:** Ooh, terrified enemies! Tasty!
  
 [Return to Top](#top)
 
-<a name="kharazim"></a>
+## Kharazim {#kharazim}
 
-## Kharazim
+![](/assets/images/hots-april-fools/heroes/kharazim.png)
 
-<img src=https://i.imgur.com/h7netQ7.png title="Kharazim">
 **Abilities**
 * Pick Your Trait (Trait)
   * Additionally functionality: Gives 25% increased Move Speed for 2.5 seconds.
@@ -676,11 +635,9 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="tyrande"></a>
+## Tyrande {#tyrande}
 
-## Tyrande
-
-<img src=https://i.imgur.com/D1uCzT2.png title="Tyrande">
+![](/assets/images/hots-april-fools/heroes/tyrande.png)
 
 **Talents**
 * Level 16
@@ -693,11 +650,9 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="whitemane"></a>
+## Whitemane {#whitemane}
 
-## Whitemane
-
-<img src=https://i.imgur.com/cduEmVF.png title="Whitemane">
+![](/assets/images/hots-april-fools/heroes/whitemane.png)
 
 **Talents**
 * Level 20
@@ -713,15 +668,11 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ![](/assets/images/hots-april-fools/hr.png)
 
-<a name="melee"></a>
+# Melee Assassin {#melee}
 
-# Melee Assassin
+## Maiev {#maiev}
 
-<a name="maiev"></a>
-
-## Maiev
-
-<img src=https://i.imgur.com/RJYd5T2.png title="Maiev">
+![](/assets/images/hots-april-fools/heroes/maiev.png)
 
 **Talents**
 * Level 1
@@ -732,32 +683,30 @@ And don't worry about your progress, simply connect your Steam account with your
 * Level 20
   * Shadow Orb: Vengeance (Active)
     * Now replenish all Spirit of Vengeance's charges.
+
 > **Developer Comment:** We believe Bonds of Justice could use an interesting buff that hopefully should make it more unique and fun, while at it, we've given Pursuit of Vengeance a new functionality.
  
 [Return to Top](#top)
 
-<a name="murky"></a>
+## Murky {#murky}
 
-## Murky
-
-<img src=https://i.imgur.com/JLYs2T1.png title="Murky">
+![](/assets/images/hots-april-fools/heroes/murky.png)
 
 **Talents**
-* ... And A Shark Too! (R\)
+* ... And A Shark Too! (R)
   * Damage increased from 13700% to 42000%
-  * Additional functionality: Reduces the cooldown from 3 to 2.5.
+  * Additional functionality: Reduces duration by 0.5 seconds.
+
 > **Developer Comment:** The murloc found a better shark.
  
 [Return to Top](#top)
 
-<a name="samuro"></a>
+## Samuro {#samuro}
 
-## Samuro
-
-<img src=https://i.imgur.com/2932RXi.png title="Samuro">
+![](/assets/images/hots-april-fools/heroes/samuro.png)
 
 **Abilities**
-* Illusion Master (R\)
+* Illusion Master (R)
   * Cooldown reduced from 8 to 6.
 
 **Talents**
@@ -773,37 +722,32 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="zeratul"></a>
+## Zeratul {#zeratul}
 
-## Zeratul
-
-<img src=https://i.imgur.com/Wj2MZ5g.png title="Zeratul">
+![](/assets/images/hots-april-fools/heroes/zeratul.png)
 
 **Abilities**
 * Blink (E)
   * Cooldown reduced from 10 to 7.
-* Might of the Nerazim (R\)
+* Might of the Nerazim (R)
   * Cooldown reduced from 20 to 16.
  
 **Talents**
 * Level 1
   * Shadow Hunter (E)
     * Cooldown reduction from basic attacks upon quest completion reduced from 1.5 to 1. 
+
 > **Developer Comment:** Zeratul isn't mobile enough like Tracer and Genji are, we believe a Blink cooldown reduction should help fix this.
  
 [Return to Top](#top)
 
 ![](/assets/images/hots-april-fools/hr.png)
 
-<a name="ranged"></a>
+# Ranged Assassin {#ranged}
 
-# Ranged Assassin
+## Falstad {#falstad}
 
-<a name="falstad"></a>
-
-## Falstad
-
-<img src=https://i.imgur.com/e4n7NFU.png title="Falstad">
+![](/assets/images/hots-april-fools/heroes/falstad.png)
 
 **Abilities**
 * Lightning Rod (W)
@@ -813,39 +757,35 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="gall"></a>
+## Gall {#gall}
 
-## Gall
-
-<img src=https://i.imgur.com/HgClwrn.png title="Gall">
+![](/assets/images/hots-april-fools/heroes/gall.png)
 
 **Talents**
 * Level 20
   * The Will of Gall (Passive)
     * New functionality: Gall now controls the movement instead of Cho.
+
 > **Developer Comment:** Gall is just simply sick of it, he's taking over.
  
 [Return to Top](#top)
 
-<a name="kaelthas"></a>
+## Kael'thas {#kaelthas}
 
-## Kael'thas
-
-<img src=https://i.imgur.com/dDgbj8y.png title="Kael'thas">
+![](/assets/images/hots-april-fools/heroes/kaelthas.png)
 
 **Talents**
 * Level 20
-  * Presence of Mind (R\)
+  * Presence of Mind (R)
     * New functionality: Pyroblast instead deals 100% of current health as damage over 10 seconds.
+
 > **Developer Comment:** We believe Pyroblast is outperformed by Phoenix and could use a much stronger level 20 presence.
  
 [Return to Top](#top)
 
-<a name="lunara"></a>
+## Lunara {#lunara}
 
-## Lunara
-
-<img src=https://i.imgur.com/jG6BWFH.png title="Lunara">
+![](/assets/images/hots-april-fools/heroes/lunara.png)
 
 **Talents**
 * Level 13
@@ -856,11 +796,9 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="probius"></a>
+## Probius {#probius}
 
-## Probius
-
-<img src=https://i.imgur.com/2XA27u1.png title="Probius">
+![](/assets/images/hots-april-fools/heroes/probius.png)
 
 **Talents**
 * Level 20
@@ -874,11 +812,10 @@ And don't worry about your progress, simply connect your Steam account with your
  
 [Return to Top](#top)
 
-<a name="tracer"></a>
+## Tracer {#tracer}
 
-## Tracer
+![](/assets/images/hots-april-fools/heroes/tracer.png)
 
-<img src=https://i.imgur.com/9KfyQoI.png title="Tracer">
 **Stats**
 * Basic Attack damage reduced from 23 to 22.
 
@@ -886,16 +823,14 @@ And don't worry about your progress, simply connect your Steam account with your
 * Level 13
   * Telefrag (E)
     * New functionality: Recall cooldown increased by 10 seconds, when Tracer arrives at her Recall location, nearby enemy heroes on the Recall return point die.
+
 > **Developer Comment:** Get telefragged!
  
 [Return to Top](#top)
 
-
 ![](/assets/images/hots-april-fools/hr.png)
 
-<a name="bugfixes"></a>
-
-# Bug Fixes:
+# Bug Fixes: {#bugfixes}
 
 * Probius can no longer become sentient.
 * Thrall’s Level 20 “World Breaker” no longer moves terrain permanently.
@@ -910,8 +845,4 @@ And don't worry about your progress, simply connect your Steam account with your
 
 [Return to Top](#top)
 
-<br/>
-
-<div align=center>
-<img src=https://i.imgur.com/UHeK1Lh.png title='"Happy" April Fools!'>
-</div>
+![](/assets/images/hots-april-fools/footer.png "Happy April Fools BTW :)")
