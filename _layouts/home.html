@@ -31,6 +31,7 @@ layout: base
             {{ post.title | escape }}
           </a>
         </h3>
+        <p>{{post.content | truncatewords: 10 }}</p>
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}

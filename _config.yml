@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   this is my awesome blog post!!!.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sami.shakkour.dev" # the base hostname & protocol for your site, e.g. http://example.com
-permalink: /:year/:title/
+permalink: /blog/:year/:title/
 github_username: SamiSha99
 
 header_pages:
