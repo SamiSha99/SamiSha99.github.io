@@ -19,6 +19,8 @@ The Nova section in this patch looks like corrupted bug, but in reality this was
 
 Like the [2021]({% post_url 2021-04-01-hots-april-fools %}) this was enjoyable to write and the reaction that followed it was very fun to read, seeing people speculate if its real, fake or some fabricated April Fools disguised as a real patch (their words not mine) was free entertainment for me on this mischievous date.
 
+Patch Notes Link: https://us.forums.blizzard.com/en/heroes/t/35373
+
 ![](/assets/images/hots-april-fools/hr.png)
 
 __*### BEGIN PATCH NOTES TRANSCRIPTION ###*__

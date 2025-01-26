@@ -31,6 +31,8 @@ Personally, I'm shit with closures so I will keep it simple: I will see you in t
 
 **Special Thanks:** Labreris
 
+Patch Notes Link: https://us.forums.blizzard.com/en/heroes/t/50529
+
 ![](/assets/images/hots-april-fools/hr.png)
 
 __*### BEGIN PATCH NOTES TRANSCRIPTION ###*__
