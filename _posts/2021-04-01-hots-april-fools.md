@@ -26,7 +26,7 @@ Personally, I'm shit with closures so I will keep it simple: I will see you in t
 * Sami Shakkour \| [u/SamiSha_](https://www.reddit.com/user/SamiSha_/)
 * Twinkle SunnySun \| [u/twinklesunnysun](https://www.reddit.com/user/twinklesunnysun/)
 * Trolldaeron \| [u/Archlichofthestorm](https://www.reddit.com/user/Archlichofthestorm/)
-* NotBelian \| [u/NotBelial](https://www.reddit.com/user/NotBelial/)
+* NotBelial \| [u/NotBelial](https://www.reddit.com/user/NotBelial/)
 * Gnueless \| [u/Gnueless](https://www.reddit.com/user/Gnueless/)
 * Spazzo \| [u/Spazzo965](https://www.reddit.com/user/Spazzo965/)
 
