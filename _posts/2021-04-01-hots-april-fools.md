@@ -3,7 +3,7 @@ layout: post
 title:  "PTR Patch Notes | April 1, 2021"
 date:   2021-04-01 12:00:00 +0200
 categories : ['april-fools', 'heroes-of-the-storm']
-image: [/assets/images/hots-april-fools/2021/fake-loading-screen.png]
+image: /assets/images/hots-april-fools/2021/fake-loading-screen.png
 ---
 
 An April Fools collaboration for Heroes of the Storm.
