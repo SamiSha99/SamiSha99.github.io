@@ -3,9 +3,7 @@ layout: post
 title:  "PTR Patch Notes | April 1, 2020"
 date:   2020-04-01 12:00:00 +0200
 categories: ['april-fools', 'heroes-of-the-storm']
-image:
-  path: /assets/images/hots-april-fools/2020/mercy-thumbnail.jpeg
-  alt: mercy from overwatch 2
+image: [/assets/images/hots-april-fools/2020/mercy-thumbnail.jpeg]
 ---
 An April Fools patch notes for Heroes of the Storm.
 
