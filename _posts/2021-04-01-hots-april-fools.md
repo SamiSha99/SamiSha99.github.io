@@ -5,12 +5,41 @@ date:   2021-04-01 12:00:00 +0200
 categories : ['april-fools', 'heroes-of-the-storm']
 ---
 
+An April Fools collaboration for Heroes of the Storm.
+
+![](/assets/images/hots-april-fools/2021/fake-loading-screen.png)
+
+Since people keep asking or assume a lot: **I am not affiliated with Blizzard, this is unofficial**.
+
+Unlike the [2020]({% post_url 2020-04-01-hots-april-fools %}) version, this was a collab with the community who made many artworks such as the [Blackthorne artwork](#blackthorne), or videos and clips to "sell" the idea something big is coming, I wrote the patch notes, creating the Blackthorne ability icons and the fake [Steam screenshot](#steam).
+
+Reading this again is kinda painful IMO as there's a lot of grammar errors, I think it would be easy to say that "English isn't my first language" but no LMAO I speak it more than my mother language!!! A lot of weird sentences and I certainly could improve on it further but thankfully despite this being a clear indicator of it being fake, people took it as legitmate nonetheless and I am very glad that people liked it despite causing massive amount of hope only to be hit with dissapointment that it is well fake crap.
+
+What is ironic however, is that this patch note actually has some sense of truth behind, it isn't just "fake" it was based around data mined content known as `classic21` which *fast forwarding a few months* resulted in the [Legends of the Past](https://nexuscompendium.com/events/legends-of-the-past) an event that represents Blizzard's classic games.
+
+Overall, this was the most fun I had in a collab despite being in a time where the game's content has stagnated to a halt, it showed me how passion can result in creating content that people would believe in while still be close on par with Blizzard's content quality.
+
+Personally, I'm shit with closures so I will keep it simple: I will see you in the Nexus.
+
+**Credits:** 
+* Sami Shakkour \| [u/SamiSha_](https://www.reddit.com/user/SamiSha_/)
+* Twinkle SunnySun \| [u/twinklesunnysun](https://www.reddit.com/user/twinklesunnysun/)
+* Trolldaeron \| [u/Archlichofthestorm](https://www.reddit.com/user/Archlichofthestorm/)
+* NotBelian \| [u/NotBelial](https://www.reddit.com/user/NotBelial/)
+* Gnueless \| [u/Gnueless](https://www.reddit.com/user/Gnueless/)
+* Spazzo \| [u/Spazzo965](https://www.reddit.com/user/Spazzo965/)
+
+**Special Thanks:** Labreris
+
+![](/assets/images/hots-april-fools/hr.png)
+
+__*### BEGIN PATCH NOTES TRANSCRIPTION ###*__
+
 ![](/assets/images/hots-april-fools/patch-notes.jpg "Heroes of the Storm Logo")
 
 Our next Heroes of the Storm patch has just hit the Public Test Realm and will be available for playtesting until April 8th. As always, if you encounter any bugs during your PTR play sessions, please stop by the  [PTR Bug Report](https://us.forums.blizzard.com/en/heroes/c/ptr-bug-report) forum to let us know about your experiences.
 
 ![](/assets/images/hots-april-fools/hr.png)
-
 
 # Quick Navigation: {#top}
 
