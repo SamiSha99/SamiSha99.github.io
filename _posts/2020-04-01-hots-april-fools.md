@@ -5,6 +5,24 @@ date:   2020-04-01 12:00:00 +0200
 categories : ['april-fools', 'heroes-of-the-storm']
 ---
 
+An April Fools patch notes for Heroes of the Storm.
+
+Since people keep asking or assume a lot: **I am not affiliated with Blizzard, this is unofficial**.
+
+I personally remember when I started writing this a few months before its release, I had 0 ideas how it will go and I wanted to do, I kept browsing all the patch notes checking what really makes them click and how to exactly replicate it as similar as possible to sell it off as a real patch.
+
+I mean people CAN tell it is fake literally from the start right? It's posted on the __*FORUM*__ site not the __*NEWS*__ site just like all the patch notes are... I was wrong, a lot. It sold so hard, people really thought I was a Blizzard employee, which is really funny and quite the honor despite the abhorrent grammar in the lines that gives it away.
+
+The video was voice acted by Mochrie ([u/Mochrie1713](https://www.reddit.com/user/Mochrie1713/)), I put so much effort into it but due lack of time I had to cut on budget and I think its funny how it loosely cuts off on random jokes that sounded funny in my head.
+
+The Nova section in this patch looks like corrupted bug, but in reality this was intentional from the start the entire section of it is just broken because the joke is the hero literally "doesn't" exist because it can passively go back to stealth, a "ghost" (name of the infantry unit she is).
+
+Like the [2021]({% post_url 2021-04-01-hots-april-fools %}) this was enjoyable to write and the reaction that followed it was very fun to read, seeing people speculate if its real, fake or some fabricated April Fools disguised as a real patch (their words not mine) was free entertainment for me on this mischievous date.
+
+![](/assets/images/hots-april-fools/hr.png)
+
+__*### BEGIN PATCH NOTES TRANSCRIPTION ###*__
+
 ![](/assets/images/hots-april-fools/patch-notes.jpg "Heroes of the Storm Logo")
 
 Our next Heroes of the Storm patch has just hit the Public Test Realm and will be available for playtesting until April 8th. As always, if you encounter any bugs during your PTR play sessions, please stop by the  [PTR Bug Report](https://us.forums.blizzard.com/en/heroes/c/ptr-bug-report) forum to let us know about your experiences.
