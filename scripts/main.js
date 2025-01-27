@@ -3,7 +3,7 @@ const color = "rgb(0, 0, 0)", transparentWhite = "rgba(248, 248, 255, 0.5)";
 var isPaused, isInitialized;
 const lineLength = 25, lineThickness = 2.5, maxLines = 200;
 const speedRange = [100, 250];
-const spawnAmountRange = [15, 30];
+const spawnAmountRange = [10, 20];
 
 function AddNewLine() {
     let multiplier = Math.max(canvas.height / 1080, 1);
@@ -161,12 +161,14 @@ function run() {
     ctx = c.getContext("2d");
 
     canvas = c;
-    canvas.width = Math.max(document.body.clientWidth, 0);
-    canvas.height = Math.max(document.body.clientHeight, window.innerHeight, 0);
-    document.body.insertBefore(c, document.body.firstChild)
-    isInitialized = true;
-    AddNewLine();
-    requestAnimationFrame(loop);
+    setTimeout(() => {
+        canvas.width = Math.max(document.body.clientWidth, 0);
+        canvas.height = Math.max(screen.height, window.innerHeight, 0);
+        document.body.insertBefore(c, document.body.firstChild)
+        isInitialized = true;
+        AddNewLine();
+        requestAnimationFrame(loop);
+    }, 100);
 }
 
 function OpenProjectLink(button) {
