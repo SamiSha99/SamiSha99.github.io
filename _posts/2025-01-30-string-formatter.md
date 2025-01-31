@@ -5,7 +5,7 @@ date:   2025-01-30 09:42:00 +0200
 image: /assets/images/blog/string-formatter/thumbnail.png
 ---
 
-The philosophy behind making a string parser in any programming language using simple index inspection, this type of formatting was done for the [Online Communication](https://github.com/SamiSha99/OnlineCommunication/) Mod which I've released in June 2024. Looking back it, I think its a very rough implementation and there's technically a way WAY better approach than the one I wrote but I think engine limitation was the largest hurdle here of course.
+The philosophy behind making a string parser in any programming language using simple index inspection, this type of formatting was done for the [Online Communication](https://github.com/SamiSha99/OnlineCommunication/){:target="\_blank"} Mod which I've released in June 2024. Looking back it, I think its a very rough implementation and there's technically a way WAY better approach than the one I wrote but I think engine limitation was the largest hurdle here of course.
 
 ![](/assets/images/blog/string-formatter/thumbnail.png)
 
@@ -80,7 +80,7 @@ struct OCSegment
 
 ## Finding an Opening Tag
 
-Tags are defined as `[tag]` and `[/tag]` similar to HTML or more accurately [BBCode](https://en.wikipedia.org/wiki/BBCode){:target="\_blank"}, we start by looking for an opening tag so we can start our parsing, for this example I supported two types, `[color]` and `[icon]`. 
+Tags are defined as `[tag]` and `[/tag]` similar to HTML or more accurately [BBCode](https://en.wikipedia.org/wiki/BBCode){: target="\_blank"}, we start by looking for an opening tag so we can start our parsing, for this example I supported two types, `[color]` and `[icon]`. 
 
 Both tags work as follows:
 
@@ -278,6 +278,6 @@ In this example, you can see the formatting for icons and coloring is working as
 
 ## Closure
 
-Overall, this taught me a lot about the basics idea of formatting strings to be customized. This is a very basic explanation of it because the project itself has expanded tremendously, it has [dynamic strings](https://github.com/SamiSha99/OnlineCommunication/wiki/Dynamic-Strings), a pre-parse approach that replaces string content dynamically with player variable settings or cross referencing similar text (such as a localization variable) and replacing key defintition that were passed in the lobby correctly in the text before parsing it with the right content.
+Overall, this taught me a lot about the basics idea of formatting strings to be customized. This is a very basic explanation of it because the project itself has expanded tremendously, it has [dynamic strings](https://github.com/SamiSha99/OnlineCommunication/wiki/Dynamic-Strings){:target="\_blank"}, a pre-parse approach that replaces string content dynamically with player variable settings or cross referencing similar text (such as a localization variable) and replacing key defintition that were passed in the lobby correctly in the text before parsing it with the right content.
 
 I hope you found this post at least helpful and informative on this particular subject!
