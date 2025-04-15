@@ -6,8 +6,8 @@ const speedRange = [100, 250];
 const spawnAmountRange = [10, 20];
 
 const image = new Image(800, 400);
-const imagefolder = (window.location.pathname.includes("/projects/") ?
-    window.location.pathname.split("/projects/")[0] :
+const imagefolder = (window.location.origin != "null" ?
+    window.location.origin :
     window.location.pathname.replace(new RegExp("\/[^/]*$", "gm"), "")) + "/assets/images/fish/";
 image.src = imagefolder + "smallswim.png";
 
