@@ -31,9 +31,11 @@ body {
 }
 
 #mainpage {
-    width: min(740px, 95%);
-    background-color: rgba(0,0,0, 0.75); 
+    width: min(740px, calc(100vw - 16px));
+    padding: 0 8px;
+    background-color: rgba(0,0,0, 0.8); 
     margin: auto;
+    box-shadow: rgba(0,0,0, 0.8) 0px 0px 50px 50px;
 }
 
 button {
