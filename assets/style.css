@@ -9,6 +9,10 @@
     --content-expander-color: rgb(132, 113, 238);
 }
 
+h2:not(:first-of-type) {
+    margin-top: 48px;
+}
+
 html,
 body {
     margin: 0;
@@ -28,21 +32,22 @@ body {
     background-color: var(--primary-background-color);
     color: var(--primary-text-color);
     font-family: monospace;
+    font-size: 16px;
 }
 
 #mainpage {
     width: min(740px, calc(100vw - 16px));
     padding: 0 8px;
-    background-color: rgba(0,0,0, 0.8); 
+    background-color: rgba(0, 0, 0, 0.8);
     margin: auto;
-    box-shadow: rgba(0,0,0, 0.8) 0px 0px 50px 50px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 50px 50px;
 }
 
 button {
     color: var(--primary-text-color);
     border: 2px solid var(--primary-text-color);
     padding: 4px;
-    font-size: 12px;
+    font-size: 14px;
     background-color: var(--primary-background-color);
     font-family: monospace;
 }
@@ -57,7 +62,7 @@ a.button {
     color: var(--primary-text-color);
     border: 2px solid var(--primary-text-color);
     padding: 4px;
-    font-size: 12px;
+    font-size: 14px;
     background-color: var(--primary-background-color);
     font-family: monospace;
     text-decoration: none;
