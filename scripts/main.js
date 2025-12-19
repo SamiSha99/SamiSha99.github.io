@@ -228,6 +228,7 @@ var spawnLineDelay = 0;
 var fishAnimation = 0;
 var time = 0;
 const offsetTime = Math.random() * Math.PI;
+window.animationSpeed = 0.014;
 function Update(delta) {
     spawnLineDelay -= delta;
     time += delta;
@@ -239,7 +240,7 @@ function Update(delta) {
     }
     draw();
     move(delta);
-    const animationTime = time * 0.0125 * Math.PI + offsetTime;
+    const animationTime = time * window.animationSpeed * Math.PI + offsetTime;
     document.body.style =
         "--default-hue:" + Math.round((0.5 * Math.cos(animationTime) + 0.5) * 360) + ";";
     fishAnimation -= delta;
