@@ -54,7 +54,6 @@ function AddNewLine() {
 
 function AddFish() {
     const direction = GetDirection(Math.floor(Math.random() * 2));
-    console.log(direction);
     let f = {};
     f = {
         direction: direction,
