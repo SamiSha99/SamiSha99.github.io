@@ -3,10 +3,16 @@
 :root {
     --primary-text-color: ghostwhite;
     --primary-background-color: black;
-    --highlight-text-color: rgb(185, 131, 255);
-    --visited-link-color: rgb(79, 149, 255);
-    --hovered-link-color: rgb(242, 255, 61);
-    --content-expander-color: rgb(132, 113, 238);
+    --highlight-text-color: rgb(255, 255, 255);
+}
+
+h2 {
+    margin: 16px 0;
+}
+
+a {
+    text-decoration: underline dashed;
+    color: var(--visited-link-color);
 }
 
 h2:not(:first-of-type) {
@@ -17,6 +23,10 @@ html,
 body {
     margin: 0;
     padding: 0;
+    --default-hue: 216;
+    --visited-link-color: hsl(var(--default-hue) 80% 65.5%);
+    --hovered-link-color: hsl(var(--default-hue) 80% 73.7%);
+    --hovered-link-button-color: hsl(var(--default-hue) 50% 12.5%);
 }
 
 canvas {
@@ -61,12 +71,14 @@ button:hover {
 a.button {
     color: var(--primary-text-color);
     border: 2px solid var(--primary-text-color);
-    padding: 4px;
+    border-radius: 2px;
+    padding: 4px 8px;
     font-size: 14px;
-    background-color: var(--primary-background-color);
+    background-color: var(--hovered-link-button-color);
     font-family: monospace;
     text-decoration: none;
-    outline-color: transparent;
+    display: inline-block;
+    margin: 4px 0px 0 0;
 }
 
 a.button:link {

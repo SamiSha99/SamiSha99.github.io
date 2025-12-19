@@ -1,14 +1,22 @@
-var canvas, ctx, lines = [], fish = [];
-const color = "rgb(0, 0, 0)", transparentWhite = "rgba(248, 248, 255, 0.5)";
+var canvas,
+    ctx,
+    lines = [],
+    fish = [];
+const color = "rgb(0, 0, 0)",
+    transparentWhite = "rgba(248, 248, 255, 0.5)";
 var isPaused, isInitialized;
-const lineLength = 25, lineThickness = 2.5, maxLines = 200;
+const lineLength = 25,
+    lineThickness = 2.5,
+    maxLines = 200;
 const speedRange = [100, 250];
 const spawnAmountRange = [10, 20];
 
 const image = new Image(800, 400);
-const imagefolder = (window.location.origin != "null" ?
-    window.location.origin :
-    window.location.pathname.replace(new RegExp("\/[^/]*$", "gm"), "")) + "/assets/images/fish/";
+const imagefolder =
+    (window.location.origin != "null"
+        ? window.location.origin
+        : window.location.pathname.replace(new RegExp("/[^/]*$", "gm"), "")) +
+    "/assets/images/fish/";
 image.src = imagefolder + "smallswim.png";
 
 const fishSprite = {
@@ -22,7 +30,7 @@ const fishSprite = {
     size: 128,
     currentFrame: 0,
     frameTime: 0.1, // seconds per frame
-}
+};
 
 function AddNewLine() {
     let multiplier = Math.max(canvas.height / 1080, 1);
@@ -39,19 +47,20 @@ function AddNewLine() {
             startSpeed: line.speed,
             location: line.location,
         });
-        spawnLineDelay = (1 / multiplier) * randRange(1 / spawnAmountRange[0], 1 / spawnAmountRange[1]);
+        spawnLineDelay =
+            (1 / multiplier) * randRange(1 / spawnAmountRange[0], 1 / spawnAmountRange[1]);
     }
 }
 
 function AddFish() {
-    const direction = GetDirection(Math.floor(Math.random() * 2))
+    const direction = GetDirection(Math.floor(Math.random() * 2));
     console.log(direction);
-    let f = {}
+    let f = {};
     f = {
         direction: direction,
         speed: randRange(speedRange[0], speedRange[1]) * GetSpeedDirection(direction),
         location: {
-            x: (direction == "left" ? fishSprite.size + canvas.width : -fishSprite.size),
+            x: direction == "left" ? fishSprite.size + canvas.width : -fishSprite.size,
             y: randRangeInt(canvas.height / fishSprite.size, canvas.height - fishSprite.size),
         },
         time: 0,
@@ -68,8 +77,8 @@ function GetFishType() {
         1: 1,
         2: 2,
         // pirahna fish sprite row
-        3: 4
-    }
+        3: 4,
+    };
     return types[Math.floor(Math.random() * Object.keys(types).length)];
 }
 
@@ -124,7 +133,6 @@ function draw() {
     }
     // fish
     for (i = 0; i < fish.length; i++) {
-
         if (fish[i].direction == "right") {
             ctx.save();
             ctx.translate(canvas.width - (canvas.width - fish[i].location.x * 2), 0);
@@ -134,20 +142,24 @@ function draw() {
             // Sprite sheet
             fishSprite.image,
             // The sprite frame to draw
-            Math.max(0, Math.round(((fish[i].time % 1) / fish[i].frameTime)) - 1) * fishSprite.spriteWidth, fish[i].type * fishSprite.spriteHeight,
+            Math.max(0, Math.round((fish[i].time % 1) / fish[i].frameTime) - 1) *
+                fishSprite.spriteWidth,
+            fish[i].type * fishSprite.spriteHeight,
             // Size of the sprite frame
-            fishSprite.spriteWidth, fishSprite.spriteHeight,
+            fishSprite.spriteWidth,
+            fishSprite.spriteHeight,
             // location of the sprite frame
-            fish[i].location.x, fish[i].location.y,
+            fish[i].location.x,
+            fish[i].location.y,
             // size on the canvas
-            fishSprite.size, fishSprite.size
+            fishSprite.size,
+            fishSprite.size
         );
         fish[i].direction == "right" && ctx.restore();
     }
 }
 
 function move(delta) {
-
     if (lines.length <= 0) return;
     for (i = 0; i < lines.length; i++) {
         lines[i].location += lines[i].speed * delta;
@@ -159,7 +171,7 @@ function move(delta) {
     }
     for (i = 0; i < fish.length; i++) {
         fish[i].location.x += fish[i].speed * delta;
-        fish[i].time += delta * (Math.abs(fish[i].speed) / speedRange[0] * 0.8);
+        fish[i].time += delta * ((Math.abs(fish[i].speed) / speedRange[0]) * 0.8);
         if (fish[i].location.x < -fishSprite.size) {
             fish.splice(i, 1);
             i--;
@@ -168,7 +180,6 @@ function move(delta) {
 }
 
 function GetDirection(val) {
-
     return val ? "left" : "right";
 }
 
@@ -179,7 +190,7 @@ function GetOffSet() {
 }
 
 function GetLocation(dir) {
-    return dir == "left" ? (canvas.width + lineLength) : -lineLength;
+    return dir == "left" ? canvas.width + lineLength : -lineLength;
 }
 
 function GetSpeedDirection(dir) {
@@ -208,17 +219,15 @@ function loop() {
             delta *= worldDilation;
         }
         prevTime = time;
-        if (delta != undefined)
-            Update(delta);
+        if (delta != undefined) Update(delta);
     }
     requestAnimationFrame(loop);
 }
 
-
-
 var spawnLineDelay = 0;
 var fishAnimation = 0;
 var time = 0;
+const offsetTime = Math.random() * Math.PI;
 function Update(delta) {
     spawnLineDelay -= delta;
     time += delta;
@@ -230,10 +239,12 @@ function Update(delta) {
     }
     draw();
     move(delta);
+    const animationTime = time * 0.0125 * Math.PI + offsetTime;
+    document.body.style =
+        "--default-hue:" + Math.round((0.5 * Math.cos(animationTime) + 0.5) * 360) + ";";
     fishAnimation -= delta;
     if (fishAnimation <= 0.1) {
         fishAnimation = 0;
-
     }
 }
 
@@ -256,7 +267,7 @@ function run() {
     setTimeout(() => {
         canvas.width = Math.max(document.body.clientWidth, 0);
         canvas.height = Math.max(screen.height, window.innerHeight, 0);
-        document.body.insertBefore(c, document.body.firstChild)
+        document.body.insertBefore(c, document.body.firstChild);
         isInitialized = true;
         AddNewLine();
         requestAnimationFrame(loop);
@@ -264,7 +275,7 @@ function run() {
 }
 
 function OpenProjectLink(button) {
-    window.open(button.title, '_blank');
+    window.open(button.title, "_blank");
 }
 
 // 🤫😅🤭🙈🙉🙊
