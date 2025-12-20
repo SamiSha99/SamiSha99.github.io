@@ -21,22 +21,22 @@
 title: Sami Shakkour
 email: nuh uh
 description: >- # this means to ignore newlines until "baseurl:"
-  this is my awesome blog post!!!.
+    Sami's little corner :3
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sami.shakkour.dev" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /blog/:year/:title/
 github_username: SamiSha99
 
 header_pages:
-  - blog.md
+    - blog.md
 
 # Build settings
 theme: minima
 minima:
-  skin: dark
+    skin: dark
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+    - jekyll-feed
+    - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default.
