@@ -3,29 +3,6 @@ import { GlobalEvents } from "./globalevents.js";
 import { Line, Fish } from "./entities.js";
 import { game } from "./properties.js";
 
-class Sprite {
-    constructor(
-        name,
-        imagePath,
-        frameWidth,
-        frameHeight,
-        cols,
-        rows,
-        size,
-        frameTime
-    ) {
-        this.image = new Image();
-        this.name = name ?? "Unnamed Sprite";
-        this.image.src = imagePath;
-        this.frameWidth = frameWidth;
-        this.frameHeight = frameHeight;
-        this.cols = cols;
-        this.rows = rows;
-        this.size = size;
-        this.frameTime = frameTime;
-    }
-}
-
 class Time extends GlobalEvents {
     currentTime = 0;
     // Time dilation with pause implementation
@@ -100,8 +77,7 @@ class Drawer extends GlobalEvents {
             this.spawnLineDelay =
                 1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
             if (Math.random() < 0.01) {
-                // AddFish();
-                console.log("Spawn fish! :3");
+                game.entities.instances.push(new Fish());
             }
         }
     }
@@ -148,3 +124,5 @@ function main() {
     game.state.isInitialized = true;
 }
 main();
+
+export { Drawer, Time };

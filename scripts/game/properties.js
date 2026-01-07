@@ -1,43 +1,56 @@
-const game = Object.assign({}, {
-    drawer: null,
-    canvas: null,
-    ctx: null,
-    state: {
-        isInitialized: false,
-        isPaused: false,
-    },
-    isInitialized: function () {
-        return this.state.isInitialized;
-    },
-    isPaused: function () {
-        return this.state.isPaused;
-    },
-    entities: {
-        data: {
-            line: {
-                max: 200,
-                speed: [100, 250],
-                spawnAmount: [10, 20],
-            },
-            fish: {
-                max: 20,
-                speed: [10, 25],
-            },
-        },
-        instances: [],
-    },
-    assetFolder:
+import { Sprite } from "./texture.js";
+
+const assets = {
+    folder:
         (window.location.origin != "null"
             ? window.location.origin
             : window.location.pathname.replace(
                   new RegExp("/[^/]*$", "gm"),
                   ""
               )) + "/assets/",
-    getAsset: function (path) {
-        return this.assetFolder + path;
+    get: function (path) {
+        console.log(this.folder)
+        return this.folder + path;
     },
-});
+};
+
+const game = Object.assign(
+    {},
+    {
+        /** @type {Drawer} */
+        drawer: null,
+        canvas: null,
+        ctx: null,
+        state: {
+            isInitialized: false,
+            isPaused: false,
+        },
+        isInitialized: function () {
+            return this.state.isInitialized;
+        },
+        isPaused: function () {
+            return this.state.isPaused;
+        },
+        assets,
+        entities: {
+            data: {
+                line: {
+                    max: 200,
+                    speed: [100, 250],
+                    spawnAmount: [10, 20],
+                },
+                fish: {
+                    sprite: new Sprite({cols: 10, rows: 5}).load("images/fish/smallswim.png"),
+                    speed: [10, 25],
+                    max: 20,
+                },
+            },
+            instances: [],
+        },
+    }
+);
 
 window.game = game;
+window.assets = assets;
 
-export { game };
+export { game, assets };

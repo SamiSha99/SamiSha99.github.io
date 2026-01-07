@@ -25,7 +25,7 @@ class Entity extends GlobalEvents {
 
 class Fish extends Entity {
     type = "Fish";
-    static sprite = window.game.assetFolder + "/images/fish/smallswim.png";
+    sprite = game.entities.data.fish.sprite;
     typeReference = {
         0: 0,
         1: 1,
@@ -33,46 +33,62 @@ class Fish extends Entity {
         // pirahna fish sprite row
         3: 4,
     };
-    spriteWidth = 128;
-    spriteHeight = 128;
+    typeCol = 0;
+    size = new Vector2(128, 128);
+    timePerFrame = 0.1;
 
-    constructor(name, type = null) {
-        this.name = name;
-        direction = Math.random() < 0.5 ? "left" : "right";
+    offsetTime = Math.random();
+
+    constructor() {
+        super();
+        this.direction = Math.random() < 0.5 ? -1 : 1;
+
         this.location = new Vector2(
-            direction == "left" ? canvas.width + lineLength : -lineLength,
-            MathUtils.rangeRandInt(0, canvas.height - this.spriteHeight)
+            this.direction == -1
+                ? game.canvas.width + this.sprite.size.x
+                : -this.sprite.size.x,
+            MathUtils.rangeRandInt(0, game.canvas.height - this.sprite.size.y)
         );
-        this.type = type ?? this.GetFishType();
+        console.log(
+            this.direction == -1
+                ? game.canvas.width + this.sprite.size.x
+                : -this.length
+        );
+        this.typeCol = this.GetFishType();
+        this.speed = 250;
     }
 
     draw(ctx, _delta) {
-        if (this.direction == "right") {
+        if (this.direction == 1) {
             ctx.save();
             ctx.translate(
-                canvas.width - (canvas.width - this.location.x * 2),
+                game.canvas.width - (game.canvas.width - this.location.x * 2),
                 0
             );
             ctx.scale(-1, 1);
         }
-        ctx.drawImage(
-            // Sprite sheet
-            this.sprite.image,
-            // The sprite frame to draw
-            Math.max(0, Math.round((this.time % 1) / this.frameTime) - 1) *
-                this.spriteWidth,
-            this.type * this.spriteHeight,
-            // Size of the sprite frame
-            this.spriteWidth,
-            this.spriteHeight,
-            // location of the sprite frame
-            this.location.x,
-            this.location.y,
-            // size on the canvas
-            this.sprite.size,
-            this.sprite.size
+        const time = game.drawer.time.currentTime;
+        this.sprite.animate(
+            ctx,
+            time + this.offsetTime,
+            this.location,
+            undefined,
+            this.typeCol
         );
-        this.direction == "right" && ctx.restore();
+        this.direction == 1 && ctx.restore();
+    }
+
+    update(delta) {
+        this.location.x += this.speed * delta * this.direction;
+        // console.log(this.location);
+        if (
+            this.location.x < -this.sprite.size.x ||
+            this.location.x > game.canvas.width + this.sprite.size.x
+        ) {
+            const index = game.entities.instances.indexOf(this);
+            if (index > -1) game.entities.instances.splice(index, 1);
+            this.destroy();
+        }
     }
     GetFishType() {
         return this.typeReference[
@@ -81,6 +97,10 @@ class Fish extends Entity {
                 Object.keys(this.typeReference).length - 1
             )
         ];
+    }
+
+    onDestroy() {
+        console.log("destroyed!");
     }
 }
 
@@ -100,7 +120,9 @@ class Line extends Entity {
             this.location = location;
         } else {
             this.location = new Vector2(
-                this.direction == -1 ? game.canvas.width + this.length : -this.length,
+                this.direction == -1
+                    ? game.canvas.width + this.length
+                    : -this.length,
                 this.getY()
             );
         }
@@ -124,7 +146,7 @@ class Line extends Entity {
         }
     }
 
-    draw(ctx, delta) {
+    draw(ctx, _delta) {
         const lineThickness = this.thickness;
         const lineLength = this.length;
         /** @type {CanvasRenderingContext2D}*/
