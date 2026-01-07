@@ -5,7 +5,6 @@ import { game } from "./properties.js";
 
 class Time extends GlobalEvents {
     currentTime = 0;
-    // Time dilation with pause implementation
     prevTime = performance.now();
     worldDilation = 1;
     update;
@@ -61,6 +60,11 @@ class Drawer extends GlobalEvents {
         this.ctx = this.canvas.getContext("2d");
     }
 
+    run() {
+        game.drawer = this;
+        game.state.isInitialized = true;
+    }
+
     spawnLineDelay = 0;
     update(delta) {
         this.draw(delta);
@@ -69,7 +73,6 @@ class Drawer extends GlobalEvents {
         }
 
         this.spawnLineDelay -= delta;
-        console.log("Presnet Entities:", game.entities.instances.length);
         if (this.spawnLineDelay <= 0) {
             game.entities.instances.push(new Line());
 
@@ -113,16 +116,14 @@ class Drawer extends GlobalEvents {
     }
 }
 
-function main() {
+function buildCanvas() {
     const c = document.createElement("canvas");
     c.id = "mainCanvas";
     c.width = Math.max(document.body.clientWidth, 0);
     c.height = Math.max(screen.height, window.innerHeight, 0);
     document.body.insertBefore(c, document.body.firstChild);
     game.canvas = c;
-    game.drawer = new Drawer(c);
-    game.state.isInitialized = true;
+    return c;
 }
-main();
 
-export { Drawer, Time };
+export { Drawer, Time, buildCanvas };

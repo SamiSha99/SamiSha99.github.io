@@ -49,13 +49,9 @@ class Fish extends Entity {
                 : -this.sprite.size.x,
             MathUtils.rangeRandInt(0, game.canvas.height - this.sprite.size.y)
         );
-        console.log(
-            this.direction == -1
-                ? game.canvas.width + this.sprite.size.x
-                : -this.length
-        );
         this.typeCol = this.GetFishType();
-        this.speed = 250;
+        const speedRange = game.entities.data.fish.speed;
+        this.speed = MathUtils.randRange(speedRange[0], speedRange[1]);
     }
 
     draw(ctx, _delta) {
@@ -80,7 +76,6 @@ class Fish extends Entity {
 
     update(delta) {
         this.location.x += this.speed * delta * this.direction;
-        // console.log(this.location);
         if (
             this.location.x < -this.sprite.size.x ||
             this.location.x > game.canvas.width + this.sprite.size.x
@@ -138,7 +133,7 @@ class Line extends Entity {
         this.speed += this.startSpeed * delta * 0.4 * this.direction;
         if (
             this.location.x < -lineLength ||
-            this.location.x > window.game.canvas.width + lineLength
+            this.location.x > game.canvas.width + lineLength
         ) {
             const index = game.entities.instances.indexOf(this);
             if (index > -1) game.entities.instances.splice(index, 1);
@@ -173,14 +168,12 @@ class Line extends Entity {
     }
 
     getY() {
-        let maxLength = window.game.canvas.height;
+        let maxLength = game.canvas.height;
         let minLength = maxLength / 96;
         return MathUtils.randRange(minLength, maxLength);
     }
 
-    onDestroy() {
-        console.log("Line destroyed");
-    }
+    onDestroy() {}
 }
 
 export { Entity, Fish, Line };
