@@ -36,12 +36,12 @@ const game = Object.assign(
             data: {
                 line: {
                     max: 200,
-                    speed: [100, 250],
+                    speed: [75, 150],
                     spawnAmount: [10, 20],
                 },
                 fish: {
-                    sprite: new Sprite({cols: 10, rows: 5}).load("images/fish/smallswim.png"),
-                    speed: [10, 25],
+                    sprite: new Sprite({name: "Fish Sheet", cols: 10, rows: 5}).load("images/fish/smallswim.png"),
+                    speed: [75, 75*2],
                     max: 20,
                 },
             },
