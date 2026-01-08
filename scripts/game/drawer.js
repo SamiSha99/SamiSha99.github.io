@@ -5,6 +5,8 @@ import { game } from "./properties.js";
 
 class Time extends GlobalEvents {
     currentTime = 0;
+    // Not affected by worldDilation
+    currentRealTime = 0;
     prevTime = performance.now();
     worldDilation = 1;
     update;
@@ -29,7 +31,16 @@ class Time extends GlobalEvents {
         return deltaTime / 1000;
     }
 
+    setWorldDilation(n = 1) {
+        this.worldDilation = Math.max(n, 0);
+    }
+
+    setCurrentTime(n) {
+        this.currentTime = n;
+    }
+
     loop() {
+        // this.currentRealTime += delta;
         let delta = this.getDelta();
         this.currentTime += delta;
         this.update(delta);
@@ -55,7 +66,7 @@ class Drawer extends GlobalEvents {
         super();
         this.time.update = this.update.bind(this);
         if (!canvas) {
-            this.canvas = document.createElement("canvas");
+            this.canvas = buildCanvas();
         } else this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
     }

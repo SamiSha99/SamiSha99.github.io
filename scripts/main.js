@@ -1,13 +1,27 @@
 import { buildCanvas, Drawer, Time } from "./game/drawer.js";
 
-const drawer = new Drawer(buildCanvas());
 const time = new Time();
 const offsetTime = Math.random() * 360;
-window.animationSpeed = 6;
-function Update(delta) {
-    const animationTime = time.currentTime * window.animationSpeed + offsetTime;
-    document.body.style = "--default-hue:" + Math.round(animationTime % 360);
+const animationSpeed = 6;
+time.setWorldDilation(animationSpeed);
+
+window.hue = {
+    time,
+    offsetTime,
+    speed: (n = animationSpeed) => time.setWorldDilation(n),
+};
+console.log(time.worldDilation)
+function hue() {
+    const animationTime =
+        time.currentTime * window.hue.time.worldDilation + window.hue.offsetTime;
+    document.body.style.setProperty(
+        "--default-hue",
+        String(Math.round(animationTime % 360))
+    );
 }
+hue();
+
+const Update = () => hue();
 
 time.update = Update.bind(this);
 
@@ -27,4 +41,5 @@ function _0x3c5033() {
     window.location.href = "mailto:" + _0x5bf685;
 }
 
+const drawer = new Drawer();
 drawer.run();
