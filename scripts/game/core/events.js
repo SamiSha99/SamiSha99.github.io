@@ -20,7 +20,6 @@ class GlobalEvents {
         this.onResize();
     }
 
-    // intended override points
     start() {}
     onBlur() {}
     onFocus() {}

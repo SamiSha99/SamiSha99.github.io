@@ -12,29 +12,37 @@ class Vector2 {
     add(x = 0, y = 0) {
         return new Vector2(this.x + x, this.y + y);
     }
+
     addVector(vec) {
         return new Vector2(this.x + vec.x, this.y + vec.y);
     }
+
     subtractVector(vec) {
         return new Vector2(this.x - vec.x, this.y - vec.y);
     }
+
     subtract(x = 0, y = 0) {
         return new Vector2(this.x - x, this.y - y);
     }
+
     multiply(scalar) {
         return new Vector2(this.x * scalar, this.y * scalar);
     }
+
     divide(scalar) {
         return new Vector2(this.x / scalar, this.y / scalar);
     }
+
     length() {
         return Math.sqrt(this.x * this.x + this.y * this.y);
     }
+
     normalize() {
         const len = this.length();
         if (len === 0) return new Vector2(0, 0);
         return this.divide(len);
     }
+
     clone() {
         return new Vector2(this.x, this.y);
     }
