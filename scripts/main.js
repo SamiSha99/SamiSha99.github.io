@@ -12,7 +12,7 @@ window.hue = {
 };
 
 function hue() {
-    const animationTime = time.currentTime * window.hue.time.worldDilation + window.hue.offsetTime;
+    const animationTime = time.currentTime + window.hue.offsetTime;
     document.body.style.setProperty("--default-hue", String(Math.round(animationTime % 360)));
 }
 hue();
