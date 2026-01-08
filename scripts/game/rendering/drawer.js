@@ -5,7 +5,9 @@ import { Time } from "../core/time.js";
 import { Game } from "../config/game-config.js";
 
 class Drawer extends GlobalEvents {
+    /** @type {HTMLCanvasElement} */
     canvas;
+    /** @type {CanvasRenderingContext2D} - ctx */
     ctx;
     time = null;
 
@@ -51,25 +53,34 @@ class Drawer extends GlobalEvents {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         for (let entity of Game.entities.instances) {
-            if (typeof entity.draw === "function") entity.draw(this.ctx, delta);
+            if (entity.type === "Line" && typeof entity.draw === "function") {
+                entity.draw(this.ctx, delta);
+            }
+        }
+
+        for (let entity of Game.entities.instances) {
+            if (entity.type !== "Line" && typeof entity.draw === "function") {
+                entity.draw(this.ctx, delta);
+            }
         }
     }
 
     static clearCanvas() {
-        Game.ctx.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
+        this.ctx.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
     }
 
     static drawLine(line) {
-        Game.ctx.strokeStyle = line.color;
-        Game.ctx.lineWidth = Game.entities.data.line.thickness;
-        Game.ctx.beginPath();
+        this.ctx.strokeStyle = line.color;
+        this.ctx.lineWidth = Game.entities.data.line.thickness;
+        this.ctx.beginPath();
         if (line.direction === "right") {
-            Game.ctx.moveTo(line.location, line.offset);
-            Game.ctx.lineTo(line.location - Game.entities.data.line.length, line.offset);
+            this.ctx.moveTo(line.location, line.offset);
+            this.ctx.lineTo(line.location - Game.entities.data.line.length, line.offset);
         } else {
-            Game.ctx.moveTo(line.location, line.offset);
-            Game.ctx.lineTo(line.location + Game.entities.data.line.length, line.offset);
+            this.ctx.moveTo(line.location, line.offset);
+            this.ctx.lineTo(line.location + Game.entities.data.line.length, line.offset);
         }
+        this.ctx.stroke();
     }
 }
 
