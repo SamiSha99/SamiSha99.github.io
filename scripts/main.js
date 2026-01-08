@@ -10,7 +10,7 @@ window.hue = {
     offsetTime,
     speed: (n = animationSpeed) => time.setWorldDilation(n),
 };
-console.log(time.worldDilation)
+
 function hue() {
     const animationTime =
         time.currentTime * window.hue.time.worldDilation + window.hue.offsetTime;

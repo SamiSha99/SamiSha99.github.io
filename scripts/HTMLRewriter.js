@@ -41,7 +41,7 @@ function createContent(child) {
         case "BUT":
             return reWriteButton(child);
         default:
-            console.warn("Invalid content! Ignoring.");
+            console.warn("Invalid content being created! Content:", child);
             return undefined;
     }
 }

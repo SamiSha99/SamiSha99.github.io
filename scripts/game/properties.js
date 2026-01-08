@@ -9,7 +9,6 @@ const assets = {
                   ""
               )) + "/assets/",
     get: function (path) {
-        console.log(this.folder)
         return this.folder + path;
     },
 };

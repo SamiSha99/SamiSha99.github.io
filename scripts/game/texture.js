@@ -14,7 +14,6 @@ class Sprite {
     }) {
         this.image = new Image();
         this.image.onload = (e) => {
-            console.log(`Loaded sprite:`, e.target);
             this.name = name ?? "Unnamed Sprite";
             this.image.width = this.image.naturalWidth;
             this.image.height = this.image.naturalHeight;
@@ -22,11 +21,10 @@ class Sprite {
             this.cols = cols;
             if (cols > 1) this.frameWidth = this.image.width / cols;
             else this.frameWidth = frameWidth;
-
+            
             this.rows = rows;
             if (rows > 1) this.frameHeight = this.image.height / rows;
             else this.frameHeight = frameHeight;
-            console.log(this);
         };
         this.image.src = imagePath;
         this.size = size;

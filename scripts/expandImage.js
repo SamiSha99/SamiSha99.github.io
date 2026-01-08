@@ -71,7 +71,6 @@ function GetImageDescription(img, isVideo = false, vidIndex = 0) {
         case null:
         case undefined:
         case "":
-            //console.warn("Could not find description, " + (img.hasAttribute("title") ? "title specifier has invalid text." : "title was not specified."));
             str = "<i>No description found.</i>";
             break;
     }

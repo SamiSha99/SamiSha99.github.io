@@ -94,9 +94,7 @@ class Fish extends Entity {
         ];
     }
 
-    onDestroy() {
-        console.log("destroyed!");
-    }
+    onDestroy() {}
 }
 
 class Line extends Entity {
