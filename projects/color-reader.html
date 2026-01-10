@@ -1,27 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Color Picker</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="Reads params and gives results!" />
+        <meta name="keywords" content="UnrealScript, Unreal, UDK, A Hat in Time, Modding" />
+        <meta name="author" content="SamiSha" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href=".././assets/style.css" />
+    </head>
 
-<head>
-    <title>Point and Interact</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Reads params and gives results!">
-    <meta name="keywords" content="UnrealScript, Unreal, UDK, A Hat in Time, Modding">
-    <meta name="author" content="SamiSha">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href=".././assets/style.css">
-</head>
-
-<body id="colored-background">
-    <div style=" position:fixed; top:25vh; left:0; width: 100%; height: 100%; text-align: center;">
-        <h1 style="margin: auto; font-size: 10vh; text-decoration: none;" id="color-header"></h1>
-        <h1 style="margin: auto; font-size: 10vh; text-decoration: none;" id="color-hex"></h1>
-        <div>
-            <h1 id="choose-text">Choose Color</h1>
-            <input type="color" id="color-input" id="color-input" />
+    <body no-drawing="true" id="colored-background">
+        <div
+            style="
+                position: fixed;
+                top: 25vh;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            "
+        >
+            <h1 style="margin: auto; font-size: 10vh; text-decoration: none" id="color-header"></h1>
+            <h1 style="margin: auto; font-size: 10vh; text-decoration: none" id="color-hex"></h1>
+            <div>
+                <h1 id="choose-text">Choose Color</h1>
+                <input type="color" id="color-input" id="color-input" />
+            </div>
         </div>
-    </div>
-    <script src="./scripts/color-reader.js"></script>
-</body>
-
+        <div style="
+                    position: fixed;
+                    bottom: 0;
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px;
+                ">
+            
+                
+            
+                <p>For players using the <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3276508705">Online Communication</a> mod: You can Ctrl + C/V to copy/paste colors instead of inputting them manually!</p>
+                <footer>&copy; 2023 SamiSha. All rights reserved.</footer>
+            </footer>
+        </div>
+        <script src="./scripts/color-reader.js"></script>
+        <script src="../scripts/main.js" type="module"></script>
+    </body>
 </html>

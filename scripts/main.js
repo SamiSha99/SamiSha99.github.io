@@ -36,5 +36,7 @@ function _0x3c5033() {
     window.location.href = "mailto:" + _0x5bf685;
 }
 
-const drawer = new Drawer();
-drawer.run();
+if (document.body.getAttribute("no-drawing") !== "true") {
+    const drawer = new Drawer();
+    drawer.run();
+}
