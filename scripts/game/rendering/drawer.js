@@ -72,10 +72,9 @@ class Drawer extends GlobalEvents {
     }
 
     onClick(e) {
-        console.log(Game.entities.instances.filter((i) => i.type == "Food").length);
         if (
             e.type === "click" &&
-            Game.entities.instances.filter((i) => i.type == "Food").length <= 10
+            Game.entities.instances.filter((i) => i.type == "Food").length < 10
         ) {
             const rect = this.canvas.getBoundingClientRect();
 
