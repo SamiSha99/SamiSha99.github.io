@@ -3,6 +3,7 @@ import { MathUtils } from "../core/math.js";
 import { Line, Fish } from "../entities/index.js";
 import { Time } from "../core/time.js";
 import { Game } from "../config/game-config.js";
+import { Food } from "../entities/food.js";
 
 class Drawer extends GlobalEvents {
     /** @type {HTMLCanvasElement} */
@@ -50,6 +51,7 @@ class Drawer extends GlobalEvents {
     }
 
     draw(delta) {
+        this.ctx.fillStyle = "rgba(0,0,0,0)";
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         for (let entity of Game.entities.instances) {
@@ -69,18 +71,20 @@ class Drawer extends GlobalEvents {
         this.ctx.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
     }
 
-    static drawLine(line) {
-        this.ctx.strokeStyle = line.color;
-        this.ctx.lineWidth = Game.entities.data.line.thickness;
-        this.ctx.beginPath();
-        if (line.direction === "right") {
-            this.ctx.moveTo(line.location, line.offset);
-            this.ctx.lineTo(line.location - Game.entities.data.line.length, line.offset);
-        } else {
-            this.ctx.moveTo(line.location, line.offset);
-            this.ctx.lineTo(line.location + Game.entities.data.line.length, line.offset);
+    onClick(e) {
+        console.log(Game.entities.instances.filter((i) => i.type == "Food").length);
+        if (
+            e.type === "click" &&
+            Game.entities.instances.filter((i) => i.type == "Food").length <= 10
+        ) {
+            const rect = this.canvas.getBoundingClientRect();
+
+            const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
+            const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
+            const size = Game.entities.data.food.sprite.size;
+            const food = new Food({ x: x - size.x / 2, y: y - size.y / 2 });
+            Game.entities.instances.push(food);
         }
-        this.ctx.stroke();
     }
 }
 

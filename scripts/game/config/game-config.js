@@ -1,3 +1,4 @@
+import { Vector2 } from "../core/math.js";
 import { Sprite } from "../rendering/sprite.js";
 
 class Assets {
@@ -36,9 +37,14 @@ class Game {
                 spawnAmount: [10, 20],
             },
             fish: {
-                sprite: null, // will be created during init()
+                sprite: null,
                 speed: [75, 75 * 2],
                 max: 20,
+            },
+            food: {
+                sprite: null,
+                speed: 75,
+                max: 10,
             },
         },
         instances: [],
@@ -52,19 +58,24 @@ class Game {
         return this.state.isPaused;
     }
 
-    // call once, after Assets is available
     static init() {
-        // create sprites with resolved absolute/relative URLs via Assets.get
         if (!this.entities.data.fish.sprite) {
             this.entities.data.fish.sprite = new Sprite({
                 name: "Fish Sheet",
                 imagePath: Assets.get("images/fish/smallswim.png"),
                 cols: 10,
                 rows: 5,
+                size: new Vector2(128, 128),
+            });
+            this.entities.data.food.sprite = new Sprite({
+                name: "Food Sheet",
+                imagePath: Assets.get("images/fish/food.png"),
+                cols: 10,
+                rows: 5,
+                size: new Vector2(48, 48),
             });
         }
 
-        // other one-time setup can go here
         this.state.isInitialized = true;
     }
 }

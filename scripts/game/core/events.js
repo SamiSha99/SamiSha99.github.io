@@ -1,34 +1,32 @@
 class GlobalEvents {
+    _handleBlur = () => this.onBlur();
+    _handleFocus = () => this.onFocus();
+    _handleResize = () => this.onResize();
+    _handleClick = (e) => this.onClick(e);
+    _handleDestroy = () => this.onDestroy();
+
     constructor() {
-        this._handleBlur = this._handleBlur.bind(this);
-        this._handleFocus = this._handleFocus.bind(this);
-        this._handleResize = this._handleResize.bind(this);
         window.addEventListener("blur", this._handleBlur);
         window.addEventListener("focus", this._handleFocus);
         window.addEventListener("resize", this._handleResize);
+        window.addEventListener("click", this._handleClick);
+        window.addEventListener("mouseup", this._handleClick);
+        window.addEventListener("mousedown", this._handleClick);
     }
 
-    _handleBlur() {
-        this.onBlur();
-    }
-
-    _handleFocus() {
-        this.onFocus();
-    }
-
-    _handleResize() {
-        this.onResize();
-    }
-
-    start() {}
     onBlur() {}
     onFocus() {}
     onResize() {}
+    onClick(e) {}
     onDestroy() {}
 
     destroy() {
         window.removeEventListener("blur", this._handleBlur);
         window.removeEventListener("focus", this._handleFocus);
+        window.removeEventListener("resize", this._handleResize);
+        window.removeEventListener("click", this._handleClick);
+        window.removeEventListener("mouseup", this._handleClick);
+        window.removeEventListener("mousedown", this._handleClick);
         this.onDestroy();
     }
 }
