@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mask Images</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            canvas {
+                border: 1px solid #ccc;
+                display: block;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="file" id="spriteInput" accept="image/*" />
+        <input type="file" id="maskInput" accept="image/*" />
+        <button id="process">Apply Mask</button>
+        <button id="download">Download</button>
+
+        <canvas id="canvas"></canvas>
+
+        <script src="mask.js"></script>
+    </body>
+</html>
