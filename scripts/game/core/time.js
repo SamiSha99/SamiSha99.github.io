@@ -1,4 +1,4 @@
-import { Game } from "../config/game-config.js";
+import { Game } from "./game.js";
 import { GlobalEvents } from "./events.js";
 
 class Time extends GlobalEvents {

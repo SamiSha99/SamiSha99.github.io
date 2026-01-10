@@ -1,4 +1,4 @@
-import { Game } from "../config/game-config.js";
+import { Game } from "../core/game.js";
 import { GlobalEvents } from "../core/events.js";
 import { Vector2 } from "../core/math.js";
 

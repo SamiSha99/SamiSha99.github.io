@@ -1,4 +1,4 @@
-import { Vector2 } from "../core/math.js";
+import { Vector2 } from "./math.js";
 import { Sprite } from "../rendering/sprite.js";
 
 class Assets {
@@ -47,7 +47,13 @@ class Game {
                 max: 10,
             },
         },
+        /** @type {object[]} - instances */
         instances: [],
+        add: (e) => this.entities.instances.push(e),
+        remove: (e) => {
+            const i = this.entities.instances.indexOf(e);
+            i != -1 && this.entities.instances.splice(i, 1);
+        },
     };
 
     static isInitialized() {
@@ -78,8 +84,20 @@ class Game {
 
         this.state.isInitialized = true;
     }
+
+    static spawn(_class, { location }) {
+        const entity = new _class();
+        location && (entity.location = location);
+        this.entities.add(entity);
+        return entity;
+    }
+    static destroy(entity) {
+        this.entities.remove(entity);
+    }
 }
 window.game = Game;
 Game.init();
+
+console.log(Game.instance);
 
 export { Game, Assets };

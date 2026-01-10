@@ -1,6 +1,6 @@
 import { Entity } from "./entity.js";
 import { Vector2, MathUtils } from "../core/math.js";
-import { Game } from "../config/game-config.js";
+import { Game } from "../core/game.js";
 
 class Line extends Entity {
     type = "Line";
@@ -34,11 +34,8 @@ class Line extends Entity {
         const lineLength = this.length;
         this.location = this.location.add(this.speed * delta, 0);
         this.speed += this.startSpeed * delta * 0.4 * this.direction;
-        if (this.location.x < -lineLength || this.location.x > Game.canvas.width + lineLength) {
-            const index = Game.entities.instances.indexOf(this);
-            if (index > -1) Game.entities.instances.splice(index, 1);
+        if (this.location.x < -lineLength || this.location.x > Game.canvas.width + lineLength)
             this.destroy();
-        }
     }
 
     draw(ctx, _delta) {

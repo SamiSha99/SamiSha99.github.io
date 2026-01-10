@@ -1,6 +1,6 @@
 import { Entity } from "./entity.js";
 import { Vector2, MathUtils } from "../core/math.js";
-import { Game } from "../config/game-config.js";
+import { Game } from "../core/game.js";
 
 class Fish extends Entity {
     type = "Fish";
@@ -47,8 +47,6 @@ class Fish extends Entity {
             this.location.x < -this.sprite.size.x ||
             this.location.x > Game.canvas.width + this.sprite.size.x
         ) {
-            const index = Game.entities.instances.indexOf(this);
-            if (index > -1) Game.entities.instances.splice(index, 1);
             this.destroy();
         }
     }

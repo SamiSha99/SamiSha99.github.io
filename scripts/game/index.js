@@ -1,4 +1,4 @@
-export { Game, Assets } from "./config/game-config.js";
+export { Game, Assets } from "./core/game.js";
 export { Vector2, MathUtils } from "./core/math.js";
 export { GlobalEvents } from "./core/events.js";
 export { Time } from "./core/time.js";

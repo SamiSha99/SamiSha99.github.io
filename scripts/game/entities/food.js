@@ -1,6 +1,6 @@
 import { Entity } from "./entity.js";
 import { Vector2, MathUtils } from "../core/math.js";
-import { Game } from "../config/game-config.js";
+import { Game } from "../core/game.js";
 
 class Food extends Entity {
     type = "Food";
@@ -24,14 +24,8 @@ class Food extends Entity {
 
     update(delta) {
         this.location.y += this.speed * delta;
-        if (this.location.y > Game.canvas.height + this.sprite.size.y) {
-            const index = Game.entities.instances.indexOf(this);
-            if (index > -1) Game.entities.instances.splice(index, 1);
-            this.destroy();
-        }
+        if (this.location.y > Game.canvas.height + this.sprite.size.y) this.destroy();
     }
-
-    onDestroy() {}
 }
 
 export { Food };

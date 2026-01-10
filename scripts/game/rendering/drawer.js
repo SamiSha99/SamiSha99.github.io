@@ -1,8 +1,8 @@
 import { GlobalEvents } from "../core/events.js";
-import { MathUtils } from "../core/math.js";
+import { MathUtils, Vector2 } from "../core/math.js";
 import { Line, Fish } from "../entities/index.js";
 import { Time } from "../core/time.js";
-import { Game } from "../config/game-config.js";
+import { Game } from "../core/game.js";
 import { Food } from "../entities/food.js";
 
 class Drawer extends GlobalEvents {
@@ -81,8 +81,8 @@ class Drawer extends GlobalEvents {
             const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
             const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
             const size = Game.entities.data.food.sprite.size;
-            const food = new Food({ x: x - size.x / 2, y: y - size.y / 2 });
-            Game.entities.instances.push(food);
+
+            Game.spawn(Food, new Vector2(x - size.x / 2, y - size.y / 2));
         }
     }
 }
