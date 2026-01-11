@@ -98,6 +98,4 @@ class Game {
 window.game = Game;
 Game.init();
 
-console.log(Game.instance);
-
 export { Game, Assets };

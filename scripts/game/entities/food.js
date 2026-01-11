@@ -9,10 +9,9 @@ class Food extends Entity {
     timePerFrame = 0.1;
     offsetTime = Math.random();
 
-    constructor({ x, y }) {
+    constructor() {
         super();
         this.sprite = Game.entities.data.food.sprite;
-        this.location = new Vector2(x, y);
         this.speed = Game.entities.data.food.speed;
     }
 
