@@ -40,9 +40,14 @@ class Game {
             const i = this.entities.instances.indexOf(e);
             return i != -1 ? this.entities.instances.splice(i, 1) : null;
         },
-        getAll: (_class) => {
+        /**
+         * @param {Function} _class
+         * @param {(entity: any) => boolean} [predicate]
+         * @returns {any[]}
+         */
+        getAll: (_class, predicate = () => true) => {
             return Game.entities.instances.filter(
-                (i) => i.constructor.type === _class.type
+                (i) => i.constructor.type === _class.type && predicate(i)
             );
         },
     };
