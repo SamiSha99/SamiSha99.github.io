@@ -11,7 +11,7 @@ class Line extends Entity {
     constructor(speed, location, color = null) {
         super();
         this.direction = Math.random() < 0.5 ? -1 : 1;
-        const speedRange = Game.entities.data.line.speed;
+        const speedRange = [75, 150];
         this.startSpeed = MathUtils.randRange(speedRange[0], speedRange[1]);
         this.speed = this.startSpeed * this.direction;
 
@@ -19,7 +19,9 @@ class Line extends Entity {
             this.location = location;
         } else {
             this.location = new Vector2(
-                this.direction == -1 ? Game.canvas.width + this.length : -this.length,
+                this.direction == -1
+                    ? Game.canvas.width + this.length
+                    : -this.length,
                 this.getY()
             );
         }
@@ -34,7 +36,10 @@ class Line extends Entity {
         const lineLength = this.length;
         this.location = this.location.add(this.speed * delta, 0);
         this.speed += this.startSpeed * delta * 0.4 * this.direction;
-        if (this.location.x < -lineLength || this.location.x > Game.canvas.width + lineLength)
+        if (
+            this.location.x < -lineLength ||
+            this.location.x > Game.canvas.width + lineLength
+        )
             this.destroy();
     }
 
@@ -47,7 +52,10 @@ class Line extends Entity {
         switch (this.direction) {
             case -1:
                 ctx.moveTo(this.location.x, this.location.y);
-                ctx.lineTo(this.location.subtract(lineLength).x, this.location.y);
+                ctx.lineTo(
+                    this.location.subtract(lineLength).x,
+                    this.location.y
+                );
                 break;
             case 1:
                 ctx.moveTo(this.location.add(lineLength).x, this.location.y);

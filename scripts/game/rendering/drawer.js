@@ -42,7 +42,7 @@ class Drawer extends GlobalEvents {
         if (this.spawnLineDelay <= 0) {
             Game.entities.instances.push(new Line());
 
-            const spawnRate = Game.entities.data.line.spawnAmount;
+            const spawnRate = [10, 20];
             this.spawnLineDelay =
                 1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
             if (Math.random() < 0.01) {
@@ -73,19 +73,16 @@ class Drawer extends GlobalEvents {
     }
 
     onClick(e) {
-        if (
-            e.type === "click" &&
-            Game.entities.instances.filter((i) => i.type == "Food").length < 10
-        ) {
+        if (e.type === "click" && Game.entities.getAll(Food).length < 10) {
             const rect = this.canvas.getBoundingClientRect();
 
             const x =
                 (e.clientX - rect.left) * (this.canvas.width / rect.width);
             const y =
                 (e.clientY - rect.top) * (this.canvas.height / rect.height);
-            const size = Game.entities.data.food.sprite.size;
-            Game.spawn(Food, {
-                location: new Vector2(x - size.x / 2, y - size.y / 2),
+            Game.spawn(Food, (e) => {
+                const size = e.size;
+                e.location = new Vector2(x - size.x / 2, y - size.y / 2);
             });
         }
     }

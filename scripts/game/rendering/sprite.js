@@ -1,4 +1,5 @@
 import { Vector2 } from "../core/math.js";
+import { Assets } from "../core/game.js";
 
 class Sprite {
     constructor({
@@ -30,17 +31,21 @@ class Sprite {
         this.frameTime = frameTime;
     }
 
+    static fromEntity({ type, size }, image) {
+        return new Sprite({ name: type, size: size, imagePath: image });
+    }
+
     load(path) {
-        const assets = window.assets;
         console.log(assets);
-        this.image.src = assets.get(path);
+        this.image.src = Assets.get(path);
         return this;
     }
 
     animate(ctx, time, location, col, row) {
         ctx.drawImage(
             this.image,
-            Math.max(0, Math.round((time % 1) / this.frameTime) - 1) * this.frameWidth,
+            Math.max(0, Math.round((time % 1) / this.frameTime) - 1) *
+                this.frameWidth,
             row * this.frameHeight,
             this.frameWidth,
             this.frameHeight,

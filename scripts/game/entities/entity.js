@@ -3,9 +3,17 @@ import { GlobalEvents } from "../core/events.js";
 import { Vector2 } from "../core/math.js";
 
 class Entity extends GlobalEvents {
+    location = new Vector2();
+    size = new Vector2(32, 32);
+    speed = 100;
+    sprite = null;
     lifeTime = 0;
     lifespan = Infinity;
     location = new Vector2();
+
+    static get type() {
+        return this.name.toLowerCase();
+    }
 
     constructor(lifespan) {
         super();
@@ -21,8 +29,7 @@ class Entity extends GlobalEvents {
     update(delta) {
         this.lifeTime += delta;
         if (this.lifeTime >= this.lifespan) {
-            const index = Game.entities.instances.indexOf(this);
-            if (index > -1) Game.entities.instances.splice(index, 1);
+            this.destroy();
         }
     }
 }
