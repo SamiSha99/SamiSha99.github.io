@@ -1,7 +1,7 @@
 import { Entity } from "./entity.js";
 import { Vector2 } from "../core/math.js";
 import { Game, Assets } from "../core/game.js";
-import { Sprite } from "../rendering/sprite.js";
+import { Sprite } from "../core/rendering/sprite.js";
 
 class Food extends Entity {
     size = new Vector2(48, 48);

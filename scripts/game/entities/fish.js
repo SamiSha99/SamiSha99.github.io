@@ -1,7 +1,7 @@
 import { Entity } from "./entity.js";
 import { Vector2, MathUtils } from "../core/math.js";
 import { Assets, Game } from "../core/game.js";
-import { Sprite } from "../rendering/sprite.js";
+import { Sprite } from "../core/rendering/sprite.js";
 
 class Fish extends Entity {
     size = new Vector2(128, 128);

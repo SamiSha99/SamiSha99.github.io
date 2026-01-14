@@ -1,9 +1,9 @@
-import { GlobalEvents } from "../core/events.js";
-import { MathUtils, Vector2 } from "../core/math.js";
-import { Line, Fish } from "../entities/index.js";
-import { Time } from "../core/time.js";
-import { Game } from "../core/game.js";
-import { Food } from "../entities/food.js";
+import { GlobalEvents } from "../events.js";
+import { MathUtils, Vector2 } from "../math.js";
+import { Line, Fish } from "../../entities/index.js";
+import { Time } from "../time.js";
+import { Game } from "../game.js";
+import { Food } from "../../entities/food.js";
 
 class Drawer extends GlobalEvents {
     /** @type {HTMLCanvasElement} */
