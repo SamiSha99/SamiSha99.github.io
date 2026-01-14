@@ -20,9 +20,11 @@ class Food extends Entity {
 
     constructor() {
         super();
-
-        // Ensure the sprite is uploaded as a WebGL texture
         if (!this.sprite.glTexture) {
+            Game.drawer.spriteProgram.gl.bindTexture(
+                Game.drawer.gl.TEXTURE_2D,
+                null
+            );
             Game.drawer.loadTexture(this.sprite);
         }
     }
@@ -35,29 +37,32 @@ class Food extends Entity {
         }
     }
 
-    draw(gl, drawer, _delta) {
+    draw(_gl, drawer, _delta) {
         if (!this.sprite.imageLoaded) return;
 
         const time = Game.drawer.time.currentTime + this.offsetTime;
-
-        // Get current frame (row 0)
         const frameData = this.sprite.getFrame(time, 0);
-        let texCoords = this.sprite.getTexCoords(frameData);
+        const texCoords = this.sprite.getTexCoords(frameData);
 
-        // Vertex positions (two triangles)
         const x = this.location.x;
         const y = this.location.y;
 
         const vertices = [
-            x, y,
-            x + this.size.x, y,
-            x, y + this.size.y,
-            x + this.size.x, y,
-            x, y + this.size.y,
-            x + this.size.x, y + this.size.y
+            x,
+            y,
+            x + this.size.x,
+            y,
+            x,
+            y + this.size.y,
+            x + this.size.x,
+            y,
+            x,
+            y + this.size.y,
+            x + this.size.x,
+            y + this.size.y,
         ];
 
-        drawer.drawSprite(vertices, texCoords, this.sprite.glTexture);
+        drawer.spriteProgram.draw(vertices, texCoords, this.sprite.glTexture);
     }
 }
 

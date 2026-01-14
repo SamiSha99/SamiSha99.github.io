@@ -15,13 +15,7 @@ class Fish extends Entity {
         frameTime: 0.1,
     });
 
-    typeReference = {
-        0: 0,
-        1: 1,
-        2: 2,
-        3: 4,
-    };
-
+    typeReference = { 0: 0, 1: 1, 2: 2, 3: 4 };
     typeCol = 0;
     offsetTime = Math.random();
 
@@ -38,12 +32,13 @@ class Fish extends Entity {
         );
 
         this.typeCol = this.GetFishType();
+        this.speed = MathUtils.randRange(75, 150);
 
-        const speedRange = [75, 150];
-        this.speed = MathUtils.randRange(speedRange[0], speedRange[1]);
-
-        // Upload texture if not already done
         if (!this.sprite.glTexture) {
+            Game.drawer.spriteProgram.gl.bindTexture(
+                Game.drawer.gl.TEXTURE_2D,
+                null
+            );
             Game.drawer.loadTexture(this.sprite);
         }
     }
@@ -59,37 +54,31 @@ class Fish extends Entity {
         }
     }
 
-    draw(gl, drawer, _delta) {
+    draw(_gl, drawer, _delta) {
         if (!this.sprite.imageLoaded) return;
 
         const time = Game.drawer.time.currentTime + this.offsetTime;
-
-        // Get frame UVs
         const frameData = this.sprite.getFrame(time, this.typeCol);
-        let texCoords = this.sprite.getTexCoords(frameData);
+        const texCoords = this.sprite.getTexCoords(frameData);
 
-        // Vertex positions
         let x0 = this.location.x;
         let x1 = this.location.x + this.size.x;
         const y0 = this.location.y;
         const y1 = this.location.y + this.size.y;
 
-        if (this.direction === 1) {
-            [x0, x1] = [x1, x0]; // swap for flipped fish
-        }
+        if (this.direction === 1) [x0, x1] = [x1, x0]; // flip horizontally
 
         const vertices = [x0, y0, x1, y0, x0, y1, x1, y0, x0, y1, x1, y1];
 
-        drawer.drawSprite(vertices, texCoords, this.sprite.glTexture);
+        drawer.spriteProgram.draw(vertices, texCoords, this.sprite.glTexture);
     }
 
     GetFishType() {
         const keys = Object.keys(this.typeReference);
-        const randIndex = MathUtils.rangeRandInt(0, keys.length - 1);
-        return this.typeReference[keys[randIndex]];
+        return this.typeReference[
+            keys[MathUtils.rangeRandInt(0, keys.length - 1)]
+        ];
     }
-
-    onDestroy() {}
 }
 
 export { Fish };
