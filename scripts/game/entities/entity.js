@@ -1,5 +1,5 @@
-import { Game } from "../core/Game.js";
-import { GlobalEvents } from "../core/Events.js";
+import { Game } from "../core/game.js";
+import { GlobalEvents } from "../core/events.js";
 import { Vector2 } from "../core/math.js";
 
 class Entity extends GlobalEvents {

@@ -1,5 +1,5 @@
 import { Vector2 } from "../math.js";
-import { Assets } from "../Game.js";
+import { Assets } from "../game.js";
 
 class Sprite {
     constructor({

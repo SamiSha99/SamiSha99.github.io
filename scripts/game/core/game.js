@@ -1,5 +1,5 @@
 import { Vector2 } from "./math.js";
-import { Sprite } from "./rendering/Sprite.js";
+import { Sprite } from "./rendering/sprite.js";
 
 class Assets {
     static base =

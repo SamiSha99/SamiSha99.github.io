@@ -1,11 +1,11 @@
-import { GlobalEvents } from "../Events.js";
+import { GlobalEvents } from "../events.js";
 import { MathUtils, Vector2 } from "../math.js";
 import { Line, Fish } from "../../entities/index.js";
-import { Time } from "../Time.js";
-import { Game } from "../Game.js";
-import { Food } from "../../entities/Food.js";
-import { LineProgram } from "./programs/LineProgram.js";
-import { SpriteProgram } from "./programs/SpriteProgram.js";
+import { Time } from "../time.js";
+import { Game } from "../game.js";
+import { Food } from "../../entities/food.js";
+import { LineProgram } from "./programs/lineProgram.js";
+import { SpriteProgram } from "./programs/spriteProgram.js";
 import { loadTexture } from "./glUtils.js";
 
 class Renderer extends GlobalEvents {
