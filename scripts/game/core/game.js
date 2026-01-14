@@ -1,5 +1,5 @@
 import { Vector2 } from "./math.js";
-import { Sprite } from "./rendering/sprite.js";
+import { Sprite } from "./rendering/Sprite.js";
 
 class Assets {
     static base =
@@ -21,7 +21,7 @@ class Assets {
 window.assets = Assets;
 
 class Game {
-    static drawer = null;
+    static renderer = null;
     static canvas = null;
     static ctx = null;
 

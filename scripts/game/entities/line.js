@@ -1,6 +1,6 @@
-import { Entity } from "./entity.js";
+import { Entity } from "./Entity.js";
 import { Vector2, MathUtils } from "../core/math.js";
-import { Game } from "../core/game.js";
+import { Game } from "../core/Game.js";
 
 class Line extends Entity {
     type = "Line";
@@ -39,7 +39,7 @@ class Line extends Entity {
         }
     }
 
-    draw(_gl, drawer, _delta) {
+    draw(_gl, renderer, _delta) {
         const x = this.location.x;
         const y = this.location.y;
         const len = this.length;
@@ -47,7 +47,7 @@ class Line extends Entity {
         const vertices =
             this.direction === -1 ? [x, y, x - len, y] : [x + len, y, x, y];
 
-        drawer.lineProgram.draw(vertices, this.color, this.thickness);
+        renderer.lineProgram.draw(vertices, this.color, this.thickness);
     }
 
     getY() {

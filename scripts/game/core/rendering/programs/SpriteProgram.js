@@ -1,4 +1,3 @@
-import { createProgram } from "../glUtils.js";
 import { Program } from "./Program.js";
 
 export class SpriteProgram extends Program {

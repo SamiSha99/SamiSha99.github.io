@@ -1,4 +1,4 @@
-import { Drawer, Time } from "./game/index.js";
+import { Renderer, Time } from "./game/index.js";
 
 const time = new Time();
 const offsetTime = Math.random() * 360;
@@ -37,6 +37,6 @@ function _0x3c5033() {
 }
 
 if (document.body.getAttribute("no-drawing") !== "true") {
-    const drawer = new Drawer();
-    drawer.run();
+    const renderer = new Renderer();
+    renderer.run();
 }

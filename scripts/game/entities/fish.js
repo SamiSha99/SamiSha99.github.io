@@ -1,7 +1,7 @@
-import { Entity } from "./entity.js";
+import { Entity } from "./Entity.js";
 import { Vector2, MathUtils } from "../core/math.js";
-import { Assets, Game } from "../core/game.js";
-import { Sprite } from "../core/rendering/sprite.js";
+import { Assets, Game } from "../core/Game.js";
+import { Sprite } from "../core/rendering/Sprite.js";
 
 class Fish extends Entity {
     size = new Vector2(128, 128);
@@ -35,11 +35,11 @@ class Fish extends Entity {
         this.speed = MathUtils.randRange(75, 150);
 
         if (!this.sprite.glTexture) {
-            Game.drawer.spriteProgram.gl.bindTexture(
-                Game.drawer.gl.TEXTURE_2D,
+            Game.renderer.spriteProgram.gl.bindTexture(
+                Game.renderer.gl.TEXTURE_2D,
                 null
             );
-            Game.drawer.loadTexture(this.sprite);
+            Game.renderer.loadTexture(this.sprite);
         }
     }
 
@@ -54,10 +54,10 @@ class Fish extends Entity {
         }
     }
 
-    draw(_gl, drawer, _delta) {
+    draw(_gl, renderer, _delta) {
         if (!this.sprite.imageLoaded) return;
 
-        const time = Game.drawer.time.currentTime + this.offsetTime;
+        const time = Game.renderer.time.currentTime + this.offsetTime;
         const frameData = this.sprite.getFrame(time, this.typeCol);
         const texCoords = this.sprite.getTexCoords(frameData);
 
@@ -70,7 +70,7 @@ class Fish extends Entity {
 
         const vertices = [x0, y0, x1, y0, x0, y1, x1, y0, x0, y1, x1, y1];
 
-        drawer.spriteProgram.draw(vertices, texCoords, this.sprite.glTexture);
+        renderer.spriteProgram.draw(vertices, texCoords, this.sprite.glTexture);
     }
 
     GetFishType() {

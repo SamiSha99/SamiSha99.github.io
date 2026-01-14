@@ -1,7 +1,7 @@
-import { Entity } from "./entity.js";
+import { Entity } from "./Entity.js";
 import { Vector2 } from "../core/math.js";
-import { Game, Assets } from "../core/game.js";
-import { Sprite } from "../core/rendering/sprite.js";
+import { Game, Assets } from "../core/Game.js";
+import { Sprite } from "../core/rendering/Sprite.js";
 
 class Food extends Entity {
     size = new Vector2(48, 48);
@@ -20,12 +20,13 @@ class Food extends Entity {
 
     constructor() {
         super();
+        console.log(this.sprite);
         if (!this.sprite.glTexture) {
-            Game.drawer.spriteProgram.gl.bindTexture(
-                Game.drawer.gl.TEXTURE_2D,
+            Game.renderer.spriteProgram.gl.bindTexture(
+                Game.renderer.gl.TEXTURE_2D,
                 null
             );
-            Game.drawer.loadTexture(this.sprite);
+            Game.renderer.loadTexture(this.sprite);
         }
     }
 
@@ -37,10 +38,10 @@ class Food extends Entity {
         }
     }
 
-    draw(_gl, drawer, _delta) {
+    draw(_gl, renderer, _delta) {
         if (!this.sprite.imageLoaded) return;
 
-        const time = Game.drawer.time.currentTime + this.offsetTime;
+        const time = Game.renderer.time.currentTime + this.offsetTime;
         const frameData = this.sprite.getFrame(time, 0);
         const texCoords = this.sprite.getTexCoords(frameData);
 
@@ -62,7 +63,7 @@ class Food extends Entity {
             y + this.size.y,
         ];
 
-        drawer.spriteProgram.draw(vertices, texCoords, this.sprite.glTexture);
+        renderer.spriteProgram.draw(vertices, texCoords, this.sprite.glTexture);
     }
 }
 

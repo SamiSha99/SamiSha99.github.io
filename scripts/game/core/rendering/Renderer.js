@@ -1,14 +1,14 @@
-import { GlobalEvents } from "../events.js";
+import { GlobalEvents } from "../Events.js";
 import { MathUtils, Vector2 } from "../math.js";
 import { Line, Fish } from "../../entities/index.js";
-import { Time } from "../time.js";
-import { Game } from "../game.js";
-import { Food } from "../../entities/food.js";
+import { Time } from "../Time.js";
+import { Game } from "../Game.js";
+import { Food } from "../../entities/Food.js";
 import { LineProgram } from "./programs/LineProgram.js";
 import { SpriteProgram } from "./programs/SpriteProgram.js";
 import { loadTexture } from "./glUtils.js";
 
-class Drawer extends GlobalEvents {
+class Renderer extends GlobalEvents {
     /** @type {HTMLCanvasElement} */
     canvas;
 
@@ -39,7 +39,7 @@ class Drawer extends GlobalEvents {
     }
 
     run() {
-        Game.drawer = this;
+        Game.renderer = this;
         Game.state.isInitialized = true;
     }
 
@@ -111,4 +111,4 @@ function buildCanvas() {
     return c;
 }
 
-export { Drawer, buildCanvas };
+export { Renderer, buildCanvas };

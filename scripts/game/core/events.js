@@ -1,4 +1,4 @@
-import { Game } from "./game.js";
+import { Game } from "./Game.js";
 
 class GlobalEvents {
     _handleBlur = () => this.onBlur();

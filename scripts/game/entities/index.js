@@ -1,4 +1,4 @@
-export { Entity } from "./entity.js";
-export { Fish } from "./fish.js";
-export { Line } from "./line.js";
-export { Food } from "./food.js";
+export { Entity } from "./Entity.js";
+export { Fish } from "./Fish.js";
+export { Line } from "./Line.js";
+export { Food } from "./Food.js";
