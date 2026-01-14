@@ -1,4 +1,4 @@
-import { Program } from "./program.js";
+import { Program } from "./_program.js";
 
 export class LineProgram extends Program {
     positionBuffer;
