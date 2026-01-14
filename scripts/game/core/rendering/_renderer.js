@@ -4,8 +4,8 @@ import { Line, Fish } from "../../entities/index.js";
 import { Time } from "../time.js";
 import { Game } from "../game.js";
 import { Food } from "../../entities/food.js";
-import { LineProgram } from "./programs/lineProgram.js";
-import { SpriteProgram } from "./programs/spriteProgram.js";
+import { LineProgram } from "./programs/line_program.js";
+import { SpriteProgram } from "./programs/sprite_program.js";
 import { loadTexture } from "./glUtils.js";
 
 class Renderer extends GlobalEvents {
