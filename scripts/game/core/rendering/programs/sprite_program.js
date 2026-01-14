@@ -1,4 +1,4 @@
-import { Program } from "./_program.js";
+import { Program } from "./program.js";
 
 export class SpriteProgram extends Program {
     positionBuffer;
