@@ -111,4 +111,4 @@ function buildCanvas() {
     return c;
 }
 
-export { Renderer, buildCanvas };
+export { Renderer };
