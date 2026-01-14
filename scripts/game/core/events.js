@@ -3,7 +3,7 @@ import { Game } from "./game.js";
 class GlobalEvents {
     _handleBlur = () => this.onBlur();
     _handleFocus = () => this.onFocus();
-    _handleResize = () => this.onResize();
+    _handleResize = (e) => this.onResize(e);
     _handleClick = (e) => this.onClick(e);
     _handleDestroy = () => this.onDestroy();
 

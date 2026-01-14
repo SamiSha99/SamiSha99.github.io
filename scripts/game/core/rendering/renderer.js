@@ -60,15 +60,13 @@ class Renderer extends GlobalEvents {
         if (this.spawnLineDelay <= 0) {
             Game.entities.instances.push(new Line());
             const spawnRate = [10, 20];
-            this.spawnLineDelay =
-                1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
+            this.spawnLineDelay = 1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
             if (Math.random() < 0.01) Game.entities.instances.push(new Fish());
         }
     }
 
     draw(delta) {
         const gl = this.gl;
-        gl.viewport(0, 0, this.canvas.width, this.canvas.height);
         gl.clearColor(0, 0, 0, 0);
         gl.clear(gl.COLOR_BUFFER_BIT);
 
@@ -88,10 +86,8 @@ class Renderer extends GlobalEvents {
     onClick(e) {
         if (e.type === "click" && Game.entities.getAll(Food).length < 10) {
             const rect = this.canvas.getBoundingClientRect();
-            const x =
-                (e.clientX - rect.left) * (this.canvas.width / rect.width);
-            const y =
-                (e.clientY - rect.top) * (this.canvas.height / rect.height);
+            const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
+            const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
 
             Game.spawn(Food, (f) => {
                 const size = f.size;
@@ -99,13 +95,26 @@ class Renderer extends GlobalEvents {
             });
         }
     }
+    onResize(e) {
+        const dpr = window.devicePixelRatio || 1;
+        const width = screen.width;
+        const height = screen.height;
+
+        this.canvas.width = Math.max(width * dpr, 800);
+        this.canvas.height = Math.max(height * dpr, 600);
+
+        this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
+    }
 }
 
 function buildCanvas() {
     const c = document.createElement("canvas");
     c.id = "mainCanvas";
-    c.width = Math.max(document.body.clientWidth, 0);
-    c.height = Math.max(screen.height, window.innerHeight, 0);
+
+    const dpr = window.devicePixelRatio || 1;
+
+    c.width = Math.max(screen.width * dpr, 800);
+    c.height = Math.max(screen.height * dpr, 600);
     document.body.insertBefore(c, document.body.firstChild);
     Game.canvas = c;
     return c;
