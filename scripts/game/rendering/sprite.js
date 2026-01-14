@@ -5,55 +5,65 @@ class Sprite {
     constructor({
         name,
         imagePath,
-        frameWidth,
-        frameHeight,
         cols = 1,
         rows = 1,
         size = new Vector2(128, 128),
         frameTime = 0.1,
     }) {
+        this.name = name ?? "Unnamed Sprite";
+
         this.image = new Image();
-        this.image.onload = (e) => {
-            this.name = name ?? "Unnamed Sprite";
-            this.image.width = this.image.naturalWidth;
-            this.image.height = this.image.naturalHeight;
+        this.image.src = imagePath;
+        this.imageLoaded = false;
+        this.image.onload = () => {
+            this.imageLoaded = true;
+            this.width = this.image.naturalWidth;
+            this.height = this.image.naturalHeight;
 
             this.cols = cols;
-            if (cols > 1) this.frameWidth = this.image.width / cols;
-            else this.frameWidth = frameWidth;
-
             this.rows = rows;
-            if (rows > 1) this.frameHeight = this.image.height / rows;
-            else this.frameHeight = frameHeight;
+
+            this.frameWidth =
+                this.cols > 1 ? this.width / this.cols : this.width;
+            this.frameHeight =
+                this.rows > 1 ? this.height / this.rows : this.height;
         };
-        this.image.src = imagePath;
+
         this.size = size;
-        this.frameTime = frameTime;
+        this.frameTime = frameTime; // seconds per frame
     }
 
-    static fromEntity({ type, size }, image) {
-        return new Sprite({ name: type, size: size, imagePath: image });
+    /**
+     * Returns the current frame index for a given time and row/column offset.
+     */
+    getFrame(time, row = 0) {
+        if (!this.imageLoaded) return 0;
+        const totalFrames = this.cols;
+        // frame index based on frameTime
+        const frame = Math.floor(time / this.frameTime) % totalFrames;
+        return { frame, row };
+    }
+
+    /**
+     * Returns UV coordinates (0-1) for a given frame.
+     * Used for WebGL texturing.
+     */
+    getTexCoords({ frame, row }) {
+        if (!this.imageLoaded) return [0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1];
+
+        const u0 = (frame * this.frameWidth) / this.width;
+        const v0 = (row * this.frameHeight) / this.height;
+        const u1 = u0 + this.frameWidth / this.width;
+        const v1 = v0 + this.frameHeight / this.height;
+
+        // two triangles UVs: TL, TR, BL, TR, BL, BR
+        return [u0, v0, u1, v0, u0, v1, u1, v0, u0, v1, u1, v1];
     }
 
     load(path) {
-        console.log(assets);
+        this.imageLoaded = false;
         this.image.src = Assets.get(path);
         return this;
-    }
-
-    animate(ctx, time, location, col, row) {
-        ctx.drawImage(
-            this.image,
-            Math.max(0, Math.round((time % 1) / this.frameTime) - 1) *
-                this.frameWidth,
-            row * this.frameHeight,
-            this.frameWidth,
-            this.frameHeight,
-            location.x,
-            location.y,
-            this.size.x,
-            this.size.y
-        );
     }
 }
 

@@ -4,27 +4,30 @@ import { Game } from "../core/game.js";
 
 class Line extends Entity {
     type = "Line";
-    color = "rgba(248, 248, 255, 0.5)";
+
+    // normalized RGBA for WebGL
+    color = [248 / 255, 248 / 255, 255 / 255, 0.5];
+
     length = 25;
     thickness = 2.5;
 
     constructor(speed, location, color = null) {
         super();
+
         this.direction = Math.random() < 0.5 ? -1 : 1;
+
         const speedRange = [75, 150];
         this.startSpeed = MathUtils.randRange(speedRange[0], speedRange[1]);
         this.speed = this.startSpeed * this.direction;
 
-        if (location != undefined) {
-            this.location = location;
-        } else {
-            this.location = new Vector2(
-                this.direction == -1
+        this.location =
+            location ??
+            new Vector2(
+                this.direction === -1
                     ? Game.canvas.width + this.length
                     : -this.length,
                 this.getY()
             );
-        }
 
         if (color) {
             this.color = color;
@@ -33,43 +36,39 @@ class Line extends Entity {
 
     update(delta) {
         super.update(delta);
-        const lineLength = this.length;
+
         this.location = this.location.add(this.speed * delta, 0);
         this.speed += this.startSpeed * delta * 0.4 * this.direction;
+
+        const limit = this.length;
         if (
-            this.location.x < -lineLength ||
-            this.location.x > Game.canvas.width + lineLength
-        )
+            this.location.x < -limit ||
+            this.location.x > Game.canvas.width + limit
+        ) {
             this.destroy();
+        }
     }
 
-    draw(ctx, _delta) {
-        const lineThickness = this.thickness;
-        const lineLength = this.length;
-        ctx.lineWidth = lineThickness;
+    draw(gl, drawer, _delta) {
+        const x = this.location.x;
+        const y = this.location.y;
+        const len = this.length;
 
-        ctx.beginPath();
-        switch (this.direction) {
-            case -1:
-                ctx.moveTo(this.location.x, this.location.y);
-                ctx.lineTo(
-                    this.location.subtract(lineLength).x,
-                    this.location.y
-                );
-                break;
-            case 1:
-                ctx.moveTo(this.location.add(lineLength).x, this.location.y);
-                ctx.lineTo(this.location.x, this.location.y);
-                break;
+        let vertices;
+
+        if (this.direction === -1) {
+            vertices = [x, y, x - len, y];
+        } else {
+            vertices = [x + len, y, x, y];
         }
-        ctx.strokeStyle = this.color;
-        ctx.stroke();
+
+        drawer.drawLine(vertices, this.thickness, this.color);
     }
 
     getY() {
-        let maxLength = Game.canvas.height;
-        let minLength = maxLength / 96;
-        return MathUtils.randRange(minLength, maxLength);
+        const max = Game.canvas.height;
+        const min = max / 96;
+        return MathUtils.randRange(min, max);
     }
 
     onDestroy() {}
