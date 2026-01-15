@@ -8,6 +8,29 @@ import { LineProgram } from "./programs/line_program.js";
 import { SpriteProgram } from "./programs/sprite_program.js";
 import { loadTexture } from "./glUtils.js";
 
+const ASPECT_RATIO = {
+    WIDTH: 1920,
+    HEIGHT: 1080,
+    PRESETS: {
+        "1080p": [1920, 1080],
+        "720p": [1280, 720],
+        "900p": [1600, 900],
+        "4:3": [1024, 768],
+        "16:10": [1920, 1200],
+        ultrawide: [2560, 1080],
+    },
+    SET(value) {
+        const preset = this.PRESETS[value];
+        if (!preset) return;
+
+        this.WIDTH = preset[0];
+        this.HEIGHT = preset[1];
+        Game.renderer.onResize();
+    },
+};
+
+window.ASPECT_RATIO = ASPECT_RATIO;
+
 class Renderer extends GlobalEvents {
     /** @type {HTMLCanvasElement} */
     canvas;
@@ -95,13 +118,15 @@ class Renderer extends GlobalEvents {
             });
         }
     }
-    onResize(e) {
+    onResize() {
         const dpr = window.devicePixelRatio || 1;
-        const width = screen.width;
-        const height = screen.height;
+        const scale = Math.min(
+            screen.width / ASPECT_RATIO.WIDTH,
+            screen.height / ASPECT_RATIO.HEIGHT
+        );
 
-        this.canvas.width = Math.max(width * dpr, 800);
-        this.canvas.height = Math.max(height * dpr, 600);
+        this.canvas.width = Math.floor(ASPECT_RATIO.WIDTH * scale * dpr);
+        this.canvas.height = Math.floor(ASPECT_RATIO.HEIGHT * scale * dpr);
 
         this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
     }
@@ -112,9 +137,11 @@ function buildCanvas() {
     c.id = "mainCanvas";
 
     const dpr = window.devicePixelRatio || 1;
+    const scale = Math.min(screen.width / ASPECT_RATIO.WIDTH, screen.height / ASPECT_RATIO.HEIGHT);
 
-    c.width = Math.max(screen.width * dpr, 800);
-    c.height = Math.max(screen.height * dpr, 600);
+    c.width = Math.floor(ASPECT_RATIO.WIDTH * scale * dpr);
+    c.height = Math.floor(ASPECT_RATIO.HEIGHT * scale * dpr);
+
     document.body.insertBefore(c, document.body.firstChild);
     Game.canvas = c;
     return c;

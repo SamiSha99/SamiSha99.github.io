@@ -1,14 +1,12 @@
 import { Vector2 } from "./math.js";
+import { Renderer } from "./rendering/renderer.js";
 import { Sprite } from "./rendering/sprite.js";
 
 class Assets {
     static base =
         (window.location.origin !== "null"
             ? window.location.origin
-            : window.location.pathname.replace(
-                  new RegExp("/[^/]*$", "gm"),
-                  ""
-              )) + "/assets/";
+            : window.location.pathname.replace(new RegExp("/[^/]*$", "gm"), "")) + "/assets/";
 
     static init = (baseUrl) => baseUrl && (this.base = baseUrl);
 
@@ -21,6 +19,7 @@ class Assets {
 window.assets = Assets;
 
 class Game {
+    /** @type {Renderer} - renderer */
     static renderer = null;
     static canvas = null;
     static ctx = null;

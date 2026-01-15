@@ -25,9 +25,7 @@ class Fish extends Entity {
         this.direction = Math.random() < 0.5 ? -1 : 1;
 
         this.location = new Vector2(
-            this.direction === -1
-                ? Game.canvas.width + this.sprite.size.x
-                : -this.sprite.size.x,
+            this.direction === -1 ? Game.canvas.width + this.sprite.size.x : -this.sprite.size.x,
             MathUtils.rangeRandInt(0, Game.canvas.height - this.sprite.size.y)
         );
 
@@ -35,10 +33,7 @@ class Fish extends Entity {
         this.speed = MathUtils.randRange(75, 150);
 
         if (!this.sprite.glTexture) {
-            Game.renderer.spriteProgram.gl.bindTexture(
-                Game.renderer.gl.TEXTURE_2D,
-                null
-            );
+            Game.renderer.spriteProgram.gl.bindTexture(Game.renderer.gl.TEXTURE_2D, null);
             Game.renderer.loadTexture(this.sprite);
         }
     }
@@ -75,9 +70,7 @@ class Fish extends Entity {
 
     GetFishType() {
         const keys = Object.keys(this.typeReference);
-        return this.typeReference[
-            keys[MathUtils.rangeRandInt(0, keys.length - 1)]
-        ];
+        return this.typeReference[keys[MathUtils.rangeRandInt(0, keys.length - 1)]];
     }
 }
 

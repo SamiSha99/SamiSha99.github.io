@@ -49,20 +49,12 @@ export class SpriteProgram extends Program {
         gl.useProgram(this.program);
 
         gl.bindBuffer(gl.ARRAY_BUFFER, this.positionBuffer);
-        gl.bufferData(
-            gl.ARRAY_BUFFER,
-            new Float32Array(vertices),
-            gl.DYNAMIC_DRAW
-        );
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.DYNAMIC_DRAW);
         gl.enableVertexAttribArray(this.a_position);
         gl.vertexAttribPointer(this.a_position, 2, gl.FLOAT, false, 0, 0);
 
         gl.bindBuffer(gl.ARRAY_BUFFER, this.texCoordBuffer);
-        gl.bufferData(
-            gl.ARRAY_BUFFER,
-            new Float32Array(texCoords),
-            gl.DYNAMIC_DRAW
-        );
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(texCoords), gl.DYNAMIC_DRAW);
         gl.enableVertexAttribArray(this.a_texCoord);
         gl.vertexAttribPointer(this.a_texCoord, 2, gl.FLOAT, false, 0, 0);
 

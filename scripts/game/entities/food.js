@@ -22,10 +22,7 @@ class Food extends Entity {
         super();
         console.log(this.sprite);
         if (!this.sprite.glTexture) {
-            Game.renderer.spriteProgram.gl.bindTexture(
-                Game.renderer.gl.TEXTURE_2D,
-                null
-            );
+            Game.renderer.spriteProgram.gl.bindTexture(Game.renderer.gl.TEXTURE_2D, null);
             Game.renderer.loadTexture(this.sprite);
         }
     }

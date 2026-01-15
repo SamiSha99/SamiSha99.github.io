@@ -13,6 +13,7 @@ class Time extends GlobalEvents {
         requestAnimationFrame(this.loop.bind(this));
     }
 
+    // Returns Real Time Delta
     getDelta() {
         if (Game.state.isPaused) {
             this.prevTime = undefined;
@@ -24,7 +25,7 @@ class Time extends GlobalEvents {
             this.prevTime = currentTime;
             return 0;
         }
-        const deltaTime = (currentTime - this.prevTime) * this.worldDilation;
+        const deltaTime = currentTime - this.prevTime;
         this.prevTime = currentTime;
         return deltaTime / 1000;
     }
@@ -37,8 +38,17 @@ class Time extends GlobalEvents {
         this.currentTime = n;
     }
 
+    setCurrentRealTime(n) {
+        this.currentRealTime = n;
+    }
+
     loop() {
         let delta = this.getDelta();
+
+        this.currentRealTime += delta;
+
+        // Global modification
+        delta *= this.worldDilation;
         this.currentTime += delta;
         this.update(delta);
         requestAnimationFrame(this.loop.bind(this));
