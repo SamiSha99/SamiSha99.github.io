@@ -76,10 +76,6 @@ class Fish extends Entity {
         const keys = Object.keys(this.typeReference);
         return this.typeReference[keys[MathUtils.rangeRandInt(0, keys.length - 1)]];
     }
-
-    onDestroy() {
-        console.log("fish dead!");
-    }
 }
 
 export { Fish };
