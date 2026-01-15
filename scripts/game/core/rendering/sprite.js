@@ -9,6 +9,7 @@ class Sprite {
         rows = 1,
         size = new Vector2(128, 128),
         frameTime = 0.1,
+        anchor,
     }) {
         this.name = name ?? "Unnamed Sprite";
 
@@ -23,14 +24,13 @@ class Sprite {
             this.cols = cols;
             this.rows = rows;
 
-            this.frameWidth =
-                this.cols > 1 ? this.width / this.cols : this.width;
-            this.frameHeight =
-                this.rows > 1 ? this.height / this.rows : this.height;
+            this.frameWidth = this.cols > 1 ? this.width / this.cols : this.width;
+            this.frameHeight = this.rows > 1 ? this.height / this.rows : this.height;
         };
 
         this.size = size;
         this.frameTime = frameTime; // seconds per frame
+        this.anchor = anchor ?? new Vector2(0, 0);
     }
 
     /**

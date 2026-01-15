@@ -1,3 +1,5 @@
+import { Vector2 } from "../math.js";
+
 export function createShader(gl, type, source) {
     const shader = gl.createShader(type);
     gl.shaderSource(shader, source);
@@ -37,4 +39,28 @@ export function loadTexture(gl, sprite) {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
     sprite.glTexture = tex;
+}
+
+export function buildQuadVertices(pos, size, anchor = new Vector2(0, 0)) {
+    const hw = size.x * 0.5;
+    const hh = size.y * 0.5;
+
+    const cx = pos.x - anchor.x * hw;
+    const cy = pos.y - anchor.y * hh;
+
+    return [
+        cx - hw,
+        cy - hh,
+        cx + hw,
+        cy - hh,
+        cx - hw,
+        cy + hh,
+
+        cx + hw,
+        cy - hh,
+        cx - hw,
+        cy + hh,
+        cx + hw,
+        cy + hh,
+    ];
 }

@@ -84,7 +84,7 @@ class Renderer extends GlobalEvents {
             Game.entities.instances.push(new Line());
             const spawnRate = [10, 20];
             this.spawnLineDelay = 1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
-            if (Math.random() < 0.01) Game.entities.instances.push(new Fish());
+            if (Math.random() < 0.01) Game.spawn(Fish);
         }
     }
 
@@ -113,8 +113,7 @@ class Renderer extends GlobalEvents {
             const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
 
             Game.spawn(Food, (f) => {
-                const size = f.size;
-                f.location = new Vector2(x - size.x / 2, y - size.y / 2);
+                f.location = new Vector2(x, y);
             });
         }
     }

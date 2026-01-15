@@ -2,6 +2,7 @@ import { Entity } from "./entity.js";
 import { Vector2 } from "../core/math.js";
 import { Game, Assets } from "../core/game.js";
 import { Sprite } from "../core/rendering/sprite.js";
+import { buildQuadVertices } from "../core/rendering/glUtils.js";
 
 class Food extends Entity {
     size = new Vector2(48, 48);
@@ -42,23 +43,15 @@ class Food extends Entity {
         const frameData = this.sprite.getFrame(time, 0);
         const texCoords = this.sprite.getTexCoords(frameData);
 
-        const x = this.location.x;
-        const y = this.location.y;
+        const vertices = buildQuadVertices(this.location, this.size, this.sprite?.anchor);
 
-        const vertices = [
-            x,
-            y,
-            x + this.size.x,
-            y,
-            x,
-            y + this.size.y,
-            x + this.size.x,
-            y,
-            x,
-            y + this.size.y,
-            x + this.size.x,
-            y + this.size.y,
-        ];
+        // Horizontal flip (swap left/right X values)
+        if (this.direction === 1) {
+            for (let i = 0; i < vertices.length; i += 2) {
+                const cx = this.location.x;
+                vertices[i] = cx * 2 - vertices[i];
+            }
+        }
 
         renderer.spriteProgram.draw(vertices, texCoords, this.sprite.glTexture);
     }

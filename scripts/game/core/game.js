@@ -55,10 +55,10 @@ class Game {
     static isPaused = () => this.state.isPaused;
     static init = () => (this.state.isInitialized = true);
 
-    static spawn(_class, callback) {
-        const entity = new _class();
+    static spawn(entityClass, callback) {
+        const entity = new entityClass();
         this.entities.add(entity);
-        callback(entity);
+        callback && callback(entity);
         return entity;
     }
     static destroy = (entity) => this.entities.remove(entity);
