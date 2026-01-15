@@ -43,7 +43,6 @@ class Fish extends Entity {
 
     update(delta) {
         this.location.x += this.speed * delta * this.direction;
-
         if (
             this.location.x < -this.sprite.size.x * 0.5 ||
             this.location.x > Game.canvas.width + this.sprite.size.x * 0.5
@@ -59,7 +58,9 @@ class Fish extends Entity {
         const frameData = this.sprite.getFrame(time, this.typeCol);
         const texCoords = this.sprite.getTexCoords(frameData);
 
-        const vertices = buildQuadVertices(this.location, this.size, this.anchor ?? { x: 0, y: 0 });
+        const location = this.location.clone();
+        location.y += 16 * Math.sin(Game.renderer.time.currentTime);
+        const vertices = buildQuadVertices(location, this.size, this.anchor ?? { x: 0, y: 0 });
 
         // Horizontal flip (swap left/right X values)
         if (this.direction === 1) {
