@@ -1,5 +1,5 @@
 import { Entity } from "./entity.js";
-import { Vector2, MathUtils } from "../core/math.js";
+import { Vector2, MathUtils, Vector4 } from "../core/math.js";
 import { Assets, Game } from "../core/game.js";
 import { Sprite } from "../core/rendering/sprite.js";
 import { buildQuadVertices } from "../core/rendering/glUtils.js";
@@ -36,8 +36,7 @@ class Fish extends Entity {
         this.speed = MathUtils.randRange(75, 150);
 
         if (!this.sprite.glTexture) {
-            Game.renderer.spriteProgram.gl.bindTexture(Game.renderer.gl.TEXTURE_2D, null);
-            Game.renderer.loadTexture(this.sprite);
+            Game.renderer.programs.sprite.loadSprite(this.sprite);
         }
     }
 
@@ -70,7 +69,12 @@ class Fish extends Entity {
             }
         }
 
-        renderer.spriteProgram.draw(vertices, texCoords, this.sprite.glTexture);
+        renderer.programs.sprite.draw(vertices, texCoords, this.sprite.glTexture);
+        // renderer.programs.debug.drawBoundsFromVertices(
+        //     vertices,
+        //     new Vector4(1, 1, 0, 1),
+        //     this.constructor.name
+        // );
     }
 
     GetFishType() {

@@ -18,9 +18,7 @@ class Line extends Entity {
         this.location =
             location ??
             new Vector2(
-                this.direction === -1
-                    ? Game.canvas.width + this.length
-                    : -this.length,
+                this.direction === -1 ? Game.canvas.width + this.length : -this.length,
                 this.getY()
             );
 
@@ -31,10 +29,7 @@ class Line extends Entity {
         this.location = this.location.add(this.speed * delta, 0);
         this.speed += this.startSpeed * delta * 0.4 * this.direction;
 
-        if (
-            this.location.x < -this.length ||
-            this.location.x > Game.canvas.width + this.length
-        ) {
+        if (this.location.x < -this.length || this.location.x > Game.canvas.width + this.length) {
             this.destroy();
         }
     }
@@ -44,10 +39,9 @@ class Line extends Entity {
         const y = this.location.y;
         const len = this.length;
 
-        const vertices =
-            this.direction === -1 ? [x, y, x - len, y] : [x + len, y, x, y];
+        const vertices = this.direction === -1 ? [x, y, x - len, y] : [x + len, y, x, y];
 
-        renderer.lineProgram.draw(vertices, this.color, this.thickness);
+        renderer.programs.line.draw(vertices, this.color, this.thickness);
     }
 
     getY() {

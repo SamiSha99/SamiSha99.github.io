@@ -2,6 +2,7 @@ import { Game } from "../core/game.js";
 import { GlobalEvents } from "../core/events.js";
 import { Vector2 } from "../core/math.js";
 import { Sprite } from "../core/rendering/sprite.js";
+import { Renderer } from "../core/rendering/renderer.js";
 
 class Entity extends GlobalEvents {
     location = new Vector2();
@@ -28,7 +29,13 @@ class Entity extends GlobalEvents {
 
     start() {}
 
-    draw(ctx, delta) {}
+    /**
+     *
+     * @param {WebGL2RenderingContext} gl
+     * @param {Renderer} renderer
+     * @param {number} delta
+     */
+    draw(gl, renderer, delta) {}
 
     update(delta) {
         this.lifeTime += delta;

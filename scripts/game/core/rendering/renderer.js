@@ -4,9 +4,7 @@ import { Line, Fish } from "../../entities/index.js";
 import { Time } from "../time.js";
 import { Game } from "../game.js";
 import { Food } from "../../entities/food.js";
-import { LineProgram } from "./programs/line_program.js";
-import { SpriteProgram } from "./programs/sprite_program.js";
-import { loadTexture } from "./glUtils.js";
+import { Programs } from "./programs.js";
 
 const ASPECT_RATIO = {
     WIDTH: 1920,
@@ -39,6 +37,8 @@ class Renderer extends GlobalEvents {
     gl;
 
     time = null;
+    /** @type {Programs} */
+    programs;
 
     constructor(canvas) {
         super();
@@ -56,18 +56,12 @@ class Renderer extends GlobalEvents {
         this.gl.enable(this.gl.BLEND);
         this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
 
-        // Programs
-        this.lineProgram = new LineProgram(this.gl, this.canvas);
-        this.spriteProgram = new SpriteProgram(this.gl, this.canvas);
+        this.programs = new Programs(this.gl, this.canvas);
     }
 
     run() {
         Game.renderer = this;
         Game.state.isInitialized = true;
-    }
-
-    loadTexture(sprite) {
-        return loadTexture(this.gl, sprite);
     }
 
     spawnLineDelay = 0;
@@ -92,6 +86,8 @@ class Renderer extends GlobalEvents {
         const gl = this.gl;
         gl.clearColor(0, 0, 0, 0);
         gl.clear(gl.COLOR_BUFFER_BIT);
+        // Workaround for now, to-do: Debug class?
+        this.programs.debug.clearText();
 
         for (let entity of Game.entities.instances) {
             if (entity.type === "Line" && typeof entity.draw === "function") {

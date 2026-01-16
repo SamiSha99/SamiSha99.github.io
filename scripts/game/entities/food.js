@@ -1,5 +1,5 @@
 import { Entity } from "./entity.js";
-import { Vector2 } from "../core/math.js";
+import { Vector2, Vector4 } from "../core/math.js";
 import { Game, Assets } from "../core/game.js";
 import { Sprite } from "../core/rendering/sprite.js";
 import { buildQuadVertices } from "../core/rendering/glUtils.js";
@@ -23,8 +23,7 @@ class Food extends Entity {
         super();
         console.log(this.sprite);
         if (!this.sprite.glTexture) {
-            Game.renderer.spriteProgram.gl.bindTexture(Game.renderer.gl.TEXTURE_2D, null);
-            Game.renderer.loadTexture(this.sprite);
+            Game.renderer.programs.sprite.loadSprite(this.sprite);
         }
     }
 
@@ -53,7 +52,12 @@ class Food extends Entity {
             }
         }
 
-        renderer.spriteProgram.draw(vertices, texCoords, this.sprite.glTexture);
+        renderer.programs.sprite.draw(vertices, texCoords, this.sprite.glTexture);
+        // renderer.programs.debug.drawBoundsFromVertices(
+        //     vertices,
+        //     new Vector4(1, 1, 0, 1),
+        //     this.constructor.name
+        // );
     }
 }
 

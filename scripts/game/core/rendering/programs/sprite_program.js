@@ -23,16 +23,16 @@ export class SpriteProgram extends Program {
             vec2 clip = zeroToOne * 2.0 - 1.0;
             gl_Position = vec4(clip * vec2(1.0, -1.0), 0.0, 1.0);
             v_texCoord = a_texCoord;
-            }`;
+        }`;
 
-        const fs = `#version 300 es
-            precision mediump float;
+        const fs = `#version 300 es   
+        precision mediump float;
         in vec2 v_texCoord;
         uniform sampler2D u_texture;
         out vec4 outColor;
         void main() {
             outColor = texture(u_texture, v_texCoord);
-            }`;
+        }`;
 
         super(gl, canvas, vs, fs);
         this.positionBuffer = gl.createBuffer();
@@ -65,5 +65,24 @@ export class SpriteProgram extends Program {
         gl.uniform1i(this.u_texture, 0);
 
         gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 2);
+    }
+
+    loadSprite(sprite) {
+        const img = sprite.image;
+        if (!img.complete) {
+            img.onload = () => this.loadSprite(sprite);
+            return;
+        }
+
+        const gl = this.gl;
+        const tex = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, tex);
+        gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+        sprite.glTexture = tex;
     }
 }
