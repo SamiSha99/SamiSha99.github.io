@@ -1,5 +1,5 @@
 import { Entity } from "./entity.js";
-import { Vector2, MathUtils } from "../core/math.js";
+import { Vector2, MathUtils } from "../shared/index.js";
 import { Game } from "../core/game.js";
 
 class Line extends Entity {

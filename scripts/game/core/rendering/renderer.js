@@ -1,10 +1,10 @@
 import { GlobalEvents } from "../events.js";
-import { MathUtils, Vector2 } from "../math.js";
+import { MathUtils, Vector2 } from "../../shared/index.js";
 import { Line, Fish } from "../../entities/index.js";
-import { Time } from "../time.js";
+import { Time } from "../../shared/time.js";
 import { Game } from "../game.js";
 import { Food } from "../../entities/food.js";
-import { Programs } from "./programs.js";
+import { ProgramRegistery } from "./programs/index.js";
 
 const ASPECT_RATIO = {
     WIDTH: 1920,
@@ -37,7 +37,7 @@ class Renderer extends GlobalEvents {
     gl;
 
     time = null;
-    /** @type {Programs} */
+    /** @type {ProgramRegistery} */
     programs;
 
     constructor(canvas) {
@@ -56,7 +56,7 @@ class Renderer extends GlobalEvents {
         this.gl.enable(this.gl.BLEND);
         this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
 
-        this.programs = new Programs(this.gl, this.canvas);
+        this.programs = new ProgramRegistery(this.gl, this.canvas);
     }
 
     run() {

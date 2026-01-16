@@ -1,4 +1,4 @@
-import { Vector4 } from "../../math.js";
+import { Vector4 } from "../../../shared/index.js";
 import { Program } from "./program.js";
 
 export class DebugProgram extends Program {

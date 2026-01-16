@@ -1,9 +1,9 @@
-import { LineProgram } from "./programs/line_program.js";
-import { SpriteProgram } from "./programs/sprite_program.js";
-import { DebugProgram } from "./programs/debug_program.js";
+import { LineProgram } from "./line_program.js";
+import { SpriteProgram } from "./sprite_program.js";
+import { DebugProgram } from "./debug_program.js";
 
 // Class containing all Programs we can use, simply call their draw() function
-export class Programs {
+export class ProgramRegistery {
     /** @type {LineProgram} */
     line;
     /** @type {SpriteProgram} */

@@ -1,8 +1,8 @@
 import { Game } from "../core/game.js";
 import { GlobalEvents } from "../core/events.js";
-import { Vector2 } from "../core/math.js";
 import { Sprite } from "../core/rendering/sprite.js";
 import { Renderer } from "../core/rendering/renderer.js";
+import { Vector2 } from "../shared/index.js";
 
 class Entity extends GlobalEvents {
     location = new Vector2();

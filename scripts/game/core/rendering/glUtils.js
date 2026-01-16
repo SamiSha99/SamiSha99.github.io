@@ -1,4 +1,4 @@
-import { Vector2 } from "../math.js";
+import { Vector2 } from "../../shared/index.js";
 
 export function createShader(gl, type, source) {
     const shader = gl.createShader(type);

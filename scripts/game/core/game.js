@@ -1,4 +1,4 @@
-import { Vector2 } from "./math.js";
+import { Vector2 } from "../shared/index.js";
 import { Renderer } from "./rendering/renderer.js";
 import { Sprite } from "./rendering/sprite.js";
 

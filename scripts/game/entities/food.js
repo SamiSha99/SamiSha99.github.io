@@ -1,5 +1,5 @@
 import { Entity } from "./entity.js";
-import { Vector2, Vector4 } from "../core/math.js";
+import { Vector2 } from "../shared/index.js";
 import { Game, Assets } from "../core/game.js";
 import { Sprite } from "../core/rendering/sprite.js";
 import { buildQuadVertices } from "../core/rendering/glUtils.js";

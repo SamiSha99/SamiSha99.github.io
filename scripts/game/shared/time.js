@@ -1,5 +1,5 @@
-import { Game } from "./game.js";
-import { GlobalEvents } from "./events.js";
+import { Game } from "../core/game.js";
+import { GlobalEvents } from "../core/events.js";
 
 class Time extends GlobalEvents {
     currentTime = 0;
