@@ -35,6 +35,7 @@ function _0x3c5033() {
     }
     window.location.href = "mailto:" + _0x5bf685;
 }
+window._0x3c5033 = _0x3c5033;
 
 if (document.body.getAttribute("no-drawing") !== "true") {
     const renderer = new Renderer();
