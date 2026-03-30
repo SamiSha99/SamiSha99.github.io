@@ -106,14 +106,6 @@ hr {
     height: 3px;
 }
 
-a:visited {
-    color: var(--visited-link-color);
-}
-
-a:hover {
-    color: var(--hovered-link-color);
-}
-
 /* 7abibi, ana ba3ref eno el robots asba7o azkeya  */
 .e-hidden {
     text-decoration: underline;
@@ -297,6 +289,50 @@ a:hover {
 
 .showcase-img {
     position: fixed;
+}
+
+.tabs {
+    display: flex;
+    overflow-x: auto;
+    width: fit-content;
+    border: 2px solid ghostwhite;
+    scrollbar-width: none;
+    margin: 0 auto;
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
+}
+
+a.tabs-button {
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    margin: 0;
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+a.tabs-button:not(:last-child),
+a.tabs-button:not(:last-child):hover,
+a.tabs-button:not(:last-child):visited {
+    border-right: 2px solid ghostwhite;
+}
+
+a.tabs-button:hover,
+a.tabs:visited {
+    border: none;
+}
+a.tabs-button.active {
+    color: var(--hovered-link-color);
+}
+
+.tab-content {
+    display: none;
+    border: none;
 }
 
 @keyframes fadeIn-to-top {
