@@ -291,17 +291,21 @@ hr {
     position: fixed;
 }
 
-.tabs {
-    display: flex;
-    overflow-x: auto;
-    width: fit-content;
-    border: 2px solid ghostwhite;
+.tabs-container {
+    width: 100%;
     scrollbar-width: none;
-    margin: 0 auto;
+    overflow-x: auto;
 }
 
-.tabs::-webkit-scrollbar {
+.tabs-container::-webkit-scrollbar {
     display: none;
+}
+
+.tabs {
+    display: flex;
+    width: fit-content;
+    border: 2px solid ghostwhite;
+    border-bottom: none;
 }
 
 a.tabs-button {
@@ -331,8 +335,10 @@ a.tabs-button.active {
 }
 
 .tab-content {
+    padding: 0 0 0 8px;
     display: none;
-    border: none;
+    border-left: 2px solid ghostwhite;
+    border-top: 2px solid ghostwhite;
 }
 
 @keyframes fadeIn-to-top {

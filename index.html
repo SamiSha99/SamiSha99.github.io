@@ -70,15 +70,25 @@
                 I love video games, swimming, coding my own projects and taking
                 on new hobbies! :)
             </p>
-            <div class="tabs">
-                <a class="tabs-button button active" onclick="openTab(event, 'work')">
-                    Professional Work </a
-                ><a
-                    class="tabs-button button"
-                    onclick="openTab(event, 'projects')"
-                >
-                    Projects
-                </a>
+            <div class="tabs-container">
+                <div class="tabs">
+                    <a
+                        class="tabs-button button active"
+                        onclick="openTab(event, 'work')"
+                    >
+                        Professional</a
+                    ><a
+                        class="tabs-button button"
+                        onclick="openTab(event, 'projects')"
+                    >
+                        Projects </a
+                    ><a
+                        class="tabs-button button"
+                        onclick="openTab(event, 'other')"
+                    >
+                        Other
+                    </a>
+                </div>
             </div>
             <div>
                 <div id="work" class="tab-content">
@@ -347,6 +357,9 @@
                             destroyed.</pic
                         >
                     </content>
+                </div>
+                <div id="other" class="tab-content">
+                    <br /><br /><i>to-do</i><br /><br />
                 </div>
             </div>
             <hr />
