@@ -13,9 +13,12 @@ function blockPage() {
     document.body.innerHTML = `
     <div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;text-align:center;">
         <h1>Ok bro, bye.</h1>
-        <p>Unless you did this out of curiosity, refresh the page.</p>
     </div>
 `;
+
+    setTimeout(() => {
+        window.location.href = "https://chatgpt.com/";
+    }, 1500);
 }
 
 function areYouABotQuestionMark() {
@@ -81,12 +84,7 @@ function DoShowcase(darkenDiv, divShowcase) {
     }, clickTimeOut);
 }
 
-function CreateShowcaseElement(
-    className = "",
-    id = "",
-    content = undefined,
-    zIndexOffset = 0,
-) {
+function CreateShowcaseElement(className = "", id = "", content = undefined, zIndexOffset = 0) {
     let d = content == undefined ? document.createElement("div") : content;
 
     // reflow!
@@ -104,9 +102,7 @@ function GetZIndex(offset = 0) {
 }
 
 function GetImageDescription(img, isVideo = false, vidIndex = 0) {
-    let str = isVideo
-        ? img[vidIndex].getAttribute("data-desc")
-        : img.getAttribute("data-desc");
+    let str = isVideo ? img[vidIndex].getAttribute("data-desc") : img.getAttribute("data-desc");
     if (IsEmptyOrSpaces(str)) str = "";
 
     switch (str) {
@@ -116,9 +112,7 @@ function GetImageDescription(img, isVideo = false, vidIndex = 0) {
             str = "<i>No description found.</i>";
             break;
     }
-    return (
-        '<p id="shown-description" class="showcase-img-scalein">' + str + "</p>"
-    );
+    return '<p id="shown-description" class="showcase-img-scalein">' + str + "</p>";
 }
 
 function AddExpanderDiv() {
@@ -144,15 +138,9 @@ function removeContent(event) {
 
     expandDeepCount--;
 
-    contentArr[expandDeepCount]["showcase"]?.classList.remove(
-        "showcase-img-fadein",
-    );
-    contentArr[expandDeepCount]["showcase"]?.classList.add(
-        "showcase-img-fadeout",
-    );
-    contentArr[expandDeepCount]["dark"]?.classList.remove(
-        "showcase-img-fadein",
-    );
+    contentArr[expandDeepCount]["showcase"]?.classList.remove("showcase-img-fadein");
+    contentArr[expandDeepCount]["showcase"]?.classList.add("showcase-img-fadeout");
+    contentArr[expandDeepCount]["dark"]?.classList.remove("showcase-img-fadein");
     contentArr[expandDeepCount]["dark"]?.classList.add("showcase-img-fadeout");
 
     let child = document.getElementById("shown-img");
