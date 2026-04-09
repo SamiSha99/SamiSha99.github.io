@@ -9,6 +9,15 @@ const clickTimeOut = 125;
 var expandDeepCount = 0;
 const ZINDEX_SHOWCASE = 1000;
 
+function blockPage() {
+    document.body.innerHTML = `
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;text-align:center;">
+        <h1>Ok bro, bye.</h1>
+        <p>Unless you did this out of curiosity, refresh the page.</p>
+    </div>
+`;
+}
+
 function areYouABotQuestionMark() {
     let divShowcase = CreateShowcaseElement("showcase-img", "image-showcase");
     let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
@@ -16,11 +25,11 @@ function areYouABotQuestionMark() {
         <div>Are you a Bot?</div>
         <hr/>
         <div>
-            <a class="button primary" id="email" onclick="window.close()">Yes!</a>
+            <a class="button primary" id="email" onclick="blockPage()">Yes!</a>
             <a class="button" id="email" onclick="_0x3c5033()">No</a>
             <a class="button" id="email" onclick="removeContent(event)">Cancel</a>
         </div>
-    </div>`
+    </div>`;
     DoShowcase(darkenDiv, divShowcase);
 }
 
@@ -29,20 +38,33 @@ function showcaseImage(img, isVideo = false, vidIndex = 0) {
     let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
     if (isVideo) {
         let source = img.getElementsByTagName("source");
-        divShowcase.innerHTML += '<video class="showcase-img-scalein" id="shown-img" controls autoplay="true" muted> <source src="' + source[vidIndex].src + '" type="' + source[vidIndex].type + '" /> </video>'
+        divShowcase.innerHTML +=
+            '<video class="showcase-img-scalein" id="shown-img" controls autoplay="true" muted> <source src="' +
+            source[vidIndex].src +
+            '" type="' +
+            source[vidIndex].type +
+            '" /> </video>';
         divShowcase.innerHTML += GetImageDescription(source, true, vidIndex);
     } else {
-        divShowcase.innerHTML += '<img class="showcase-img-scalein" id="shown-img" src="' + img.getAttribute("src") + '" />';
+        divShowcase.innerHTML +=
+            '<img class="showcase-img-scalein" id="shown-img" src="' +
+            img.getAttribute("src") +
+            '" />';
         divShowcase.innerHTML += GetImageDescription(img);
     }
     DoShowcase(darkenDiv, divShowcase);
 }
 
 function expandContent() {
-    let divShowcase = CreateShowcaseElement("showcase-expanded", "showcase-expanded", document.getElementById("showcasedContent").cloneNode(true), 0)
+    let divShowcase = CreateShowcaseElement(
+        "showcase-expanded",
+        "showcase-expanded",
+        document.getElementById("showcasedContent").cloneNode(true),
+        0,
+    );
     let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
     let dsE = divShowcase.getElementsByClassName("expand-icon");
-    dsE[0].innerHTML = '';
+    dsE[0].innerHTML = "";
     dsE[0].remove();
     DoShowcase(darkenDiv, divShowcase);
 }
@@ -54,14 +76,17 @@ function DoShowcase(darkenDiv, divShowcase) {
     expandDiv.appendChild(divShowcase);
     contentArr[expandDeepCount] = { dark: darkenDiv, showcase: divShowcase };
     expandDeepCount++;
-    setTimeout(
-        function () {
-            isShowcaseFadingIn = false;
-        }, clickTimeOut);
+    setTimeout(function () {
+        isShowcaseFadingIn = false;
+    }, clickTimeOut);
 }
 
-function CreateShowcaseElement(className = "", id = "", content = undefined, zIndexOffset = 0) {
-
+function CreateShowcaseElement(
+    className = "",
+    id = "",
+    content = undefined,
+    zIndexOffset = 0,
+) {
     let d = content == undefined ? document.createElement("div") : content;
 
     // reflow!
@@ -79,7 +104,9 @@ function GetZIndex(offset = 0) {
 }
 
 function GetImageDescription(img, isVideo = false, vidIndex = 0) {
-    let str = isVideo ? img[vidIndex].getAttribute("data-desc") : img.getAttribute("data-desc");
+    let str = isVideo
+        ? img[vidIndex].getAttribute("data-desc")
+        : img.getAttribute("data-desc");
     if (IsEmptyOrSpaces(str)) str = "";
 
     switch (str) {
@@ -89,7 +116,9 @@ function GetImageDescription(img, isVideo = false, vidIndex = 0) {
             str = "<i>No description found.</i>";
             break;
     }
-    return '<p id="shown-description" class="showcase-img-scalein">' + str + '</p>';
+    return (
+        '<p id="shown-description" class="showcase-img-scalein">' + str + "</p>"
+    );
 }
 
 function AddExpanderDiv() {
@@ -115,9 +144,15 @@ function removeContent(event) {
 
     expandDeepCount--;
 
-    contentArr[expandDeepCount]["showcase"]?.classList.remove("showcase-img-fadein")
-    contentArr[expandDeepCount]["showcase"]?.classList.add("showcase-img-fadeout");
-    contentArr[expandDeepCount]["dark"]?.classList.remove("showcase-img-fadein")
+    contentArr[expandDeepCount]["showcase"]?.classList.remove(
+        "showcase-img-fadein",
+    );
+    contentArr[expandDeepCount]["showcase"]?.classList.add(
+        "showcase-img-fadeout",
+    );
+    contentArr[expandDeepCount]["dark"]?.classList.remove(
+        "showcase-img-fadein",
+    );
     contentArr[expandDeepCount]["dark"]?.classList.add("showcase-img-fadeout");
 
     let child = document.getElementById("shown-img");
@@ -134,30 +169,28 @@ function removeContent(event) {
 
     isShowcaseFadingOut = true;
 
-    setTimeout(
-        function () {
+    setTimeout(function () {
+        contentArr[expandDeepCount]["showcase"].innerHTML = "";
+        contentArr[expandDeepCount]["dark"].innerHTML = "";
 
-            contentArr[expandDeepCount]["showcase"].innerHTML = '';
-            contentArr[expandDeepCount]["dark"].innerHTML = '';
+        isShowcaseFadingOut = false;
 
-            isShowcaseFadingOut = false;
+        let divShowcase = contentArr[expandDeepCount]["showcase"];
+        let darkenDiv = contentArr[expandDeepCount]["dark"];
+        divShowcase.remove();
+        darkenDiv.remove();
 
-            let divShowcase = contentArr[expandDeepCount]["showcase"];
-            let darkenDiv = contentArr[expandDeepCount]["dark"];
-            divShowcase.remove();
-            darkenDiv.remove();
-
-            contentArr[expandDeepCount]["showcase"] = undefined;
-            contentArr[expandDeepCount]["dark"] = undefined;
-            contentArr.pop();
-            if (expandDeepCount == 0 && expandDiv != undefined) {
-                expandDiv.innerHTML = '';
-                expandDiv.remove();
-            }
-        }, clickTimeOut);
+        contentArr[expandDeepCount]["showcase"] = undefined;
+        contentArr[expandDeepCount]["dark"] = undefined;
+        contentArr.pop();
+        if (expandDeepCount == 0 && expandDiv != undefined) {
+            expandDiv.innerHTML = "";
+            expandDiv.remove();
+        }
+    }, clickTimeOut);
 }
 
 function clickedTagLikelyExpandable(name) {
-    if (name == 'IMG') return true;
+    if (name == "IMG") return true;
     return false;
 }
