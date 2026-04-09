@@ -9,6 +9,21 @@ const clickTimeOut = 125;
 var expandDeepCount = 0;
 const ZINDEX_SHOWCASE = 1000;
 
+function areYouABotQuestionMark() {
+    let divShowcase = CreateShowcaseElement("showcase-img", "image-showcase");
+    let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
+    divShowcase.innerHTML = `<div class="showcase-border">
+        <div>Are you a Bot?</div>
+        <hr/>
+        <div>
+            <a class="button primary" id="email" onclick="window.close()">Yes!</a>
+            <a class="button" id="email" onclick="_0x3c5033()">No</a>
+            <a class="button" id="email" onclick="removeContent(event)">Cancel</a>
+        </div>
+    </div>`
+    DoShowcase(darkenDiv, divShowcase);
+}
+
 function showcaseImage(img, isVideo = false, vidIndex = 0) {
     let divShowcase = CreateShowcaseElement("showcase-img", "image-showcase");
     let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
@@ -95,15 +110,15 @@ function addEvent(node) {
 function removeContent(event) {
     if (expandDeepCount == 0) return;
     if (isShowcaseFadingOut || isShowcaseFadingIn) return;
-    if (clickedTagLikelyExpandable(event.target.tagName)) return;
-    if (contentArr[expandDeepCount - 1]["dark"] !== event.target && contentArr[expandDeepCount - 1]["showcase"] !== event.target) return;
+    // if (clickedTagLikelyExpandable(event.target.tagName)) return;
+    // if (contentArr[expandDeepCount - 1]["dark"] !== event.target && contentArr[expandDeepCount - 1]["showcase"] !== event.target) return;
 
     expandDeepCount--;
 
-    contentArr[expandDeepCount]["showcase"].classList.remove("showcase-img-fadein")
-    contentArr[expandDeepCount]["showcase"].classList.add("showcase-img-fadeout");
-    contentArr[expandDeepCount]["dark"].classList.remove("showcase-img-fadein")
-    contentArr[expandDeepCount]["dark"].classList.add("showcase-img-fadeout");
+    contentArr[expandDeepCount]["showcase"]?.classList.remove("showcase-img-fadein")
+    contentArr[expandDeepCount]["showcase"]?.classList.add("showcase-img-fadeout");
+    contentArr[expandDeepCount]["dark"]?.classList.remove("showcase-img-fadein")
+    contentArr[expandDeepCount]["dark"]?.classList.add("showcase-img-fadeout");
 
     let child = document.getElementById("shown-img");
     if (child != null) {
