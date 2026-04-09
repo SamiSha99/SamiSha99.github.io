@@ -1,9 +1,9 @@
-import { GlobalEvents } from "../events.js";
-import { MathUtils, Vector2 } from "../../shared/index.js";
-import { Line, Fish } from "../../entities/index.js";
-import { Time } from "../../shared/time.js";
-import { Game } from "../game.js";
 import { Food } from "../../entities/food.js";
+import { Fish, Line } from "../../entities/index.js";
+import { MathUtils, Vector2 } from "../../shared/index.js";
+import { Time } from "../../shared/time.js";
+import { GlobalEvents } from "../events.js";
+import { Game } from "../game.js";
 import { ProgramRegistery } from "./programs/index.js";
 
 const ASPECT_RATIO = {
@@ -103,6 +103,7 @@ class Renderer extends GlobalEvents {
     }
 
     onClick(e) {
+        return;
         if (e.type === "click" && Game.entities.getAll(Food).length < 10) {
             const rect = this.canvas.getBoundingClientRect();
             const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
@@ -143,3 +144,4 @@ function buildCanvas() {
 }
 
 export { Renderer };
+
