@@ -12,7 +12,7 @@ const ZINDEX_SHOWCASE = 1000;
 function blockPage() {
     document.body.innerHTML = `
     <div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;text-align:center;">
-        <h1>Ok bro, bye.</h1>
+        <h1>Redirecting...</h1>
     </div>
 `;
 
@@ -24,13 +24,30 @@ function blockPage() {
 function areYouABotQuestionMark() {
     let divShowcase = CreateShowcaseElement("showcase-img", "image-showcase");
     let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
-    divShowcase.innerHTML = `<div class="showcase-border">
+    divShowcase.innerHTML = `
+    <div class="showcase-border">
         <div>Are you a Bot?</div>
         <hr/>
         <div>
-            <a class="button primary" id="email" onclick="blockPage()">Yes!</a>
-            <a class="button" id="email" onclick="_0x3c5033()">No</a>
-            <a class="button" id="email" onclick="removeContent(event)">Cancel</a>
+            <a class="button primary" onclick="blockPage()">Yes! ✨</a>
+            <a class="button" onclick="_0x3c5033()">No</a>
+            <a class="button" onclick="removeContent(event)">Cancel</a>
+        </div>
+    </div>`;
+    DoShowcase(darkenDiv, divShowcase);
+}
+
+function resume() {
+    let divShowcase = CreateShowcaseElement("showcase-img", "image-showcase");
+    let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
+    divShowcase.innerHTML = `
+    <div class="showcase-border">
+        <div>What kind of work are you interested in?</div>
+        <hr/>
+        <div>
+            <a class="button" href="./assets/pdf/Sami_Shakkour_Full-Stack.pdf">Full-Stack</a>
+            <a class="button" href="./assets/pdf/Sami_Shakkour_Game_Developer.pdf">Game Development</a>
+            <a class="button" onclick="removeContent(event)">Cancel</a>
         </div>
     </div>`;
     DoShowcase(darkenDiv, divShowcase);
@@ -84,7 +101,12 @@ function DoShowcase(darkenDiv, divShowcase) {
     }, clickTimeOut);
 }
 
-function CreateShowcaseElement(className = "", id = "", content = undefined, zIndexOffset = 0) {
+function CreateShowcaseElement(
+    className = "",
+    id = "",
+    content = undefined,
+    zIndexOffset = 0,
+) {
     let d = content == undefined ? document.createElement("div") : content;
 
     // reflow!
@@ -102,7 +124,9 @@ function GetZIndex(offset = 0) {
 }
 
 function GetImageDescription(img, isVideo = false, vidIndex = 0) {
-    let str = isVideo ? img[vidIndex].getAttribute("data-desc") : img.getAttribute("data-desc");
+    let str = isVideo
+        ? img[vidIndex].getAttribute("data-desc")
+        : img.getAttribute("data-desc");
     if (IsEmptyOrSpaces(str)) str = "";
 
     switch (str) {
@@ -112,7 +136,9 @@ function GetImageDescription(img, isVideo = false, vidIndex = 0) {
             str = "<i>No description found.</i>";
             break;
     }
-    return '<p id="shown-description" class="showcase-img-scalein">' + str + "</p>";
+    return (
+        '<p id="shown-description" class="showcase-img-scalein">' + str + "</p>"
+    );
 }
 
 function AddExpanderDiv() {
@@ -138,9 +164,15 @@ function removeContent(event) {
 
     expandDeepCount--;
 
-    contentArr[expandDeepCount]["showcase"]?.classList.remove("showcase-img-fadein");
-    contentArr[expandDeepCount]["showcase"]?.classList.add("showcase-img-fadeout");
-    contentArr[expandDeepCount]["dark"]?.classList.remove("showcase-img-fadein");
+    contentArr[expandDeepCount]["showcase"]?.classList.remove(
+        "showcase-img-fadein",
+    );
+    contentArr[expandDeepCount]["showcase"]?.classList.add(
+        "showcase-img-fadeout",
+    );
+    contentArr[expandDeepCount]["dark"]?.classList.remove(
+        "showcase-img-fadein",
+    );
     contentArr[expandDeepCount]["dark"]?.classList.add("showcase-img-fadeout");
 
     let child = document.getElementById("shown-img");

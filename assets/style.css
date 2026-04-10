@@ -53,6 +53,13 @@ body {
     box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 50px 50px;
 }
 
+div#top-bar {
+    position: sticky;
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 1);
+    top: 0;
+}
+
 button {
     color: var(--primary-text-color);
     border: 2px solid var(--primary-text-color);
