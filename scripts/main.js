@@ -21,10 +21,6 @@ const Update = () => hue();
 
 time.update = Update.bind(this);
 
-function OpenProjectLink(button) {
-    window.open(button.title, "_blank");
-}
-
 // 🤫😅🤭🙈🙉🙊
 function _0x3c5033() {
     let _0x1d5b15 = "U1RKV2RGbFhiSE09";
