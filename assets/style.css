@@ -58,6 +58,7 @@ div#top-bar {
     background-color: rgba(0, 0, 0, 1);
     box-shadow: 0 10px 8px rgba(0, 0, 0, 1);
     top: 0;
+    z-index: 3;
 }
 
 button {
