@@ -305,9 +305,10 @@ hr {
     position: fixed;
 }
 
-.showcase-border {
+.showcase-alert-dialog {
     border: 2px solid ghostwhite;
     padding: 10px;
+    min-width: 300px;
 }
 
 .tabs-container {

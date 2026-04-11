@@ -15,83 +15,66 @@ function blockPage() {
         <h1>Redirecting...</h1>
     </div>
 `;
-
     setTimeout(() => {
         window.location.href = "https://chatgpt.com/";
     }, 1500);
 }
 
 function areYouABotQuestionMark() {
-    let divShowcase = CreateShowcaseElement("showcase-img", "image-showcase");
-    let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
+    const divShowcase = createShowcaseElement("showcase-img", "image-showcase");
     divShowcase.innerHTML = `
-    <div class="showcase-border">
+    <div id="altert-dialog" class="showcase-alert-dialog">
         <div>Are you a Bot?</div>
         <hr/>
-        <div>
+        <div style="float:right">
             <a class="button primary" onclick="blockPage()">Yes! ✨</a>
             <a class="button" onclick="_0x3c5033()">No</a>
-            <a class="button" onclick="removeContent(event)">Cancel</a>
+            <a class="button" onclick="removeContent(event, true)">Cancel</a>
         </div>
     </div>`;
-    DoShowcase(darkenDiv, divShowcase);
+    showcase(divShowcase);
 }
 
 function resume() {
-    let divShowcase = CreateShowcaseElement("showcase-img", "image-showcase");
-    let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
+    const divShowcase = createShowcaseElement("showcase-img", "image-showcase");
     divShowcase.innerHTML = `
-    <div class="showcase-border">
+    <div id="altert-dialog" class="showcase-alert-dialog">
         <div>What kind of work are you interested in?</div>
         <hr/>
-        <div>
+        <div style="float:right">
             <a class="button" href="./assets/pdf/Sami_Shakkour_Full-Stack.pdf">Full-Stack</a>
             <a class="button" href="./assets/pdf/Sami_Shakkour_Game_Developer.pdf">Game Development</a>
-            <a class="button" onclick="removeContent(event)">Cancel</a>
+            <a class="button" onclick="removeContent(event, true)">Cancel</a>
         </div>
     </div>`;
-    DoShowcase(darkenDiv, divShowcase);
+    showcase(divShowcase);
 }
 
 function showcaseImage(img, isVideo = false, vidIndex = 0) {
-    let divShowcase = CreateShowcaseElement("showcase-img", "image-showcase");
-    let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
+    const divShowcase = createShowcaseElement("showcase-img", "image-showcase");
     if (isVideo) {
-        let source = img.getElementsByTagName("source");
+        const source = img.getElementsByTagName("source");
         divShowcase.innerHTML +=
             '<video class="showcase-img-scalein" id="shown-img" controls autoplay="true" muted> <source src="' +
             source[vidIndex].src +
             '" type="' +
             source[vidIndex].type +
             '" /> </video>';
-        divShowcase.innerHTML += GetImageDescription(source, true, vidIndex);
+        divShowcase.innerHTML += getContentInfo(source, true, vidIndex);
     } else {
         divShowcase.innerHTML +=
             '<img class="showcase-img-scalein" id="shown-img" src="' +
             img.getAttribute("src") +
             '" />';
-        divShowcase.innerHTML += GetImageDescription(img);
+        divShowcase.innerHTML += getContentInfo(img);
     }
-    DoShowcase(darkenDiv, divShowcase);
+    showcase(divShowcase);
 }
 
-function expandContent() {
-    let divShowcase = CreateShowcaseElement(
-        "showcase-expanded",
-        "showcase-expanded",
-        document.getElementById("showcasedContent").cloneNode(true),
-        0,
-    );
-    let darkenDiv = CreateShowcaseElement("showcase-darken", "", undefined, -1);
-    let dsE = divShowcase.getElementsByClassName("expand-icon");
-    dsE[0].innerHTML = "";
-    dsE[0].remove();
-    DoShowcase(darkenDiv, divShowcase);
-}
-
-function DoShowcase(darkenDiv, divShowcase) {
+function showcase(divShowcase) {
     isShowcaseFadingIn = true;
-    if (expandDeepCount == 0 || expandDiv == undefined) AddExpanderDiv();
+    const darkenDiv = createShowcaseElement("showcase-darken", "", undefined, -1);
+    if (expandDeepCount == 0 || expandDiv == undefined) addExpandingDiv();
     expandDiv.appendChild(darkenDiv);
     expandDiv.appendChild(divShowcase);
     contentArr[expandDeepCount] = { dark: darkenDiv, showcase: divShowcase };
@@ -101,13 +84,8 @@ function DoShowcase(darkenDiv, divShowcase) {
     }, clickTimeOut);
 }
 
-function CreateShowcaseElement(
-    className = "",
-    id = "",
-    content = undefined,
-    zIndexOffset = 0,
-) {
-    let d = content == undefined ? document.createElement("div") : content;
+function createShowcaseElement(className = "", id = "", content = undefined, zIndexOffset = 0) {
+    const d = content == undefined ? document.createElement("div") : content;
 
     // reflow!
     if (d.classList.contains(className)) d.classList.remove(className);
@@ -123,11 +101,9 @@ function GetZIndex(offset = 0) {
     return ZINDEX_SHOWCASE * (expandDeepCount + 1) + offset;
 }
 
-function GetImageDescription(img, isVideo = false, vidIndex = 0) {
-    let str = isVideo
-        ? img[vidIndex].getAttribute("data-desc")
-        : img.getAttribute("data-desc");
-    if (IsEmptyOrSpaces(str)) str = "";
+function getContentInfo(img, isVideo = false, vidIndex = 0) {
+    let str = isVideo ? img[vidIndex].getAttribute("data-desc") : img.getAttribute("data-desc");
+    if (emptyOrSpaces(str)) str = "";
 
     switch (str) {
         case null:
@@ -136,19 +112,17 @@ function GetImageDescription(img, isVideo = false, vidIndex = 0) {
             str = "<i>No description found.</i>";
             break;
     }
-    return (
-        '<p id="shown-description" class="showcase-img-scalein">' + str + "</p>"
-    );
+    return '<p id="shown-description" class="showcase-img-scalein">' + str + "</p>";
 }
 
-function AddExpanderDiv() {
+function addExpandingDiv() {
     expandDiv = document.createElement("div");
     expandDiv.id = "expand-div-content";
     document.body.insertBefore(expandDiv, document.body.firstChild);
     expandDiv = document.getElementById("expand-div-content"); // always top
 }
 
-function IsEmptyOrSpaces(str) {
+function emptyOrSpaces(str) {
     return str === null || str.match(/^ *$/) !== null;
 }
 
@@ -156,24 +130,19 @@ function addEvent(node) {
     node.addEventListener("mousedown", removeContent, false);
 }
 
-function removeContent(event) {
+function removeContent(event, force = false) {
     if (expandDeepCount == 0) return;
     if (isShowcaseFadingOut || isShowcaseFadingIn) return;
-    // if (clickedTagLikelyExpandable(event.target.tagName)) return;
-    // if (contentArr[expandDeepCount - 1]["dark"] !== event.target && contentArr[expandDeepCount - 1]["showcase"] !== event.target) return;
+    const dark = contentArr[expandDeepCount - 1]["dark"];
+    const showcase = contentArr[expandDeepCount - 1]["showcase"];
+    if (!force && showcase !== event.target && showcase.contains(event.target)) return;
 
     expandDeepCount--;
 
-    contentArr[expandDeepCount]["showcase"]?.classList.remove(
-        "showcase-img-fadein",
-    );
-    contentArr[expandDeepCount]["showcase"]?.classList.add(
-        "showcase-img-fadeout",
-    );
-    contentArr[expandDeepCount]["dark"]?.classList.remove(
-        "showcase-img-fadein",
-    );
-    contentArr[expandDeepCount]["dark"]?.classList.add("showcase-img-fadeout");
+    showcase?.classList.remove("showcase-img-fadein");
+    showcase?.classList.add("showcase-img-fadeout");
+    dark?.classList.remove("showcase-img-fadein");
+    dark?.classList.add("showcase-img-fadeout");
 
     let child = document.getElementById("shown-img");
     if (child != null) {
@@ -195,8 +164,8 @@ function removeContent(event) {
 
         isShowcaseFadingOut = false;
 
-        let divShowcase = contentArr[expandDeepCount]["showcase"];
-        let darkenDiv = contentArr[expandDeepCount]["dark"];
+        const divShowcase = contentArr[expandDeepCount]["showcase"];
+        const darkenDiv = contentArr[expandDeepCount]["dark"];
         divShowcase.remove();
         darkenDiv.remove();
 
@@ -208,9 +177,4 @@ function removeContent(event) {
             expandDiv.remove();
         }
     }, clickTimeOut);
-}
-
-function clickedTagLikelyExpandable(name) {
-    if (name == "IMG") return true;
-    return false;
 }
