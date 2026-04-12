@@ -9,6 +9,10 @@
 
     // Positioning context for the mobile navigation icon
     position: relative;
+    position: sticky;
+    top: 0;
+    background-color: black;
+    box-shadow: 0 10px 8px black;
 }
 
 .site-title {
@@ -365,4 +369,3 @@
         width: calc(50% - (#{$spacing-unit} / 2));
     }
 }
-
