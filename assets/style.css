@@ -3,7 +3,13 @@
 :root {
     --primary-text-color: ghostwhite;
     --primary-background-color: black;
-    --highlight-text-color: rgb(255, 255, 255);
+    --highlight-text-color: white;
+
+    --border-color: ghostwhite;
+    --border-width: 2px;
+    --media-border-width: 5px;
+
+    --showcase-animation-duration: 0.4s;
 }
 
 h2 {
@@ -53,64 +59,53 @@ body {
     box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 50px 50px;
 }
 
-div#top-bar {
+#top-bar {
     position: sticky;
-    background-color: rgba(0, 0, 0, 1);
-    box-shadow: 0 10px 8px rgba(0, 0, 0, 1);
     top: 0;
     z-index: 3;
+
+    background-color: #000;
+    box-shadow: 0 10px 8px #000;
+}
+
+button,
+a.button {
+    color: var(--primary-text-color);
+    border: var(--border-width) solid var(--primary-text-color);
+    font-family: monospace;
+    font-size: 14px;
 }
 
 button {
-    color: var(--primary-text-color);
-    border: 2px solid var(--primary-text-color);
     padding: 4px;
-    font-size: 14px;
     background-color: var(--primary-background-color);
-    font-family: monospace;
-}
-
-button:hover {
-    color: var(--hovered-link-color);
-    border: 2px solid var(--hovered-link-color);
-    cursor: pointer;
 }
 
 a.button {
-    color: var(--primary-text-color);
-    border: 2px solid var(--primary-text-color);
-    border-radius: 2px;
-    padding: 4px 8px;
-    font-size: 14px;
-    background-color: var(--hovered-link-button-color);
-    font-family: monospace;
-    text-decoration: none;
     display: inline-block;
-    margin: 4px 0px 0 0;
+    margin-top: 4px;
+    padding: 4px 8px;
+
+    background-color: var(--hovered-link-button-color);
+    border-radius: 2px;
+    text-decoration: none;
 }
 
-a.button.primary {
-    color: var(--hovered-link-color);
-    border: 2px solid var(--hovered-link-color);
-    cursor: pointer;
-}
-
-a.button:link {
-    color: var(--primary-text-color);
-}
-
+a.button,
 a.button:visited {
     color: var(--primary-text-color);
 }
 
+button:hover,
 a.button:hover {
     color: var(--hovered-link-color);
-    border: 2px solid var(--hovered-link-color);
+    border-color: var(--hovered-link-color);
     cursor: pointer;
 }
 
-a.button:visited:hover {
+a.button.primary {
     color: var(--hovered-link-color);
+    border-color: var(--hovered-link-color);
 }
 
 hr {
@@ -153,7 +148,7 @@ hr {
 .expand-video {
     position: relative;
     margin: 5px;
-    transition: transform 0.15s ease;
+    transition: transform calc(var(--showcase-animation-duration) / 2) ease;
 }
 
 .expand-assets img {
@@ -166,10 +161,10 @@ hr {
     height: 120px;
     min-width: 200px;
     object-fit: cover;
-    border: 5px solid var(--visited-link-color);
+    border: var(--media-border-width) solid var(--visited-link-color);
     background-color: ghostwhite;
     cursor: zoom-in;
-    transition: transform 0.15s ease;
+    transition: transform calc(var(--showcase-animation-duration) / 2) ease;
 }
 
 .expand-assets img:hover,
@@ -192,18 +187,16 @@ hr {
 .showcase-work {
     width: 100%;
     height: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     top: 0;
     left: 0;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 0.3s ease;
-    animation-fill-mode: forwards;
+    animation: fadeIn var(--showcase-animation-duration) ease forwards;
     opacity: 0;
-    animation-direction: normal;
     cursor: zoom-out;
 }
 
@@ -223,90 +216,75 @@ hr {
     position: fixed;
     width: 92.5%;
     height: 90%;
-    margin: 5% 0 5% 0;
-    padding: 0px;
+    margin: 5% 0;
+    padding: 0;
     top: 2.5%;
     left: 3.75%;
     z-index: 1000;
-    animation: fadeIn 0.3s ease;
-    animation-fill-mode: forwards;
+    animation: fadeIn var(--showcase-animation-duration) ease forwards;
     opacity: 0;
-    animation-direction: normal;
     cursor: zoom-out;
     color: #f8f8ff;
-}
 
-.showcase-expanded p {
-    margin: 25px auto;
-    line-height: 120%;
-    cursor: default;
-}
+    p {
+        margin: 25px auto;
+        line-height: 120%;
+        cursor: default;
+    }
 
-.showcase-expanded .expand-assets {
-    width: 90%;
-}
+    .expand-assets {
+        width: 90%;
+    }
 
-.showcase-expanded .info-block-details {
-    width: 100%;
+    .info-block-details {
+        width: 100%;
+    }
 }
 
 .showcase-img-fadein {
-    animation: fadeIn 0.3s ease;
-    animation-fill-mode: forwards;
+    animation: fadeIn var(--showcase-animation-duration) ease forwards;
     opacity: 0;
-    animation-direction: normal;
 }
 
 .showcase-img-fadeout {
-    animation: fadeOut 0.3s ease;
-    animation-fill-mode: forwards;
+    animation: fadeOut var(--showcase-animation-duration) ease forwards;
     opacity: 1;
-    animation-direction: normal;
 }
 
-.showcase-img-scalein {
-    animation: scaleIn 0.3s ease;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-}
-
+.showcase-img-scalein,
 .expand-scalein {
-    animation: scaleIn 0.3s ease;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
+    animation: scaleIn var(--showcase-animation-duration) ease forwards;
 }
 
 .showcase-img-scaleout {
-    animation: scaleOut 0.3s ease;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-}
-
-.showcase-img img,
-.showcase-img video {
-    max-width: 70%;
-    max-height: 70%;
-    width: auto;
-    height: auto;
-    border: 5px solid var(--visited-link-color);
-    cursor: default;
-}
-
-.showcase-img p {
-    text-align: center;
-    padding: 10px;
-    margin: 25px 10%;
-    line-height: 120%;
-    border-radius: 10px;
-    cursor: default;
+    animation: scaleOut var(--showcase-animation-duration) ease forwards;
 }
 
 .showcase-img {
     position: fixed;
+
+    img,
+    video {
+        max-width: 70%;
+        max-height: 70%;
+        width: auto;
+        height: auto;
+        border: var(--media-border-width) solid var(--visited-link-color);
+        cursor: default;
+    }
+
+    p {
+        text-align: center;
+        padding: 10px;
+        margin: 25px 10%;
+        line-height: 120%;
+        border-radius: 10px;
+        cursor: default;
+    }
 }
 
 .showcase-alert-dialog {
-    border: 2px solid ghostwhite;
+    border: var(--border-width) solid var(--border-color);
     padding: 10px;
     min-width: 300px;
 }
@@ -315,16 +293,16 @@ hr {
     width: 100%;
     scrollbar-width: none;
     overflow-x: auto;
-}
 
-.tabs-container::-webkit-scrollbar {
-    display: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .tabs {
     display: flex;
     width: fit-content;
-    border: 2px solid ghostwhite;
+    border: var(--border-width) solid var(--border-color);
     border-bottom: none;
 }
 
@@ -343,13 +321,14 @@ a.tabs-button {
 a.tabs-button:not(:last-child),
 a.tabs-button:not(:last-child):hover,
 a.tabs-button:not(:last-child):visited {
-    border-right: 2px solid ghostwhite;
+    border-right: var(--border-width) solid var(--border-color);
 }
 
 a.tabs-button:hover,
-a.tabs:visited {
+a.tabs-button:visited {
     border: none;
 }
+
 a.tabs-button.active {
     color: var(--hovered-link-color);
 }
@@ -357,8 +336,8 @@ a.tabs-button.active {
 .tab-content {
     padding: 0 0 0 8px;
     display: none;
-    border-left: 2px solid ghostwhite;
-    border-top: 2px solid ghostwhite;
+    border-left: var(--border-width) solid var(--border-color);
+    border-top: var(--border-width) solid var(--border-color);
 }
 
 @keyframes fadeIn-to-top {

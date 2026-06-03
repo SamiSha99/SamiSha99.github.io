@@ -4,7 +4,9 @@ var contentArr = [],
 var expandDiv;
 var isShowcaseFadingOut, isShowcaseFadingIn;
 
-const clickTimeOut = 125;
+const rootStyles = getComputedStyle(document.documentElement);
+const raw = rootStyles.getPropertyValue("--showcase-animation-duration").trim();
+const clickTimeOut = raw.endsWith("ms") ? parseFloat(raw) : parseFloat(raw) * 1000 * 0.4;
 
 var expandDeepCount = 0;
 const ZINDEX_SHOWCASE = 1000;
