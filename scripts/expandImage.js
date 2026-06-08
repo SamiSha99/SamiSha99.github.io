@@ -56,12 +56,9 @@ function showcaseImage(img, isVideo = false, vidIndex = 0) {
     const divShowcase = createShowcaseElement("showcase-img", "image-showcase");
     if (isVideo) {
         const source = img.getElementsByTagName("source");
-        divShowcase.innerHTML +=
-            '<video class="showcase-img-scalein" id="shown-img" controls autoplay="true" muted> <source src="' +
-            source[vidIndex].src +
-            '" type="' +
-            source[vidIndex].type +
-            '" /> </video>';
+        const video = img.querySelector("video");
+        console.log("image", video, video.hasAttribute("muted"));
+        divShowcase.innerHTML += `<video class="showcase-img-scalein" id="shown-img" controls autoplay="true" ${video.hasAttribute("muted") ? "muted" : ""}> <source src="${source[vidIndex].src}" type="${source[vidIndex].type}" /> </video>`;
         divShowcase.innerHTML += getContentInfo(source, true, vidIndex);
     } else {
         divShowcase.innerHTML +=
