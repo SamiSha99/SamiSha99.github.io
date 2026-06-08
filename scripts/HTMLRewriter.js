@@ -15,9 +15,7 @@ const VIDEO_DIRECTORY = START_DIRECTORY + "/assets/videos/";
 function createContentSection(content) {
     let newContent = [];
     for (let i = 0; i < content.length; i++) {
-        let c = createDiv(
-            content[i].hasAttribute("noClass") ? "" : ASSETS_CLASS,
-        );
+        let c = createDiv(content[i].hasAttribute("noClass") ? "" : ASSETS_CLASS);
         if (content[i].hasAttribute("scrollable")) {
             c.classList.add("expand-assets-scrollable");
         }
@@ -66,14 +64,18 @@ function reWriteVideo(child) {
     let video = document.createElement("video");
     let source = document.createElement("source");
     let div = createDiv(VIDEO_CLASS);
-    
+
     div.setAttribute("onclick", "showcaseImage(this, true)");
     source.setAttribute("src", VIDEO_DIRECTORY + child.getAttribute("src"));
     source.setAttribute("data-desc", child.innerHTML);
     source.setAttribute("title", stripHTML(child.innerHTML).replace(/\s+/g, " ").trim());
     source.setAttribute("type", "video/mp4");
-    video.muted = child.hasAttribute("muted");
+    if (child.hasAttribute("muted")) {
+        video.muted = true;
+        video.setAttribute("muted", "");
+    }
     video.appendChild(source);
+    console.log(video);
     div.appendChild(video);
     div.appendChild(createLabel("video"));
     return div;
@@ -83,7 +85,8 @@ function reWriteButton(child) {
     let button = document.createElement("button");
     button.style.width = "20vh";
     button.title = child.innerHTML;
-    let clickLink = 'window.open("' + stripHTML(child.innerHTML).replace(/\s+/g, " ").trim() + '", "_blank")';
+    let clickLink =
+        'window.open("' + stripHTML(child.innerHTML).replace(/\s+/g, " ").trim() + '", "_blank")';
     button.setAttribute("onclick", clickLink);
     button.innerHTML = child.getAttribute("desc");
     return button;
