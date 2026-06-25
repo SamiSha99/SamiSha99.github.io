@@ -1,64 +1,80 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <title>Point and Interact</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="An A Hat in Time framework for modding purposes!" />
+        <meta name="keywords" content="UnrealScript, Unreal, UDK, A Hat in Time, Modding" />
+        <meta name="author" content="SamiSha" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href=".././assets/style.css" />
+    </head>
 
-<head>
-    <title>Point and Interact</title>
-    <meta charset="utf-8">
-    <meta name="description" content="An A Hat in Time framework for modding purposes!">
-    <meta name="keywords" content="UnrealScript, Unreal, UDK, A Hat in Time, Modding">
-    <meta name="author" content="SamiSha">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href=".././assets/style.css">
-</head>
-
-<body>
-    <div id="mainpage" style="margin: auto;">
-
-        <div class="main-title">
-            <h1>Point and Interact | v1.1.0</h1>
-            <a class="button" href="https://github.com/SamiSha99/Hat_PAI" target="_blank">Repository</a>
-            <a class="button" href="https://github.com/SamiSha99/Hat_PAI/archive/refs/heads/main.zip"
-                target="_blank">Download (main.zip)</a>
-        </div>
-        <br />
-        <hr />
-        <div class="project-showcase-info">
-            <p>A framework made for modding puporses that allows modders to create point and click interactivity between
-                the
-                player and the world around them. The system is entirely built upon "Hat_HUD" a system found in the game
-                with the addition of interactivity through actors and Kismet functionality. The implementation is quick
-                and
-                simple and allows a lot of customizability through changing the mouse look,
-                colors when Un/Hovering and size. System interacts through "point and click" with "3D button" Actors
-                that
-                the player can drop in the scene and
-                the rest is done through Kismet.</p>
-            <div style="width: 100%; text-align:center;">
-                <iframe style="width: 95%; height: 400px;" style="margin: auto;"
-                    src="https://www.youtube-nocookie.com/embed/BfjtglK7Bzk" title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+    <body>
+        <div id="mainpage" style="margin: auto">
+            <div class="main-title">
+                <h1>Point and Interact | v1.1.0</h1>
+                <a class="button" href="https://github.com/SamiSha99/Hat_PAI" target="_blank"
+                    >Repository</a
+                >
+                <a
+                    class="button"
+                    href="https://github.com/SamiSha99/Hat_PAI/archive/refs/heads/main.zip"
+                    target="_blank"
+                    >Download (main.zip)</a
+                >
             </div>
+            <br />
             <hr />
-            <h1>Gallery</h1>
-            <content>
-                <vid src="dragexample.mp4">
-                    An example of the Framework functionality.
-                    <a href='https://bsky.app/profile/elsielcl.bsky.social' target='_blank'>Vid by LCL</a>
-                </vid>
-                <vid src="interactionExample.mp4">
-                    An example of the Framework functionality.
-                    <a href='https://bsky.app/profile/elsielcl.bsky.social' target='_blank'>Vid by LCL</a>
-                </vid>
-            </content>
+            <div class="project-showcase-info">
+                <p>
+                    A framework made for modding puporses that allows modders to create point and
+                    click interactivity between the player and the world around them. The system is
+                    entirely built upon "Hat_HUD" a system found in the game with the addition of
+                    interactivity through actors and Kismet functionality. The implementation is
+                    quick and simple and allows a lot of customizability through changing the mouse
+                    look, colors when Un/Hovering and size. System interacts through "point and
+                    click" with "3D button" Actors that the player can drop in the scene and the
+                    rest is done through Kismet.
+                </p>
+                <div style="width: 100%; text-align: center">
+                    <iframe
+                        style="width: 95%; height: 400px"
+                        style="margin: auto"
+                        src="https://www.youtube-nocookie.com/embed/BfjtglK7Bzk"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="
+                            accelerometer;
+                            autoplay;
+                            clipboard-write;
+                            encrypted-media;
+                            gyroscope;
+                            picture-in-picture;
+                        "
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <hr />
+                <h1>Gallery</h1>
+                <content>
+                    <vid src="dragexample.mp4">
+                        An example of the Framework functionality.
+                        <a href="https://bsky.app/profile/elsielcl.bsky.social" target="_blank"
+                            >Vid by LCL</a
+                        >
+                    </vid>
+                    <vid src="interactionExample.mp4">
+                        An example of the Framework functionality.
+                        <a href="https://bsky.app/profile/elsielcl.bsky.social" target="_blank"
+                            >Vid by LCL</a
+                        >
+                    </vid>
+                </content>
+            </div>
         </div>
-    </div>
-    <script src=".././scripts/main.js" type="module"></script>
-    <script src=".././scripts/expandImage.js"></script>
-    <script src=".././scripts/workData.js"></script>
-    <script src=".././scripts/HTMLRewriter.js"></script>
-</body>
-
+        <script src=".././scripts/main.js" type="module"></script>
+        <script src=".././scripts/site-core.js"></script>
+    </body>
 </html>
