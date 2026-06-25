@@ -107,7 +107,7 @@ function createLabel(type = "image") {
 }
 
 function reWriteHTMLPage() {
-    let contentToReplace = document.getElementsByTagName(CONTENT_TAG);
+    let contentToReplace = Array.from(document.getElementsByTagName(CONTENT_TAG));
     let newReplacemnet = createContentSection(contentToReplace);
 
     while (contentToReplace.length > 0) {
@@ -122,4 +122,5 @@ function stripHTML(html) {
     return div.textContent || div.innerText || "";
 }
 
+window.reWriteHTMLPage = reWriteHTMLPage;
 reWriteHTMLPage();

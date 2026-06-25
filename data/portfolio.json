@@ -1,0 +1,229 @@
+{
+    "tabs": [
+        {
+            "id": "work",
+            "label": "Professional",
+            "projects": [
+                {
+                    "title": "Playfrens",
+                    "buttons": [
+                        {
+                            "label": "playfrens.com",
+                            "href": "https://playfrens.com"
+                        },
+                        {
+                            "label": "Repository",
+                            "href": "https://github.com/liranbr/Playfrens"
+                        }
+                    ],
+                    "paragraphs": [
+                        "An organization app designed to help users plan with their friends which games they want to play together. Users create Boards, add games into it, invite participants, manage schedules, playthrough groups and discover games that people have a matching interest with. Built with React, Node.js. Using Express.js and supabase for backend."
+                    ],
+                    "media": [
+                        {
+                            "type": "pic",
+                            "src": "playfrens/main_screen.png",
+                            "caption": "The main screen of Playfrens, showing many games."
+                        },
+                        {
+                            "type": "pic",
+                            "src": "playfrens/gamepage.png",
+                            "caption": "The game page of the video game Terraria, containing inputted information for the group Calamity Mod."
+                        }
+                    ]
+                },
+                {
+                    "title": "3D Editor",
+                    "paragraphs": [
+                        "An online 3D editor to quickly modify models as needed for Orb-AR tools directly from the web. Can convert to any ThreeJS supported format for 3D Models and the ability to screenshot, play animations, and modify geometry.",
+                        "Made with Orb-AR, created with ThreeJS, React and TypeScript."
+                    ],
+                    "media": [
+                        {
+                            "type": "vid",
+                            "src": "inspector_demo.mp4",
+                            "caption": "Inspector being used to modify the robot in my 3D Editing tool. Model by Tomás Laulhé, modified by Don McCurdy. CC0."
+                        }
+                    ]
+                },
+                {
+                    "title": "CPR-VR",
+                    "buttons": [
+                        {
+                            "label": "🎥Video",
+                            "href": "https://1drv.ms/v/c/d5a74aaa4ffa1f0e/ERRokaEw50tHjLHuem4Y_R0BOgjftKKkc8XfMnfuWkpDUQ?e=IRl42Y",
+                            "className": "button primary"
+                        },
+                        {
+                            "label": "Repository",
+                            "href": "https://github.com/SamiSha99/CPR-VR/"
+                        }
+                    ],
+                    "paragraphs": [
+                        {
+                            "html": "A simulation of a CPR scenario for collaborative scientific research, it checks the effectiveness of VR when it comes to teaching real life skills compared to traditional solutions (e.g. a <a href='https://en.wikipedia.org/wiki/Resusci_Anne' target='_blank' rel='noopener noreferrer'>Resusci Anne</a>). Volunteers are students from the Arab American University and the research took 4 weeks. VR Headsets: Meta Quest 2 and Pro. Made with Unity."
+                        },
+                        "Contains a solution to localize Right to Left languages correctly on UI elements from Right to Left."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "projects",
+            "label": "Projects",
+            "projects": [
+                {
+                    "title": "Insaniquarium.js",
+                    "paragraphs": [
+                        "A recreation of a small Insaniquarium in JavaScript, all code made from scratch using Game Design elements I learned through the years."
+                    ],
+                    "media": [
+                        {
+                            "type": "vid",
+                            "src": "insaniquariumjs_demo.mp4",
+                            "caption": "Demo showing the game's extracted original assets rebuilt to be web ready, the game is fully playable."
+                        }
+                    ]
+                },
+                {
+                    "title": "Global Gamejam 2026",
+                    "paragraphs": [
+                        "My first 48-hour game jam, I contributed and developed a plan for a small game with 3 other participants using the theme Mask.",
+                        "We created a platformer game called Maskable where the player needs to switch the level with a new one to overcome platforming challenges."
+                    ]
+                },
+                {
+                    "title": "Online Communication",
+                    "buttons": [
+                        {
+                            "label": "Repository",
+                            "href": "https://github.com/SamiSha99/OnlineCommunication/"
+                        },
+                        {
+                            "label": "Trailer",
+                            "href": "https://www.youtube.com/watch?v=Ji-0uD2mBEM"
+                        },
+                        {
+                            "label": "Steam Workshop",
+                            "href": "https://steamcommunity.com/sharedfiles/filedetails/?id=3276508705"
+                        },
+                        {
+                            "label": "Wiki",
+                            "href": "https://github.com/SamiSha99/OnlineCommunication/wiki"
+                        }
+                    ],
+                    "paragraphs": [
+                        "A communication mod that takes your actions and communicate it to everyone else in the lobby! The objective of this mod is to communicate effortlessly without a chat while automatically moderated by the user. The chat box supports string formatting allowing for colorful and reactions to appear in.",
+                        "Implemented with modding support in mind, allowing modders to make language packs designed to add localization for custom objects in their mods or translate the language packs with new text entirely in other supported languages."
+                    ],
+                    "media": [
+                        {
+                            "type": "pic",
+                            "src": "onlinecommunication/logo.png",
+                            "caption": "The official logo of Online Communication Mod."
+                        },
+                        {
+                            "type": "vid",
+                            "src": "casual_conversation.mp4",
+                            "caption": "The chat can work on players who don't even have the mod installed and will print all their behaviors in readable format"
+                        },
+                        {
+                            "type": "vid",
+                            "src": "self_made_ui_example.mp4",
+                            "caption": "UI settings using a custom homebrew solution."
+                        }
+                    ]
+                },
+                {
+                    "title": "Point and Interact Framework",
+                    "buttons": [
+                        {
+                            "label": "Repository",
+                            "href": "https://github.com/SamiSha99/Hat_PAI"
+                        },
+                        {
+                            "label": "Wiki",
+                            "href": "https://github.com/SamiSha99/Hat_PAI/wiki"
+                        },
+                        {
+                            "label": "Page",
+                            "href": "https://sami.shakkour.dev/projects/hat-point-and-interact-framework.html"
+                        }
+                    ],
+                    "paragraphs": [
+                        "A framework made for modding purposes that allows modders to create point and click interactivity between the player and the world around them. The system is entirely built upon Hat_HUD a system found in the game with the addition of interactivity through actors and Kismet functionality. The implementation is quick and simple and allows a lot of customizability through changing the mouse look, colors when hovering and size. System interacts through point and click with 3D button actors that the player can drop in the scene and the rest is done through Kismet.",
+                        "The objective of such framework is to allow for a genre of point and click to be possible in the modding scene, this resulted in different mods using such solution, from FPS related functionality, to interacting with the scene and dragging."
+                    ],
+                    "media": [
+                        {
+                            "type": "vid",
+                            "src": "interactionExample.mp4",
+                            "caption": "An example of the player interacting with the world. Vid by LCL"
+                        },
+                        {
+                            "type": "vid",
+                            "src": "dragexample.mp4",
+                            "caption": "Drag functionality implemented to create drawers for the shelf. Vid by LCL"
+                        }
+                    ]
+                },
+                {
+                    "title": "Typer Shark!",
+                    "buttons": [
+                        {
+                            "label": "Steam Workshop",
+                            "href": "https://steamcommunity.com/sharedfiles/filedetails/?id=2863763530"
+                        }
+                    ],
+                    "paragraphs": [
+                        "Based on the game with the same name, made in Unreal Engine 3 in A Hat in Time for the Ocean Exploration modding jam, player must type the words or letters on Sharks and Piranhas respectively to avoid losing lives and at the same time reach the bottom of the ocean.",
+                        "Contains 5 difficulties to support different levels of going from players who don't know how to type fast to college essay writers."
+                    ],
+                    "media": [
+                        {
+                            "type": "pic",
+                            "src": "typershark/portrait.png",
+                            "caption": "Portrait by Habijob."
+                        },
+                        {
+                            "type": "pic",
+                            "src": "typershark/sharks.jpg",
+                            "caption": "Player must type the words on the shark to zap them and avoid them reaching them."
+                        },
+                        {
+                            "type": "pic",
+                            "src": "typershark/pirahna.jpg",
+                            "caption": "Pirahnas only have 1 letter but are quite fast."
+                        },
+                        {
+                            "type": "pic",
+                            "src": "typershark/glowey.jpg",
+                            "caption": "Glowing sharks have random strings instead."
+                        },
+                        {
+                            "type": "pic",
+                            "src": "typershark/tanky.jpg",
+                            "caption": "Blue sharks needs to be zapped twice to be destroyed."
+                        }
+                    ],
+                    "scrollable": true
+                }
+            ]
+        },
+        {
+            "id": "other",
+            "label": "Other",
+            "projects": [
+                {
+                    "title": "Virtual Tabletops",
+                    "paragraphs": [
+                        "Since 2024, I have been running virtual tabletop games for Dungeons & Dragons and custom homebrew worlds. Players gather weekly to play, roleplay, and interact.",
+                        "I host the game on a Raspberry Pi, running FoundryVTT over a secure HTTPS connection using port forwarding and a custom domain via DuckDNS, all at no cost.",
+                        "As a Game Master (GM), I design and manage the game experience, including adventures, encounters, combat systems, and narrative. I also guide players in building their characters and integrating them into the world.",
+                        "I am interested in running in-person tabletop games in the future, as I enjoy the more direct and social experience they offer. 😄"
+                    ]
+                }
+            ]
+        }
+    ]
+}
