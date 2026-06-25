@@ -96,12 +96,13 @@
                     "title": "Online Communication",
                     "buttons": [
                         {
-                            "label": "Repository",
-                            "href": "https://github.com/SamiSha99/OnlineCommunication/"
+                            "label": "Trailer",
+                            "href": "https://www.youtube.com/watch?v=Ji-0uD2mBEM",
+                            "className": "button primary"
                         },
                         {
-                            "label": "Trailer",
-                            "href": "https://www.youtube.com/watch?v=Ji-0uD2mBEM"
+                            "label": "Repository",
+                            "href": "https://github.com/SamiSha99/OnlineCommunication/"
                         },
                         {
                             "label": "Steam Workshop",
