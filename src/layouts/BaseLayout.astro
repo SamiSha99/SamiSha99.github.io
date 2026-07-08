@@ -1,0 +1,39 @@
+---
+import SEO from "../components/SEO.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+    title: string;
+    description: string;
+    image?: string;
+    chrome?: boolean;
+    noDrawing?: boolean;
+    bodyId?: string;
+}
+
+const { title, description, image, chrome = true, noDrawing = false, bodyId } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <SEO title={title} description={description} image={image} />
+    </head>
+    <body id={bodyId} no-drawing={noDrawing ? "true" : undefined}>
+        {
+            chrome ? (
+                <main id="mainpage">
+                    <Header />
+                    <slot />
+                    <Footer />
+                </main>
+            ) : (
+                <slot />
+            )
+        }
+        <script src="../scripts/main.js"></script>
+        <script src="../scripts/site-core.js"></script>
+    </body>
+</html>

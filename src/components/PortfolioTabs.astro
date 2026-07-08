@@ -1,0 +1,83 @@
+---
+import MediaGallery from "./MediaGallery.astro";
+import portfolio from "../data/portfolio.json";
+
+function isHtmlString(content) {
+    return /<\/?[a-z][\s\S]*>/i.test(content);
+}
+
+const tabs = portfolio.tabs || [];
+---
+
+<nav class="tabs-container" aria-label="Portfolio sections">
+    <div class="tabs">
+        {
+            tabs.map((tab, i) => (
+                <a
+                    class={`tabs-button button${i === 0 ? " active" : ""}`}
+                    onclick={`openTab(event, '${tab.id}')`}
+                >
+                    {tab.label || tab.id}
+                </a>
+            ))
+        }
+    </div>
+</nav>
+
+<div class="tab-panels" id="portfolio-root" aria-live="polite">
+    {
+        tabs.map((tab) => (
+            <section
+                id={tab.id}
+                class="tab-content"
+                aria-label={tab.label || tab.id}
+            >
+                {(tab.projects || []).map((project) => (
+                    <article class="project">
+                        <h2>{project.title}</h2>
+
+                        {project.buttons?.length ? (
+                            <div class="project-links">
+                                {project.buttons.map((button) => (
+                                    <a
+                                        class={button.className || "button"}
+                                        href={button.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {button.label}
+                                    </a>
+                                ))}
+                            </div>
+                        ) : null}
+
+                        {(project.paragraphs || []).map((content) => {
+                            if (typeof content === "string") {
+                                return isHtmlString(content) ? (
+                                    <p set:html={content} />
+                                ) : (
+                                    <p>{content}</p>
+                                );
+                            }
+                            if (content && typeof content.html === "string") {
+                                return <p set:html={content.html} />;
+                            }
+                            if (content && typeof content.text === "string") {
+                                return <p>{content.text}</p>;
+                            }
+                            return <p />;
+                        })}
+
+                        {project.media?.length ? (
+                            <MediaGallery
+                                media={project.media}
+                                scrollable={Boolean(project.scrollable)}
+                                fallbackAlt={project.title}
+                            />
+                        ) : null}
+                    </article>
+                ))}
+            </section>
+        ))
+    }
+</div>

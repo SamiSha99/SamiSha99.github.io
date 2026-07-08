@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MediaGallery from "../../components/MediaGallery.astro";
+
+const media = [
+    {
+        type: "vid",
+        src: "dragexample.mp4",
+        caption:
+            'An example of the Framework functionality. <a href="https://bsky.app/profile/elsielcl.bsky.social" target="_blank" rel="noopener noreferrer">Vid by LCL</a>',
+    },
+    {
+        type: "vid",
+        src: "interactionExample.mp4",
+        caption:
+            'An example of the Framework functionality. <a href="https://bsky.app/profile/elsielcl.bsky.social" target="_blank" rel="noopener noreferrer">Vid by LCL</a>',
+    },
+];
+---
+
+<BaseLayout
+    title="Point and Interact"
+    description="An A Hat in Time framework for modding purposes!"
+    chrome={false}
+>
+    <div id="mainpage" style="margin: auto">
+        <div class="main-title">
+            <h1>Point and Interact | v1.1.0</h1>{" "}
+            <a
+                class="button"
+                href="https://github.com/SamiSha99/Hat_PAI"
+                target="_blank"
+                rel="noopener noreferrer">Repository</a
+            >{" "}
+            <a
+                class="button"
+                href="https://github.com/SamiSha99/Hat_PAI/archive/refs/heads/main.zip"
+                target="_blank"
+                rel="noopener noreferrer">Download (main.zip)</a
+            >
+        </div>
+        <br />
+        <hr />
+        <div class="project-showcase-info">
+            <p>
+                A framework made for modding puporses that allows modders to create point and
+                click interactivity between the player and the world around them. The system is
+                entirely built upon "Hat_HUD" a system found in the game with the addition of
+                interactivity through actors and Kismet functionality. The implementation is
+                quick and simple and allows a lot of customizability through changing the mouse
+                look, colors when Un/Hovering and size. System interacts through "point and
+                click" with "3D button" Actors that the player can drop in the scene and the
+                rest is done through Kismet.
+            </p>
+            <div style="width: 100%; text-align: center">
+                <iframe
+                    style="width: 95%; height: 400px; margin: auto"
+                    src="https://www.youtube-nocookie.com/embed/BfjtglK7Bzk"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            <hr />
+            <h2>Gallery</h2>
+            <MediaGallery media={media} fallbackAlt="Point and Interact Framework gallery video" />
+        </div>
+    </div>
+</BaseLayout>

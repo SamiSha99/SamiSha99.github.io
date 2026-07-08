@@ -1,0 +1,13 @@
+---
+import { icon } from "@fortawesome/fontawesome-svg-core";
+
+interface Props {
+    icon: import("@fortawesome/fontawesome-svg-core").IconDefinition;
+    size?: "2x";
+}
+
+const { icon: iconDef, size } = Astro.props;
+const { html } = icon(iconDef, { classes: size ? [`fa-${size}`] : [] });
+---
+
+<Fragment set:html={html.join("")} />

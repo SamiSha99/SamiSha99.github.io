@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const year = new Date().getFullYear();
+---
+
+<BaseLayout
+    title="Color Picker"
+    description="Reads params and gives results!"
+    chrome={false}
+    noDrawing={true}
+    bodyId="colored-background"
+>
+    <div
+        style="
+            position: fixed;
+            top: 25vh;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        "
+    >
+        <h1 style="margin: auto; font-size: 10vh; text-decoration: none" id="color-header"></h1>
+        <h1
+            style="margin: auto; font-size: 10vh; text-decoration: none; user-select: all;"
+            id="color-hex"
+        >
+        </h1>
+        <div>
+            <label
+                id="choose-text"
+                for="color-input"
+                style="display: block; font-size: 2em; font-weight: bold">Choose Color</label
+            >
+            <input type="color" id="color-input" />
+        </div>
+    </div>
+    <div
+        style="
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        "
+    >
+        <p>
+            For players using the{" "}
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3276508705">Online Communication</a>{" "}
+            mod: You can Ctrl + C/V to copy/paste colors instead of inputting them manually!
+        </p>
+        <footer>&copy; {year} SamiSha. All rights reserved.</footer>
+    </div>
+    <script src="../../scripts/color-reader.js"></script>
+</BaseLayout>

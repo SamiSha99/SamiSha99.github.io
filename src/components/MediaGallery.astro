@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import { faVideo } from "@fortawesome/free-solid-svg-icons";
+import Icon from "./Icon.astro";
+import playfrensMain from "../assets/images/playfrens/main_screen.png";
+import playfrensGame from "../assets/images/playfrens/gamepage.png";
+import onlineCommLogo from "../assets/images/onlinecommunication/logo.png";
+import typerPortrait from "../assets/images/typershark/portrait.png";
+import typerSharks from "../assets/images/typershark/sharks.jpg";
+import typerPirahna from "../assets/images/typershark/pirahna.jpg";
+import typerGlowey from "../assets/images/typershark/glowey.jpg";
+import typerTanky from "../assets/images/typershark/tanky.jpg";
+
+const portfolioImages = {
+    "playfrens/main_screen.png": playfrensMain,
+    "playfrens/gamepage.png": playfrensGame,
+    "onlinecommunication/logo.png": onlineCommLogo,
+    "typershark/portrait.png": typerPortrait,
+    "typershark/sharks.jpg": typerSharks,
+    "typershark/pirahna.jpg": typerPirahna,
+    "typershark/glowey.jpg": typerGlowey,
+    "typershark/tanky.jpg": typerTanky,
+};
+
+function stripHtml(html = "") {
+    return html
+        .replace(/<[^>]*>/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
+interface MediaItem {
+    type: "pic" | "vid";
+    src: string;
+    caption?: string;
+    muted?: boolean;
+}
+
+interface Props {
+    media: MediaItem[];
+    scrollable?: boolean;
+    fallbackAlt: string;
+}
+
+const { media, scrollable = false, fallbackAlt } = Astro.props;
+---
+
+<div class={`expand-assets${scrollable ? " expand-assets-scrollable" : ""}`}>
+    {
+        media.map((item) => {
+            const caption = item.caption || "";
+            const altText = stripHtml(caption) || fallbackAlt;
+
+            if (item.type === "pic") {
+                const image = portfolioImages[item.src];
+                if (!image) {
+                    console.warn(`MediaGallery: no imported image found for "${item.src}"`);
+                    return null;
+                }
+                return (
+                    <Image
+                        src={image}
+                        alt={altText}
+                        title={altText}
+                        width={400}
+                        data-desc={caption}
+                        onclick="showcaseImage(this)"
+                    />
+                );
+            }
+
+            return (
+                <div class="expand-video" onclick="showcaseImage(this, true)">
+                    <video aria-label={altText} muted={item.muted}>
+                        <source
+                            src={`/assets/videos/${item.src}`}
+                            type="video/mp4"
+                            data-desc={caption}
+                            title={altText}
+                        />
+                    </video>
+                    <div class="label-content"><Icon icon={faVideo} /></div>
+                </div>
+            );
+        })
+    }
+</div>

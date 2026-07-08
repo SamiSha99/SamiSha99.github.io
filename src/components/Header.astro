@@ -1,0 +1,43 @@
+---
+import { faLinkedin, faGithub, faBluesky } from "@fortawesome/free-brands-svg-icons";
+import Icon from "./Icon.astro";
+---
+
+<header id="top-bar">
+    <div class="site-heading">
+        <h1 class="site-title">
+            <a href="/" style="color: inherit; text-decoration: none">Sami Shakkour</a>
+        </h1>
+        <nav class="social-links" aria-label="Social links">
+            <a
+                class="icon-link"
+                href="https://www.linkedin.com/in/sami-shakkour/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn">
+                <Icon icon={faLinkedin} size="2x" />
+            </a>
+            <a
+                class="icon-link"
+                href="https://github.com/SamiSha99/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub">
+                <Icon icon={faGithub} size="2x" />
+            </a>
+            <a
+                class="icon-link"
+                href="https://bsky.app/profile/sami.shakkour.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Bluesky">
+                <Icon icon={faBluesky} size="2x" />
+            </a>
+        </nav>
+    </div>
+    <div class="action-links">
+        <a class="button" id="resume" onclick="resume()">Resume</a>
+        <a class="button" id="email" onclick="areYouABotQuestionMark()">Email</a>
+        <a class="button" id="blog" href="/blog/">Blog</a>
+    </div>
+</header>
