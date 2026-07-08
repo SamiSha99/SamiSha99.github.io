@@ -1,8 +1,6 @@
 # sami.shakkour.dev
 
-My personal website — portfolio + blog.
-
-Live at: [https://sami.shakkour.dev/](https://sami.shakkour.dev/)
+A personal website to talk about me :), see it here: [https://sami.shakkour.dev/](https://sami.shakkour.dev/)
 
 ## Running it locally
 
