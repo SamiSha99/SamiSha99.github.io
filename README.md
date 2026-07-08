@@ -1,10 +1,16 @@
-# samisha99.github.io
+# Notice
+
+This is a legacy build of the site, so much work has been done in this that its hard to standarize it. Since then, I moved to Astro workflow as its overall better and easier to handle.
+
+See the new branch for the new site. Otherwise, this kept for perservation.
+
+## samisha99.github.io
 
 A personal website that talks about me, hi there!
 
 Learn more about me at: [https://samisha99.github.io/](https://samisha99.github.io/)
 
-## Development — Running locally with Jekyll
+## How to Run
 
 This site is built with Jekyll. To run and test the site locally, use one of the options below.
 
