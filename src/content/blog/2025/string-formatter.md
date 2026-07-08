@@ -14,7 +14,7 @@ For this page, the parser was made in Unreal Engine 3 for A Hat in Time.
 
 A Hat in Time uses a `HUD` system known as `Hat_HUD` where it renders Objects known as `Hat_HUDElement`, each element handles everything on their side, this is done to make it easier for the developers and modders to add/remove UI content with simple code requests and avoidining overcluttering the `HUD` class rendering everything at once or having a thousands upon thousands lines of code in one file.
 
-Unreal Engine 3 supports text coloring in through changing the Color Channels where you call `SetDrawColor(R,G,B,A?=255);` for the `Canvas` before rendering the text where all inputs take a number between `0 - 255` on the <b style="color:red;">R</b><b style="color:green;">G</b><b style="color:blue;">B</b><b style="color:white;">A</b> channel scale, `A` (alpha) is optional and if not specified its always `255` (so no transparency), e.g. `SetDrawColor(255,0,0)` will set the text <b style="color:red;">red</b>. 
+Unreal Engine 3 supports text coloring in through changing the Color Channels where you call `SetDrawColor(R,G,B,A?=255);` for the `Canvas` before rendering the text where all inputs take a number between `0 - 255` on the <b style="color:red;">R</b><b style="color:green;">G</b><b style="color:blue;">B</b><b style="color:white;">A</b> channel scale, `A` (alpha) is optional and if not specified its always `255` (so no transparency), e.g. `SetDrawColor(255,0,0)` will set the text <b style="color:red;">red</b>.
 
 Setting the draw color to a different color will not change the previously drawn text color.
 
@@ -33,18 +33,17 @@ Online Communication is a mod that allows players to write their actions they've
 TimePieceGet = [color=#528BFF][color=yellow_lemon][announcer][/color] collected the[icon=TimePiece]for @{~LC|[act_name]}, congratulations![/color]
 ```
 
-So if the passed localization key is invalid on their clients side, this input is dumped away and never rendered to the client, this is a security protocol to avoid abuse such as the ability to send malicious messages freely. 
+So if the passed localization key is invalid on their clients side, this input is dumped away and never rendered to the client, this is a security protocol to avoid abuse such as the ability to send malicious messages freely.
 
 This message is parsed to achieve a message that looks beautifully rendered with colors and icons that is clear to other players.
 
 ![Example of a parsed debug chat message](/assets/images/blog/string-formatter/debug_message.png)
 
-
 ## Introduction
 
 Essentially the most important part of string parsing finding two points in a string and replace it with different content similar to HTML and Markdown an **opening/closing tag** or a **special tag** (like `<img />` or `<br />`).
 
-First I made 2 structs, the one called `OCLogInfo` containing the Log's information for each message, the other struct `OCSegment` which contains the text, icons, coloring and so on, `OCLogInfo` 
+First I made 2 structs, the one called `OCLogInfo` containing the Log's information for each message, the other struct `OCSegment` which contains the text, icons, coloring and so on, `OCLogInfo`
 
 ```java
 struct OCLogInfo
@@ -79,16 +78,19 @@ struct OCSegment
 
 ## Finding an Opening Tag
 
-Tags are defined as `[tag]` and `[/tag]` similar to HTML or more accurately <a href="https://en.wikipedia.org/wiki/BBCode" target="_blank" rel="noopener noreferrer">BBCode</a>, we start by looking for an opening tag so we can start our parsing, for this example I supported two types, `[color]` and `[icon]`. 
+Tags are defined as `[tag]` and `[/tag]` similar to HTML or more accurately <a href="https://en.wikipedia.org/wiki/BBCode" target="_blank" rel="noopener noreferrer">BBCode</a>, we start by looking for an opening tag so we can start our parsing, for this example I supported two types, `[color]` and `[icon]`.
 
 Both tags work as follows:
 
 Color has a closing tag `[/color]`.
+
 ```
 [color=red]My red text![/color]
 [color=#FFFF00]My Yellow text![/color]
 ```
+
 But icon doesn't, similar to `<img />`!
+
 ```
 [icon=TimePiece]
 [icon=TimePiece|Amount: 42]
@@ -150,9 +152,9 @@ static function bool FindSegmentCutPoints(string msg, out int start, out int end
         end = INDEX_NONE;
         return false;
     }
-    
+
     end = GetCorrectBreakPointPos(msg, start+1, "[color=", compareBreak);
-    
+
     if(!IsValidTag(rawTag))
     {
         start += Len(compare) + 1;
@@ -170,10 +172,10 @@ The solution takes a stack state approach, we have an integer called `stackstate
 
 ![Diagram of the stack state approach for finding the correct closing tag](/assets/images/blog/string-formatter/stack_example.png)
 
-* When we hit an opening tag we `stackstate++;`.
-* When we hit a closing tag we `stackstate--;`.
-* Every time an increment or decrement happens we check if `stackstate > 0` if `true` we continue our search.
-*  If `stackstate == 0` then we found our closing tag and we can stop searching.
+- When we hit an opening tag we `stackstate++;`.
+- When we hit a closing tag we `stackstate--;`.
+- Every time an increment or decrement happens we check if `stackstate > 0` if `true` we continue our search.
+- If `stackstate == 0` then we found our closing tag and we can stop searching.
 
 `GetCorrectBreakPointPos()` solves this problem.
 
@@ -187,7 +189,7 @@ static function int GetCorrectBreakPointPos(string msg, int startpos, string for
 {
     local int stackstate, retries, formatStartPoint, formatEndPoint;
     const MAX_RETRIES = 200;
-    
+
     stackstate = 1;
 
     while(stackState > 0 && retries < MAX_RETRIES)
@@ -196,7 +198,7 @@ static function int GetCorrectBreakPointPos(string msg, int startpos, string for
         InStrPeek(msg, formatEndPoint, formatend,   startpos);
 
         if(formatEndPoint == INDEX_NONE) break;
-        
+
         if(formatEndPoint < formatStartPoint || formatStartPoint == INDEX_NONE)
         {
             stackState--;
@@ -241,7 +243,7 @@ static function bool Parse(OCSegment segment, out Array<OCSegment> segments)
         segments = CutSegments(segment, start, end, tag);
         break;
     }
-    
+
     return Segments.length > 0;
 }
 ```
@@ -252,12 +254,12 @@ Because I knew that I wanted to convert a raw string to a `OCLogInfo` type, I've
 static function OCLogInfo Build(string msg)
 {
     local OCLogInfo l;
-    local Array<OCSegment> parseResult; 
+    local Array<OCSegment> parseResult;
     local int i, u;
 
     l.RawText = msg;
     l.Segments[0] = CreateSegment(l.RawText);
-    
+
     for(i = 0; i < l.Segments.Length; i++)
     {
         if(!Parse(l.Segments[i], parseResult)) continue;
@@ -280,3 +282,4 @@ In this example, you can see the formatting for icons and coloring is working as
 Overall, this taught me a lot about the basics idea of formatting strings to be customized. This is a very basic explanation of it because the project itself has expanded tremendously, it has <a href="https://github.com/SamiSha99/OnlineCommunication/wiki/Dynamic-Strings" target="_blank" rel="noopener noreferrer">dynamic strings</a>, a pre-parse approach that replaces string content dynamically with player variable settings or cross referencing similar text (such as a localization variable) and replacing key defintition that were passed in the lobby correctly in the text before parsing it with the right content.
 
 I hope you found this post at least helpful and informative on this particular subject!
+

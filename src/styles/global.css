@@ -514,6 +514,18 @@ a.tabs-button.active {
     max-width: 100%;
 }
 
+.post-content h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.post-content h2 img {
+    height: 64px;
+    width: auto;
+    max-width: none;
+}
+
 .post-content iframe {
     max-width: 100%;
 }

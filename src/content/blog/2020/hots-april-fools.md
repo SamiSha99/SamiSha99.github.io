@@ -49,33 +49,33 @@ Our next Heroes of the Storm patch has just hit the Public Test Realm and will b
 
 A guardian angel to those who come under her care, Dr. Angela Ziegler is a peerless healer, a brilliant scientist, and a staunch advocate for peace.
 
-## <img src="/assets/images/hots-april-fools/2020/valkyrie-armor.png" height="42" alt="Valkyrie Armor" /> Valkyrie Armor
+## <img src="/assets/images/hots-april-fools/2020/valkyrie-armor.png" height="64" alt="Valkyrie Armor" /> Valkyrie Armor
 
 Regenerate 2% of your maximum Health per second after not taking any damage for 4 seconds.
 
-## <img src="/assets/images/hots-april-fools/2020/healing_beam.png" height="42" alt="Healing Stream" /> Healing Stream [Q]
+## <img src="/assets/images/hots-april-fools/2020/healing_beam.png" height="64" alt="Healing Stream" /> Healing Stream [Q]
 
 Heal an ally for 100 Health per second as long as they are in range. Reactivate to switch targets, or activate your Trait to cancel channeling. Mercy cannot Basic Attack or use Guardian Angel while channeling and 1 second after stopping so.
 
-## <img src="/assets/images/hots-april-fools/2020/damage-amplifier.png" height="42" alt="Damage Amplifier" /> Damage Amplifier [Q]
+## <img src="/assets/images/hots-april-fools/2020/damage-amplifier.png" height="64" alt="Damage Amplifier" /> Damage Amplifier [Q]
 
 Grant an ally 25% attack speed and 10% Spell Power as long as they are in range. Reactivate to switch targets, or activate your Trait to cancel channeling. Mercy cannot Basic Attack or use Guardian Angel while channeling and 1 second after stopping so.
 
-## <img src="/assets/images/hots-april-fools/2020/caduceus-staff.gif" height="42" alt="Caduceus Staff" /> Caduceus Staff [W]
+## <img src="/assets/images/hots-april-fools/2020/caduceus-staff.gif" height="64" alt="Caduceus Staff" /> Caduceus Staff [W]
 
 Change between one of the two abilities for Mercy's Caduceus Staff.
 **Healing Stream:** Heal an ally for 100 Health per second.
 **Damage Amplifier:** Grant an ally 25% attack speed and 10% Spell Power.
 
-## <img src="/assets/images/hots-april-fools/2020/guardian-angel.png" height="42" alt="Guardian Angel" /> Guardian Angel [E]
+## <img src="/assets/images/hots-april-fools/2020/guardian-angel.png" height="64" alt="Guardian Angel" /> Guardian Angel [E]
 
 Mercy flies towards a heroic target passing through all enemy units. Cannot pass through terrain.
 
-## <img src="/assets/images/hots-april-fools/2020/mass-resurrection.png" height="42" alt="Mass Resurrection" /> Mass Resurrection [R1]
+## <img src="/assets/images/hots-april-fools/2020/mass-resurrection.png" height="64" alt="Mass Resurrection" /> Mass Resurrection [R1]
 
 Channel for 2.5 seconds, reviving all nearby fallen spirits of dead allies back to half of their health, each fallen spirit that gets revived increases Mass Resurrection cooldown by 150 seconds up to 600 seconds. Mercy can use Guardian Angel to fly toward fallen spirits, while channeling for 2.5 seconds Mercy is revealed and has 25 reduced armor taking 25% more damage. [Passive] Each time Mercy heals or amplifies damage reduce Mass Resurrection max cooldown by 0.4%.
 
-## <img src="/assets/images/hots-april-fools/2020/valkyrie-mode.png" height="42" alt="Valkyrie Mode" /> Valkyrie Mode [R2]
+## <img src="/assets/images/hots-april-fools/2020/valkyrie-mode.png" height="64" alt="Valkyrie Mode" /> Valkyrie Mode [R2]
 
 For the next 10 seconds, Guardian Angel recharges 200% faster and Caduceus Staff spreads to nearby allies from the primary target, secondary targets receive half of the effects of the current Caduceus Staff mode.
 

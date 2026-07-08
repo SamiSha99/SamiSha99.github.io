@@ -65,27 +65,27 @@ After years of waiting his destiny on Earth, Kyle Blackthorne has finally come h
 
 With his home world saved, Blackthorne, now roaming the world again in pursuit of his destiny, finds himself in the Nexus.
 
-## <img src="/assets/images/hots-april-fools/2021/king-of-androth.png" height="42" alt="King of Androth" /> King of Androth [Trait]
+## <img src="/assets/images/hots-april-fools/2021/king-of-androth.png" height="64" alt="King of Androth" /> King of Androth [Trait]
 
 Basic attacks splash in a cone in front of you, each time you attack a target your damage increases against them by 5% up to 50%, lasts for 5 seconds per target.
 
-## <img src="/assets/images/hots-april-fools/2021/grenade-launcher.png" height="42" alt="Grenade Launcher" /> Grenade Launcher [Q]
+## <img src="/assets/images/hots-april-fools/2021/grenade-launcher.png" height="64" alt="Grenade Launcher" /> Grenade Launcher [Q]
 
 Fire a grenade that explodes in the targeted location, dealing 200 damage and causing the next Basic Attack against hit enemies to deal 100% additional damage and heal for 20% of the damage dealt, increased to 40% against heroes.
 
-## <img src="/assets/images/hots-april-fools/2021/hover-bomb.png" height="42" alt="Hover Bomb" /> Hover Bomb [W]
+## <img src="/assets/images/hots-april-fools/2021/hover-bomb.png" height="64" alt="Hover Bomb" /> Hover Bomb [W]
 
 Send forth a hovering bomb that can bounce off terrain and Structures. If an enemy hero gets close to the bomb, it detonates, dealing 140 damage in an area and slowing enemies hit by 35% for 2 seconds.
 
-## <img src="/assets/images/hots-april-fools/2021/dash.png" height="42" alt="Dash" /> Dash [E]
+## <img src="/assets/images/hots-april-fools/2021/dash.png" height="64" alt="Dash" /> Dash [E]
 
 Dash to the target area. While Dashing and for 0.5 seconds, Blackthorne evade enemy Basic Attacks.
 
-## <img src="/assets/images/hots-april-fools/2021/wasp.png" height="42" alt="Wasp" /> Wasp [R1]
+## <img src="/assets/images/hots-april-fools/2021/wasp.png" height="64" alt="Wasp" /> Wasp [R1]
 
 Deploy a Wasp with 300 health to an enemy Hero, dealing 240 damage over 3 seconds, then explodes dealing 400 damage to all nearby enemies and silencing them for 2 seconds.
 
-## <img src="/assets/images/hots-april-fools/2021/fire-bomb.png" height="42" alt="Fire Bomb" /> Fire Bomb [R2]
+## <img src="/assets/images/hots-april-fools/2021/fire-bomb.png" height="64" alt="Fire Bomb" /> Fire Bomb [R2]
 
 Throw a Fire Bomb that explodes at a target location, dealing 300 damage in a large area and lighting it on fire, dealing 40 damage per second and slowing enemies by 50%. Lasts 5 seconds.
 
