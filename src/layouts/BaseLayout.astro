@@ -26,7 +26,9 @@ const { title, description, image, chrome = true, noDrawing = false, bodyId } = 
             chrome ? (
                 <main id="mainpage">
                     <Header />
-                    <slot />
+                    <div class="page-content">
+                        <slot />
+                    </div>
                     <Footer />
                 </main>
             ) : (
