@@ -62,7 +62,7 @@ const { media, scrollable = false, fallbackAlt } = Astro.props;
                         src={image}
                         alt={altText}
                         title={altText}
-                        width={400}
+                        width={1280}
                         data-desc={caption}
                         onclick="showcaseImage(this)"
                     />
@@ -71,7 +71,7 @@ const { media, scrollable = false, fallbackAlt } = Astro.props;
 
             return (
                 <div class="expand-video" onclick="showcaseImage(this, true)">
-                    <video aria-label={altText} muted={item.muted}>
+                    <video aria-label={altText} muted={item.muted} preload="none">
                         <source
                             src={`/assets/videos/${item.src}`}
                             type="video/mp4"
