@@ -2,7 +2,7 @@
 import MediaGallery from "./MediaGallery.astro";
 import portfolio from "../data/portfolio.json";
 
-function isHtmlString(content) {
+function isHtmlString(content: string) {
     return /<\/?[a-z][\s\S]*>/i.test(content);
 }
 
@@ -27,11 +27,7 @@ const tabs = portfolio.tabs || [];
 <div class="tab-panels" id="portfolio-root" aria-live="polite">
     {
         tabs.map((tab) => (
-            <section
-                id={tab.id}
-                class="tab-content"
-                aria-label={tab.label || tab.id}
-            >
+            <section id={tab.id} class="tab-content" aria-label={tab.label || tab.id}>
                 {(tab.projects || []).map((project) => (
                     <article class="project">
                         <h2>{project.title}</h2>

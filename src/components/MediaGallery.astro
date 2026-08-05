@@ -1,32 +1,16 @@
 ---
-import { Image } from "astro:assets";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import Icon from "./Icon.astro";
-import playfrensMain from "../assets/images/playfrens/main_screen.png";
-import playfrensGame from "../assets/images/playfrens/gamepage.png";
-import onlineCommLogo from "../assets/images/onlinecommunication/logo.png";
-import typerPortrait from "../assets/images/typershark/portrait.png";
-import typerSharks from "../assets/images/typershark/sharks.jpg";
-import typerPirahna from "../assets/images/typershark/pirahna.jpg";
-import typerGlowey from "../assets/images/typershark/glowey.jpg";
-import typerTanky from "../assets/images/typershark/tanky.jpg";
-
-const portfolioImages = {
-    "playfrens/main_screen.png": playfrensMain,
-    "playfrens/gamepage.png": playfrensGame,
-    "onlinecommunication/logo.png": onlineCommLogo,
-    "typershark/portrait.png": typerPortrait,
-    "typershark/sharks.jpg": typerSharks,
-    "typershark/pirahna.jpg": typerPirahna,
-    "typershark/glowey.jpg": typerGlowey,
-    "typershark/tanky.jpg": typerTanky,
-};
 
 function stripHtml(html = "") {
     return html
         .replace(/<[^>]*>/g, "")
         .replace(/\s+/g, " ")
         .trim();
+}
+
+function publicImagePath(src: string) {
+    return `/assets/images/${src.replace(/\.(png|jpe?g|gif)$/i, ".webp")}`;
 }
 
 interface MediaItem {
@@ -47,22 +31,16 @@ const { media, scrollable = false, fallbackAlt } = Astro.props;
 
 <div class={`expand-assets${scrollable ? " expand-assets-scrollable" : ""}`}>
     {
-        media.map((item) => {
+        media.map((item: any) => {
             const caption = item.caption || "";
             const altText = stripHtml(caption) || fallbackAlt;
 
             if (item.type === "pic") {
-                const image = portfolioImages[item.src];
-                if (!image) {
-                    console.warn(`MediaGallery: no imported image found for "${item.src}"`);
-                    return null;
-                }
                 return (
-                    <Image
-                        src={image}
+                    <img
+                        src={publicImagePath(item.src)}
                         alt={altText}
                         title={altText}
-                        width={1280}
                         data-desc={caption}
                         onclick="showcaseImage(this)"
                     />
@@ -79,7 +57,9 @@ const { media, scrollable = false, fallbackAlt } = Astro.props;
                             title={altText}
                         />
                     </video>
-                    <div class="label-content"><Icon icon={faVideo} /></div>
+                    <div class="label-content">
+                        <Icon icon={faVideo} />
+                    </div>
                 </div>
             );
         })
