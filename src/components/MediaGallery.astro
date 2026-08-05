@@ -13,6 +13,10 @@ function publicImagePath(src: string) {
     return `/assets/images/${src.replace(/\.(png|jpe?g|gif)$/i, ".webp")}`;
 }
 
+function posterPath(src: string) {
+    return `/assets/videos/${src.replace(/\.mp4$/i, "_poster.jpg")}`;
+}
+
 interface MediaItem {
     type: "pic" | "vid";
     src: string;
@@ -49,7 +53,11 @@ const { media, scrollable = false, fallbackAlt } = Astro.props;
 
             return (
                 <div class="expand-video" onclick="showcaseImage(this, true)">
-                    <video aria-label={altText} muted={item.muted} preload="none">
+                    <video
+                        aria-label={altText}
+                        muted={item.muted}
+                        preload="none"
+                        poster={posterPath(item.src)}>
                         <source
                             src={`/assets/videos/${item.src}`}
                             type="video/mp4"
