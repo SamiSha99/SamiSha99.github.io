@@ -5,8 +5,10 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {%- for entry in collections.all | sort(attribute="url") %}
+    {%- if not entry.url.endsWith(".xml") %}
     <url>
         <loc>{{ metadata.url }}{{ entry.url }}</loc>
     </url>
+    {%- endif %}
     {%- endfor %}
 </urlset>
