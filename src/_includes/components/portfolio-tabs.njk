@@ -1,0 +1,46 @@
+{% from "components/media-gallery.njk" import mediaGallery %}
+<nav class="tabs-container" aria-label="Portfolio sections">
+    <div class="tabs">
+        {%- for tab in portfolio.tabs %}
+        <a
+            class="tabs-button button{% if loop.first %} active{% endif %}"
+            onclick="openTab(event, '{{ tab.id }}')">
+            {{ tab.label or tab.id }}
+        </a>
+        {%- endfor %}
+    </div>
+</nav>
+
+<div class="tab-panels" id="portfolio-root" aria-live="polite">
+    {%- for tab in portfolio.tabs %}
+    <section id="{{ tab.id }}" class="tab-content" aria-label="{{ tab.label or tab.id }}">
+        {%- for project in tab.projects %}
+        <article class="project">
+            <h2>{{ project.title }}</h2>
+
+            {%- if project.buttons | length %}
+            <div class="project-links">
+                {%- for button in project.buttons %}
+                <a
+                    class="{{ button.className or 'button' }}"
+                    href="{{ button.href }}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    {{ button.label }}
+                </a>
+                {%- endfor %}
+            </div>
+            {%- endif %}
+
+            {%- for paragraph in project.paragraphs %}
+            <p>{{ paragraph | safe }}</p>
+            {%- endfor %}
+
+            {%- if project.media | length %}
+            {{ mediaGallery(project.media, project.scrollable, project.title) }}
+            {%- endif %}
+        </article>
+        {%- endfor %}
+    </section>
+    {%- endfor %}
+</div>

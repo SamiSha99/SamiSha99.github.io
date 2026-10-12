@@ -1,0 +1,23 @@
+{
+  "name": "sami-shakkour-dev",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "predev": "node scripts/generate-video-posters.mjs",
+    "dev": "eleventy --serve",
+    "start": "eleventy --serve",
+    "prebuild": "node scripts/generate-video-posters.mjs",
+    "build": "eleventy",
+    "preview": "eleventy-dev-server --dir=dist"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-img": "^7.0.0",
+    "@11ty/eleventy-plugin-rss": "^3.1.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "markdown-it-attrs": "^5.0.1",
+    "zod": "^4.6.7"
+  }
+}

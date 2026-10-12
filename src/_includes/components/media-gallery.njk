@@ -1,0 +1,33 @@
+{% macro mediaGallery(media, scrollable, fallbackAlt) %}
+<div class="expand-assets{% if scrollable %} expand-assets-scrollable{% endif %}">
+    {%- for item in media %}
+    {%- set caption = item.caption or "" %}
+    {%- set altText = (caption | striptags) or fallbackAlt %}
+    {%- if item.type == "pic" %}
+    <img
+        src="/assets/images/{{ item.src }}"
+        alt="{{ altText }}"
+        title="{{ altText }}"
+        data-desc="{{ caption }}"
+        onclick="showcaseImage(this)" />
+    {%- else %}
+    <div class="expand-video" onclick="showcaseImage(this, true)">
+        <video
+            aria-label="{{ altText }}"{% if item.muted %}
+            muted{% endif %}
+            preload="none"
+            poster="/assets/videos/{{ item.src | replace(".mp4", "_poster.jpg") }}">
+            <source
+                src="/assets/videos/{{ item.src }}"
+                type="video/mp4"
+                data-desc="{{ caption }}"
+                title="{{ altText }}" />
+        </video>
+        <div class="label-content">
+            {% include "icons/video.svg" %}
+        </div>
+    </div>
+    {%- endif %}
+    {%- endfor %}
+</div>
+{% endmacro %}

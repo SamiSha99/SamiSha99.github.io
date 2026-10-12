@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: Blog
+description: "Sami's little corner :3"
+---
+
+<h1>Blog</h1>
+<ul class="post-list">
+    {%- for post in collections.posts | reverse %}
+    <li>
+        <span class="post-meta">{{ post.date | formatDate }}</span>
+        <h2>
+            <a class="post-link" href="{{ post.url }}">{{ post.data.title }}</a>
+        </h2>
+        <p>{{ post.data.description }}</p>
+    </li>
+    {%- endfor %}
+</ul>

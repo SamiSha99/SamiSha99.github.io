@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% include "components/seo.njk" %}
+        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="/styles/prism.css" />
+    </head>
+    <body{% if bodyId %} id="{{ bodyId }}"{% endif %}{% if noDrawing %} no-drawing="true"{% endif %}>
+        {%- if chrome === false %}
+        {{ content | safe }}
+        {%- else %}
+        <main id="mainpage">
+            {% include "components/header.njk" %}
+            <div class="page-content">
+                {{ content | safe }}
+            </div>
+            {% include "components/footer.njk" %}
+        </main>
+        {%- endif %}
+        <script type="module" src="/scripts/main.js"></script>
+        <script type="module" src="/scripts/site-core.js"></script>
+    </body>
+</html>
