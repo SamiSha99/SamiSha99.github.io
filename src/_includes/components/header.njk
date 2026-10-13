@@ -36,3 +36,25 @@
         <a class="button" id="blog" href="/blog/">Blog</a>
     </div>
 </header>
+<dialog id="resume-dialog">
+    <div class="showcase-alert-dialog">
+        <div>What kind of work are you interested in?</div>
+        <hr />
+        <div style="float: right">
+            <a class="button" href="/assets/pdf/Sami_Shakkour_Full-Stack.pdf">Full-Stack</a>
+            <a class="button" href="/assets/pdf/Sami_Shakkour_Game_Developer.pdf">Game Development</a>
+            <a class="button" onclick="this.closest('dialog').close()">Cancel</a>
+        </div>
+    </div>
+</dialog>
+<dialog id="bot-dialog">
+    <div class="showcase-alert-dialog">
+        <div>Are you a Bot?</div>
+        <hr />
+        <div style="float: right">
+            <a class="button primary" onclick="blockPage()">Yes! ✨</a>
+            <a class="button" onclick="_0x3c5033()">No</a>
+            <a class="button" onclick="this.closest('dialog').close()">Cancel</a>
+        </div>
+    </div>
+</dialog>
