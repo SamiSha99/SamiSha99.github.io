@@ -78,13 +78,12 @@ body {
     position: sticky;
     top: 0;
     z-index: 3;
-    padding: 12px 0 8px;
+    padding: 10px 0;
     background-color: #000;
     box-shadow: 0 10px 8px #000;
 }
 
-.site-heading,
-.action-links,
+.nav,
 .project-links,
 .social-links {
     display: flex;
@@ -93,31 +92,34 @@ body {
     flex-wrap: wrap;
 }
 
-.site-heading {
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
+.nav {
+    gap: 1rem;
+    font-size: 1.25rem;
+    font-weight: normal;
+}
+
+.nav a,
+.icon-link {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav a:hover,
+.icon-link:hover {
+    color: var(--hovered-link-color);
 }
 
 .site-title {
-    display: inline-block;
-    margin: 0 17.42px 0 0;
-}
-
-.social-links {
-    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
 }
 
 .icon-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--hovered-link-color);
-    text-decoration: none;
     padding: 0.25rem;
-}
-
-.icon-link:hover {
-    color: var(--hovered-link-color);
 }
 
 .intro {
@@ -138,8 +140,15 @@ body {
 }
 
 .site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap;
     margin-bottom: 10px;
     font-size: 14px;
+    border-top: var(--border-width) dashed var(--primary-text-color);
+    padding-top: 0.5rem;
 }
 
 .sr-only {

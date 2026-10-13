@@ -1,10 +1,39 @@
 <hr />
 <footer class="site-footer">
-    © Sami Shakkour - {% year %} | Website by me, see
-    <a
-        href="https://github.com/SamiSha99/SamiSha99.github.io/"
-        target="_blank"
-        rel="noopener noreferrer">source code</a
-    >. | Contact me via my
-    <a onclick="areYouABotQuestionMark()" class="e-hidden">&lt;Email&gt;</a>.
+    <div>
+        © {% year %} Sami Shakkour -
+        <a
+            href="https://github.com/SamiSha99/SamiSha99.github.io/"
+            target="_blank"
+            rel="noopener noreferrer">site sauce</a
+        >
+        <br/>
+        <a onclick="areYouABotQuestionMark()" class="e-hidden">&lt;Email&gt;</a> me for any inquiries :)
+    </div>
+    <nav class="social-links" aria-label="Social links">
+        <a
+            class="icon-link"
+            href="https://www.linkedin.com/in/sami-shakkour/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn">
+            {% include "icons/linkedin.svg" %}
+        </a>
+        <a
+            class="icon-link"
+            href="https://github.com/SamiSha99/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub">
+            {% include "icons/github.svg" %}
+        </a>
+        <a
+            class="icon-link"
+            href="https://bsky.app/profile/sami.shakkour.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Bluesky">
+            {% include "icons/bluesky.svg" %}
+        </a>
+    </nav>
 </footer>
