@@ -1,6 +1,6 @@
 ---
 title: CPR-VR
-description: ""
+description: "Can VR teach CPR as well as a practice mannequin? A Unity simulation built for a university research study."
 order: 3
 buttons:
     - label: "🎥Video"

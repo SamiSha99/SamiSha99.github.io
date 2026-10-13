@@ -1,6 +1,6 @@
 ---
 title: 3D Editor
-description: ""
+description: "3D Editing protoype tool that runs on the web."
 order: 2
 media:
     - src: inspector_demo.mp4

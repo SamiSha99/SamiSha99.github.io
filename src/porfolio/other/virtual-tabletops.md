@@ -1,8 +1,10 @@
 ---
 title: Virtual Tabletops
-description: ""
+description: "Dungeon Master leading and creating homebrew story telling."
 order: 1
 ---
+
+_P.S. FOR ANYONE'S CONCERN I LOVE THIS BUT I'M NOT AN ACTUAL EXPERT AT IT OK???_
 
 Since 2024, I have been running virtual tabletop games for Dungeons & Dragons and custom homebrew worlds. Players gather weekly to play, roleplay, and interact.
 

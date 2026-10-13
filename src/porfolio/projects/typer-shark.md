@@ -1,6 +1,6 @@
 ---
 title: Typer Shark!
-description: "A typing game\n\na"
+description: 'Mod submission to the "Ocean Exploration" Modding Jam.'
 preview: typershark/sharks.jpg
 order: 5
 buttons:

@@ -1,6 +1,6 @@
 ---
 title: Online Communication
-description: ""
+description: "Chatless self-moderated mod that improves communication between online players."
 preview: onlinecommunication/logo.png
 order: 3
 buttons:
@@ -25,3 +25,4 @@ media:
 A communication mod that takes your actions and communicate it to everyone else in the lobby! The objective of this mod is to communicate effortlessly without a chat while automatically moderated by the user. The chat box supports string formatting allowing for colorful and reactions to appear in.
 
 Implemented with modding support in mind, allowing modders to make language packs designed to add localization for custom objects in their mods or translate the language packs with new text entirely in other supported languages.
+
