@@ -239,6 +239,7 @@ hr {
 
 .expand-assets a {
     position: relative;
+    cursor: zoom-in;
     transition: transform calc(var(--showcase-animation-duration) / 2) ease;
 }
 
@@ -307,6 +308,14 @@ dialog::backdrop {
 
 .goverlay {
     background: rgba(0, 0, 0, 0.975);
+}
+
+.glightbox-container {
+    cursor: zoom-out;
+}
+
+.glightbox-container .ginner-container > * {
+    cursor: auto;
 }
 
 .gslide-image img,
