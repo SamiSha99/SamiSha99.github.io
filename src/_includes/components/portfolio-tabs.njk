@@ -1,46 +1,45 @@
-{% from "components/media-gallery.njk" import mediaGallery %}
+{%- set tabs = [
+    { id: "professional", label: "Professional" },
+    { id: "projects", label: "Projects" },
+    { id: "other", label: "Other" }
+] %}
 <nav class="tabs-container" aria-label="Portfolio sections">
     <div class="tabs">
-        {%- for tab in portfolio.tabs %}
+        {%- for tab in tabs %}
         <a
             class="tabs-button button{% if loop.first %} active{% endif %}"
             onclick="openTab(event, '{{ tab.id }}')">
-            {{ tab.label or tab.id }}
+            {{ tab.label }}
         </a>
         {%- endfor %}
     </div>
 </nav>
 
 <div class="tab-panels" id="portfolio-root" aria-live="polite">
-    {%- for tab in portfolio.tabs %}
-    <section id="{{ tab.id }}" class="tab-content" aria-label="{{ tab.label or tab.id }}">
-        {%- for project in tab.projects %}
-        <article class="project">
-            <h2>{{ project.title }}</h2>
-
-            {%- if project.buttons | length %}
-            <div class="project-links">
-                {%- for button in project.buttons %}
-                <a
-                    class="{{ button.className or 'button' }}"
-                    href="{{ button.href }}"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    {{ button.label }}
-                </a>
-                {%- endfor %}
-            </div>
+    {%- for tab in tabs %}
+    <section id="{{ tab.id }}" class="tab-content" aria-label="{{ tab.label }}">
+        <div class="portfolio-list">
+            {%- for item in collections.portfolio %}
+            {%- if item.data.tab == tab.id %}
+            {%- set preview = item.data.preview %}
+            <article class="portfolio-card">
+                {%- if not preview %}
+                <div class="portfolio-card-image portfolio-card-placeholder">{{ item.data.title }}</div>
+                {%- elif r/\.mp4$/i.test(preview) %}
+                <img class="portfolio-card-image" src="/assets/videos/{{ preview | replace('.mp4', '_poster.jpg') }}" alt="" eleventy:widths="640" />
+                {%- else %}
+                <img class="portfolio-card-image" src="/assets/images/{{ preview }}" alt="" eleventy:widths="640" />
+                {%- endif %}
+                <h2 class="portfolio-card-title">{{ item.data.title }}</h2>
+                {%- if item.data.description %}
+                <p>{{ item.data.description | safe | nl2br }}</p>
+                {%- endif %}
+                <span class="portfolio-card-more">>>read more</span>
+                <a class="portfolio-card-link" href="{{ item.url }}" aria-label="{{ item.data.title }}"></a>
+            </article>
             {%- endif %}
-
-            {%- for paragraph in project.paragraphs %}
-            <p>{{ paragraph | safe }}</p>
             {%- endfor %}
-
-            {%- if project.media | length %}
-            {{ mediaGallery(project.media, project.scrollable, project.title) }}
-            {%- endif %}
-        </article>
-        {%- endfor %}
+        </div>
     </section>
     {%- endfor %}
 </div>

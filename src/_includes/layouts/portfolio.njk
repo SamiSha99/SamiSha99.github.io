@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+
+{% from "components/media-gallery.njk" import mediaGallery %}
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">{{ title }}</h1>
+        {%- if buttons | length %}
+        <div class="project-links">
+            {%- for button in buttons %}
+            <a
+                class="{{ button.className or 'button' }}"
+                href="{{ button.href }}"
+                target="_blank"
+                rel="noopener noreferrer">
+                {{ button.label }}
+            </a>
+            {%- endfor %}
+        </div>
+        {%- endif %}
+    </header>
+    <div class="post-content">
+        {{ content | safe }}
+    </div>
+    {%- if media | length %}
+    {{ mediaGallery(media, scrollable, title) }}
+    {%- endif %}
+</article>
