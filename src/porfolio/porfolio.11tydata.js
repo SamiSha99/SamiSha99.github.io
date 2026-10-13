@@ -1,3 +1,5 @@
+import Image from "@11ty/eleventy-img";
+import path from "node:path";
 import { z } from "zod";
 
 // `src` is relative to /assets/images/, or to /assets/videos/ for .mp4 files.
@@ -27,6 +29,20 @@ export default {
     eleventyComputed: {
         // The folder a file sits in is its tab on the home page, e.g. porfolio/projects/x.md -> "projects".
         tab: (data) => data.page.filePathStem.split("/")[2],
+        // Meta Link preview image (og:image) when sharing the page, resized for `preview`.
+        image: async (data) => {
+            if (!data.preview) return data.image;
+            const source = /\.mp4$/i.test(data.preview)
+                ? `public/assets/videos/${data.preview.replace(/\.mp4$/i, "_poster.jpg")}`
+                : `public/assets/images/${data.preview}`;
+            const stats = await Image(source, {
+                widths: [1200],
+                formats: ["jpeg"],
+                outputDir: path.join(data.eleventy.directories.output, "img"),
+                urlPath: "/img/",
+            });
+            return stats.jpeg[0].url;
+        },
     },
     eleventyDataSchema(data) {
         const result = portfolioSchema.safeParse(data);
