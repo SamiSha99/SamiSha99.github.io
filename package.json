@@ -17,6 +17,7 @@
     "@11ty/eleventy-plugin-rss": "^3.1.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "glightbox": "^3.3.1",
     "markdown-it-attrs": "^5.0.1",
     "zod": "^4.6.7"
   }

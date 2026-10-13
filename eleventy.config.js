@@ -15,6 +15,8 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/scripts");
     eleventyConfig.addPassthroughCopy("src/styles");
     eleventyConfig.addPassthroughCopy({ "node_modules/prismjs/themes/prism-tomorrow.css": "styles/prism.css" });
+    eleventyConfig.addPassthroughCopy({ "node_modules/glightbox/dist/css/glightbox.min.css": "styles/glightbox.css" });
+    eleventyConfig.addPassthroughCopy({ "node_modules/glightbox/dist/js/glightbox.min.js": "scripts/glightbox.min.js" });
 
     // Allows `## Heading {#custom-id}` in posts.
     eleventyConfig.amendLibrary("md", (md) => md.use(markdownItAttrs, { allowedAttributes: ["id"] }));
