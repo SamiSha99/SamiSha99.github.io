@@ -543,3 +543,38 @@ a.tabs-button.active {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
+@media (max-width: 480px) {
+    #mainpage {
+        width: calc(100vw - 1rem);
+        padding: 0 0.5rem;
+    }
+
+    .nav {
+        gap: 0.75rem;
+        font-size: 16px;
+        flex-wrap: nowrap;
+    }
+
+    a.tabs-button {
+        font-size: 18px;
+    }
+
+    .intro {
+        padding: 0;
+    }
+
+    .site-footer {
+        flex-wrap: nowrap;
+    }
+
+    .site-footer .social-links {
+        flex-wrap: nowrap;
+        flex-shrink: 0;
+        gap: 0;
+    }
+
+    .site-footer .svg-inline--fa.fa-2x {
+        height: 1.5em;
+    }
+}
+
