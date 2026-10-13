@@ -65,10 +65,24 @@ export default function (eleventyConfig) {
         "node_modules/glightbox/dist/js/glightbox.min.js": "scripts/glightbox.min.js",
     });
 
-    // Allows `## Heading {#custom-id}` in posts.
-    eleventyConfig.amendLibrary("md", (md) =>
-        md.use(markdownItAttrs, { allowedAttributes: ["id"] }),
-    );
+    eleventyConfig.amendLibrary("md", (md) => {
+        // Allows `## Heading {#custom-id}` and `[link](url){.css-class}` in posts.
+        md.use(markdownItAttrs, { allowedAttributes: ["id", "class", "target", "rel"] });
+
+        // An External link will open in a new tab, otherwise with `{target=...}` set.
+        const renderLink =
+            md.renderer.rules.link_open ??
+            ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+        md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+            const link = tokens[idx];
+            const href = link.attrGet("href") ?? "";
+            if (/^https?:\/\//.test(href) && !href.startsWith(metadata.url)) {
+                if (!link.attrGet("target")) link.attrSet("target", "_blank");
+                if (!link.attrGet("rel")) link.attrSet("rel", "noopener noreferrer");
+            }
+            return renderLink(tokens, idx, options, env, self);
+        };
+    });
 
     eleventyConfig.addPlugin(IdAttributePlugin);
     eleventyConfig.addPlugin(pluginSyntaxHighlight);

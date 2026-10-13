@@ -204,6 +204,7 @@ a.button.primary {
 }
 
 hr {
+    width: 100%;
     background-color: var(--primary-text-color);
     border: 0 none;
     color: var(--primary-text-color);
