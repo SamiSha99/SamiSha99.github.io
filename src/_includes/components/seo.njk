@@ -3,19 +3,19 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{{ title }}</title>
-<meta name="description" content="{{ description }}" />
+<meta name="description" content="{{ description | striptags }}" />
 <meta name="author" content="Sami Shakkour" />
 <link rel="canonical" href="{{ canonicalUrl }}" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{{ title }}" />
-<meta property="og:description" content="{{ description }}" />
+<meta property="og:description" content="{{ description | striptags }}" />
 <meta property="og:url" content="{{ canonicalUrl }}" />
 <meta property="og:image" content="{{ ogImageUrl }}" />
 <meta name="theme-color" content="#000000" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ title }}" />
-<meta name="twitter:description" content="{{ description }}" />
+<meta name="twitter:description" content="{{ description | striptags }}" />
 <meta name="twitter:image" content="{{ ogImageUrl }}" />
