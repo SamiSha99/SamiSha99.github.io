@@ -4,30 +4,19 @@
     {%- for item in media %}
     {%- set caption = item.caption or "" %}
     {%- set altText = (caption | striptags) or fallbackAlt %}
-    {%- if item.type == "pic" %}
-    <a
-        class="glightbox"
-        href="/assets/images/{{ item.src }}"
+    {%- if r/\.mp4$/i.test(item.src) %}
+    <video
+        src="/assets/videos/{{ item.src }}"
+        aria-label="{{ altText }}"
+        data-gallery="{{ gallery }}"
+        data-description="{{ caption }}"></video>
+    {%- else %}
+    <img
+        src="/assets/images/{{ item.src }}"
+        alt="{{ altText }}"
         title="{{ altText }}"
         data-gallery="{{ gallery }}"
-        data-description="{{ caption }}">
-        <img src="/assets/images/{{ item.src }}" alt="{{ altText }}" />
-    </a>
-    {%- else %}
-    {%- set player %}<video controls playsinline{% if item.muted %} muted{% endif %} src="/assets/videos/{{ item.src }}"></video>{% endset %}
-    <div
-        class="glightbox expand-video"
-        data-gallery="{{ gallery }}"
-        data-description="{{ caption }}"
-        data-content="{{ player | forceescape }}">
-        <video
-            aria-label="{{ altText }}"
-            preload="none"
-            poster="/assets/videos/{{ item.src | replace(".mp4", "_poster.jpg") }}"></video>
-        <div class="label-content">
-            {% include "icons/video.svg" %}
-        </div>
-    </div>
+        data-description="{{ caption }}" />
     {%- endif %}
     {%- endfor %}
 </div>

@@ -3,11 +3,53 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import markdownItAttrs from "markdown-it-attrs";
+import { readFileSync } from "node:fs";
 import metadata from "./src/_data/metadata.js";
 
 export const config = {
     dir: { input: "src", output: "dist" },
 };
+
+const videoIcon = readFileSync("src/_includes/icons/video.svg", "utf8");
+let standaloneCount = 0;
+
+// Wrapper link to the original file. This is done so homies don't open preview links and instead open the high res.
+// Also points images at `public/`, the image transform resolves absolute `src` paths against `src/`.
+function wrapMedia(nodes, skip = false) {
+    if (!Array.isArray(nodes)) return;
+    nodes.forEach((node, i) => {
+        if (!node || typeof node !== "object") return;
+        const attrs = node.attrs ?? {};
+        const src = attrs.src;
+        if (node.tag === "img" && src?.startsWith("/assets/") && !("eleventy:ignore" in attrs)) {
+            attrs.src = "/../public" + src;
+            if (!skip && attrs.alt) nodes[i] = lightboxLink("a", attrs, { href: src }, [node]);
+        } else if (node.tag === "video" && src?.startsWith("/assets/videos/") && !skip) {
+            const player = `<video controls playsinline${"muted" in attrs ? " muted" : ""} src='${src}'></video>`;
+            const poster = src.replace(/\.mp4$/, "_poster.jpg");
+            nodes[i] = lightboxLink("div", attrs, { "data-content": player }, [
+                {
+                    tag: "video",
+                    attrs: { "aria-label": attrs["aria-label"] ?? "", preload: "none", poster },
+                },
+                { tag: "div", attrs: { class: "label-content" }, content: [videoIcon] },
+            ]);
+        } else {
+            wrapMedia(node.content, skip || /^(a|h[1-6])$/.test(node.tag));
+        }
+    });
+}
+
+// Moves the lightbox attributes from the media onto its wrapper, standalone media gets its own gallery.
+function lightboxLink(tag, mediaAttrs, attrs, content) {
+    const wrapper = { class: "glightbox media-link", ...attrs };
+    for (const key of ["title", "style", "data-gallery", "data-description"]) {
+        if (key in mediaAttrs) wrapper[key] = mediaAttrs[key];
+        delete mediaAttrs[key];
+    }
+    wrapper["data-gallery"] ??= `media-${++standaloneCount}`;
+    return { tag, attrs: wrapper, content };
+}
 
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ public: "/" });
@@ -30,19 +72,12 @@ export default function (eleventyConfig) {
 
     eleventyConfig.addPlugin(IdAttributePlugin);
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
-    // The image transform resolves absolute `src` paths against the input dir (`src/`),
-    // so point `/assets/...` at `public/assets/...` before it runs (higher priority runs first).
-    eleventyConfig.htmlTransformer.addPosthtmlPlugin(
-        "html",
-        () => (tree) =>
-            tree.match({ tag: "img" }, (node) => {
-                if (node.attrs?.src?.startsWith("/assets/")) node.attrs.src = "/../public" + node.attrs.src;
-                return node;
-            }),
-        { priority: 0 },
-    );
+    // Do it first before before the image transforming.
+    eleventyConfig.htmlTransformer.addPosthtmlPlugin("html", () => (tree) => wrapMedia(tree), {
+        priority: 0,
+    });
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-        // A single format keeps plain <img> tags (no <picture> wrapper) for the gallery layout.
+        // A single format keeps plain <img> tags for the gallery layout.
         formats: ["webp"],
         widths: [1280],
         sharpOptions: { animated: true },

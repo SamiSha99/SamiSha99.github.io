@@ -240,28 +240,42 @@ hr {
     padding: 10px;
 }
 
-.expand-video {
+/* Images and videos wrapped by `wrapMedia` in eleventy.config.js, full size unless inside a gallery. */
+.media-link {
     position: relative;
-    margin: 5px;
-    transition: transform calc(var(--showcase-animation-duration) / 2) ease;
-}
-
-.expand-assets a {
-    position: relative;
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    vertical-align: top;
     cursor: zoom-in;
-    transition: transform calc(var(--showcase-animation-duration) / 2) ease;
 }
 
-/* Covers the preview image when right clicking, now only shows link which will open the high res instead of the optimized image. */
-.expand-assets a::after {
+div.media-link {
+    display: block;
+    width: auto;
+}
+
+/* Covers the media when right clicking, now only shows link which will open the high res instead of the optimized image. */
+.media-link::after {
     content: "";
     position: absolute;
     inset: 0;
 }
 
-.expand-assets img {
+.media-link img,
+.media-link video {
     display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.media-link video {
+    width: 100%;
+}
+
+.expand-assets .media-link {
     margin: 5px;
+    transition: transform calc(var(--showcase-animation-duration) / 2) ease;
 }
 
 .expand-assets img,
@@ -269,15 +283,13 @@ hr {
     width: 200px;
     height: 120px;
     min-width: 200px;
+    max-width: none;
     object-fit: cover;
     border: var(--media-border-width) solid var(--visited-link-color);
     background-color: ghostwhite;
-    cursor: zoom-in;
-    transition: transform calc(var(--showcase-animation-duration) / 2) ease;
 }
 
-.expand-assets a:hover,
-.expand-video:hover {
+.expand-assets .media-link:hover {
     transform: scale(1.15);
     z-index: 2;
 }
