@@ -283,4 +283,3 @@ In this example, you can see the formatting for icons and coloring is working as
 Overall, this taught me a lot about the basics idea of formatting strings to be customized. This is a very basic explanation of it because the project itself has expanded tremendously, it has <a href="https://github.com/SamiSha99/OnlineCommunication/wiki/Dynamic-Strings" target="_blank" rel="noopener noreferrer">dynamic strings</a>, a pre-parse approach that replaces string content dynamically with player variable settings or cross referencing similar text (such as a localization variable) and replacing key defintition that were passed in the lobby correctly in the text before parsing it with the right content.
 
 I hope you found this post at least helpful and informative on this particular subject!
-

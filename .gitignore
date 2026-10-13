@@ -6,4 +6,4 @@ vendor
 node_modules
 dist
 
-src/assets/videos/*_poster.jpg
+public/assets/videos/*_poster.jpg

@@ -13,9 +13,9 @@ Then open http://localhost:8080
 
 ## Adding content
 
--   **New project:** add an entry to `src/_data/portfolio.json`.
--   **New blog post:** add a Markdown file under `src/blog/<year>/` with `title`, `description` and `date` front matter (the build fails if one is missing).
--   **Images:** put originals in `src/assets/images/`, they are converted to WebP at build time.
+- **New project:** add an entry to `src/_data/portfolio.json`.
+- **New blog post:** add a Markdown file under `src/blog/<year>/` with `title`, `description` and `date` front matter (the build fails if one is missing).
+- **Assets:** put images/videos and so on in `public/assets/`, images are converted to WebP at build time.
 
 ## Deploying
 

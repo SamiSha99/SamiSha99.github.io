@@ -11,18 +11,36 @@ export const config = {
 
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ public: "/" });
-    eleventyConfig.addPassthroughCopy("src/assets");
     eleventyConfig.addPassthroughCopy("src/scripts");
     eleventyConfig.addPassthroughCopy("src/styles");
-    eleventyConfig.addPassthroughCopy({ "node_modules/prismjs/themes/prism-tomorrow.css": "styles/prism.css" });
-    eleventyConfig.addPassthroughCopy({ "node_modules/glightbox/dist/css/glightbox.min.css": "styles/glightbox.css" });
-    eleventyConfig.addPassthroughCopy({ "node_modules/glightbox/dist/js/glightbox.min.js": "scripts/glightbox.min.js" });
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/prismjs/themes/prism-tomorrow.css": "styles/prism.css",
+    });
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/glightbox/dist/css/glightbox.min.css": "styles/glightbox.css",
+    });
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/glightbox/dist/js/glightbox.min.js": "scripts/glightbox.min.js",
+    });
 
     // Allows `## Heading {#custom-id}` in posts.
-    eleventyConfig.amendLibrary("md", (md) => md.use(markdownItAttrs, { allowedAttributes: ["id"] }));
+    eleventyConfig.amendLibrary("md", (md) =>
+        md.use(markdownItAttrs, { allowedAttributes: ["id"] }),
+    );
 
     eleventyConfig.addPlugin(IdAttributePlugin);
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
+    // The image transform resolves absolute `src` paths against the input dir (`src/`),
+    // so point `/assets/...` at `public/assets/...` before it runs (higher priority runs first).
+    eleventyConfig.htmlTransformer.addPosthtmlPlugin(
+        "html",
+        () => (tree) =>
+            tree.match({ tag: "img" }, (node) => {
+                if (node.attrs?.src?.startsWith("/assets/")) node.attrs.src = "/../public" + node.attrs.src;
+                return node;
+            }),
+        { priority: 0 },
+    );
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
         // A single format keeps plain <img> tags (no <picture> wrapper) for the gallery layout.
         formats: ["webp"],
@@ -44,7 +62,7 @@ export default function (eleventyConfig) {
     });
 
     eleventyConfig.addFilter("formatDate", (date) =>
-        date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
+        date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }),
     );
     eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
 }

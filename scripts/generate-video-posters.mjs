@@ -5,7 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const videosDir = path.join(root, "src/assets/videos");
+const videosDir = path.join(root, "public/assets/videos");
 const POSTER_SUFFIX = "_poster.jpg";
 const SEEK_TIME = "00:00:01";
 
@@ -65,4 +65,3 @@ for (const file of videoFiles) {
 if (generated === 0) {
     console.log("[generate-video-posters] All posters already up to date.");
 }
-
