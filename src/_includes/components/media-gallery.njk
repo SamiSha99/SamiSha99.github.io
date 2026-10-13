@@ -1,28 +1,28 @@
 {% macro mediaGallery(media, scrollable, fallbackAlt) %}
+{%- set gallery = fallbackAlt | slugify %}
 <div class="expand-assets{% if scrollable %} expand-assets-scrollable{% endif %}">
     {%- for item in media %}
     {%- set caption = item.caption or "" %}
     {%- set altText = (caption | striptags) or fallbackAlt %}
     {%- if item.type == "pic" %}
     <img
+        class="glightbox"
         src="/assets/images/{{ item.src }}"
         alt="{{ altText }}"
         title="{{ altText }}"
-        data-desc="{{ caption }}"
-        onclick="showcaseImage(this)" />
+        data-gallery="{{ gallery }}"
+        data-description="{{ caption }}" />
     {%- else %}
-    <div class="expand-video" onclick="showcaseImage(this, true)">
+    {%- set player %}<video controls playsinline{% if item.muted %} muted{% endif %} src="/assets/videos/{{ item.src }}"></video>{% endset %}
+    <div
+        class="glightbox expand-video"
+        data-gallery="{{ gallery }}"
+        data-description="{{ caption }}"
+        data-content="{{ player | forceescape }}">
         <video
-            aria-label="{{ altText }}"{% if item.muted %}
-            muted{% endif %}
+            aria-label="{{ altText }}"
             preload="none"
-            poster="/assets/videos/{{ item.src | replace(".mp4", "_poster.jpg") }}">
-            <source
-                src="/assets/videos/{{ item.src }}"
-                type="video/mp4"
-                data-desc="{{ caption }}"
-                title="{{ altText }}" />
-        </video>
+            poster="/assets/videos/{{ item.src | replace(".mp4", "_poster.jpg") }}"></video>
         <div class="label-content">
             {% include "icons/video.svg" %}
         </div>
