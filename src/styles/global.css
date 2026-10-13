@@ -127,8 +127,83 @@ body {
     line-height: 1.6;
 }
 
-.project {
-    padding-bottom: 0.5rem;
+.portfolio-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto auto 1fr;
+    column-gap: 16px;
+    padding: 16px 0;
+}
+
+/* Invisible link that covers the entire row, click on it will open the page */
+.portfolio-card-link {
+    position: absolute;
+    inset: 0;
+}
+
+.portfolio-card + .portfolio-card {
+    border-top: var(--border-width) dashed var(--border-color);
+}
+
+.portfolio-card > * {
+    transition: transform calc(var(--showcase-animation-duration) / 2) ease;
+}
+
+.portfolio-card:hover > :not(.portfolio-card-link) {
+    transform: translateX(4px);
+}
+
+.portfolio-card-image {
+    grid-row: 1 / 4;
+    align-self: start;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.portfolio-card-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 8px;
+    background-color: var(--hovered-link-button-color);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.portfolio-card-title {
+    margin: 0 0 4px;
+    font-size: 20px;
+}
+
+.portfolio-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.portfolio-card-more {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: end;
+    padding-top: 8px;
+    font-size: 14px;
+    color: var(--visited-link-color);
+}
+
+.portfolio-card:hover .portfolio-card-title,
+.portfolio-card:hover .portfolio-card-more {
+    color: var(--hovered-link-color);
 }
 
 .project-links {
@@ -428,9 +503,7 @@ a.tabs-button.active {
 }
 
 .tab-content {
-    padding: 0 0 0 8px;
     display: none;
-    border-left: var(--border-width) solid var(--border-color);
     border-top: var(--border-width) solid var(--border-color);
 }
 
@@ -588,6 +661,24 @@ a.tabs-button.active {
 
     .site-footer .svg-inline--fa.fa-2x {
         height: 1.5em;
+    }
+
+    /* Image always on top */
+    .portfolio-card {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-card-image,
+    .portfolio-card-more {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    /* The image is too big that making not open the page would be good for weird cases on phone */
+    .portfolio-card-image {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 8px;
     }
 }
 

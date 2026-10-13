@@ -55,8 +55,9 @@ function openTab(evt, tabId) {
 }
 
 function initializeTabs() {
-    if (document.querySelector(".tabs-button")) {
-        openTab(null, "work");
+    const firstTab = document.querySelector(".tab-content");
+    if (firstTab && document.querySelector(".tabs-button")) {
+        openTab(null, firstTab.id);
     }
 }
 
