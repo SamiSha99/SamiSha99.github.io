@@ -5,15 +5,14 @@
     {%- set caption = item.caption or "" %}
     {%- set altText = (caption | striptags) or fallbackAlt %}
     {%- if item.type == "pic" %}
-    <img
+    <a
         class="glightbox"
-        src="/assets/images/{{ item.src }}"
-        data-href="/assets/images/{{ item.src }}"
-        data-type="image"
-        alt="{{ altText }}"
+        href="/assets/images/{{ item.src }}"
         title="{{ altText }}"
         data-gallery="{{ gallery }}"
-        data-description="{{ caption }}" />
+        data-description="{{ caption }}">
+        <img src="/assets/images/{{ item.src }}" alt="{{ altText }}" />
+    </a>
     {%- else %}
     {%- set player %}<video controls playsinline{% if item.muted %} muted{% endif %} src="/assets/videos/{{ item.src }}"></video>{% endset %}
     <div
