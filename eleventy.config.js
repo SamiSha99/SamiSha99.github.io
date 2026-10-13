@@ -110,6 +110,10 @@ export default function (eleventyConfig) {
         },
     });
 
+    eleventyConfig.addCollection("portfolio", (collectionApi) =>
+        collectionApi.getFilteredByGlob("./src/porfolio/**/*.md").sort((a, b) => a.data.order - b.data.order),
+    );
+
     eleventyConfig.addFilter("formatDate", (date) =>
         date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }),
     );
