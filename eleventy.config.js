@@ -67,7 +67,23 @@ export default function (eleventyConfig) {
 
     eleventyConfig.amendLibrary("md", (md) => {
         // Allows `## Heading {#custom-id}` and `[link](url){.css-class}` in posts.
-        md.use(markdownItAttrs, { allowedAttributes: ["id", "class", "target", "rel"] });
+        md.use(markdownItAttrs, { allowedAttributes: ["id", "class", "target", "rel", "style"] });
+
+        // `![caption](/assets/videos/example.mp4)` renders a <video> instead of an <img>.
+        const renderImage = md.renderer.rules.image;
+        md.renderer.rules.image = (tokens, idx, options, env, self) => {
+            const token = tokens[idx];
+            const src = token.attrGet("src") ?? "";
+            if (/\.(mp4|webm|mov)$/i.test(src)) {
+                const alt = self.renderInlineAsText(token.children, options, env);
+                const attrs = token.attrs
+                    .filter(([name]) => name !== "alt")
+                    .map(([name, value]) => `${name}="${md.utils.escapeHtml(value)}"`)
+                    .join(" ");
+                return `<video ${attrs} aria-label="${md.utils.escapeHtml(alt)}" data-description="${md.utils.escapeHtml(alt)}"></video>`;
+            }
+            return renderImage(tokens, idx, options, env, self);
+        };
 
         // An External link will open in a new tab, otherwise with `{target=...}` set.
         const renderLink =
@@ -111,7 +127,9 @@ export default function (eleventyConfig) {
     });
 
     eleventyConfig.addCollection("portfolio", (collectionApi) =>
-        collectionApi.getFilteredByGlob("./src/porfolio/**/*.md").sort((a, b) => a.data.order - b.data.order),
+        collectionApi
+            .getFilteredByGlob("./src/porfolio/**/*.md")
+            .sort((a, b) => a.data.order - b.data.order),
     );
 
     eleventyConfig.addFilter("formatDate", (date) =>
