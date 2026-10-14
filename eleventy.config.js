@@ -5,6 +5,7 @@ import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import markdownItAttrs from "markdown-it-attrs";
 import { readFileSync } from "node:fs";
 import metadata from "./src/_data/metadata.js";
+import markdownItIns from "markdown-it-ins/dist/markdown-it-ins.js";
 
 export const config = {
     dir: { input: "src", output: "dist" },
@@ -98,6 +99,10 @@ export default function (eleventyConfig) {
             }
             return renderLink(tokens, idx, options, env, self);
         };
+    });
+
+    eleventyConfig.amendLibrary("md", (mdLib) => {
+        mdLib.use(markdownItIns);
     });
 
     eleventyConfig.addPlugin(IdAttributePlugin);
