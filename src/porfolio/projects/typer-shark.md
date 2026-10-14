@@ -1,7 +1,7 @@
 ---
 title: Typer Shark!
-description: 'Mod submission to the "Ocean Exploration" Modding Jam.'
-preview: typershark/sharks.jpg
+description: 'Mod submission to the A Hat in Time "Ocean Exploration" Modding Jam.'
+preview: typershark/portrait.png
 order: 5
 buttons:
     - label: Steam Workshop
@@ -24,3 +24,6 @@ Based on the game with the same name, made in Unreal Engine 3 in A Hat in Time f
 
 Contains 5 difficulties to support different levels of going from players who don't know how to type fast to college essay writers.
 
+## Challenge Road
+
+This mod was placed on the challenge road. to-do
