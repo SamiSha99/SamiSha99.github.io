@@ -7,10 +7,6 @@ buttons:
     - label: Steam Workshop
       href: https://steamcommunity.com/sharedfiles/filedetails/?id=2863763530
 media:
-    - src: typershark/portrait.png
-      caption: Portrait by Habijob.
-    - src: typershark/sharks.jpg
-      caption: Player must type the words on the shark to zap them and avoid them reaching them.
     - src: typershark/pirahna.jpg
       caption: Pirahnas only have 1 letter but are quite fast.
     - src: typershark/glowey.jpg
@@ -22,9 +18,11 @@ scrollable: true
 
 Based on the game with the same name, made in Unreal Engine 3 in A Hat in Time for the Ocean Exploration modding jam, player must type the words or letters on Sharks and Piranhas respectively to avoid losing lives and at the same time reach the bottom of the ocean.
 
-![Portrait by Habijob.](/assets/images/typershark/portrait.png){style="max-width:400px"}
+![Portrait by Habijob.](/assets/images/typershark/portrait.png){style="max-width:320px"}
 
 The player is constantly faced with a barrage of fishes, which they have to be accurate and quick before they reach them. The player is then rated for their accuracy in per round and is rewarded with some pons.
+
+![Player must type the words on the shark to zap them and avoid them reaching them.](/assets/images/typershark/sharks.jpg){style="max-width:512px"}
 
 Once they reach the bottom, they go into a bonus round, where they can type as many words shown on screen to collect as much money in 30 seconds.
 
