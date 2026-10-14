@@ -1,6 +1,6 @@
 ---
 title: Typer Shark!
-description: 'Mod submission to the A Hat in Time "Ocean Exploration" Modding Jam.'
+description: 'Mod submission to the A Hat in Time "Ocean Exploration" Modding Jam that recreates the video game "Typer Shark!".'
 preview: typershark/portrait.png
 order: 5
 buttons:
