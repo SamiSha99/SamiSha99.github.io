@@ -24,7 +24,10 @@ function wrapMedia(nodes, skip = false) {
         const src = attrs.src;
         if (node.tag === "img" && src?.startsWith("/assets/") && !("eleventy:ignore" in attrs)) {
             attrs.src = "/../public" + src;
-            if (!skip && attrs.alt) nodes[i] = lightboxLink("a", attrs, { href: src }, [node]);
+            if (!skip && attrs.alt) {
+                attrs["data-description"] ??= attrs.alt;
+                nodes[i] = lightboxLink("a", attrs, { href: src }, [node]);
+            }
         } else if (node.tag === "video" && src?.startsWith("/assets/videos/") && !skip) {
             const player = `<video controls playsinline${"muted" in attrs ? " muted" : ""} src='${src}'></video>`;
             const poster = src.replace(/\.mp4$/, "_poster.jpg");
