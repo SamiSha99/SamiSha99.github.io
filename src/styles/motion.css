@@ -1,0 +1,82 @@
+:root {
+    --showcase-animation-duration: 0.4s;
+}
+
+/* `--default-hue` and `--dash-progress` are updated every frame by main.js */
+html,
+body {
+    --default-hue: 216;
+    --visited-link-color: hsl(var(--default-hue) 80% 65.5%);
+    --hovered-link-color: hsl(var(--default-hue) 80% 73.7%);
+    --hovered-link-button-color: hsl(var(--default-hue) 50% 12.5%);
+    --dash-size: 12px;
+    --dash-progress: 0;
+}
+
+/* Dashed underline drawn as a gradient so `--dash-offset` can move it, only on plain links without a class, scales with the text size */
+a:where(:not([class], .nav a)),
+.post-link {
+    --dash-size: 0.375em;
+    --dash-offset: calc(var(--dash-progress) * var(--dash-size));
+    background: linear-gradient(90deg, currentColor 50%, transparent 50%) var(--dash-offset) 100% /
+        var(--dash-size) 1px repeat-x;
+}
+
+.dashed-top,
+.portfolio-card + .portfolio-card {
+    --dash-offset: calc(var(--dash-progress) * var(--dash-size));
+    border-top: var(--border-width) solid transparent;
+    background-image: linear-gradient(
+        90deg,
+        var(--dash-color, var(--border-color)) 50%,
+        transparent 50%
+    );
+    background-size: var(--dash-size) var(--border-width);
+    background-repeat: repeat-x;
+    background-position: var(--dash-offset) 0;
+    background-origin: border-box;
+}
+
+.dashed-border {
+    --dash-offset: calc(var(--dash-progress) * var(--dash-size));
+    border: var(--border-width) solid transparent;
+    background-image:
+        linear-gradient(90deg, var(--dash-color, var(--border-color)) 50%, transparent 50%),
+        linear-gradient(90deg, var(--dash-color, var(--border-color)) 50%, transparent 50%),
+        linear-gradient(0deg, var(--dash-color, var(--border-color)) 50%, transparent 50%),
+        linear-gradient(0deg, var(--dash-color, var(--border-color)) 50%, transparent 50%);
+    background-size:
+        var(--dash-size) var(--border-width),
+        var(--dash-size) var(--border-width),
+        var(--border-width) var(--dash-size),
+        var(--border-width) var(--dash-size);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-position:
+        var(--dash-offset) 0,
+        calc(var(--dash-offset) * -1) 100%,
+        0 calc(var(--dash-offset) * -1),
+        100% var(--dash-offset);
+    background-origin: border-box;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Hue and dashes are handled in main.js */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+

@@ -1,11 +1,11 @@
 /* Delete later */
 .under-construction {
     --construction-color: hsl(48 100% 55%);
+    --dash-color: var(--construction-color);
     display: flex;
     flex-direction: column;
     margin: 0.5rem 0 1rem;
     padding: 0 1rem 0.75rem;
-    border: var(--border-width) dashed var(--construction-color);
     background-color: rgba(255, 204, 0, 0.06);
     &::before {
         content: "";

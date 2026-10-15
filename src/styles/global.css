@@ -1,3 +1,4 @@
+@import "./motion.css";
 @import "./under-construction.css";
 
 .svg-inline--fa {
@@ -18,8 +19,6 @@
     --border-color: ghostwhite;
     --border-width: 2px;
     --media-border-width: 5px;
-
-    --showcase-animation-duration: 0.4s;
 }
 
 h2 {
@@ -27,7 +26,7 @@ h2 {
 }
 
 a {
-    text-decoration: underline dashed;
+    text-decoration: none;
     color: var(--visited-link-color);
 }
 
@@ -39,10 +38,6 @@ html,
 body {
     margin: 0;
     padding: 0;
-    --default-hue: 216;
-    --visited-link-color: hsl(var(--default-hue) 80% 65.5%);
-    --hovered-link-color: hsl(var(--default-hue) 80% 73.7%);
-    --hovered-link-button-color: hsl(var(--default-hue) 50% 12.5%);
 }
 
 canvas {
@@ -149,10 +144,6 @@ body {
     inset: 0;
 }
 
-.portfolio-card + .portfolio-card {
-    border-top: var(--border-width) dashed var(--border-color);
-}
-
 .portfolio-card > * {
     transition: transform calc(var(--showcase-animation-duration) / 2) ease;
 }
@@ -224,7 +215,6 @@ body {
     flex-wrap: wrap;
     margin-bottom: 10px;
     font-size: 14px;
-    border-top: var(--border-width) dashed var(--primary-text-color);
     padding-top: 0.5rem;
 }
 
@@ -501,40 +491,6 @@ a.tabs-button.active {
 .tab-content {
     display: none;
     border-top: var(--border-width) solid var(--border-color);
-}
-
-@keyframes fadeIn-to-top {
-    from {
-        opacity: 0;
-        transform: translateY(1.25em);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0em);
-    }
-}
-
-@keyframes slide-In {
-    from {
-        transform: translateY(3em);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(0em);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
 }
 
 /* Blog */

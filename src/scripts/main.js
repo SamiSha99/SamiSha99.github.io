@@ -29,6 +29,10 @@ if (!prefersReducedMotion) {
     function hue() {
         const animationTime = time.currentTime + window.hue.offsetTime;
         document.body.style.setProperty("--default-hue", String(Math.round(animationTime % 360)));
+        document.body.style.setProperty(
+            "--dash-progress",
+            String(((1.25 * animationTime) / 8) % 1),
+        );
     }
     hue();
 
@@ -41,3 +45,4 @@ if (!prefersReducedMotion) {
         renderer.run();
     }
 }
+
