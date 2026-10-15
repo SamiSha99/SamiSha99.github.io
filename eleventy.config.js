@@ -55,8 +55,6 @@ function lightboxLink(tag, mediaAttrs, attrs, content) {
     return { tag, attrs: wrapper, content };
 }
 
-// Folders with more files than this get summarized, otherwise the hero portraits take over the page.
-const MAX_TREE_FILES = 10;
 // Images, videos and audio, the files in `public/` people can actually view.
 const MEDIA_PATTERN =
     /\.(png|jpe?g|gif|webp|svg|avif|mp4|webm|mov|ogv|mp3|wav|ogg|oga|m4a|aac|flac|opus)$/i;
@@ -85,32 +83,36 @@ function siteMap(pages) {
         node.url = url;
     }
 
+    if (root.children.assets) root.children.assets.collapsed = true;
+
     // Make all files and media clickable (folder pages too via index.html).
     const label = (name, url) =>
         url ? `<a href="${escapeHtml(url)}">${escapeHtml(name)}</a>` : escapeHtml(name);
 
-    const draw = (node, prefix) => {
+    const draw = (node, prefix, collapsed = false) => {
         const entries = Object.entries(node.children).sort(
             ([a, x], [b, y]) => !!x.file - !!y.file || a.localeCompare(b),
         );
-        const folders = entries.filter(([, child]) => !child.file);
-        const files = entries.filter(([, child]) => child.file);
-        const lines = folders.map(([name, child]) => ({
-            text: label(`${name}/`, child.url),
+        const lines = entries.map(([name, child]) => ({
+            text: label(child.file ? name : `${name}/`, child.url),
             child,
         }));
-        if (files.length > MAX_TREE_FILES) lines.push({ text: `… ${files.length} files` });
-        else lines.push(...files.map(([name, child]) => ({ text: label(name, child.url) })));
 
-        return lines.flatMap(({ text, child }, i) => {
-            const last = i === lines.length - 1;
-            const line = `${prefix}${last ? "└── " : "├── "}${text}`;
-            return child ? [line, ...draw(child, prefix + (last ? "    " : "│   "))] : [line];
-        });
+        return lines
+            .map(({ text, child }, i) => {
+                const last = i === lines.length - 1;
+                const line = `${prefix}${last ? "└── " : "├── "}${text}`;
+                if (!child || !Object.keys(child.children).length) return `${line}\n`;
+                // Folders collapse when clicking their line
+                const closed = collapsed || !!child.collapsed;
+                const children = draw(child, prefix + (last ? "    " : "│   "), closed);
+                return `<details${closed ? "" : " open"}><summary>${line}</summary>${children}</details>`;
+            })
+            .join("");
     };
 
     // Site's name then draw the tree below it
-    const tree = [label(`${new URL(metadata.url).host}/`, root.url), ...draw(root, "")].join("\n");
+    const tree = `${label(`${new URL(metadata.url).host}/`, root.url)}\n${draw(root, "")}`;
     return `<pre class="language-text site-tree"><code class="language-text">${tree}</code></pre>`;
 }
 

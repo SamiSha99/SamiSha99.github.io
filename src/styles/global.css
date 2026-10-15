@@ -590,6 +590,24 @@ pre.site-tree code.language-text {
     line-height: normal;
 }
 
+/* Folders are collapsible, */
+.site-tree summary {
+    display: block;
+    cursor: pointer;
+}
+
+.site-tree summary::-webkit-details-marker {
+    display: none;
+}
+
+.site-tree summary::after {
+    content: " -";
+}
+
+.site-tree details:not([open]) > summary::after {
+    content: " +";
+}
+
 /* Links are too noisy, so underline only shows on hovered */
 pre a:not(:hover) {
     background: none;
