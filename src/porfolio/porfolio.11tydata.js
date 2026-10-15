@@ -11,8 +11,8 @@ const portfolioSchema = z.object({
     title: z.string(),
     // Short summary shown on home page and meta description.
     description: z.string(),
-    // Preview image. If empty it will show `title` instead.
-    preview: z.string().optional(),
+    // Preview image. If empty it will show `title` instead, `false` disables the link preview.
+    preview: z.union([z.string(), z.literal(false)]).optional(),
     // Position within its tab on the home page.
     order: z.number(),
     buttons: z
@@ -31,6 +31,7 @@ export default {
         // Meta Link preview image (og:image) when sharing the page, resized for `preview`.
         // Pages without a preview get a generated title card instead.
         image: (data) => {
+            if (data.preview === false) return undefined;
             const source = !data.preview
                 ? titleCard(data.title)
                 : /\.mp4$/i.test(data.preview)
