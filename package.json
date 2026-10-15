@@ -19,6 +19,7 @@
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "glightbox": "^3.3.1",
     "markdown-it-attrs": "^5.0.1",
+    "markdown-it-ins": "^4.0.0",
     "zod": "^4.6.7"
   }
 }

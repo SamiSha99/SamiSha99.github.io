@@ -321,16 +321,12 @@ hr {
 /* Images and videos wrapped by `wrapMedia` in eleventy.config.js, full size unless inside a gallery. */
 .media-link {
     position: relative;
-    display: inline-block;
-    width: fit-content;
-    max-width: 100%;
-    vertical-align: top;
-    cursor: zoom-in;
-}
-
-div.media-link {
     display: block;
     width: auto;
+    max-width: 256px;
+    margin-inline: auto;
+    vertical-align: top;
+    cursor: zoom-in;
 }
 
 /* Covers the media when right clicking, now only shows link which will open the high res instead of the optimized image. */
@@ -343,12 +339,10 @@ div.media-link {
 .media-link img,
 .media-link video {
     display: block;
+    width: 100%;
     max-width: 100%;
     height: auto;
-}
-
-.media-link video {
-    width: 100%;
+    border: var(--media-border-width) solid var(--visited-link-color);
 }
 
 .expand-assets .media-link {
@@ -683,4 +677,3 @@ a.tabs-button.active {
         margin-bottom: 8px;
     }
 }
-

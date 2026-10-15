@@ -5,6 +5,7 @@ import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import markdownItAttrs from "markdown-it-attrs";
 import { readFileSync } from "node:fs";
 import metadata from "./src/_data/metadata.js";
+import markdownItIns from "markdown-it-ins/dist/markdown-it-ins.js";
 
 export const config = {
     dir: { input: "src", output: "dist" },
@@ -23,7 +24,10 @@ function wrapMedia(nodes, skip = false) {
         const src = attrs.src;
         if (node.tag === "img" && src?.startsWith("/assets/") && !("eleventy:ignore" in attrs)) {
             attrs.src = "/../public" + src;
-            if (!skip && attrs.alt) nodes[i] = lightboxLink("a", attrs, { href: src }, [node]);
+            if (!skip && attrs.alt) {
+                attrs["data-description"] ??= attrs.alt;
+                nodes[i] = lightboxLink("a", attrs, { href: src }, [node]);
+            }
         } else if (node.tag === "video" && src?.startsWith("/assets/videos/") && !skip) {
             const player = `<video controls playsinline${"muted" in attrs ? " muted" : ""} src='${src}'></video>`;
             const poster = src.replace(/\.mp4$/, "_poster.jpg");
@@ -67,7 +71,23 @@ export default function (eleventyConfig) {
 
     eleventyConfig.amendLibrary("md", (md) => {
         // Allows `## Heading {#custom-id}` and `[link](url){.css-class}` in posts.
-        md.use(markdownItAttrs, { allowedAttributes: ["id", "class", "target", "rel"] });
+        md.use(markdownItAttrs, { allowedAttributes: ["id", "class", "target", "rel", "style"] });
+
+        // `![caption](/assets/videos/example.mp4)` renders a <video> instead of an <img>.
+        const renderImage = md.renderer.rules.image;
+        md.renderer.rules.image = (tokens, idx, options, env, self) => {
+            const token = tokens[idx];
+            const src = token.attrGet("src") ?? "";
+            if (/\.(mp4|webm|mov)$/i.test(src)) {
+                const alt = self.renderInlineAsText(token.children, options, env);
+                const attrs = token.attrs
+                    .filter(([name]) => name !== "alt")
+                    .map(([name, value]) => `${name}="${md.utils.escapeHtml(value)}"`)
+                    .join(" ");
+                return `<video ${attrs} aria-label="${md.utils.escapeHtml(alt)}" data-description="${md.utils.escapeHtml(alt)}"></video>`;
+            }
+            return renderImage(tokens, idx, options, env, self);
+        };
 
         // An External link will open in a new tab, otherwise with `{target=...}` set.
         const renderLink =
@@ -82,6 +102,10 @@ export default function (eleventyConfig) {
             }
             return renderLink(tokens, idx, options, env, self);
         };
+    });
+
+    eleventyConfig.amendLibrary("md", (mdLib) => {
+        mdLib.use(markdownItIns);
     });
 
     eleventyConfig.addPlugin(IdAttributePlugin);
@@ -111,7 +135,9 @@ export default function (eleventyConfig) {
     });
 
     eleventyConfig.addCollection("portfolio", (collectionApi) =>
-        collectionApi.getFilteredByGlob("./src/porfolio/**/*.md").sort((a, b) => a.data.order - b.data.order),
+        collectionApi
+            .getFilteredByGlob("./src/porfolio/**/*.md")
+            .sort((a, b) => a.data.order - b.data.order),
     );
 
     eleventyConfig.addFilter("formatDate", (date) =>
