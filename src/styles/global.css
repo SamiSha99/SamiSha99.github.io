@@ -593,6 +593,11 @@ a.tabs-button.active {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
+pre.site-tree.language-text,
+pre.site-tree code.language-text {
+    line-height: normal;
+}
+
 @media (max-width: 480px) {
     #mainpage {
         width: calc(100vw - 1rem);

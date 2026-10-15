@@ -3,7 +3,7 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import markdownItAttrs from "markdown-it-attrs";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import metadata from "./src/_data/metadata.js";
 import markdownItIns from "markdown-it-ins/dist/markdown-it-ins.js";
 
@@ -53,6 +53,65 @@ function lightboxLink(tag, mediaAttrs, attrs, content) {
     }
     wrapper["data-gallery"] ??= `media-${++standaloneCount}`;
     return { tag, attrs: wrapper, content };
+}
+
+// Folders with more files than this get summarized, otherwise the hero portraits take over the page.
+const MAX_TREE_FILES = 10;
+// Images, videos and audio, the files in `public/` people can actually view.
+const MEDIA_PATTERN =
+    /\.(png|jpe?g|gif|webp|svg|avif|mp4|webm|mov|ogv|mp3|wav|ogg|oga|m4a|aac|flac|opus)$/i;
+
+const escapeHtml = (text) =>
+    text.replace(
+        /[&<>"]/g,
+        (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[char],
+    );
+
+// Draws every viewable page and media file as a tree of their URLs, pages and media are links.
+function siteMap(pages) {
+    // Get the images, videos and audios
+    const media = readdirSync("public", { recursive: true })
+        .map((path) => "/" + path.replaceAll("\\", "/"))
+        .filter((url) => MEDIA_PATTERN.test(url) && !url.endsWith("_poster.jpg"));
+    // Get all the HTML pages
+    const pageUrls = pages.map((page) => page.url).filter((url) => url && /(\/|\.html)$/.test(url));
+
+    const root = { children: {} };
+    for (const url of [...pageUrls, ...media]) {
+        const parts = url.split("/").filter(Boolean);
+        let node = root;
+        for (const part of parts) node = node.children[part] ??= { children: {} };
+        node.file = !url.endsWith("/");
+        node.url = url;
+    }
+
+    // Make all files and media clickable (folder pages too via index.html).
+    const label = (name, url) =>
+        url ? `<a href="${escapeHtml(url)}">${escapeHtml(name)}</a>` : escapeHtml(name);
+
+    const draw = (node, prefix) => {
+        const entries = Object.entries(node.children).sort(
+            ([a, x], [b, y]) => !!x.file - !!y.file || a.localeCompare(b),
+        );
+        const folders = entries.filter(([, child]) => !child.file);
+        const files = entries.filter(([, child]) => child.file);
+        const lines = folders.map(([name, child]) => ({
+            text: label(`${name}/`, child.url),
+            child,
+        }));
+        if (files.length > MAX_TREE_FILES) lines.push({ text: `… ${files.length} files` });
+        else lines.push(...files.map(([name, child]) => ({ text: label(name, child.url) })));
+
+        return lines.flatMap(({ text, child }, i) => {
+            const last = i === lines.length - 1;
+            const line = `${prefix}${last ? "└── " : "├── "}${text}`;
+            return child ? [line, ...draw(child, prefix + (last ? "    " : "│   "))] : [line];
+        });
+    };
+
+    // Site's name then draw the tree below it
+    const tree = [label(`${new URL(metadata.url).host}/`, root.url), ...draw(root, "")].join("\n");
+    return `<pre class="language-text site-tree"><code class="language-text">${tree}</code></pre>`;
 }
 
 export default function (eleventyConfig) {
@@ -143,5 +202,6 @@ export default function (eleventyConfig) {
     eleventyConfig.addFilter("formatDate", (date) =>
         date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }),
     );
+    eleventyConfig.addFilter("siteMap", siteMap);
     eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
 }
