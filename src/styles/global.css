@@ -590,6 +590,11 @@ pre.site-tree code.language-text {
     line-height: normal;
 }
 
+/* Links are too noisy, so underline only shows on hovered */
+pre a:not(:hover) {
+    background: none;
+}
+
 @media (max-width: 480px) {
     #mainpage {
         width: calc(100vw - 1rem);
