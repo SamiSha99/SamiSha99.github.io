@@ -1,5 +1,5 @@
 {%- set canonicalUrl = metadata.url + page.url -%}
-{%- set ogImageUrl = metadata.url + (image or "/assets/images/onlinecommunication/logo.png") -%}
+{%- set ogImageUrl = metadata.url + (image or titleCardImage) -%}
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{{ title }}</title>
