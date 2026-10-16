@@ -12,7 +12,7 @@ description: All the places you can find me.
 {%- endif %}
 <ul class="linktree">
     {%- for link in group %}
-    <li{% if link.tags %} class="{{ link.tags }}" {% endif %}>
+    <li{% if link.unused %} class="unused"{% endif %}>
         {%- if link.url %}
         <a
             class="icon-link"

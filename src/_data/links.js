@@ -81,6 +81,7 @@ export default [
         tags: "inactive",
         description: "Really cool place with cool people but never got into it.",
         other: true,
+        unused: true,
     },
     {
         name: "Twitter",
@@ -89,6 +90,7 @@ export default [
         tags: "executed",
         description: "RIP Twitter, account lasted from 2015 - 2023.",
         other: true,
+        unused: true,
     },
     {
         name: "Facebook",
@@ -96,6 +98,7 @@ export default [
         tags: "no",
         description: "no, nuhuh",
         other: true,
+        unused: true,
     },
 ];
 

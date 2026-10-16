@@ -147,9 +147,7 @@ body {
     & .svg-inline--fa.fa-2x {
         height: 1.5em;
     }
-    & .inactive,
-    & .executed,
-    & .no {
+    & .unused {
         opacity: 0.67;
     }
 }
