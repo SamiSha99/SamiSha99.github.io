@@ -3,7 +3,7 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import markdownItAttrs from "markdown-it-attrs";
-import { readdirSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import metadata from "./src/_data/metadata.js";
 import markdownItIns from "markdown-it-ins/dist/markdown-it-ins.js";
 
@@ -55,27 +55,19 @@ function lightboxLink(tag, mediaAttrs, attrs, content) {
     return { tag, attrs: wrapper, content };
 }
 
-// Images, videos and audio, the files in `public/` people can actually view.
-const MEDIA_PATTERN =
-    /\.(png|jpe?g|gif|webp|svg|avif|mp4|webm|mov|ogv|mp3|wav|ogg|oga|m4a|aac|flac|opus)$/i;
-
 const escapeHtml = (text) =>
     text.replace(
         /[&<>"]/g,
         (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[char],
     );
 
-// Draws every viewable page and media file as a tree of their URLs, pages and media are links.
+// Draws every page as a tree of their URLs, pages are links.
 function siteMap(pages) {
-    // Get the images, videos and audios
-    const media = readdirSync("public", { recursive: true })
-        .map((path) => "/" + path.replaceAll("\\", "/"))
-        .filter((url) => MEDIA_PATTERN.test(url) && !url.endsWith("_poster.jpg"));
     // Get all the HTML pages
     const pageUrls = pages.map((page) => page.url).filter((url) => url && /(\/|\.html)$/.test(url));
 
     const root = { children: {} };
-    for (const url of [...pageUrls, ...media]) {
+    for (const url of pageUrls) {
         const parts = url.split("/").filter(Boolean);
         let node = root;
         for (const part of parts) node = node.children[part] ??= { children: {} };
@@ -83,13 +75,11 @@ function siteMap(pages) {
         node.url = url;
     }
 
-    if (root.children.assets) root.children.assets.collapsed = true;
-
-    // Make all files and media clickable (folder pages too via index.html).
+    // Make all files clickable (folder pages too via index.html).
     const label = (name, url) =>
         url ? `<a href="${escapeHtml(url)}">${escapeHtml(name)}</a>` : escapeHtml(name);
 
-    const draw = (node, prefix, collapsed = false) => {
+    const draw = (node, prefix) => {
         const entries = Object.entries(node.children).sort(
             ([a, x], [b, y]) => !!x.file - !!y.file || a.localeCompare(b),
         );
@@ -104,9 +94,8 @@ function siteMap(pages) {
                 const line = `${prefix}${last ? "└── " : "├── "}${text}`;
                 if (!child || !Object.keys(child.children).length) return `${line}\n`;
                 // Folders collapse when clicking their line
-                const closed = collapsed || !!child.collapsed;
-                const children = draw(child, prefix + (last ? "    " : "│   "), closed);
-                return `<details${closed ? "" : " open"}><summary>${line}</summary>${children}</details>`;
+                const children = draw(child, prefix + (last ? "    " : "│   "));
+                return `<details open><summary>${line}</summary>${children}</details>`;
             })
             .join("");
     };
@@ -207,3 +196,4 @@ export default function (eleventyConfig) {
     eleventyConfig.addFilter("siteMap", siteMap);
     eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
 }
+
