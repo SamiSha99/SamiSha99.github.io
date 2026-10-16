@@ -42,15 +42,6 @@ export default [
         other: true,
     },
     {
-        name: "Battle.net",
-        handle: "SamiSha#21964",
-        icon: "battle-net",
-        tags: "",
-        description:
-            "Will not accept unless I recognize you. P.S. I post a lot on the <a href='https://us.forums.blizzard.com/en/heroes/'>Heroes of the Storm US Forums</a>.",
-        other: true,
-    },
-    {
         name: "Reddit",
         url: "https://www.reddit.com/user/SamiSha_/",
         icon: "reddit",
@@ -71,17 +62,8 @@ export default [
         url: "https://www.twitch.tv/samisha_",
         icon: "twitch",
         tags: "",
-        description: "I rarely if ever stream.",
+        description: "I watch a lot there, I don't stream though.",
         other: true,
-    },
-    {
-        name: "Tumblr",
-        url: "https://samisha99.tumblr.com/",
-        icon: "tumblr",
-        tags: "inactive",
-        description: "Really cool place with cool people but never got into it.",
-        other: true,
-        unused: true,
     },
     {
         name: "Twitter",
@@ -92,13 +74,4 @@ export default [
         other: true,
         unused: true,
     },
-    {
-        name: "Facebook",
-        icon: "facebook",
-        tags: "no",
-        description: "no, nuhuh",
-        other: true,
-        unused: true,
-    },
 ];
-
