@@ -29,6 +29,17 @@ lightbox.on("slide_changed", () => {
     lightbox.activeSlide.querySelector("video")?.play();
 });
 
+// Elements with `data-copy` put their value on the clipboard, `data-copied` swaps the icon to "copied!" for a bit.
+document.querySelectorAll("[data-copy]").forEach((element) => {
+    element.addEventListener("click", async (event) => {
+        event.preventDefault();
+        await navigator.clipboard.writeText(element.dataset.copy);
+        if ("copied" in element.dataset) return;
+        element.dataset.copied = "";
+        setTimeout(() => delete element.dataset.copied, 1500);
+    });
+});
+
 window.blockPage = blockPage;
 window.areYouABotQuestionMark = areYouABotQuestionMark;
 window.resume = resume;

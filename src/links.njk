@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+title: Links
+description: All the places you can find me.
+---
+
+<h1>Links</h1>
+{%- for group in [links | rejectattr("other"), links | selectattr("other")] %}
+{%- if loop.index > 1 and group | length %}
+<div class="dashed-top linktree-separator"></div>
+<h2>Other</h2>
+{%- endif %}
+<ul class="linktree">
+    {%- for link in group %}
+    <li{% if link.tags %} class="{{ link.tags }}" {% endif %}>
+        {%- if link.url %}
+        <a
+            class="icon-link"
+            href="{{ link.url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            tabindex="-1"
+            aria-hidden="true">
+            {% include "icons/" + link.icon + ".svg" %}
+        </a>
+        {%- else %}
+        <span class="icon-link" aria-hidden="true">{% include "icons/" + link.icon + ".svg" %}</span>
+        {%- endif %}
+        <span>
+            {%- if link.url %}<a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a>
+            {%- else %}{{ link.name }}{% endif %}
+            {%- if link.tags %} ({{ link.tags }}){% endif %}
+            {%- if link.handle %}: <a href="#" role="button" data-copy="{{ link.handle }}" title="Copy">{{ link.handle }} {% include "icons/copy.svg" %}<span class="copied-label">copied!</span></a>{% endif %}
+            {%- if link.description %} - {{ link.description | safe }}{% endif %}
+        </span>
+        </li>
+        {%- endfor %}
+</ul>
+{%- endfor %}

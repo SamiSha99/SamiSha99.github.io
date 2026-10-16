@@ -132,6 +132,42 @@ body {
     padding: 0.25rem;
 }
 
+/* Every link on its own line with its icon */
+.linktree {
+    padding: 0;
+    list-style: none;
+    & li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    & li + li {
+        padding-top: 0.5rem;
+    }
+    & .svg-inline--fa.fa-2x {
+        height: 1.5em;
+    }
+    & .inactive,
+    & .executed,
+    & .no {
+        opacity: 0.67;
+    }
+}
+
+/* Copy icon, turns into "copied!" once copied */
+[data-copy] .copied-label,
+[data-copied] .fa-copy {
+    display: none;
+}
+
+[data-copied] .copied-label {
+    display: inline;
+}
+
+.linktree-separator {
+    margin-top: 1.5rem;
+}
+
 .intro {
     padding-top: 0.5rem;
     line-height: 1.6;
@@ -665,3 +701,4 @@ pre a:not(:hover) {
         margin-bottom: 8px;
     }
 }
+

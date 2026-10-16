@@ -13,29 +13,15 @@
         <!--<a onclick="areYouABotQuestionMark()" class="e-hidden">&lt;Email&gt;</a> me for any inquiries :)-->
     </div>
     <nav class="social-links" aria-label="Social links">
+        {%- for link in links | selectattr("footer") %}
         <a
             class="icon-link"
-            href="https://www.linkedin.com/in/sami-shakkour/"
+            href="{{ link.url }}"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn">
-            {% include "icons/linkedin.svg" %}
+            aria-label="{{ link.name }}">
+            {% include "icons/" + link.icon + ".svg" %}
         </a>
-        <a
-            class="icon-link"
-            href="https://github.com/SamiSha99/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub">
-            {% include "icons/github.svg" %}
-        </a>
-        <a
-            class="icon-link"
-            href="https://bsky.app/profile/sami.shakkour.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Bluesky">
-            {% include "icons/bluesky.svg" %}
-        </a>
+        {%- endfor %}
     </nav>
 </footer>

@@ -6,9 +6,9 @@ description: Every page on this website.
 
 # Site Map
 
-This contains a map of the site for all pages. Built with [Eleventy](https://www.11ty.dev/) and generated on every build.
+Contains a map of the site for all pages. Built with [Eleventy](https://www.11ty.dev/) and generated on every build.
 
-As always, the site source is on [GitHub](https://github.com/SamiSha99/SamiSha99.github.io).
+The site's source code is also on [GitHub](https://github.com/SamiSha99/SamiSha99.github.io).
 
 {{ collections.all | siteMap }}
 
