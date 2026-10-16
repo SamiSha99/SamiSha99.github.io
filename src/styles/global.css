@@ -152,16 +152,6 @@ body {
     }
 }
 
-/* Copy icon, turns into "copied!" once copied */
-[data-copy] .copied-label,
-[data-copied] .fa-copy {
-    display: none;
-}
-
-[data-copied] .copied-label {
-    display: inline;
-}
-
 .linktree-separator {
     margin-top: 1.5rem;
 }

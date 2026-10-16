@@ -31,12 +31,14 @@ lightbox.on("slide_changed", () => {
 
 // Elements with `data-copy` put their value on the clipboard, `data-copied` swaps the icon to "copied!" for a bit.
 document.querySelectorAll("[data-copy]").forEach((element) => {
+    const icon = element.querySelector("svg");
+    const label = document.createTextNode("copied!");
     element.addEventListener("click", async (event) => {
         event.preventDefault();
         await navigator.clipboard.writeText(element.dataset.copy);
-        if ("copied" in element.dataset) return;
-        element.dataset.copied = "";
-        setTimeout(() => delete element.dataset.copied, 1500);
+        if (label.isConnected) return;
+        icon.replaceWith(label);
+        setTimeout(() => label.replaceWith(icon), 1500);
     });
 });
 

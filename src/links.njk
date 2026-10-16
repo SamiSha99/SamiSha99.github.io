@@ -30,7 +30,7 @@ description: All the places you can find me.
             {%- if link.url %}<a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a>
             {%- else %}{{ link.name }}{% endif %}
             {%- if link.tags %} ({{ link.tags }}){% endif %}
-            {%- if link.handle %}: <a href="#" role="button" data-copy="{{ link.handle }}" title="Copy">{{ link.handle }} {% include "icons/copy.svg" %}<span class="copied-label">copied!</span></a>{% endif %}
+            {%- if link.handle %}: <a href="#" role="button" data-copy="{{ link.handle }}" title="Copy">{{ link.handle }} {% include "icons/copy.svg" %}</a>{% endif %}
             {%- if link.description %} - {{ link.description | safe }}{% endif %}
         </span>
         </li>
