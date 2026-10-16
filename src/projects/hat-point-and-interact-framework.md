@@ -12,6 +12,7 @@ media:
 ---
 
 {% from "components/media-gallery.njk" import mediaGallery %}
+
 <div id="mainpage" style="margin: auto">
 
 # Point and Interact | v1.1.0
@@ -25,7 +26,7 @@ A framework made for modding puporses that allows modders to create point and cl
 
 <div style="width: 100%; text-align: center">
 <iframe
-    style="width: 95%; height: 400px; margin: auto"
+    style="width: 100%; height: 420; margin: auto"
     src="https://www.youtube-nocookie.com/embed/BfjtglK7Bzk"
     title="YouTube video player"
     frameborder="0"
@@ -40,3 +41,4 @@ A framework made for modding puporses that allows modders to create point and cl
 {{ mediaGallery(media, false, "Point and Interact Framework gallery video") }}
 
 </div>
+
