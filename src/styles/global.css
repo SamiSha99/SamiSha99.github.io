@@ -1,6 +1,39 @@
 @import "./motion.css";
 @import "./under-construction.css";
 
+/* Maple Mono v7.9, https://github.com/subframe7536/maple-font (SIL OFL 1.1) */
+@font-face {
+    font-family: "Maple Mono";
+    src: url("/assets/fonts/maple-mono/MapleMono-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Maple Mono";
+    src: url("/assets/fonts/maple-mono/MapleMono-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Maple Mono";
+    src: url("/assets/fonts/maple-mono/MapleMono-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Maple Mono";
+    src: url("/assets/fonts/maple-mono/MapleMono-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
 .svg-inline--fa {
     display: inline-block;
     height: 1em;
@@ -19,6 +52,8 @@
     --border-color: ghostwhite;
     --border-width: 2px;
     --media-border-width: 5px;
+
+    --font-family: "Maple Mono", monospace;
 }
 
 h2 {
@@ -53,7 +88,7 @@ canvas {
 body {
     background-color: var(--primary-background-color);
     color: var(--primary-text-color);
-    font-family: monospace;
+    font-family: var(--font-family);
     font-size: 16px;
 }
 
@@ -271,7 +306,7 @@ button,
 a.button {
     color: var(--primary-text-color);
     border: var(--border-width) solid var(--primary-text-color);
-    font-family: monospace;
+    font-family: var(--font-family);
     font-size: 14px;
 }
 
@@ -599,7 +634,11 @@ a.tabs-button.active {
 }
 
 .post-content code {
-    font-family: monospace;
+    font-family: var(--font-family);
+}
+
+body :is(pre, code)[class*="language-"] {
+    font-family: var(--font-family);
 }
 
 .post-content kbd {
