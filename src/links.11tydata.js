@@ -9,7 +9,7 @@ const icons = [...new Set(links.filter((link) => !link.unused).map((link) => lin
 
 export default {
     eleventyComputed: {
-        // Meta link preview image (og:image), the title card with the icons scattered around it.
+        // Meta link preview image (og:image), the title card with the icons in an oval around it.
         image: (data) => ogImage(titleCard(data.title, icons), data),
     },
 };
