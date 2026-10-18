@@ -1,10 +1,13 @@
 ---
 layout: layouts/base.njk
-title: Links
+title: Contact
 description: All the places you can find me.
 ---
 
-<h1>Links</h1>
+<h1>Contact</h1>
+<a class="button contact-email" onclick="areYouABotQuestionMark()">Send me an Email</a>
+<div class="dashed-top linktree-separator"></div>
+<h2>Links</h2>
 {%- for group in [links | rejectattr("other"), links | selectattr("other")] %}
 {%- if loop.index > 1 and group | length %}
 <div class="dashed-top linktree-separator"></div>
@@ -12,7 +15,7 @@ description: All the places you can find me.
 {%- endif %}
 <ul class="linktree">
     {%- for link in group %}
-    <li{% if link.unused %} class="unused"{% endif %}>
+    <li{% if link.unused %} class="unused" {% endif %}>
         {%- if link.url %}
         <a
             class="icon-link"
