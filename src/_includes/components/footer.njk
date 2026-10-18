@@ -1,7 +1,7 @@
 <footer class="site-footer dashed-top">
     <div>
-        © {% year %} Sami Shakkour <span class="footer-separator">-</span>
-        <span class="footer-links">
+        © {% year %} Sami Shakkour
+        <div>
             <a
                 href="https://github.com/SamiSha99/SamiSha99.github.io/"
                 target="_blank"
@@ -11,8 +11,11 @@
                 href="/sitemap"
                 target="_blank"
                 rel="noopener noreferrer">sitemap</a>
-        </span>
-        <!--<a onclick="areYouABotQuestionMark()" class="e-hidden">&lt;Email&gt;</a> me for any inquiries :)-->
+            -
+            <a onclick="areYouABotQuestionMark()">email</a>
+            -
+            <a onclick="resume()">resume</a>
+        </div>
     </div>
     <nav class="social-links" aria-label="Social links">
         {%- for link in links | selectattr("footer") %}
@@ -25,5 +28,8 @@
             {% include "icons/" + link.icon + ".svg" %}
         </a>
         {%- endfor %}
+        <a class="icon-link" href="/blog/rss.xml" aria-label="Blog RSS feed">
+            {% include "icons/rss.svg" %}
+        </a>
     </nav>
 </footer>
