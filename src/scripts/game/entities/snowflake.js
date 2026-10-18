@@ -23,11 +23,15 @@ class Snowflake extends Entity {
     type = "Snowflake";
 
     static max = 1500;
-    static mouseRadius = 128;
+    static mouseRadius = 160;
     static mouseStrength = 12;
     static pushDrag = 2;
     pushX = 0;
     pushY = 0;
+    static rainbowDuration = 2.5;
+    static rainbowSpeed = 360;
+    rainbow = 0;
+    rainbowHue = Math.random() * 360;
 
     constructor(y) {
         super();
@@ -36,7 +40,7 @@ class Snowflake extends Entity {
         this.radius = MathUtils.lerp(1.5, 4, depth);
         this.speed = MathUtils.lerp(30, 90, depth);
         this.alpha = MathUtils.lerp(0.25, 0.8, depth);
-        this.color = this.getHueColor();
+        this.color = this.getColor();
 
         // Side to side drift while falling.
         this.swayAmount = MathUtils.randRange(10, 30);
@@ -62,7 +66,22 @@ class Snowflake extends Entity {
             this.destroy();
         }
 
-        this.color = this.getHueColor();
+        this.rainbow = Math.max(0, this.rainbow - delta / Snowflake.rainbowDuration);
+        this.color = this.getColor();
+    }
+
+    getColor() {
+        const color = this.getHueColor();
+        if (this.rainbow <= 0) return color;
+        const t = this.rainbow * this.rainbow * (3 - 2 * this.rainbow);
+        const hue = (this.rainbowHue + this.lifeTime * Snowflake.rainbowSpeed) % 360;
+        const rainbow = MathUtils.hslToRgb(hue, 1, 0.655);
+        return [
+            MathUtils.lerp(color[0], rainbow[0], t),
+            MathUtils.lerp(color[1], rainbow[1], t),
+            MathUtils.lerp(color[2], rainbow[2], t),
+            this.alpha,
+        ];
     }
 
     pushByMouse(delta) {
@@ -73,6 +92,7 @@ class Snowflake extends Entity {
                 const falloff = 1 - distance / Snowflake.mouseRadius;
                 this.pushX += mouse.vx * falloff * Snowflake.mouseStrength * delta;
                 this.pushY += mouse.vy * falloff * Snowflake.mouseStrength * delta;
+                this.rainbow = Math.min(1, this.rainbow + falloff * delta * 8);
             }
         }
         const drag = Math.exp(-Snowflake.pushDrag * delta);
@@ -80,7 +100,7 @@ class Snowflake extends Entity {
         this.pushY *= drag;
     }
 
-    // Same hue and color as `--visited-link-color`, white if the hue isn't animating.
+    // Same as the site hue color, white if the hue isn't animating.
     getHueColor() {
         if (!window.hue) return [248 / 255, 248 / 255, 255 / 255, this.alpha];
         const hue = (window.hue.time.currentTime + window.hue.offsetTime) % 360;
