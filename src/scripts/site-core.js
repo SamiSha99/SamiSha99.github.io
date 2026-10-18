@@ -17,6 +17,33 @@ function resume() {
     document.getElementById("resume-dialog").showModal();
 }
 
+const animationToggle = document.getElementById("animation-toggle");
+
+function updateAnimationToggle() {
+    const off = document.documentElement.classList.contains("no-motion");
+    animationToggle.querySelector("a").textContent = off
+        ? "enable animations"
+        : "disable animations";
+}
+
+function toggleAnimations() {
+    const off = document.documentElement.classList.toggle("no-motion");
+    if (off) {
+        localStorage.setItem("animations", "off");
+        window.animations.stop();
+    } else {
+        localStorage.removeItem("animations");
+        window.animations.start();
+    }
+    updateAnimationToggle();
+}
+
+if (animationToggle && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    animationToggle.remove();
+} else if (animationToggle) {
+    updateAnimationToggle();
+}
+
 document.querySelectorAll("dialog").forEach((dialog) => {
     dialog.addEventListener("click", (event) => {
         if (event.target === dialog) dialog.close();
@@ -45,6 +72,7 @@ document.querySelectorAll("[data-copy]").forEach((element) => {
 window.blockPage = blockPage;
 window.areYouABotQuestionMark = areYouABotQuestionMark;
 window.resume = resume;
+window.toggleAnimations = toggleAnimations;
 
 function openTab(evt, tabId) {
     const contents = document.querySelectorAll(".tab-content");

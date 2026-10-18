@@ -87,15 +87,13 @@ a:where(:not(.button, .nav a, .icon-link, .portfolio-card-link)),
     }
 }
 
-/* Hue and dashes are handled in main.js */
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
+/* Set in base.njk by reduced motion or the footer toggle, hue and dashes are handled in main.js */
+html.no-motion {
+    scroll-behavior: auto;
 
-    *,
-    *::before,
-    *::after {
+    & *,
+    & *::before,
+    & *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;

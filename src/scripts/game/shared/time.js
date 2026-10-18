@@ -7,10 +7,22 @@ class Time extends GlobalEvents {
     prevTime = performance.now();
     worldDilation = 1;
     update;
+    frame;
 
     constructor() {
         super();
-        requestAnimationFrame(this.loop.bind(this));
+        this.frame = requestAnimationFrame(this.loop.bind(this));
+    }
+
+    stop() {
+        cancelAnimationFrame(this.frame);
+        this.frame = undefined;
+    }
+
+    start() {
+        if (this.frame !== undefined) return;
+        this.prevTime = undefined;
+        this.frame = requestAnimationFrame(this.loop.bind(this));
     }
 
     // Returns Real Time Delta
@@ -51,7 +63,7 @@ class Time extends GlobalEvents {
         delta *= this.worldDilation;
         this.currentTime += delta;
         this.update(delta);
-        requestAnimationFrame(this.loop.bind(this));
+        this.frame = requestAnimationFrame(this.loop.bind(this));
     }
 
     onFocus() {
