@@ -158,6 +158,7 @@ body {
 .site-title {
     margin-right: auto;
     font-weight: bold;
+    font-size: 1.25em;
 }
 
 .icon-link {
@@ -191,11 +192,37 @@ body {
     margin-top: 1.5rem;
 }
 
+a.button.contact-email {
+    display: table;
+    margin: 1rem auto 0;
+    padding: 0.75rem 1.5rem;
+    font-size: 20px;
+}
+
 .intro {
     padding-top: 0.5rem;
     line-height: 1.6;
 }
 
+.intro-info {
+    padding: 10vh 0;
+    & h2 {
+        text-align: center;
+    }
+}
+
+.intro-callouts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+    & a.button {
+        margin: 0;
+        padding: 0.5rem 1rem;
+        font-size: 16px;
+    }
+}
 .portfolio-list {
     display: flex;
     flex-direction: column;
@@ -694,6 +721,17 @@ pre a:not(:hover) {
 
     .intro {
         padding: 0;
+    }
+
+    /* Own line, centered and only as wide as the text so the underline doesn't stretch */
+    .intro-info h2 .dashed-underline {
+        display: table;
+        margin: 0 auto;
+    }
+
+    .intro-callouts {
+        flex-direction: column;
+        align-items: center;
     }
 
     .site-footer {

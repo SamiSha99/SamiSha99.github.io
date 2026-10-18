@@ -15,7 +15,8 @@ body {
 
 /* Dashed underline drawn as a gradient so `--dash-offset` can move it, only on plain links without a class, scales with the text size */
 a:where(:not([class], .nav a)),
-.post-link {
+.post-link,
+.dashed-underline {
     --dash-size: 0.375em;
     --dash-offset: calc(var(--dash-progress) * var(--dash-size));
     background: linear-gradient(90deg, currentColor 50%, transparent 50%) var(--dash-offset) 100% /
@@ -34,6 +35,20 @@ a:where(:not([class], .nav a)),
     background-size: var(--dash-size) var(--border-width);
     background-repeat: repeat-x;
     background-position: var(--dash-offset) 0;
+    background-origin: border-box;
+}
+
+.dashed-bottom {
+    --dash-offset: calc(var(--dash-progress) * var(--dash-size));
+    border-bottom: var(--border-width) solid transparent;
+    background-image: linear-gradient(
+        90deg,
+        var(--dash-color, var(--border-color)) 50%,
+        transparent 50%
+    );
+    background-size: var(--dash-size) var(--border-width);
+    background-repeat: repeat-x;
+    background-position: var(--dash-offset) 100%;
     background-origin: border-box;
 }
 
@@ -79,4 +94,3 @@ a:where(:not([class], .nav a)),
         transition-duration: 0.01ms !important;
     }
 }
-
