@@ -320,7 +320,7 @@ a.intro-portfolio-link {
 .site-footer {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.5rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
@@ -330,12 +330,12 @@ a.intro-portfolio-link {
 }
 
 /* Takes the space left of the icons without pushing them onto their own line */
-.footer-info {
+.footer-links {
     flex: 1 1 0;
 }
 
 /* Own row under everything */
-.footer-commit {
+.footer-bottom {
     flex-basis: 100%;
     text-align: center;
     font-size: 12px;

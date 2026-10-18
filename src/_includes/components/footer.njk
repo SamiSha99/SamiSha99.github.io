@@ -1,25 +1,22 @@
 <footer class="site-footer dashed-top">
-    <div class="footer-info">
-        © {% year %} Sami Shakkour
-        <div>
-            <a
-                href="https://github.com/SamiSha99/SamiSha99.github.io/"
-                target="_blank"
-                rel="noopener noreferrer">sauce</a>
+    <div class="footer-links">
+        <a
+            href="https://github.com/SamiSha99/SamiSha99.github.io/"
+            target="_blank"
+            rel="noopener noreferrer">sauce</a>
+        -
+        <a
+            href="/sitemap"
+            target="_blank"
+            rel="noopener noreferrer">sitemap</a>
+        -
+        <a onclick="areYouABotQuestionMark()">email</a>
+        -
+        <a onclick="resume()">resume</a>
+        <span id="animation-toggle">
             -
-            <a
-                href="/sitemap"
-                target="_blank"
-                rel="noopener noreferrer">sitemap</a>
-            -
-            <a onclick="areYouABotQuestionMark()">email</a>
-            -
-            <a onclick="resume()">resume</a>
-            <span id="animation-toggle">
-                -
-                <a onclick="toggleAnimations()">disable animations</a>
-            </span>
-        </div>
+            <a onclick="toggleAnimations()">disable animations</a>
+        </span>
     </div>
     <nav class="social-links" aria-label="Social links">
         {%- for link in links | selectattr("footer") %}
@@ -36,14 +33,15 @@
             {% include "icons/rss.svg" %}
         </a>
     </nav>
-    {%- if commit %}
-    <div class="footer-commit">
-        last updated
+    <div class="footer-bottom">
+        © {% year %} Sami Shakkour
+        {% if commit %}
+        | last updated
         <a
             href="https://github.com/SamiSha99/SamiSha99.github.io/commit/{{ commit.full }}"
             target="_blank"
             rel="noopener noreferrer">{{ commit.short }}</a>
         - {{ commit.date }}
+        {%- endif %}
     </div>
-    {%- endif %}
 </footer>
