@@ -749,6 +749,14 @@ pre a:not(:hover) {
         flex-wrap: nowrap;
     }
 
+    .site-footer .footer-separator {
+        display: none;
+    }
+
+    .site-footer .footer-links {
+        display: block;
+    }
+
     .site-footer .social-links {
         flex-wrap: nowrap;
         flex-shrink: 0;
