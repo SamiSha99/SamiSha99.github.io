@@ -35,7 +35,7 @@ class Snowflake extends Entity {
         this.color = this.getHueColor();
     }
 
-    // Same hue and color as `--visited-link-color` in motion.css, white if the hue isn't animating.
+    // Same hue and color as `--visited-link-color`, white if the hue isn't animating.
     getHueColor() {
         if (!window.hue) return [248 / 255, 248 / 255, 255 / 255, this.alpha];
         const hue = (window.hue.time.currentTime + window.hue.offsetTime) % 360;
