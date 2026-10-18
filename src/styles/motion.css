@@ -2,6 +2,10 @@
     --showcase-animation-duration: 0.4s;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* `--default-hue` and `--dash-progress` are updated every frame by main.js */
 html,
 body {
@@ -13,9 +17,8 @@ body {
     --dash-progress: 0;
 }
 
-/* Dashed underline drawn as a gradient so `--dash-offset` can move it, only on plain links without a class, scales with the text size */
-a:where(:not([class], .nav a)),
-.post-link,
+/* Dashed underline drawn as a gradient so `--dash-offset` can move it, scales with the text size */
+a:where(:not(.button, .nav a, .icon-link, .portfolio-card-link)),
 .dashed-underline {
     --dash-size: 0.375em;
     --dash-offset: calc(var(--dash-progress) * var(--dash-size));
@@ -86,6 +89,10 @@ a:where(:not([class], .nav a)),
 
 /* Hue and dashes are handled in main.js */
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     *,
     *::before,
     *::after {

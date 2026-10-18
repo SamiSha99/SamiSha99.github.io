@@ -223,6 +223,17 @@ a.button.contact-email {
         font-size: 16px;
     }
 }
+
+a.intro-portfolio-link {
+    display: table;
+    margin: 1rem auto 0;
+    font-size: 1.25rem;
+}
+
+#portfolio {
+    scroll-margin-top: 4rem;
+}
+
 .portfolio-list {
     display: flex;
     flex-direction: column;
