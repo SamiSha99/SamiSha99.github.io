@@ -1,4 +1,3 @@
-import { Food } from "../../entities/food.js";
 import { Snowflake } from "../../entities/index.js";
 import { MathUtils, Vector2 } from "../../shared/index.js";
 import { Time } from "../../shared/time.js";
@@ -105,18 +104,6 @@ class Renderer extends GlobalEvents {
         }
     }
 
-    onClick(e) {
-        return;
-        if (e.type === "click" && Game.entities.getAll(Food).length < 10) {
-            const rect = this.canvas.getBoundingClientRect();
-            const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
-            const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
-
-            Game.spawn(Food, (f) => {
-                f.location = new Vector2(x, y);
-            });
-        }
-    }
     onResize() {
         const dpr = window.devicePixelRatio || 1;
         const scale = Math.min(
