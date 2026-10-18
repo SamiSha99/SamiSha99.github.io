@@ -1,5 +1,5 @@
 import { Food } from "../../entities/food.js";
-import { Fish, Line } from "../../entities/index.js";
+import { Snowflake } from "../../entities/index.js";
 import { MathUtils, Vector2 } from "../../shared/index.js";
 import { Time } from "../../shared/time.js";
 import { GlobalEvents } from "../events.js";
@@ -62,9 +62,13 @@ class Renderer extends GlobalEvents {
     run() {
         Game.renderer = this;
         Game.state.isInitialized = true;
+        // Start with it already spawning
+        for (let i = 0; i < 150; i++) {
+            Game.entities.add(new Snowflake(MathUtils.randRange(0, this.canvas.height)));
+        }
     }
 
-    spawnLineDelay = 0;
+    spawnSnowDelay = 0;
 
     update(delta) {
         this.draw(delta);
@@ -73,12 +77,11 @@ class Renderer extends GlobalEvents {
             if (typeof entity.update === "function") entity.update(delta);
         }
 
-        this.spawnLineDelay -= delta;
-        if (this.spawnLineDelay <= 0) {
-            Game.entities.instances.push(new Line());
-            const spawnRate = [10, 20];
-            this.spawnLineDelay = 1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
-            if (Math.random() < 0.01) Game.spawn(Fish);
+        this.spawnSnowDelay -= delta;
+        if (this.spawnSnowDelay <= 0) {
+            Game.entities.add(new Snowflake());
+            const spawnRate = [6, 12];
+            this.spawnSnowDelay = 1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
         }
     }
 
@@ -118,7 +121,7 @@ class Renderer extends GlobalEvents {
         const dpr = window.devicePixelRatio || 1;
         const scale = Math.min(
             screen.width / ASPECT_RATIO.WIDTH,
-            screen.height / ASPECT_RATIO.HEIGHT
+            screen.height / ASPECT_RATIO.HEIGHT,
         );
 
         this.canvas.width = Math.floor(ASPECT_RATIO.WIDTH * scale * dpr);
