@@ -2,8 +2,32 @@ import { Entity } from "./entity.js";
 import { Vector2, MathUtils } from "../shared/index.js";
 import { Game } from "../core/game.js";
 
+const mouse = { x: 0, y: 0, vx: 0, vy: 0, time: 0, active: false };
+
+window.addEventListener("pointermove", (e) => {
+    const canvas = Game.canvas;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+    const dt = (e.timeStamp - mouse.time) / 1000;
+    const vx = mouse.active && dt > 0 ? (x - mouse.x) / dt : 0;
+    const vy = mouse.active && dt > 0 ? (y - mouse.y) / dt : 0;
+    mouse.vx = MathUtils.lerp(mouse.vx, vx, 0.5);
+    mouse.vy = MathUtils.lerp(mouse.vy, vy, 0.5);
+    Object.assign(mouse, { x, y, time: e.timeStamp, active: true });
+});
+document.addEventListener("pointerleave", () => (mouse.active = false));
+
 class Snowflake extends Entity {
     type = "Snowflake";
+
+    static max = 1500;
+    static mouseRadius = 128;
+    static mouseStrength = 12;
+    static pushDrag = 2;
+    pushX = 0;
+    pushY = 0;
 
     constructor(y) {
         super();
@@ -25,14 +49,35 @@ class Snowflake extends Entity {
 
     update(delta) {
         super.update(delta);
+        this.pushByMouse(delta);
+        this.startX += this.pushX * delta;
+
         const sway = Math.sin(this.lifeTime * this.swaySpeed + this.swayOffset) * this.swayAmount;
-        this.location = new Vector2(this.startX + sway, this.location.y + this.speed * delta);
+        this.location = new Vector2(
+            this.startX + sway,
+            this.location.y + (this.speed + this.pushY) * delta,
+        );
 
         if (this.location.y > Game.canvas.height + this.radius) {
             this.destroy();
         }
 
         this.color = this.getHueColor();
+    }
+
+    pushByMouse(delta) {
+        const moving = mouse.active && performance.now() - mouse.time < 50;
+        if (moving) {
+            const distance = Math.hypot(this.location.x - mouse.x, this.location.y - mouse.y);
+            if (distance < Snowflake.mouseRadius) {
+                const falloff = 1 - distance / Snowflake.mouseRadius;
+                this.pushX += mouse.vx * falloff * Snowflake.mouseStrength * delta;
+                this.pushY += mouse.vy * falloff * Snowflake.mouseStrength * delta;
+            }
+        }
+        const drag = Math.exp(-Snowflake.pushDrag * delta);
+        this.pushX *= drag;
+        this.pushY *= drag;
     }
 
     // Same hue and color as `--visited-link-color`, white if the hue isn't animating.

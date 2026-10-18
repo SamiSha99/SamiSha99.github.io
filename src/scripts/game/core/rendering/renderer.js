@@ -62,7 +62,7 @@ class Renderer extends GlobalEvents {
         Game.renderer = this;
         Game.state.isInitialized = true;
         // Start with it already spawning
-        for (let i = 0; i < 150; i++) {
+        for (let i = 0; i < 500; i++) {
             Game.entities.add(new Snowflake(MathUtils.randRange(0, this.canvas.height)));
         }
         // for (let i = 0; i < Boid.count; i++) {
@@ -81,8 +81,10 @@ class Renderer extends GlobalEvents {
 
         this.spawnSnowDelay -= delta;
         if (this.spawnSnowDelay <= 0) {
-            Game.entities.add(new Snowflake());
-            const spawnRate = [6, 12];
+            if (Game.entities.getAll(Snowflake).length < Snowflake.max) {
+                Game.entities.add(new Snowflake());
+            }
+            const spawnRate = [35, 40];
             this.spawnSnowDelay = 1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
         }
     }
