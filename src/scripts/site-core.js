@@ -27,14 +27,12 @@ function updateAnimationToggle() {
 }
 
 function toggleAnimations() {
-    const off = document.documentElement.classList.toggle("no-motion");
-    if (off) {
-        localStorage.setItem("animations", "off");
-        window.animations.stop();
-    } else {
-        localStorage.removeItem("animations");
-        window.animations.start();
-    }
+    const off = !document.documentElement.classList.contains("no-motion");
+    if (off) window.animations.stop();
+    else window.animations.start();
+    document.documentElement.classList.toggle("no-motion", off);
+    if (off) localStorage.setItem("animations", "off");
+    else localStorage.removeItem("animations");
     updateAnimationToggle();
 }
 
