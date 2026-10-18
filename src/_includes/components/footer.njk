@@ -1,5 +1,5 @@
 <footer class="site-footer dashed-top">
-    <div>
+    <div class="footer-info">
         © {% year %} Sami Shakkour
         <div>
             <a
@@ -32,4 +32,14 @@
             {% include "icons/rss.svg" %}
         </a>
     </nav>
+    {%- if commit %}
+    <div class="footer-commit">
+        last updated
+        <a
+            href="https://github.com/SamiSha99/SamiSha99.github.io/commit/{{ commit.full }}"
+            target="_blank"
+            rel="noopener noreferrer">{{ commit.short }}</a>
+        - {{ commit.date }}
+    </div>
+    {%- endif %}
 </footer>

@@ -329,6 +329,19 @@ a.intro-portfolio-link {
     line-height: 1.8;
 }
 
+/* Takes the space left of the icons without pushing them onto their own line */
+.footer-info {
+    flex: 1 1 0;
+}
+
+/* Own row under everything */
+.footer-commit {
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.67;
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -744,10 +757,6 @@ pre a:not(:hover) {
     .intro-callouts {
         flex-direction: column;
         align-items: center;
-    }
-
-    .site-footer {
-        flex-wrap: nowrap;
     }
 
     .site-footer .social-links {
