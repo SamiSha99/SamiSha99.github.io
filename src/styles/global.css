@@ -497,6 +497,15 @@ dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.975);
 }
 
+/* Visible so they can move past a dialog's edge without a scrollbar */
+dialog:has([data-nudge]) {
+    overflow: visible;
+}
+
+[data-nudge] {
+    transition: transform 0.25s ease-out;
+}
+
 .showcase-alert-dialog {
     display: flow-root;
     border: var(--border-width) solid var(--border-color);

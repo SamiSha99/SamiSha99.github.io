@@ -1,3 +1,5 @@
+import { initNudge } from "./nudge.js";
+
 function blockPage() {
     document.body.innerHTML = `
     <div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;text-align:center;">
@@ -16,6 +18,8 @@ function areYouABotQuestionMark() {
 function resume() {
     document.getElementById("resume-dialog").showModal();
 }
+
+initNudge();
 
 const animationToggle = document.getElementById("animation-toggle");
 
