@@ -1,5 +1,5 @@
-import { Snowflake } from "../../entities/index.js";
-import { MathUtils, Vector2 } from "../../shared/index.js";
+import { Boid, Snowflake } from "../../entities/index.js";
+import { MathUtils } from "../../shared/index.js";
 import { Time } from "../../shared/time.js";
 import { GlobalEvents } from "../events.js";
 import { Game } from "../game.js";
@@ -65,6 +65,9 @@ class Renderer extends GlobalEvents {
         for (let i = 0; i < 150; i++) {
             Game.entities.add(new Snowflake(MathUtils.randRange(0, this.canvas.height)));
         }
+        // for (let i = 0; i < Boid.count; i++) {
+        //     Game.spawn(Boid);
+        // }
     }
 
     spawnSnowDelay = 0;
