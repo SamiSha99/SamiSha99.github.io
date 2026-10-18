@@ -2,30 +2,49 @@ import { Entity } from "./entity.js";
 import { Vector2, MathUtils } from "../shared/index.js";
 import { Game } from "../core/game.js";
 
-const mouse = { x: 0, y: 0, vx: 0, vy: 0, time: 0, active: false };
+const mouse = {
+    x: 0,
+    y: 0,
+    prevX: 0,
+    prevY: 0,
+    vx: 0,
+    vy: 0,
+    frame: undefined,
+    active: false,
+};
 
 window.addEventListener("pointermove", (e) => {
     const canvas = Game.canvas;
     if (!canvas) return;
     const rect = canvas.getBoundingClientRect();
-    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
-    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
-    const dt = (e.timeStamp - mouse.time) / 1000;
-    const vx = mouse.active && dt > 0 ? (x - mouse.x) / dt : 0;
-    const vy = mouse.active && dt > 0 ? (y - mouse.y) / dt : 0;
-    mouse.vx = MathUtils.lerp(mouse.vx, vx, 0.5);
-    mouse.vy = MathUtils.lerp(mouse.vy, vy, 0.5);
-    Object.assign(mouse, { x, y, time: e.timeStamp, active: true });
+    mouse.x = (e.clientX - rect.left) * (canvas.width / rect.width);
+    mouse.y = (e.clientY - rect.top) * (canvas.height / rect.height);
+    if (!mouse.active) {
+        mouse.prevX = mouse.x;
+        mouse.prevY = mouse.y;
+    }
+    mouse.active = true;
 });
+
 document.addEventListener("pointerleave", () => (mouse.active = false));
+
+function sampleMouse(delta) {
+    const frame = Game.renderer?.time.currentRealTime;
+    if (frame === mouse.frame) return;
+    mouse.frame = frame;
+    mouse.vx = delta > 0 ? (mouse.x - mouse.prevX) / delta : 0;
+    mouse.vy = delta > 0 ? (mouse.y - mouse.prevY) / delta : 0;
+    mouse.prevX = mouse.x;
+    mouse.prevY = mouse.y;
+}
 
 class Snowflake extends Entity {
     type = "Snowflake";
 
     static max = 1500;
     static mouseRadius = 160;
-    static mouseStrength = 12;
-    static pushDrag = 2;
+    static mouseStrength = 4;
+    static pushDrag = 3;
     pushX = 0;
     pushY = 0;
     static rainbowDuration = 2.5;
@@ -85,7 +104,8 @@ class Snowflake extends Entity {
     }
 
     pushByMouse(delta) {
-        const moving = mouse.active && performance.now() - mouse.time < 50;
+        sampleMouse(delta);
+        const moving = mouse.active && (mouse.vx !== 0 || mouse.vy !== 0);
         if (moving) {
             const distance = Math.hypot(this.location.x - mouse.x, this.location.y - mouse.y);
             if (distance < Snowflake.mouseRadius) {
