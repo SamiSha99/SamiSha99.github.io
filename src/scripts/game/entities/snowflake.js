@@ -30,7 +30,7 @@ document.addEventListener("pointerleave", () => (mouse.active = false));
 
 function sampleMouse(delta) {
     const frame = Game.renderer?.time.currentRealTime;
-    if (frame === mouse.frame) return;
+    if (delta > 0 && frame === mouse.frame) return;
     mouse.frame = frame;
     mouse.vx = delta > 0 ? (mouse.x - mouse.prevX) / delta : 0;
     mouse.vy = delta > 0 ? (mouse.y - mouse.prevY) / delta : 0;
