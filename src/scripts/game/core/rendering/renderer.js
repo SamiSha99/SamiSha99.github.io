@@ -84,7 +84,7 @@ class Renderer extends GlobalEvents {
             if (Game.entities.getAll(Snowflake).length < Snowflake.max) {
                 Game.entities.add(new Snowflake());
             }
-            const spawnRate = [35, 40];
+            const spawnRate = [45, 50];
             this.spawnSnowDelay = 1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
         }
     }

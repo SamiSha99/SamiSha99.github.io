@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="/styles/glightbox.css" />
     <link rel="stylesheet" href="/styles/global.css" />
     <link rel="stylesheet" href="/styles/prism.css" />
+    {%- if not forceMotion %}
     <script>
         // Before rendering so nothing animates for the first frame.
         if (matchMedia("(prefers-reduced-motion: reduce)").matches || localStorage.getItem("animations") === "off") {
             document.documentElement.classList.add("no-motion");
         }
     </script>
+    {%- endif %}
 </head>
 
 <body {% if bodyId %} id="{{ bodyId }}" {% endif %}{% if noDrawing %} no-drawing="true" {% endif %}>

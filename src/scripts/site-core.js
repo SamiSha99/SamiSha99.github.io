@@ -25,9 +25,9 @@ const animationToggle = document.getElementById("animation-toggle");
 
 function updateAnimationToggle() {
     const off = document.documentElement.classList.contains("no-motion");
-    animationToggle.querySelector("a").textContent = off
-        ? "enable animations"
-        : "disable animations";
+    const toggle = animationToggle.querySelector("a");
+    toggle.textContent = off ? "[ ] animations" : "[x] animations";
+    toggle.setAttribute("aria-checked", String(!off));
 }
 
 function toggleAnimations() {

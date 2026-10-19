@@ -1,22 +1,30 @@
 <footer class="site-footer dashed-top">
     <div class="footer-links">
-        <a
-            href="https://github.com/SamiSha99/SamiSha99.github.io/"
-            target="_blank"
-            rel="noopener noreferrer">sauce</a>
-        -
-        <a
-            href="/sitemap"
-            target="_blank"
-            rel="noopener noreferrer">sitemap</a>
-        -
-        <a onclick="areYouABotQuestionMark()">email</a>
-        -
-        <a onclick="resume()">resume</a>
-        <span id="animation-toggle">
+        <div>
+            <a
+                href="https://github.com/SamiSha99/SamiSha99.github.io/"
+                target="_blank"
+                rel="noopener noreferrer">sauce</a>
             -
-            <a onclick="toggleAnimations()">disable animations</a>
-        </span>
+            <a
+                href="/sitemap"
+                target="_blank"
+                rel="noopener noreferrer">sitemap</a>
+            -
+            <a onclick="areYouABotQuestionMark()">email</a>
+            -
+            <a onclick="resume()">resume</a>
+        </div>
+        <div class="footer-settings">
+            <span id="animation-toggle">
+                <a onclick="toggleAnimations()" role="checkbox" aria-checked="true">[x] animations</a>
+                -
+            </span>
+            <a
+                href="/canvas"
+                target="_blank"
+                rel="noopener noreferrer">[view canvas]</a>
+        </div>
     </div>
     <nav class="social-links" aria-label="Social links">
         {%- for link in links | selectattr("footer") %}

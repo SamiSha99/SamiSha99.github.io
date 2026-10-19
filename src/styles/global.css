@@ -334,6 +334,10 @@ a.intro-portfolio-link {
     flex: 1 1 0;
 }
 
+.footer-settings {
+    opacity: 0.67;
+}
+
 /* Own row under everything */
 .footer-bottom {
     flex-basis: 100%;
