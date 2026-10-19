@@ -112,7 +112,7 @@ class Snowflake extends Entity {
                 const falloff = 1 - distance / Snowflake.mouseRadius;
                 this.pushX += mouse.vx * falloff * Snowflake.mouseStrength * delta;
                 this.pushY += mouse.vy * falloff * Snowflake.mouseStrength * delta;
-                this.rainbow = Math.min(1, this.rainbow + falloff * delta * 8);
+                this.rainbow = Math.min(1, this.rainbow + falloff * delta * 16);
             }
         }
         const drag = Math.exp(-Snowflake.pushDrag * delta);
