@@ -772,14 +772,34 @@ pre a:not(:hover) {
         align-items: center;
     }
 
+    .site-footer {
+        gap: 0.5rem;
+    }
+
+    /* Own row above the text links, centered, so icons get room to be proper touch targets */
     .site-footer .social-links {
+        order: -1;
+        flex-basis: 100%;
         flex-wrap: nowrap;
-        flex-shrink: 0;
-        gap: 0;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .site-footer .icon-link {
+        min-width: 3rem;
+        min-height: 3rem;
     }
 
     .site-footer .svg-inline--fa.fa-2x {
-        height: 1.5em;
+        height: 2.5em;
+    }
+
+    .site-footer .footer-links {
+        text-align: center;
+    }
+
+    .site-footer .footer-settings {
+        margin-top: 0.5rem;
     }
 
     /* Image always on top */
@@ -800,4 +820,3 @@ pre a:not(:hover) {
         margin-bottom: 8px;
     }
 }
-

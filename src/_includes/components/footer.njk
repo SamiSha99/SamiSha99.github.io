@@ -42,14 +42,16 @@
         </a>
     </nav>
     <div class="footer-bottom">
-        © {% year %} Sami Shakkour
+        <div>© {% year %} Sami Shakkour</div>
         {% if commit %}
-        | last updated
-        <a
-            href="https://github.com/SamiSha99/SamiSha99.github.io/commit/{{ commit.full }}"
-            target="_blank"
-            rel="noopener noreferrer">{{ commit.short }}</a>
-        - {{ commit.date }}
+        <div>
+            last updated
+            <a
+                href="https://github.com/SamiSha99/SamiSha99.github.io/commit/{{ commit.full }}"
+                target="_blank"
+                rel="noopener noreferrer">{{ commit.short }}</a>
+            - {{ commit.date }}
+        </div>
         {%- endif %}
     </div>
 </footer>
