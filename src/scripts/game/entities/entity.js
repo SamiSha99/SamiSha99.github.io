@@ -44,6 +44,11 @@ class Entity extends GlobalEvents {
         }
     }
 
+    destroy() {
+        Game.destroy(this);
+        super.destroy();
+    }
+
     /**
      *
      * @param {Vector2} v

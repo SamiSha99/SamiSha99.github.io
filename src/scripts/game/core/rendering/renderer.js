@@ -1,6 +1,3 @@
-import { Boid, Snowflake } from "../../entities/index.js";
-import { MathUtils } from "../../shared/index.js";
-import { Time } from "../../shared/time.js";
 import { GlobalEvents } from "../events.js";
 import { Game } from "../game.js";
 import { ProgramRegistery } from "./programs/index.js";
@@ -22,7 +19,7 @@ const ASPECT_RATIO = {
 
         this.WIDTH = preset[0];
         this.HEIGHT = preset[1];
-        Game.renderer.onResize();
+        Game.instance?.renderer.onResize();
     },
 };
 
@@ -35,15 +32,11 @@ class Renderer extends GlobalEvents {
     /** @type {WebGL2RenderingContext} */
     gl;
 
-    time = null;
     /** @type {ProgramRegistery} */
     programs;
 
     constructor(canvas) {
         super();
-        this.time = new Time();
-        this.time.update = this.update.bind(this);
-
         this.canvas = canvas ?? buildCanvas();
         this.gl = this.canvas.getContext("webgl2", {
             alpha: true,
@@ -56,37 +49,6 @@ class Renderer extends GlobalEvents {
         this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
 
         this.programs = new ProgramRegistery(this.gl, this.canvas);
-    }
-
-    run() {
-        Game.renderer = this;
-        Game.state.isInitialized = true;
-        // Start with it already spawning
-        for (let i = 0; i < 500; i++) {
-            Game.entities.add(new Snowflake(MathUtils.randRange(0, this.canvas.height)));
-        }
-        // for (let i = 0; i < Boid.count; i++) {
-        //     Game.spawn(Boid);
-        // }
-    }
-
-    spawnSnowDelay = 0;
-
-    update(delta) {
-        this.draw(delta);
-
-        for (let entity of Game.entities.instances) {
-            if (typeof entity.update === "function") entity.update(delta);
-        }
-
-        this.spawnSnowDelay -= delta;
-        if (this.spawnSnowDelay <= 0) {
-            if (Game.entities.getAll(Snowflake).length < Snowflake.max) {
-                Game.entities.add(new Snowflake());
-            }
-            const spawnRate = [45, 50];
-            this.spawnSnowDelay = 1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
-        }
     }
 
     draw(delta) {

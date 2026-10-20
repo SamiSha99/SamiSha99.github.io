@@ -1,4 +1,4 @@
-import { Renderer, Time } from "./game/index.js";
+import { Game, MathUtils, Snowflake } from "./game/index.js";
 
 // 🤫😅🤭🙈🙉🙊
 function _0x3c5033() {
@@ -12,58 +12,76 @@ function _0x3c5033() {
 }
 window._0x3c5033 = _0x3c5033;
 
-let time;
-let renderer;
+const hue = { time: Math.random() * 360, speed: 6 };
+window.hue = hue;
 
-function startAnimations() {
-    if (time) {
-        time.start();
-        renderer?.time.start();
-        if (renderer) renderer.canvas.style.display = "";
-        return;
+function updateHue(delta) {
+    hue.time += delta * hue.speed;
+    document.body.style.setProperty("--default-hue", String(Math.round(hue.time % 360)));
+    document.body.style.setProperty("--dash-progress", String(((1.25 * hue.time) / 8) % 1));
+}
+
+/** @type {SiteAnimations} */
+let game;
+
+class SiteAnimations extends Game {
+    // Pages marked `no-drawing` only animate the hue.
+    drawing = document.body.getAttribute("no-drawing") !== "true";
+    spawnSnowDelay = 0;
+
+    static start() {
+        if (game) {
+            game.time.start();
+            game.renderer.canvas.style.display = "";
+            return;
+        }
+
+        game = new SiteAnimations();
+        game.init();
     }
 
-    time = new Time();
-    const offsetTime = Math.random() * 360;
-    const animationSpeed = 6;
-    time.setWorldDilation(animationSpeed);
-
-    window.hue = {
-        time,
-        offsetTime,
-        speed: (n = animationSpeed) => time.setWorldDilation(n),
-    };
-
-    function hue() {
-        const animationTime = time.currentTime + window.hue.offsetTime;
-        document.body.style.setProperty("--default-hue", String(Math.round(animationTime % 360)));
-        document.body.style.setProperty(
-            "--dash-progress",
-            String(((1.25 * animationTime) / 8) % 1),
-        );
+    static stop() {
+        game?.time.stop();
+        if (game) game.renderer.canvas.style.display = "none";
+        document.body.style.removeProperty("--default-hue");
+        document.body.style.removeProperty("--dash-progress");
     }
-    hue();
 
-    const Update = () => hue();
+    init() {
+        super.init();
+        updateHue(0);
+        if (!this.drawing) return;
 
-    time.update = Update.bind(this);
+        // Start with it already snowing
+        for (let i = 0; i < 500; i++) {
+            Game.spawn(Snowflake, null, [
+                MathUtils.randRange(0, this.renderer.canvas.height),
+                true,
+            ]);
+        }
+    }
 
-    if (document.body.getAttribute("no-drawing") !== "true") {
-        renderer = new Renderer();
-        renderer.run();
+    update(delta) {
+        updateHue(delta);
+        if (!this.drawing) return;
+
+        super.update(delta);
+        this.spawnSnow(delta);
+    }
+
+    spawnSnow(delta) {
+        if (this.time.currentRealTime <= Snowflake.fadeInDelay) return;
+        this.spawnSnowDelay -= delta;
+        if (this.spawnSnowDelay > 0) return;
+
+        if (Game.entities.getAll(Snowflake).length < Snowflake.max) Game.spawn(Snowflake);
+        const spawnRate = [45, 50];
+        this.spawnSnowDelay = 1 / MathUtils.randRange(spawnRate[0], spawnRate[1]);
     }
 }
 
-function stopAnimations() {
-    time?.stop();
-    renderer?.time.stop();
-    if (renderer) renderer.canvas.style.display = "none";
-    document.body.style.removeProperty("--default-hue");
-    document.body.style.removeProperty("--dash-progress");
-}
-
-window.animations = { start: startAnimations, stop: stopAnimations };
+window.animations = SiteAnimations;
 
 // Reduced motion or turned off from the footer.
-if (!document.documentElement.classList.contains("no-motion")) startAnimations();
+if (!document.documentElement.classList.contains("no-motion")) SiteAnimations.start();
 

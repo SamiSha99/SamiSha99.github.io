@@ -106,7 +106,7 @@ class Boid extends Entity {
 
     getHueColor() {
         if (!window.hue) return [248 / 255, 248 / 255, 255 / 255, this.alpha];
-        const hue = (window.hue.time.currentTime + window.hue.offsetTime) % 360;
+        const hue = window.hue.time % 360;
         return [...MathUtils.hslToRgb(hue, 1, 0.655), this.alpha];
     }
 

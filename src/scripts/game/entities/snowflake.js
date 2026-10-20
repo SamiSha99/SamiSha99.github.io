@@ -43,7 +43,7 @@ window.addEventListener("touchend", endTouch, { passive: true });
 window.addEventListener("touchcancel", endTouch, { passive: true });
 
 function sampleMouse(delta) {
-    const frame = Game.renderer?.time.currentRealTime;
+    const frame = Game.instance?.time.currentRealTime;
     if (delta > 0 && frame === mouse.frame) return;
     mouse.frame = frame;
     mouse.vx = delta > 0 ? (mouse.x - mouse.prevX) / delta : 0;
@@ -65,8 +65,10 @@ class Snowflake extends Entity {
     static rainbowSpeed = 360;
     rainbow = 0;
     rainbowHue = Math.random() * 360;
+    static fadeInDelay = 0.25;
+    fadeInTime = 0;
 
-    constructor(y) {
+    constructor(y, fadeIn = false) {
         super();
         // 0 is far away, 1 is close, closer flakes are bigger, faster and brighter.
         const depth = Math.random();
@@ -82,6 +84,7 @@ class Snowflake extends Entity {
 
         this.startX = MathUtils.randRange(0, Game.canvas.width);
         this.location = new Vector2(this.startX, y ?? -this.radius);
+        if (fadeIn) this.fadeInTime = MathUtils.randRange(0.25, 1);
     }
 
     update(delta) {
@@ -113,8 +116,14 @@ class Snowflake extends Entity {
             MathUtils.lerp(color[0], rainbow[0], t),
             MathUtils.lerp(color[1], rainbow[1], t),
             MathUtils.lerp(color[2], rainbow[2], t),
-            this.alpha,
+            this.getAlpha(),
         ];
+    }
+
+    getAlpha() {
+        if (!this.fadeInTime) return this.alpha;
+        const t = MathUtils.clamp((this.lifeTime - Snowflake.fadeInDelay) / this.fadeInTime, 0, 1);
+        return MathUtils.lerp(0, this.alpha, t);
     }
 
     pushByMouse(delta) {
@@ -136,9 +145,9 @@ class Snowflake extends Entity {
 
     // Same as the site hue color, white if the hue isn't animating.
     getHueColor() {
-        if (!window.hue) return [248 / 255, 248 / 255, 255 / 255, this.alpha];
-        const hue = (window.hue.time.currentTime + window.hue.offsetTime) % 360;
-        return [...MathUtils.hslToRgb(hue, 1, 0.655), this.alpha];
+        if (!window.hue) return [248 / 255, 248 / 255, 255 / 255, this.getAlpha()];
+        const hue = window.hue.time % 360;
+        return [...MathUtils.hslToRgb(hue, 1, 0.655), this.getAlpha()];
     }
 
     draw(_gl, renderer, _delta) {

@@ -1,3 +1,5 @@
+import { Time } from "../shared/time.js";
+import { GlobalEvents } from "./events.js";
 import { Renderer } from "./rendering/renderer.js";
 
 class Assets {
@@ -16,9 +18,13 @@ class Assets {
 }
 window.assets = Assets;
 
-class Game {
-    /** @type {Renderer} - renderer */
-    static renderer = null;
+class Game extends GlobalEvents {
+    /** @type {Game | null} */
+    static instance = null;
+    /** @type {Time} */
+    time;
+    /** @type {Renderer} */
+    renderer;
     static canvas = null;
     static ctx = null;
 
@@ -44,17 +50,60 @@ class Game {
          */
         getAll: (_class, predicate = () => true) => {
             return Game.entities.instances.filter(
-                (i) => i.constructor.type === _class.type && predicate(i)
+                (i) => i.constructor.type === _class.type && predicate(i),
             );
         },
     };
 
     static isInitialized = () => this.state.isInitialized;
     static isPaused = () => this.state.isPaused;
-    static init = () => (this.state.isInitialized = true);
 
-    static spawn(entityClass, callback) {
-        const entity = new entityClass();
+    constructor() {
+        super();
+        this.time = new Time();
+        this.renderer = new Renderer();
+        this.time.update = this.update.bind(this);
+        Game.instance = this;
+    }
+
+    init() {
+        Game.state.isInitialized = true;
+    }
+
+    update(delta) {
+        if (!Game.isInitialized()) return;
+
+        for (let entity of Game.entities.instances) {
+            if (typeof entity.update === "function") entity.update(delta);
+        }
+        this.draw(delta, this.renderer);
+    }
+
+    draw(delta, renderer) {
+        renderer.draw(delta);
+    }
+
+    /**
+     * Constructs an `entityClass`, adds it to {@link Game.entities}, and returns it.
+     * `args` forwards to the constructor, an array spreads as positional args, an object passes through as one.
+     *
+     * @template T
+     * @param {new (...args: any[]) => T} entityClass - The entity class to construct.
+     * @param {((entity: T) => void) | null} [callback] - Called with the entity after it's added.
+     * @param {unknown[] | Record<string, unknown> | null} [args] - Constructor arguments.
+     * @returns {T} The spawned entity.
+     *
+     * @example Game.spawn(Snowflake, (flake) => (flake.alpha = 1), [0])
+     */
+    static spawn(entityClass, callback, args) {
+        // null would be passed through as a single argument, treat it as no args instead
+        if (args === null) args = undefined;
+        let entity;
+
+        if (args === undefined) entity = new entityClass();
+        else if (Array.isArray(args)) entity = new entityClass(...args);
+        else entity = new entityClass(args);
+
         this.entities.add(entity);
         callback && callback(entity);
         return entity;
@@ -62,6 +111,5 @@ class Game {
     static destroy = (entity) => this.entities.remove(entity);
 }
 window.game = Game;
-Game.init();
 
 export { Game, Assets };

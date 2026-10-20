@@ -1,5 +1,3 @@
-import { Game } from "./game.js";
-
 class GlobalEvents {
     _handleBlur = () => this.onBlur();
     _handleFocus = () => this.onFocus();
@@ -23,7 +21,6 @@ class GlobalEvents {
     onDestroy() {}
 
     destroy() {
-        Game.destroy(this);
         window.removeEventListener("blur", this._handleBlur);
         window.removeEventListener("focus", this._handleFocus);
         window.removeEventListener("resize", this._handleResize);
