@@ -32,6 +32,10 @@
     <script src="/scripts/glightbox.min.js"></script>
     <script type="module" src="/scripts/main.js"></script>
     <script type="module" src="/scripts/site-core.js"></script>
+    {%- if metadata.goatcounter %}
+    <script data-goatcounter="https://{{ metadata.goatcounter }}.goatcounter.com/count" async
+        src="//gc.zgo.at/count.js"></script>
+    {%- endif %}
 </body>
 
 </html>
