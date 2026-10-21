@@ -8,7 +8,7 @@ description: "Sami's little corner :3"
 <ul class="post-list">
     {%- for post in collections.posts | reverse %}
     <li>
-        <span class="post-meta">{{ post.date | formatDate }}</span>
+        <time class="post-meta" datetime="{{ post.date | isoDate }}">{{ post.date | isoDate }}</time>
         <h2>
             <a class="post-link" href="{{ post.url }}">{{ post.data.title }}</a>
         </h2>

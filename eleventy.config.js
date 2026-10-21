@@ -193,7 +193,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addFilter("formatDate", (date) =>
         date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }),
     );
+    eleventyConfig.addFilter("isoDate", (date) => date.toISOString().slice(0, 10));
     eleventyConfig.addFilter("siteMap", siteMap);
     eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
 }
-

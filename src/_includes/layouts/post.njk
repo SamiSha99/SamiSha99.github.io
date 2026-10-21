@@ -10,4 +10,23 @@ layout: layouts/base.njk
     <div class="post-content">
         {{ content | safe }}
     </div>
+    {%- set olderPost = collections.posts | getPreviousCollectionItem %}
+    {%- set newerPost = collections.posts | getNextCollectionItem %}
+    <nav class="post-nav dashed-top" aria-label="More posts">
+        <div class="post-nav-links">
+            <div>
+                {%- if olderPost %}
+                <span class="post-meta">&lt;&lt;older</span>
+                <a href="{{ olderPost.url }}">{{ olderPost.data.title }}</a>
+                {%- endif %}
+            </div>
+            <div class="post-nav-newer">
+                {%- if newerPost %}
+                <span class="post-meta">newer&gt;&gt;</span>
+                <a href="{{ newerPost.url }}">{{ newerPost.data.title }}</a>
+                {%- endif %}
+            </div>
+        </div>
+        <a class="post-nav-all" href="/blog/">&gt;&gt;all posts</a>
+    </nav>
 </article>

@@ -26,7 +26,8 @@ a:where(:not(.button, .nav a, .icon-link, .portfolio-card-link)),
 }
 
 .dashed-top,
-.portfolio-card + .portfolio-card {
+.portfolio-card + .portfolio-card,
+.post-list > li + li {
     --dash-offset: calc(var(--dash-progress) * var(--dash-size));
     border-top: var(--border-width) solid transparent;
     background-image: linear-gradient(

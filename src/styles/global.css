@@ -633,8 +633,22 @@ a.tabs-button.active {
     padding: 0;
 }
 
+/* Date on the left, title and description lined up to its right */
 .post-list > li {
-    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+    align-items: baseline;
+    padding: 1rem 0;
+}
+
+.post-list h2 {
+    margin: 0;
+}
+
+.post-list p {
+    grid-column: 2;
+    margin: 0.5rem 0 0;
 }
 
 .post-meta {
@@ -659,10 +673,42 @@ a.tabs-button.active {
     height: auto;
 }
 
+/* Same spacing for every heading, not just the ones after the first */
 .post-content h2 {
     display: flex;
     align-items: center;
     gap: 12px;
+    margin: 2rem 0 1rem;
+}
+
+.post-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem 0 2rem;
+}
+
+.post-nav-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.post-nav-links > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    max-width: 48%;
+}
+
+.post-nav-newer {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.post-nav-all {
+    align-self: center;
 }
 
 .post-content h2 img {
@@ -761,6 +807,15 @@ pre a:not(:hover) {
 
     a.tabs-button {
         font-size: 18px;
+    }
+
+    /* Date above the title */
+    .post-list > li {
+        grid-template-columns: 1fr;
+    }
+
+    .post-list p {
+        grid-column: auto;
     }
 
     .intro {
