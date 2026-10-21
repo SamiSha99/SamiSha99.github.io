@@ -7,8 +7,7 @@ html {
 }
 
 /* `--default-hue` and `--dash-progress` are updated every frame by main.js */
-html,
-body {
+html {
     --default-hue: 216;
     --visited-link-color: hsl(var(--default-hue) 80% 65.5%);
     --hovered-link-color: hsl(var(--default-hue) 80% 73.7%);

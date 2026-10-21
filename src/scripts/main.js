@@ -12,13 +12,17 @@ function _0x3c5033() {
 }
 window._0x3c5033 = _0x3c5033;
 
-const hue = { time: Math.random() * 360, speed: 6 };
+// base.njk
+const root = document.documentElement.style;
+// set in <head> in base.njk before load
+const startHue = root.getPropertyValue("--default-hue");
+const hue = { time: startHue ? Number(startHue) : Math.random() * 360, speed: 6 };
 window.hue = hue;
 
 function updateHue(delta) {
     hue.time += delta * hue.speed;
-    document.body.style.setProperty("--default-hue", String(Math.round(hue.time % 360)));
-    document.body.style.setProperty("--dash-progress", String(((1.25 * hue.time) / 8) % 1));
+    root.setProperty("--default-hue", String(Math.round(hue.time % 360)));
+    root.setProperty("--dash-progress", String(((1.25 * hue.time) / 8) % 1));
 }
 
 /** @type {SiteAnimations} */
@@ -43,8 +47,8 @@ class SiteAnimations extends Game {
     static stop() {
         game?.time.stop();
         if (game) game.renderer.canvas.style.display = "none";
-        document.body.style.removeProperty("--default-hue");
-        document.body.style.removeProperty("--dash-progress");
+        root.removeProperty("--default-hue");
+        root.removeProperty("--dash-progress");
     }
 
     init() {

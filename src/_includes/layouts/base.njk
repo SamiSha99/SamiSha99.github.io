@@ -15,6 +15,11 @@
         }
     </script>
     {%- endif %}
+    <script>
+        if (!document.documentElement.classList.contains("no-motion")) {
+            document.documentElement.style.setProperty("--default-hue", String(Math.floor(Math.random() * 360)));
+        }
+    </script>
 </head>
 
 <body {% if bodyId %} id="{{ bodyId }}" {% endif %}{% if noDrawing %} no-drawing="true" {% endif %}>
