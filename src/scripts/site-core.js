@@ -76,39 +76,33 @@ window.areYouABotQuestionMark = areYouABotQuestionMark;
 window.resume = resume;
 window.toggleAnimations = toggleAnimations;
 
-function openTab(evt, tabId) {
-    const contents = document.querySelectorAll(".tab-content");
-    const buttons = document.querySelectorAll(".tabs-button");
+function openTab(tabId) {
+    const panel = document.getElementById(tabId);
+    if (!panel?.classList.contains("tab-content")) return false;
 
-    contents.forEach((c) => {
-        c.style.display = "none";
+    document.querySelectorAll(".tab-content").forEach((content) => {
+        content.style.display = content === panel ? "block" : "none";
     });
-    buttons.forEach((b) => b.classList.remove("active"));
-
-    const selectedContent = document.getElementById(tabId);
-    if (selectedContent) {
-        selectedContent.style.display = "block";
-    }
-
-    if (evt) {
-        evt.currentTarget.classList.add("active");
-    } else {
-        document.querySelector(`.tabs-button[onclick*="${tabId}"]`)?.classList.add("active");
-    }
+    document.querySelectorAll(".tabs-button").forEach((button) => {
+        const active = button.hash === `#${tabId}`;
+        button.classList.toggle("active", active);
+        if (active) button.setAttribute("aria-current", "true");
+        else button.removeAttribute("aria-current");
+    });
+    return true;
 }
 
-function initializeTabs() {
-    const firstTab = document.querySelector(".tab-content");
-    if (firstTab && document.querySelector(".tabs-button")) {
-        openTab(null, firstTab.id);
-    }
-}
+// Switch tabs and update the URL without jumping down to the panel or adding history entries.
+document.querySelectorAll(".tabs-button").forEach((button) => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        openTab(button.hash.slice(1));
+        history.replaceState(null, "", button.hash);
+    });
+});
 
-window.openTab = openTab;
+window.addEventListener("hashchange", () => openTab(location.hash.slice(1)));
 
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeTabs);
-} else {
-    initializeTabs();
-}
+const firstTab = document.querySelector(".tab-content");
+if (firstTab && !openTab(location.hash.slice(1))) openTab(firstTab.id);
 

@@ -619,6 +619,12 @@ a.tabs-button.active {
 .tab-content {
     display: none;
     border-top: var(--border-width) solid var(--border-color);
+    scroll-margin-top: 3rem;
+}
+
+.tab-content:target,
+.tab-panels:not(:has(.tab-content:target)) > .tab-content:first-child {
+    display: block;
 }
 
 /* Blog */

@@ -8,7 +8,7 @@
         {%- for tab in tabs %}
         <a
             class="tabs-button button{% if loop.first %} active{% endif %}"
-            onclick="openTab(event, '{{ tab.id }}')">
+            href="#{{ tab.id }}">
             {{ tab.label }}
         </a>
         {%- endfor %}
