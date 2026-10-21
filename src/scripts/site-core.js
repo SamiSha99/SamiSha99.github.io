@@ -106,3 +106,14 @@ window.addEventListener("hashchange", () => openTab(location.hash.slice(1)));
 const firstTab = document.querySelector(".tab-content");
 if (firstTab && !openTab(location.hash.slice(1))) openTab(firstTab.id);
 
+const backToTop = document.querySelector(".back-to-top");
+if (backToTop) {
+    const update = () => (backToTop.hidden = window.scrollY < window.innerHeight);
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    backToTop.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0 });
+    });
+}
+

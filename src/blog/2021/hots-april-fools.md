@@ -1,5 +1,5 @@
 ---
-title: "PTR Patch Notes | April 1, 2021"
+title: "PTR Patch Notes"
 description: "An April Fools collaboration for Heroes of the Storm."
 date: 2021-04-01T12:00:00+02:00
 categories: ["april-fools", "heroes-of-the-storm"]
@@ -914,3 +914,4 @@ And don't worry about your progress, simply connect your Steam account with your
 [Return to Top](#top)
 
 ![](/assets/images/hots-april-fools/footer.png "Happy April Fools BTW :)")
+

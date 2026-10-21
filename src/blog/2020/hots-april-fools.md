@@ -1,5 +1,5 @@
 ---
-title: "PTR Patch Notes | April 1, 2020"
+title: "PTR Patch Notes"
 description: "An April Fools patch notes for Heroes of the Storm."
 date: 2020-04-01T12:00:00+02:00
 categories: ["april-fools", "heroes-of-the-storm"]

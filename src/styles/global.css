@@ -630,24 +630,55 @@ a.tabs-button.active {
 /* Blog */
 .post-list {
     list-style: none;
+    margin: 0;
     padding: 0;
 }
 
-/* Date on the left, title and description lined up to its right */
+h2.post-year {
+    margin: 2rem 0 0;
+    padding-bottom: 0.5rem;
+}
+
+/* Thumbnail on the left, date, title and description to its right */
 .post-list > li {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 160px 1fr;
     column-gap: 1rem;
-    align-items: baseline;
+    align-items: start;
     padding: 1rem 0;
 }
 
-.post-list h2 {
-    margin: 0;
+.post-thumbnail {
+    display: block;
+}
+
+.post-thumbnail img,
+.post-thumbnail-placeholder {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.post-thumbnail-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 8px;
+    background-color: var(--hovered-link-button-color);
+    color: var(--primary-text-color);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.post-list h3 {
+    margin: 0.25rem 0 0;
 }
 
 .post-list p {
-    grid-column: 2;
     margin: 0.5rem 0 0;
 }
 
@@ -657,11 +688,32 @@ a.tabs-button.active {
 }
 
 .post-link {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.post-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .post-title {
     margin-bottom: 0.25rem;
+}
+
+.post-header .post-meta {
+    margin: 0.5rem 0 0;
+}
+
+/* Shown once scrolled a screen down */
+.back-to-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 3;
+}
+
+.back-to-top[hidden] {
+    display: none;
 }
 
 .post-content {
@@ -809,13 +861,9 @@ pre a:not(:hover) {
         font-size: 18px;
     }
 
-    /* Date above the title */
     .post-list > li {
-        grid-template-columns: 1fr;
-    }
-
-    .post-list p {
-        grid-column: auto;
+        grid-template-columns: 96px 1fr;
+        column-gap: 0.75rem;
     }
 
     .intro {

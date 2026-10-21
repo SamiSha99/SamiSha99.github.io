@@ -5,14 +5,26 @@ description: "Sami's little corner :3"
 ---
 
 <h1>Blog</h1>
+{%- for year, posts in collections.posts | groupByYear %}
+<h2 class="post-year dashed-bottom">{{ year }}</h2>
 <ul class="post-list">
-    {%- for post in collections.posts | reverse %}
+    {%- for post in posts %}
     <li>
-        <time class="post-meta" datetime="{{ post.date | isoDate }}">{{ post.date | isoDate }}</time>
-        <h2>
-            <a class="post-link" href="{{ post.url }}">{{ post.data.title }}</a>
-        </h2>
-        <p>{{ post.data.description }}</p>
+        <a class="post-thumbnail" href="{{ post.url }}" tabindex="-1" aria-hidden="true">
+            {%- if post.data.image %}
+            <img src="{{ post.data.image }}" alt="" eleventy:widths="320" />
+            {%- else %}
+            <span class="post-thumbnail-placeholder">{{ post.data.title }}</span>
+            {%- endif %}
+        </a>
+        <div>
+            <time class="post-meta" datetime="{{ post.date | isoDate }}">{{ post.date | monthDay }}</time>
+            <h3>
+                <a class="post-link" href="{{ post.url }}">{{ post.data.title }}</a>
+            </h3>
+            <p>{{ post.data.description }}</p>
+        </div>
     </li>
     {%- endfor %}
 </ul>
+{%- endfor %}

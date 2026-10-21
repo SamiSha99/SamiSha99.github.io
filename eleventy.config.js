@@ -194,6 +194,21 @@ export default function (eleventyConfig) {
         date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }),
     );
     eleventyConfig.addFilter("isoDate", (date) => date.toISOString().slice(0, 10));
+    eleventyConfig.addFilter("monthDay", (date) =>
+        date.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" }),
+    );
+    // Newest first, example: [[2025, [posts...]], [2021, [posts...]]].
+    eleventyConfig.addFilter("groupByYear", (posts) => [
+        ...Map.groupBy([...posts].reverse(), (post) => post.date.getUTCFullYear()),
+    ]);
+    // Minutes to read the rendered post at ~200 words per minute.
+    eleventyConfig.addFilter("readingTime", (html) => {
+        const words = html
+            .replace(/<[^>]*>/g, " ")
+            .split(/\s+/)
+            .filter(Boolean).length;
+        return Math.max(1, Math.round(words / 238));
+    });
     eleventyConfig.addFilter("siteMap", siteMap);
     eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
 }

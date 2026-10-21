@@ -3,9 +3,9 @@ layout: layouts/base.njk
 ---
 
 <article class="post">
-    <header class="post-header">
+    <header class="post-header dashed-bottom">
         <h1 class="post-title">{{ title }}</h1>
-        <p class="post-meta">{{ page.date | formatDate }}</p>
+        <p class="post-meta">{{ page.date | formatDate }} | {{ content | readingTime }} min read</p>
     </header>
     <div class="post-content">
         {{ content | safe }}
@@ -16,17 +16,18 @@ layout: layouts/base.njk
         <div class="post-nav-links">
             <div>
                 {%- if olderPost %}
-                <span class="post-meta">&lt;&lt;older</span>
+                <span class="post-meta">&lt;&lt;older | <time datetime="{{ olderPost.date | isoDate }}">{{ olderPost.date | isoDate }}</time></span>
                 <a href="{{ olderPost.url }}">{{ olderPost.data.title }}</a>
                 {%- endif %}
             </div>
             <div class="post-nav-newer">
                 {%- if newerPost %}
-                <span class="post-meta">newer&gt;&gt;</span>
+                <span class="post-meta"><time datetime="{{ newerPost.date | isoDate }}">{{ newerPost.date | isoDate }}</time> | newer&gt;&gt;</span>
                 <a href="{{ newerPost.url }}">{{ newerPost.data.title }}</a>
                 {%- endif %}
             </div>
         </div>
         <a class="post-nav-all" href="/blog/">&gt;&gt;all posts</a>
     </nav>
+    <a class="back-to-top button" href="#mainpage" hidden>^ top</a>
 </article>

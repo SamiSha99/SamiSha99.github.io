@@ -17,10 +17,11 @@ html {
 }
 
 /* Dashed underline drawn as a gradient so `--dash-offset` can move it, scales with the text size */
-a:where(:not(.button, .nav a, .icon-link, .portfolio-card-link)),
+a:where(:not(.button, .nav a, .icon-link, .portfolio-card-link, .post-thumbnail)),
 .dashed-underline {
     --dash-size: 0.375em;
     --dash-offset: calc(var(--dash-progress) * var(--dash-size));
+    width: fit-content;
     background: linear-gradient(90deg, currentColor 50%, transparent 50%) var(--dash-offset) 100% /
         var(--dash-size) 1px repeat-x;
 }
