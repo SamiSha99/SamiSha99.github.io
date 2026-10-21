@@ -39,7 +39,7 @@ Patch Notes Link: [https://us.forums.blizzard.com/en/heroes/t/50529](https://us.
 
 **_### BEGIN PATCH NOTES TRANSCRIPTION ###_**
 
-![Heroes of the Storm Logo](/assets/images/hots-april-fools/patch-notes.jpg "Heroes of the Storm Logo")
+![](/assets/images/hots-april-fools/patch-notes.jpg "Heroes of the Storm Logo")
 
 Our next Heroes of the Storm patch has just hit the Public Test Realm and will be available for playtesting until April 8th. As always, if you encounter any bugs during your PTR play sessions, please stop by the [PTR Bug Report](https://us.forums.blizzard.com/en/heroes/c/ptr-bug-report) forum to let us know about your experiences.
 
@@ -60,7 +60,7 @@ Our next Heroes of the Storm patch has just hit the Public Test Realm and will b
 
 # New Hero: Blackthorne (Ranged Assassin) {#blackthorne}
 
-![Blackthorne, King of Androth](/assets/images/hots-april-fools/2021/blackthorne.jpeg "Blackthorne, King of Androth")
+![](/assets/images/hots-april-fools/2021/blackthorne.jpeg "Blackthorne, King of Androth")
 
 After years of waiting his destiny on Earth, Kyle Blackthorne has finally come home to face the galaxy's most terrifying mutant monsters and goblin hordes. With brute strength, animal cunning and a lead-spewing shotgun he's on a quest to reclaim his once peaceful Planet Tuul.
 
@@ -96,7 +96,7 @@ Throw a Fire Bomb that explodes at a target location, dealing 300 damage in a la
 
 # Introducing Cards {#card-system}
 
-![Cards](/assets/images/hots-april-fools/2021/cards.jpeg "Cards")
+![](/assets/images/hots-april-fools/2021/cards.jpeg "Cards")
 
 Cards is a new system that makes unlocking new heroes much easier and more fun, this should allow players to own heroes more quickly.
 
@@ -214,7 +214,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 # Nova Rework {#nova-rework}
 
-![Nova](/assets/images/hots-april-fools/heroes/nova.png)
+![](/assets/images/hots-april-fools/heroes/nova.png)
 
 **General**
 
@@ -375,7 +375,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Anub'arak {#anubarak}
 
-![Anub'arak](/assets/images/hots-april-fools/heroes/anubarak.png)
+![](/assets/images/hots-april-fools/heroes/anubarak.png)
 
 **Talents**
 
@@ -394,7 +394,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Cho {#cho}
 
-![Cho](/assets/images/hots-april-fools/heroes/cho.png)
+![](/assets/images/hots-april-fools/heroes/cho.png)
 
 **Talents**
 
@@ -413,7 +413,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Diablo {#diablo}
 
-![Diablo](/assets/images/hots-april-fools/heroes/diablo.png)
+![](/assets/images/hots-april-fools/heroes/diablo.png)
 
 **Talents**
 
@@ -428,7 +428,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## E.T.C. {#etc}
 
-![E.T.C.](/assets/images/hots-april-fools/heroes/etc.png)
+![](/assets/images/hots-april-fools/heroes/etc.png)
 
 **Stats**
 
@@ -451,7 +451,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Johanna {#johanna}
 
-![Johanna](/assets/images/hots-april-fools/heroes/johanna.png)
+![](/assets/images/hots-april-fools/heroes/johanna.png)
 
 **Talents**
 
@@ -465,7 +465,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Stitches {#stitches}
 
-![Stitches](/assets/images/hots-april-fools/heroes/stitches.png)
+![](/assets/images/hots-april-fools/heroes/stitches.png)
 
 **Talents**
 
@@ -488,7 +488,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Artanis {#artanis}
 
-![Artanis](/assets/images/hots-april-fools/heroes/artanis.png)
+![](/assets/images/hots-april-fools/heroes/artanis.png)
 
 **Abilities**
 
@@ -507,7 +507,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Dehaka {#dehaka}
 
-![Dehaka](/assets/images/hots-april-fools/heroes/dehaka.png)
+![](/assets/images/hots-april-fools/heroes/dehaka.png)
 
 **Abilities**
 
@@ -520,7 +520,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## D.Va {#dva}
 
-![D.Va](/assets/images/hots-april-fools/heroes/dva.png)
+![](/assets/images/hots-april-fools/heroes/dva.png)
 
 **Abilities**
 
@@ -545,7 +545,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Hogger {#hogger}
 
-![Hogger](/assets/images/hots-april-fools/heroes/hogger.png)
+![](/assets/images/hots-april-fools/heroes/hogger.png)
 
 **Talents**
 
@@ -559,7 +559,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Imperius {#imperius}
 
-![Imperius](/assets/images/hots-april-fools/heroes/imperius.png)
+![](/assets/images/hots-april-fools/heroes/imperius.png)
 
 **Talents**
 
@@ -585,7 +585,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Thrall {#thrall}
 
-![Thrall](/assets/images/hots-april-fools/heroes/thrall.png)
+![](/assets/images/hots-april-fools/heroes/thrall.png)
 
 **Talents**
 
@@ -603,7 +603,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Abathur {#abathur}
 
-![Abathur](/assets/images/hots-april-fools/heroes/abathur.png)
+![](/assets/images/hots-april-fools/heroes/abathur.png)
 
 **Talents**
 
@@ -619,7 +619,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## The Lost Vikings {#vikings}
 
-![The Lost Vikings](/assets/images/hots-april-fools/heroes/vikings.png)
+![](/assets/images/hots-april-fools/heroes/vikings.png)
 
 - This Hero has been removed from the game.
 
@@ -633,7 +633,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Anduin {#anduin}
 
-![Anduin](/assets/images/hots-april-fools/heroes/anduin.png)
+![](/assets/images/hots-april-fools/heroes/anduin.png)
 
 **Abilities**
 
@@ -663,7 +663,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Brightwing {#brightwing}
 
-![Brightwing](/assets/images/hots-april-fools/heroes/brightwing.png)
+![](/assets/images/hots-april-fools/heroes/brightwing.png)
 
 **Talents**
 
@@ -677,7 +677,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Kharazim {#kharazim}
 
-![Kharazim](/assets/images/hots-april-fools/heroes/kharazim.png)
+![](/assets/images/hots-april-fools/heroes/kharazim.png)
 
 **Abilities**
 
@@ -691,7 +691,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Tyrande {#tyrande}
 
-![Tyrande](/assets/images/hots-april-fools/heroes/tyrande.png)
+![](/assets/images/hots-april-fools/heroes/tyrande.png)
 
 **Talents**
 
@@ -707,7 +707,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Whitemane {#whitemane}
 
-![Whitemane](/assets/images/hots-april-fools/heroes/whitemane.png)
+![](/assets/images/hots-april-fools/heroes/whitemane.png)
 
 **Talents**
 
@@ -727,7 +727,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Maiev {#maiev}
 
-![Maiev](/assets/images/hots-april-fools/heroes/maiev.png)
+![](/assets/images/hots-april-fools/heroes/maiev.png)
 
 **Talents**
 
@@ -746,7 +746,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Murky {#murky}
 
-![Murky](/assets/images/hots-april-fools/heroes/murky.png)
+![](/assets/images/hots-april-fools/heroes/murky.png)
 
 **Talents**
 
@@ -760,7 +760,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Samuro {#samuro}
 
-![Samuro](/assets/images/hots-april-fools/heroes/samuro.png)
+![](/assets/images/hots-april-fools/heroes/samuro.png)
 
 **Abilities**
 
@@ -783,7 +783,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Zeratul {#zeratul}
 
-![Zeratul](/assets/images/hots-april-fools/heroes/zeratul.png)
+![](/assets/images/hots-april-fools/heroes/zeratul.png)
 
 **Abilities**
 
@@ -808,7 +808,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Falstad {#falstad}
 
-![Falstad](/assets/images/hots-april-fools/heroes/falstad.png)
+![](/assets/images/hots-april-fools/heroes/falstad.png)
 
 **Abilities**
 
@@ -821,7 +821,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Gall {#gall}
 
-![Gall](/assets/images/hots-april-fools/heroes/gall.png)
+![](/assets/images/hots-april-fools/heroes/gall.png)
 
 **Talents**
 
@@ -835,7 +835,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Kael'thas {#kaelthas}
 
-![Kael'thas](/assets/images/hots-april-fools/heroes/kaelthas.png)
+![](/assets/images/hots-april-fools/heroes/kaelthas.png)
 
 **Talents**
 
@@ -849,7 +849,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Lunara {#lunara}
 
-![Lunara](/assets/images/hots-april-fools/heroes/lunara.png)
+![](/assets/images/hots-april-fools/heroes/lunara.png)
 
 **Talents**
 
@@ -863,7 +863,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Probius {#probius}
 
-![Probius](/assets/images/hots-april-fools/heroes/probius.png)
+![](/assets/images/hots-april-fools/heroes/probius.png)
 
 **Talents**
 
@@ -880,7 +880,7 @@ And don't worry about your progress, simply connect your Steam account with your
 
 ## Tracer {#tracer}
 
-![Tracer](/assets/images/hots-april-fools/heroes/tracer.png)
+![](/assets/images/hots-april-fools/heroes/tracer.png)
 
 **Stats**
 
@@ -913,5 +913,4 @@ And don't worry about your progress, simply connect your Steam account with your
 
 [Return to Top](#top)
 
-![Happy April Fools BTW :)](/assets/images/hots-april-fools/footer.png "Happy April Fools BTW :)")
-
+![](/assets/images/hots-april-fools/footer.png "Happy April Fools BTW :)")

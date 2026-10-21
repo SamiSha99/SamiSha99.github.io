@@ -26,7 +26,7 @@ Patch Notes Link: [https://us.forums.blizzard.com/en/heroes/t/35373](https://us.
 
 **_### BEGIN PATCH NOTES TRANSCRIPTION ###_**
 
-![Heroes of the Storm Logo](/assets/images/hots-april-fools/patch-notes.jpg "Heroes of the Storm Logo")
+![](/assets/images/hots-april-fools/patch-notes.jpg "Heroes of the Storm Logo")
 
 Our next Heroes of the Storm patch has just hit the Public Test Realm and will be available for playtesting until April 8th. As always, if you encounter any bugs during your PTR play sessions, please stop by the [PTR Bug Report](https://us.forums.blizzard.com/en/heroes/c/ptr-bug-report) forum to let us know about your experiences.
 
@@ -44,7 +44,7 @@ Our next Heroes of the Storm patch has just hit the Public Test Realm and will b
 
 # New Hero: Mercy (Healer) {#mercymainbtw}
 
-![Mercy, Guardian Angel](/assets/images/hots-april-fools/2020/mercy-thumbnail.jpeg "Mercy, Guardian Angel")
+![](/assets/images/hots-april-fools/2020/mercy-thumbnail.jpeg "Mercy, Guardian Angel")
 
 <iframe width="100%" height="400" src="http://www.youtube.com/embed/9SBZdEhWu7g" frameborder="0" allowfullscreen ></iframe>
 
@@ -145,7 +145,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Blaze {#blaze}
 
-![Blaze](/assets/images/hots-april-fools/heroes/blaze.png "Blaze")
+![](/assets/images/hots-april-fools/heroes/blaze.png "Blaze")
 
 **Abilities**
 
@@ -171,7 +171,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Diablo {#diablo}
 
-![Diablo](/assets/images/hots-april-fools/heroes/diablo.png "Diablo")
+![](/assets/images/hots-april-fools/heroes/diablo.png "Diablo")
 
 - **Level 13**
     - Devastating Charge (Q)
@@ -185,7 +185,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## E.T.C. {#etc}
 
-![E.T.C.](/assets/images/hots-april-fools/heroes/etc.png "E.T.C.")
+![](/assets/images/hots-april-fools/heroes/etc.png "E.T.C.")
 
 - **Level 20**
     - Death Metal (Passive)
@@ -198,7 +198,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Garrosh {#garrosh}
 
-![Garrosh](/assets/images/hots-april-fools/heroes/garrosh.png "Garrosh")
+![](/assets/images/hots-april-fools/heroes/garrosh.png "Garrosh")
 
 **Abilities**
 
@@ -224,7 +224,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Mal'Ganis {#malganis}
 
-![Mal'Ganis](/assets/images/hots-april-fools/heroes/malganis.png "Mal'Ganis")
+![](/assets/images/hots-april-fools/heroes/malganis.png "Mal'Ganis")
 
 **Stats**
 
@@ -254,7 +254,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Dehaka {#dehaka}
 
-![Dehaka](/assets/images/hots-april-fools/heroes/dehaka.png "Dehaka")
+![](/assets/images/hots-april-fools/heroes/dehaka.png "Dehaka")
 
 **Talents**
 
@@ -271,7 +271,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## D.Va {#dva}
 
-![D.Va](/assets/images/hots-april-fools/heroes/dva.png "D.Va")
+![](/assets/images/hots-april-fools/heroes/dva.png "D.Va")
 
 **Stats**
 
@@ -375,7 +375,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Sonya {#sonya}
 
-![Sonya](/assets/images/hots-april-fools/heroes/sonya.png "Sonya")
+![](/assets/images/hots-april-fools/heroes/sonya.png "Sonya")
 
 **Talents**
 
@@ -387,7 +387,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Thrall {#thrall}
 
-![Thrall](/assets/images/hots-april-fools/heroes/thrall.png "Thrall")
+![](/assets/images/hots-april-fools/heroes/thrall.png "Thrall")
 
 **Talents**
 
@@ -405,7 +405,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Abathur {#abathur}
 
-![Abathur](/assets/images/hots-april-fools/heroes/abathur.png "Abathur")
+![](/assets/images/hots-april-fools/heroes/abathur.png "Abathur")
 
 **Talents**
 
@@ -425,7 +425,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Medivh {#medivh}
 
-![Medivh](/assets/images/hots-april-fools/heroes/medivh.png "Medivh")
+![](/assets/images/hots-april-fools/heroes/medivh.png "Medivh")
 
 **Abilities**
 
@@ -448,7 +448,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## The Lost Vikings {#vikings}
 
-![The Lost Vikings](/assets/images/hots-april-fools/heroes/vikings.png "The Lost Vikings")
+![](/assets/images/hots-april-fools/heroes/vikings.png "The Lost Vikings")
 
 **Stats**
 
@@ -471,7 +471,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Tassadar {#tassadar}
 
-![Tassadar](/assets/images/hots-april-fools/heroes/tassadar.png "Tassadar")
+![](/assets/images/hots-april-fools/heroes/tassadar.png "Tassadar")
 
 **Stats**
 
@@ -508,7 +508,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Ana {#ana}
 
-![Ana](/assets/images/hots-april-fools/heroes/ana.png "Ana")
+![](/assets/images/hots-april-fools/heroes/ana.png "Ana")
 
 **Talents**
 
@@ -524,7 +524,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Anduin {#anduin}
 
-![Anduin](/assets/images/hots-april-fools/heroes/anduin.png "Anduin")
+![](/assets/images/hots-april-fools/heroes/anduin.png "Anduin")
 
 **Abiltiies**
 
@@ -538,7 +538,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Li Li {#lili}
 
-![Li Li](/assets/images/hots-april-fools/heroes/lili.png "Li Li")
+![](/assets/images/hots-april-fools/heroes/lili.png "Li Li")
 
 **Abilities**
 
@@ -574,7 +574,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Uther {#uther}
 
-![Uther](/assets/images/hots-april-fools/heroes/uther.png "Uther")
+![](/assets/images/hots-april-fools/heroes/uther.png "Uther")
 
 **Abilities**
 
@@ -622,7 +622,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Whitemane {#whitemane}
 
-![Whitemane](/assets/images/hots-april-fools/heroes/whitemane.png "Whitemane")
+![](/assets/images/hots-april-fools/heroes/whitemane.png "Whitemane")
 
 **Stats**
 
@@ -674,7 +674,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Maiev {#maiev}
 
-![Maiev](/assets/images/hots-april-fools/heroes/maiev.png "Maiev")
+![](/assets/images/hots-april-fools/heroes/maiev.png "Maiev")
 
 **Abilities**
 
@@ -695,7 +695,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Illidan {#illidan}
 
-![Illidan](/assets/images/hots-april-fools/heroes/illidan.png "Illidan")
+![](/assets/images/hots-april-fools/heroes/illidan.png "Illidan")
 
 **Abilities**
 
@@ -711,7 +711,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Qhira {#qhira}
 
-![qhira](/assets/images/hots-april-fools/heroes/qhira.png "qhira")
+![](/assets/images/hots-april-fools/heroes/qhira.png "qhira")
 
 **Talents**
 
@@ -725,7 +725,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Samuro {#samuro}
 
-![Samuro](/assets/images/hots-april-fools/heroes/samuro.png "Samuro")
+![](/assets/images/hots-april-fools/heroes/samuro.png "Samuro")
 
 **Stats**
 
@@ -739,7 +739,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Valeera {#valeera}
 
-![Valeera](/assets/images/hots-april-fools/heroes/valeera.png "Valeera")
+![](/assets/images/hots-april-fools/heroes/valeera.png "Valeera")
 
 **Talents**
 
@@ -761,7 +761,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Azmodan {#azmodan}
 
-![Azmodan](/assets/images/hots-april-fools/heroes/azmodan.png "Azmodan")
+![](/assets/images/hots-april-fools/heroes/azmodan.png "Azmodan")
 
 **Talents**
 
@@ -777,7 +777,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Chromie {#chromie}
 
-![Chromie](/assets/images/hots-april-fools/heroes/chromie.png "Chromie")
+![](/assets/images/hots-april-fools/heroes/chromie.png "Chromie")
 
 **Abilities**
 
@@ -810,7 +810,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Genji {#genji}
 
-![Genji](/assets/images/hots-april-fools/heroes/genji.png "Genji")
+![](/assets/images/hots-april-fools/heroes/genji.png "Genji")
 
 **Stats**
 
@@ -847,7 +847,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Li-Ming {#liming}
 
-![Li-Ming](/assets/images/hots-april-fools/heroes/liming.png "Li-Ming")
+![](/assets/images/hots-april-fools/heroes/liming.png "Li-Ming")
 
 **Talents**
 
@@ -876,7 +876,7 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 ## Tracer {#tracer}
 
-![Tracer](/assets/images/hots-april-fools/heroes/tracer.png "Tracer")
+![](/assets/images/hots-april-fools/heroes/tracer.png "Tracer")
 
 **Stats**
 
@@ -942,5 +942,5 @@ The second Nexus Anomaly has arrived! In order to make game experiences better f
 
 [Return to Top](#top)
 
-![Happy April Fools BTW :)](/assets/images/hots-april-fools/footer.png "Happy April Fools BTW :)")
+![](/assets/images/hots-april-fools/footer.png "Happy April Fools BTW :)")
 
