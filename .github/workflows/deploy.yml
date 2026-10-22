@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
     push:
         branches: [master]
+    # Rebuild weekly so a new GitHub Pages repos show up in the sitemap.
+    schedule:
+        - cron: "0 4 * * 1"
     workflow_dispatch:
 
 permissions:
@@ -29,6 +32,9 @@ jobs:
               run: npm ci
             - name: Build
               run: npm run build
+              env:
+                  # Avoids the shared rate limit when listing the GitHub Pages repos.
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Check internal links
               uses: lycheeverse/lychee-action@v2
               with:

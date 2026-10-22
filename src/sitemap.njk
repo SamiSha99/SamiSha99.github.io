@@ -11,4 +11,9 @@ eleventyExcludeFromCollections: true
     </url>
     {%- endif %}
     {%- endfor %}
+    {%- for url in externalPages %}
+    <url>
+        <loc>{{ metadata.url }}{{ url }}</loc>
+    </url>
+    {%- endfor %}
 </urlset>

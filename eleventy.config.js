@@ -62,9 +62,12 @@ const escapeHtml = (text) =>
     );
 
 // Draws every page as a tree of their URLs, pages are links.
-function siteMap(pages) {
-    // Get all the HTML pages
-    const pageUrls = pages.map((page) => page.url).filter((url) => url && /(\/|\.html)$/.test(url));
+function siteMap(pages, externalUrls = []) {
+    // Get all the HTML pages and the ones hosted from other repos
+    const pageUrls = pages
+        .map((page) => page.url)
+        .filter((url) => url && /(\/|\.html)$/.test(url))
+        .concat(externalUrls);
 
     const root = { children: {} };
     for (const url of pageUrls) {
