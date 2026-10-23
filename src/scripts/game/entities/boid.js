@@ -1,11 +1,12 @@
 import { Entity } from "./entity.js";
 import { Vector2, MathUtils } from "../shared/index.js";
 import { Game } from "../core/game.js";
+import { mouse } from "../core/mouse.js";
 
 class Boid extends Entity {
     type = "Boid";
 
-    static count = 160;
+    static count = 384; // 256 * 1.5
     static length = 12;
     static width = 6;
     static minSpeed = 128;
@@ -15,7 +16,25 @@ class Boid extends Entity {
     static separationWeight = 128;
     static alignmentWeight = 0.8;
     static cohesionWeight = 0.4;
+    // The pointer scares boids within the `fleeRadius`, the scared boids flee from it faster than their max speed,
+    // and the fear spreads to their neighbors (but weaker with each hop), so a whole swarm flees together.
+    static fleeRadius = 128;
+    static fleeWeight = 1536; // 1024 * 1.5
+    static fleeSpeedMultiplier = 2;
+    static fearSpread = 0.8;
+    // Seconds before a fully scared boid becomes calm.
+    static fearDuration = 1;
+    // in Degrees per second.
+    static rainbowSpeed = 360;
+    // Seconds to fade fully into the rainbow once scared.
+    static rainbowFadeIn = 0.5;
     static spawned = 0;
+    static fadeInDelay = 0.25;
+    // 0 = calm | 1 = panicking.
+    fear = 0;
+    // How much of the rainbow is showing, catches up to `fear` over time.
+    rainbow = 0;
+    rainbowHue = Math.random() * 360;
 
     constructor() {
         super();
@@ -33,6 +52,7 @@ class Boid extends Entity {
         this.vx = Math.cos(angle) * speed;
         this.vy = Math.sin(angle) * speed;
         this.alpha = MathUtils.randRange(0.4, 0.8);
+        this.fadeInTime = MathUtils.randRange(0.25, 1);
         this.location = new Vector2(this.x, this.y);
     }
 
@@ -46,6 +66,7 @@ class Boid extends Entity {
             avgY = 0;
         let sepX = 0,
             sepY = 0;
+        let neighborFear = 0;
         for (const other of Game.entities.getAll(Boid)) {
             if (other === this) continue;
             const dx = other.x - this.x;
@@ -57,6 +78,7 @@ class Boid extends Entity {
             avgVy += other.vy;
             avgX += other.x;
             avgY += other.y;
+            neighborFear = Math.max(neighborFear, other.fear);
             // Pushes away harder the closer they are.
             if (distance < Boid.separationRadius) {
                 const push = 1 - distance / Boid.separationRadius;
@@ -64,6 +86,13 @@ class Boid extends Entity {
                 sepY -= (dy / distance) * push;
             }
         }
+        const fear = Math.max(this.fear, neighborFear * Boid.fearSpread);
+        this.fear = Math.max(0, fear - delta / Boid.fearDuration);
+        if (mouse.active && Math.hypot(this.x - mouse.x, this.y - mouse.y) < Boid.fleeRadius) {
+            this.fear = 1;
+        }
+        // Fades in and out with the rainbow.
+        this.rainbow = Math.min(this.fear, this.rainbow + delta / Boid.rainbowFadeIn);
 
         let ax = sepX * Boid.separationWeight;
         let ay = sepY * Boid.separationWeight;
@@ -73,11 +102,20 @@ class Boid extends Entity {
             ax += (avgX / count - this.x) * Boid.cohesionWeight;
             ay += (avgY / count - this.y) * Boid.cohesionWeight;
         }
+        // Runs away from where the pointer was last seen, faster the more scared it is.
+        if (this.fear > 0) {
+            const dx = this.x - mouse.x;
+            const dy = this.y - mouse.y;
+            const distance = Math.hypot(dx, dy) || 1;
+            ax += (dx / distance) * Boid.fleeWeight * this.fear;
+            ay += (dy / distance) * Boid.fleeWeight * this.fear;
+        }
 
         this.vx += ax * delta;
         this.vy += ay * delta;
         const speed = Math.hypot(this.vx, this.vy) || 1;
-        const clamped = MathUtils.clamp(speed, Boid.minSpeed, Boid.maxSpeed);
+        const maxSpeed = Boid.maxSpeed * MathUtils.lerp(1, Boid.fleeSpeedMultiplier, this.fear);
+        const clamped = MathUtils.clamp(speed, Boid.minSpeed, maxSpeed);
         this.vx *= clamped / speed;
         this.vy *= clamped / speed;
 
@@ -103,11 +141,29 @@ class Boid extends Entity {
         }
         this.location = new Vector2(this.x, this.y);
     }
+    getAlpha() {
+        const t = MathUtils.clamp((this.lifeTime - Boid.fadeInDelay) / this.fadeInTime, 0, 1);
+        return MathUtils.lerp(0, this.alpha, t);
+    }
 
     getHueColor() {
-        if (!window.hue) return [248 / 255, 248 / 255, 255 / 255, this.alpha];
+        if (!window.hue) return [248 / 255, 248 / 255, 255 / 255, this.getAlpha()];
         const hue = window.hue.time % 360;
-        return [...MathUtils.hslToRgb(hue, 1, 0.655), this.alpha];
+        return [...MathUtils.hslToRgb(hue, 1, 0.655), this.getAlpha()];
+    }
+
+    getColor() {
+        const color = this.getHueColor();
+        if (this.rainbow <= 0) return color;
+        const t = this.rainbow * this.rainbow * (3 - 2 * this.rainbow);
+        const hue = (this.rainbowHue + this.lifeTime * Boid.rainbowSpeed) % 360;
+        const rainbow = MathUtils.hslToRgb(hue, 1, 0.655);
+        return [
+            MathUtils.lerp(color[0], rainbow[0], t),
+            MathUtils.lerp(color[1], rainbow[1], t),
+            MathUtils.lerp(color[2], rainbow[2], t),
+            color[3],
+        ];
     }
 
     draw(_gl, renderer, _delta) {
@@ -126,7 +182,7 @@ class Boid extends Entity {
             this.x - fx * back - px,
             this.y - fy * back - py,
         ];
-        renderer.programs.triangle.draw(vertices, this.getHueColor());
+        renderer.programs.triangle.draw(vertices, this.getColor());
     }
 }
 
