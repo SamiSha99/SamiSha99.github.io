@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://sami.shakkour.dev/sitemap-index.xml
+Sitemap: https://sami.shakkour.dev/sitemap-0.xml
+Sitemap: https://sami.shakkour.dev/blog/rss.xml
