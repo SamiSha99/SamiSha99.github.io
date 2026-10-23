@@ -7,6 +7,7 @@ class Snowflake extends Entity {
     type = "Snowflake";
 
     static max = 1500;
+    static count = 500;
     static mouseRadius = 160;
     static mouseStrength = 4;
     static pushDrag = 3;
@@ -107,4 +108,3 @@ class Snowflake extends Entity {
 }
 
 export { Snowflake };
-

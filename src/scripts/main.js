@@ -1,4 +1,4 @@
-import { Boid, Game, MathUtils, Snowflake } from "./game/index.js";
+import { Boid, Game, MathUtils, Snowflake, Star } from "./game/index.js";
 
 // 🤫😅🤭🙈🙉🙊
 function _0x3c5033() {
@@ -71,7 +71,7 @@ class SiteAnimations extends Game {
         switch (this.animation) {
             case "snow":
                 // Start with it already snowing
-                for (let i = 0; i < 500; i++) {
+                for (let i = 0; i < Snowflake.count; i++) {
                     Game.spawn(Snowflake, null, [
                         MathUtils.randRange(0, this.renderer.canvas.height),
                         true,
@@ -81,6 +81,8 @@ class SiteAnimations extends Game {
             case "boids":
                 for (let i = 0; i < Boid.count; i++) Game.spawn(Boid);
                 break;
+            case "stars":
+                for (let i = 0; i < Star.count; i++) Game.spawn(Star);
         }
     }
 
@@ -111,4 +113,3 @@ window.animations = SiteAnimations;
 
 // Reduced motion or turned off from the footer.
 if (!document.documentElement.classList.contains("no-motion")) SiteAnimations.start();
-
