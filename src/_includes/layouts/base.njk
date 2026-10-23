@@ -22,7 +22,7 @@
     </script>
 </head>
 
-<body {% if bodyId %} id="{{ bodyId }}" {% endif %}{% if noDrawing %} no-drawing="true" {% endif %}>
+<body {% if bodyId %} id="{{ bodyId }}" {% endif %}{% if noDrawing %} no-drawing="true" {% endif %}{% if animation %} animation="{{ animation }}" {% endif %}>
     {%- if chrome === false %}
     {{ content | safe }}
     {%- else %}

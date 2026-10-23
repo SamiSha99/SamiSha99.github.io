@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { ogImage, titleCard } from "../../scripts/og-image.js";
+import animations from "../_data/animations.js";
 
 // `src` is relative to /assets/images/, or to /assets/videos/ for .mp4 files.
 const mediaSchema = z.object({
@@ -20,6 +21,8 @@ const portfolioSchema = z.object({
         .optional(),
     media: z.array(mediaSchema).optional(),
     scrollable: z.boolean().optional(),
+    // Background animation, default is snow if not set.
+    animation: z.enum(animations).optional(),
 });
 
 export default {

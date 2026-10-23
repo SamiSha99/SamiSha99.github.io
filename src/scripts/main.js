@@ -1,4 +1,4 @@
-import { Game, MathUtils, Snowflake } from "./game/index.js";
+import { Boid, Game, MathUtils, Snowflake } from "./game/index.js";
 
 // 🤫😅🤭🙈🙉🙊
 function _0x3c5033() {
@@ -31,6 +31,8 @@ let game;
 class SiteAnimations extends Game {
     // Pages marked `no-drawing` only animate the hue.
     drawing = document.body.getAttribute("no-drawing") !== "true";
+    // Set by the page's `animation` (e.g. `animation: boids`), snow if not set.
+    animation = document.body.getAttribute("animation") ?? "snow";
     spawnSnowDelay = 0;
 
     static start() {
@@ -51,17 +53,34 @@ class SiteAnimations extends Game {
         root.removeProperty("--dash-progress");
     }
 
+    // Swaps the running animation for another.
+    static setAnimation(animation) {
+        if (!game) return;
+        for (const entity of [...Game.entities.instances]) entity.destroy();
+        game.animation = animation;
+        if (game.drawing) game.spawnAnimation();
+    }
+
     init() {
         super.init();
         updateHue(0);
-        if (!this.drawing) return;
+        if (this.drawing) this.spawnAnimation();
+    }
 
-        // Start with it already snowing
-        for (let i = 0; i < 500; i++) {
-            Game.spawn(Snowflake, null, [
-                MathUtils.randRange(0, this.renderer.canvas.height),
-                true,
-            ]);
+    spawnAnimation() {
+        switch (this.animation) {
+            case "snow":
+                // Start with it already snowing
+                for (let i = 0; i < 500; i++) {
+                    Game.spawn(Snowflake, null, [
+                        MathUtils.randRange(0, this.renderer.canvas.height),
+                        true,
+                    ]);
+                }
+                break;
+            case "boids":
+                for (let i = 0; i < Boid.count; i++) Game.spawn(Boid);
+                break;
         }
     }
 
@@ -70,7 +89,11 @@ class SiteAnimations extends Game {
         if (!this.drawing) return;
 
         super.update(delta);
-        this.spawnSnow(delta);
+        switch (this.animation) {
+            case "snow":
+                this.spawnSnow(delta);
+                break;
+        }
     }
 
     spawnSnow(delta) {
