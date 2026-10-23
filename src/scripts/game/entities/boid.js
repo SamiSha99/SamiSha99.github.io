@@ -6,7 +6,7 @@ import { mouse } from "../core/mouse.js";
 class Boid extends Entity {
     type = "Boid";
 
-    static count = 256; // 256 * 1.5
+    static count = 160; // 128 * 1.25
     static length = 36;
     static width = 18;
     static minSpeed = 288;
@@ -14,13 +14,13 @@ class Boid extends Entity {
     static viewRadius = 32;
     static separationRadius = 16;
     static separationWeight = 128;
-    static alignmentWeight = 0.8;
-    static cohesionWeight = 0.4;
+    static alignmentWeight = 1;
+    static cohesionWeight = 0.8;
     // The pointer scares boids within the `fleeRadius`, the scared boids flee from it faster than their max speed,
     // and the fear spreads to their neighbors (but weaker with each hop), so a whole swarm flees together.
     static fleeRadius = 128;
-    static fleeWeight = 1536; // 1024 * 1.5
-    static fleeSpeedMultiplier = 2;
+    static fleeWeight = 2048;
+    static fleeSpeedMultiplier = 3;
     static fearSpread = 0.8;
     // Seconds before a fully scared boid becomes calm.
     static fearDuration = 1;
