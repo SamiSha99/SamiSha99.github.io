@@ -6,11 +6,11 @@ import { mouse } from "../core/mouse.js";
 class Boid extends Entity {
     type = "Boid";
 
-    static count = 384; // 256 * 1.5
-    static length = 12;
-    static width = 6;
-    static minSpeed = 128;
-    static maxSpeed = 256;
+    static count = 256; // 256 * 1.5
+    static length = 36;
+    static width = 18;
+    static minSpeed = 288;
+    static maxSpeed = 576;
     static viewRadius = 32;
     static separationRadius = 16;
     static separationWeight = 128;
@@ -187,4 +187,3 @@ class Boid extends Entity {
 }
 
 export { Boid };
-
