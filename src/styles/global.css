@@ -849,8 +849,8 @@ pre a:not(:hover) {
     #mainpage {
         width: calc(100vw - 1rem);
         padding: 0 0.5rem;
-        background-color: rgba(0, 0, 0, 0.65);
-        box-shadow: rgba(0, 0, 0, 0.65) 0px 0px 50px 50px;
+        background-color: rgba(0, 0, 0, 0.725);
+        box-shadow: rgba(0, 0, 0, 0.725) 0px 0px 50px 50px;
     }
 
     .nav {
