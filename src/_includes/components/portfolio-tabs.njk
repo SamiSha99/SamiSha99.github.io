@@ -19,16 +19,13 @@
     {%- for tab in tabs %}
     <section id="{{ tab.id }}" class="tab-content" aria-label="{{ tab.label }}">
         <div class="portfolio-list">
-            {%- for item in collections.portfolio %}
+            {%- for item in collections.portfolio | reverse %}
             {%- if item.data.tab == tab.id %}
-            {%- set preview = item.data.preview %}
             <article class="portfolio-card">
-                {%- if not preview %}
-                <div class="portfolio-card-image portfolio-card-placeholder">{{ item.data.title }}</div>
-                {%- elif r/\.mp4$/i.test(preview) %}
-                <img class="portfolio-card-image" src="/assets/videos/{{ preview | replace('.mp4', '_poster.jpg') }}" alt="" eleventy:widths="640" />
+                {%- if item.data.preview %}
+                <img class="portfolio-card-image" src="{{ item.data.preview | previewSrc }}" alt="" eleventy:widths="640" />
                 {%- else %}
-                <img class="portfolio-card-image" src="/assets/images/{{ preview }}" alt="" eleventy:widths="640" />
+                <div class="portfolio-card-image portfolio-card-placeholder">{{ item.data.title }}</div>
                 {%- endif %}
                 <h2 class="portfolio-card-title">{{ item.data.title }}</h2>
                 {%- if item.data.description %}

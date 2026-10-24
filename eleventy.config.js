@@ -6,6 +6,7 @@ import markdownItAttrs from "markdown-it-attrs";
 import { readFileSync } from "node:fs";
 import metadata from "./src/_data/metadata.js";
 import markdownItIns from "markdown-it-ins/dist/markdown-it-ins.js";
+import { previewSrc } from "./scripts/post.js";
 
 export const config = {
     dir: { input: "src", output: "dist" },
@@ -187,12 +188,7 @@ export default function (eleventyConfig) {
         },
     });
 
-    eleventyConfig.addCollection("portfolio", (collectionApi) =>
-        collectionApi
-            .getFilteredByGlob("./src/porfolio/**/*.md")
-            .sort((a, b) => a.data.order - b.data.order),
-    );
-
+    eleventyConfig.addFilter("previewSrc", previewSrc);
     eleventyConfig.addFilter("formatDate", (date) =>
         date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }),
     );

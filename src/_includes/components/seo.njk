@@ -1,5 +1,4 @@
 {%- set canonicalUrl = metadata.url + page.url -%}
-{%- set previewImage = (image or titleCardImage) if preview !== false -%}
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{{ title }}</title>
@@ -14,14 +13,14 @@
 <meta property="og:title" content="{{ title }}" />
 <meta property="og:description" content="{{ description | striptags }}" />
 <meta property="og:url" content="{{ canonicalUrl }}" />
-{%- if previewImage %}
-<meta property="og:image" content="{{ metadata.url + previewImage }}" />
+{%- if image %}
+<meta property="og:image" content="{{ metadata.url + image }}" />
 {%- endif %}
 <meta name="theme-color" content="#000000" />
 
-<meta name="twitter:card" content="{{ 'summary_large_image' if previewImage else 'summary' }}" />
+<meta name="twitter:card" content="{{ 'summary_large_image' if image else 'summary' }}" />
 <meta name="twitter:title" content="{{ title }}" />
 <meta name="twitter:description" content="{{ description | striptags }}" />
-{%- if previewImage %}
-<meta name="twitter:image" content="{{ metadata.url + previewImage }}" />
+{%- if image %}
+<meta name="twitter:image" content="{{ metadata.url + image }}" />
 {%- endif %}

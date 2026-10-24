@@ -2,14 +2,33 @@
 layout: layouts/base.njk
 ---
 
+{% from "components/media-gallery.njk" import mediaGallery %}
 <article class="post">
     <header class="post-header dashed-bottom">
         <h1 class="post-title">{{ title }}</h1>
         <p class="post-meta">{{ page.date | formatDate }} | {{ content | readingTime }} min read</p>
+        {%- if buttons | length %}
+        <div class="project-links">
+            {%- for button in buttons %}
+            <a
+                class="{{ button.className or 'button' }}"
+                href="{{ button.href }}"
+                target="_blank"
+                rel="noopener noreferrer">
+                {{ button.label }}
+            </a>
+            {%- endfor %}
+        </div>
+        {%- endif %}
     </header>
     <div class="post-content">
         {{ content | safe }}
     </div>
+    {%- if media | length %}
+    {{ mediaGallery(media, scrollable, title) }}
+    {%- endif %}
+    {# Disable for porfolio until I figure out a better a way to do it #}
+    {%- if not page.filePathStem.startsWith("/porfolio/") %}
     {%- set olderPost = collections.posts | getPreviousCollectionItem %}
     {%- set newerPost = collections.posts | getNextCollectionItem %}
     <nav class="post-nav dashed-top" aria-label="More posts">
@@ -29,5 +48,6 @@ layout: layouts/base.njk
         </div>
         <a class="post-nav-all" href="/blog/">&gt;&gt;all posts</a>
     </nav>
+    {%- endif %}
     <a class="back-to-top button" href="#mainpage" hidden>^ top</a>
 </article>

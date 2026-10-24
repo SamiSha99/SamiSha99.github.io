@@ -11,8 +11,8 @@ description: "Sami's little corner :3"
     {%- for post in posts %}
     <li>
         <a class="post-thumbnail" href="{{ post.url }}" tabindex="-1" aria-hidden="true">
-            {%- if post.data.image %}
-            <img src="{{ post.data.image }}" alt="" eleventy:widths="320" />
+            {%- if post.data.preview %}
+            <img src="{{ post.data.preview | previewSrc }}" alt="" eleventy:widths="320" />
             {%- else %}
             <span class="post-thumbnail-placeholder">{{ post.data.title }}</span>
             {%- endif %}

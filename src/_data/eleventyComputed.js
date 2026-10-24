@@ -1,10 +1,12 @@
 import { ogImage, titleCard } from "../../scripts/og-image.js";
+import { previewSrc } from "../../scripts/post.js";
 
 export default {
-    // A page without a `preview` image gets a generated title card as its link preview, `preview: false` disables it.
-    titleCardImage: (data) =>
-        !data.image && data.title && data.preview !== false
-            ? ogImage(titleCard(data.title), data)
-            : undefined,
+    // Meta link preview image for when sharing the page, this is resized from `preview`.
+    // Pages without a preview get a generated (through code) title card, pass `preview: false` to disable it.
+    image: (data) => {
+        if (data.preview === false || !data.title) return undefined;
+        const source = data.preview ? `public${previewSrc(data.preview)}` : titleCard(data.title);
+        return ogImage(source, data);
+    },
 };
-
