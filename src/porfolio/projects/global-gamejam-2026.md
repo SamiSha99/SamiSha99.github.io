@@ -2,7 +2,7 @@
 title: Maskable - GGJ 2026
 description: 'My submissions to the Global Game Jam 2026 "Masks" theme, with the modifier "Chaos".'
 preview: maskable/maskable.png
-order: 2
+date: 2026-01-29
 buttons:
     - label: GGJ2026 Page
       href: https://globalgamejam.org/games/2026/maskable-9

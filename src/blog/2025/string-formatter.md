@@ -2,7 +2,7 @@
 title: "String Parser"
 description: "The philosophy behind making a string parser in any programming language using simple index inspection."
 date: 2025-01-30T09:42:00+02:00
-image: /assets/images/blog/string-formatter/thumbnail.png
+preview: blog/string-formatter/thumbnail.png
 ---
 
 The philosophy behind making a string parser in any programming language using simple index inspection, this type of formatting was done for the [Online Communication](https://github.com/SamiSha99/OnlineCommunication/) Mod which I've released in June 2024. Looking back it, I think its a very rough implementation and there's technically a way WAY better approach than the one I wrote but I think engine limitation was the largest hurdle here of course.

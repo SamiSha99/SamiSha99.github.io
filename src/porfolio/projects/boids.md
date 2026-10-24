@@ -1,7 +1,7 @@
 ---
 title: Boids
 description: "A Boids simulation in Unity where up to 1000 Craigles flock, grow, split and die."
-order: 6
+date: 2026-08-19
 animation: boids
 buttons:
     - label: Repository

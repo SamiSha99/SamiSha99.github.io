@@ -2,7 +2,7 @@
 title: Playfrens
 description: "Playfrens helps you plan with friends what to play next."
 preview: playfrens/main_screen.png
-order: 1
+date: 2024-09-18
 buttons:
     - label: playfrens.com
       href: https://playfrens.com

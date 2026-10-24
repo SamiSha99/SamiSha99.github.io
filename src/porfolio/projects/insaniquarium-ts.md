@@ -1,7 +1,7 @@
 ---
 title: Insaniquarium.ts
 description: "Insaniquarium: Deluxe rebuilt from the ground up in TypeScript."
-order: 1
+date: 2026-03-01
 media:
     - src: insaniquariumjs_demo.mp4
       caption: "Demo showing the game's extracted original assets rebuilt to be web ready, the game is fully playable."

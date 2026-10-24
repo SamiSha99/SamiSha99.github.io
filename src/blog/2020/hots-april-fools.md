@@ -3,7 +3,7 @@ title: "PTR Patch Notes"
 description: "An April Fools patch notes for Heroes of the Storm."
 date: 2020-04-01T12:00:00+02:00
 categories: ["april-fools", "heroes-of-the-storm"]
-image: /assets/images/hots-april-fools/2020/mercy-thumbnail.jpeg
+preview: hots-april-fools/2020/mercy-thumbnail.jpeg
 ---
 
 An April Fools patch notes for Heroes of the Storm.

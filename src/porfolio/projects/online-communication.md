@@ -2,7 +2,7 @@
 title: Online Communication
 description: "Chatless self-moderated A Hat in Time mod that improves communication between online players."
 preview: onlinecommunication/logo.png
-order: 3
+date: 2024-06-27
 buttons:
     - label: Repository
       href: https://github.com/SamiSha99/OnlineCommunication/

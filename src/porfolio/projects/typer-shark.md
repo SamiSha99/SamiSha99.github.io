@@ -2,7 +2,7 @@
 title: Typer Shark!
 description: 'Mod submission to the A Hat in Time "Ocean Exploration" Modding Jam that recreates the video game "Typer Shark!".'
 preview: typershark/portrait.png
-order: 5
+date: 2022-09-16
 buttons:
     - label: Steam Workshop
       href: https://steamcommunity.com/sharedfiles/filedetails/?id=2863763530
