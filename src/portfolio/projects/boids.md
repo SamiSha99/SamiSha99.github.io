@@ -10,7 +10,7 @@ buttons:
 
 ![Craigles being born and multiplying until they hit 1000 entities inside the cube.](/assets/videos/boids.mp4)
 
-I made this as an assignment for a company when I applied for a job there, I passed the assignment, but I couldn't get the job due to European laws. :(
+I made this as an assignment for [Grendel Games](https://grendelgames.com/) when I applied for a job there, I passed the assignment, but I couldn't get the job due to European laws. :(
 
 The assignment called them Craigles, from researching it turned out the algorithm is called [Boids](https://en.wikipedia.org/wiki/Boids), a flocking algorithm made by Craig Reynolds where each entity only looks at the ones near it, but all together they move like a flock of birds or a school of fish. Craigle is probably flavoring for the creator Craig Reynolds.
 
