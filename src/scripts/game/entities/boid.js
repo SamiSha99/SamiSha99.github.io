@@ -17,6 +17,9 @@ class Boid extends EntityAnimated {
     static separationWeight = 128;
     static alignmentWeight = 1;
     static cohesionWeight = 0.8;
+    // Boids turn back inside within `edgeMargin` of an edge, harder the closer they get.
+    static edgeMargin = 128;
+    static edgeWeight = 4096;
     // The pointer scares boids within the `fleeRadius`, the scared boids flee from it faster than their max speed,
     // and the fear spreads to their neighbors (but weaker with each hop), so a whole swarm flees together.
     static fleeRadius = 128;
@@ -118,6 +121,14 @@ class Boid extends EntityAnimated {
             ax += (dx / distance) * Boid.fleeWeight * this.fear;
             ay += (dy / distance) * Boid.fleeWeight * this.fear;
         }
+        // Turns away from the edges before reaching them.
+        const w = Game.canvas.width;
+        const h = Game.canvas.height;
+        const edge = Boid.edgeMargin;
+        if (this.x < edge) ax += (1 - this.x / edge) * Boid.edgeWeight;
+        else if (this.x > w - edge) ax -= (1 - (w - this.x) / edge) * Boid.edgeWeight;
+        if (this.y < edge) ay += (1 - this.y / edge) * Boid.edgeWeight;
+        else if (this.y > h - edge) ay -= (1 - (h - this.y) / edge) * Boid.edgeWeight;
 
         this.vx += ax * delta;
         this.vy += ay * delta;
@@ -129,10 +140,8 @@ class Boid extends EntityAnimated {
 
         this.x += this.vx * delta;
         this.y += this.vy * delta;
-        // Bounces off the edges
+        // Bounces off the edges if turning wasn't enough, like when fleeing faster than it can turn.
         const margin = Boid.length / 2;
-        const w = Game.canvas.width;
-        const h = Game.canvas.height;
         if (this.x < margin) {
             this.x = margin;
             this.vx = Math.abs(this.vx);
