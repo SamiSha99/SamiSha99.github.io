@@ -1,8 +1,8 @@
-import { Entity } from "./entity.js";
+import { EntityAnimated } from "./entity_animated.js";
 import { Vector2, MathUtils } from "../shared/index.js";
 import { Game } from "../core/game.js";
 
-class Star extends Entity {
+class Star extends EntityAnimated {
     type = "Star";
 
     static count = 200;
@@ -11,7 +11,6 @@ class Star extends Entity {
     static minSize = 1.5;
     static maxSize = 12;
     static decayRate = 0.6;
-    static fadeInDelay = 0.25;
     static fadeOutTime = 0.2;
     dying = false;
     static trailLengthFactor = 8;
@@ -56,8 +55,7 @@ class Star extends Entity {
             offsetY *= scale;
         }
         this.location = new Vector2(offsetX * this.depth, offsetY * this.depth);
-        this.spawnTime = this.lifeTime;
-        this.fadeInTime = MathUtils.randRange(0.25, 1);
+        this.startFadeIn();
         this.dying = false;
         // Forces draw() to re-seed its trail
         this.prevScreenX = undefined;
@@ -83,19 +81,10 @@ class Star extends Entity {
     }
 
     getAlpha() {
-        const elapsed = this.lifeTime - this.spawnTime - Star.fadeInDelay;
-        const fadeIn = MathUtils.clamp(elapsed / this.fadeInTime, 0, 1);
         const fadeOut = this.dying
             ? 1 - MathUtils.clamp((this.lifeTime - this.dyingSince) / Star.fadeOutTime, 0, 1)
             : 1;
-        return this.alpha * fadeIn * fadeOut;
-    }
-
-    // Same as the site hue color, white if the hue isn't animating.
-    getHueColor() {
-        if (!window.hue) return [248 / 255, 248 / 255, 255 / 255, this.getAlpha()];
-        const hue = window.hue.time % 360;
-        return [...MathUtils.hslToRgb(hue, 1, 0.655), this.getAlpha()];
+        return super.getAlpha() * fadeOut;
     }
 
     draw(_gl, renderer, _delta) {

@@ -1,18 +1,19 @@
-import { Entity } from "./entity.js";
-import { Vector2, MathUtils } from "../shared/index.js";
+import { EntityAnimated } from "./entity_animated.js";
+import { MathUtils } from "../shared/index.js";
 import { Game } from "../core/game.js";
 import { mouse } from "../core/mouse.js";
 
-class Boid extends Entity {
+class Boid extends EntityAnimated {
     type = "Boid";
 
+    static flock = [];
     static count = 160; // 128 * 1.25
     static length = 36;
     static width = 18;
     static minSpeed = 288;
     static maxSpeed = 576;
-    static viewRadius = 32;
-    static separationRadius = 16;
+    static viewRadius = 96;
+    static separationRadius = 32;
     static separationWeight = 128;
     static alignmentWeight = 1;
     static cohesionWeight = 0.8;
@@ -29,7 +30,6 @@ class Boid extends Entity {
     // Seconds to fade fully into the rainbow once scared.
     static rainbowFadeIn = 0.5;
     static spawned = 0;
-    static fadeInDelay = 0.25;
     // 0 = calm | 1 = panicking.
     fear = 0;
     // How much of the rainbow is showing, catches up to `fear` over time.
@@ -52,8 +52,13 @@ class Boid extends Entity {
         this.vx = Math.cos(angle) * speed;
         this.vy = Math.sin(angle) * speed;
         this.alpha = MathUtils.randRange(0.4, 0.8);
-        this.fadeInTime = MathUtils.randRange(0.25, 1);
-        this.location = new Vector2(this.x, this.y);
+        this.startFadeIn();
+        Boid.flock.push(this);
+    }
+
+    onDestroy() {
+        const i = Boid.flock.indexOf(this);
+        if (i !== -1) Boid.flock.splice(i, 1);
     }
 
     update(delta) {
@@ -67,12 +72,15 @@ class Boid extends Entity {
         let sepX = 0,
             sepY = 0;
         let neighborFear = 0;
-        for (const other of Game.entities.getAll(Boid)) {
+        const viewRadiusSq = Boid.viewRadius * Boid.viewRadius;
+        for (const other of Boid.flock) {
             if (other === this) continue;
             const dx = other.x - this.x;
             const dy = other.y - this.y;
-            const distance = Math.hypot(dx, dy);
-            if (distance === 0 || distance > Boid.viewRadius) continue;
+            // Squared first, so the square root is only taken for actual neighbors.
+            const distanceSq = dx * dx + dy * dy;
+            if (distanceSq === 0 || distanceSq > viewRadiusSq) continue;
+            const distance = Math.sqrt(distanceSq);
             count++;
             avgVx += other.vx;
             avgVy += other.vy;
@@ -139,17 +147,6 @@ class Boid extends Entity {
             this.y = h - margin;
             this.vy = -Math.abs(this.vy);
         }
-        this.location = new Vector2(this.x, this.y);
-    }
-    getAlpha() {
-        const t = MathUtils.clamp((this.lifeTime - Boid.fadeInDelay) / this.fadeInTime, 0, 1);
-        return MathUtils.lerp(0, this.alpha, t);
-    }
-
-    getHueColor() {
-        if (!window.hue) return [248 / 255, 248 / 255, 255 / 255, this.getAlpha()];
-        const hue = window.hue.time % 360;
-        return [...MathUtils.hslToRgb(hue, 1, 0.655), this.getAlpha()];
     }
 
     getColor() {

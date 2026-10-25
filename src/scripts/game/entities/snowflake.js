@@ -1,9 +1,9 @@
-import { Entity } from "./entity.js";
+import { EntityAnimated } from "./entity_animated.js";
 import { Vector2, MathUtils } from "../shared/index.js";
 import { Game } from "../core/game.js";
 import { mouse, sampleMouse } from "../core/mouse.js";
 
-class Snowflake extends Entity {
+class Snowflake extends EntityAnimated {
     type = "Snowflake";
 
     static max = 1500;
@@ -17,8 +17,6 @@ class Snowflake extends Entity {
     static rainbowSpeed = 360;
     rainbow = 0;
     rainbowHue = Math.random() * 360;
-    static fadeInDelay = 0.25;
-    fadeInTime = 0;
 
     constructor(y, fadeIn = false) {
         super();
@@ -36,7 +34,7 @@ class Snowflake extends Entity {
 
         this.startX = MathUtils.randRange(0, Game.canvas.width);
         this.location = new Vector2(this.startX, y ?? -this.radius);
-        if (fadeIn) this.fadeInTime = MathUtils.randRange(0.25, 1);
+        if (fadeIn) this.startFadeIn();
     }
 
     update(delta) {
@@ -72,12 +70,6 @@ class Snowflake extends Entity {
         ];
     }
 
-    getAlpha() {
-        if (!this.fadeInTime) return this.alpha;
-        const t = MathUtils.clamp((this.lifeTime - Snowflake.fadeInDelay) / this.fadeInTime, 0, 1);
-        return MathUtils.lerp(0, this.alpha, t);
-    }
-
     pushByMouse(delta) {
         sampleMouse(delta);
         const moving = mouse.active && (mouse.vx !== 0 || mouse.vy !== 0);
@@ -93,13 +85,6 @@ class Snowflake extends Entity {
         const drag = Math.exp(-Snowflake.pushDrag * delta);
         this.pushX *= drag;
         this.pushY *= drag;
-    }
-
-    // Same as the site hue color, white if the hue isn't animating.
-    getHueColor() {
-        if (!window.hue) return [248 / 255, 248 / 255, 255 / 255, this.getAlpha()];
-        const hue = window.hue.time % 360;
-        return [...MathUtils.hslToRgb(hue, 1, 0.655), this.getAlpha()];
     }
 
     draw(_gl, renderer, _delta) {
