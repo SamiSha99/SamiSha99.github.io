@@ -1,6 +1,6 @@
 ---
 title: 3D Editor
-description: "3D Editing protoype tool that runs on the web."
+description: "3D Editing prototype tool that runs on the web."
 date: 2024-03-12
 media:
     - src: inspector_demo.mp4

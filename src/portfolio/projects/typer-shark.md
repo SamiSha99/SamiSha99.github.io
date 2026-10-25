@@ -8,7 +8,7 @@ buttons:
       href: https://steamcommunity.com/sharedfiles/filedetails/?id=2863763530
 media:
     - src: typershark/pirahna.jpg
-      caption: Pirahnas only have 1 letter but are quite fast.
+      caption: Piranhas only have 1 letter but are quite fast.
     - src: typershark/glowey.jpg
       caption: Glowing sharks have random strings instead.
     - src: typershark/tanky.jpg
@@ -31,7 +31,7 @@ Once they reach the bottom, they go into a bonus round, where they can type as m
 - Shark: The main fish you face, type the word onto them.
 - Blue Shark: Like sharks but blue, they are tougher and requires you to type 2 different words.
 - White Shark: This shark has random letters onto it.
-- Pirahanas: Made of one letter but really fast.
+- Piranhas: Made of one letter but really fast.
 
 ## Accessibility
 
