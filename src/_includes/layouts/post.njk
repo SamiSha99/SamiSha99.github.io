@@ -27,8 +27,8 @@ layout: layouts/base.njk
     {%- if media | length %}
     {{ mediaGallery(media, scrollable, title) }}
     {%- endif %}
-    {# Disable for porfolio until I figure out a better a way to do it #}
-    {%- if not page.filePathStem.startsWith("/porfolio/") %}
+    {# Disable for portfolio until I figure out a better a way to do it #}
+    {%- if not page.filePathStem.startsWith("/portfolio/") %}
     {%- set olderPost = collections.posts | getPreviousCollectionItem %}
     {%- set newerPost = collections.posts | getNextCollectionItem %}
     <nav class="post-nav dashed-top" aria-label="More posts">
@@ -50,4 +50,4 @@ layout: layouts/base.njk
     </nav>
     {%- endif %}
     <a class="back-to-top button" href="#mainpage" hidden>^ top</a>
-</article>
+</article>
