@@ -7,7 +7,7 @@ media:
       caption: "Demo showing the game's extracted original assets rebuilt to be web ready, the game is fully playable."
 ---
 
-A recreation of [Insaniquarium: Deluxe](https://store.steampowered.com/app/3320/Insaniquarium_Deluxe/) that runs in the browser, on a custom web engine I made from scratch in TypeScript.
+A recreation of [Insaniquarium: Deluxe](https://en.wikipedia.org/wiki/Insaniquarium) that runs in the browser, on a custom web engine I made from scratch in TypeScript.
 
 The idea is that the game itself isn't included, only a custom made web engine that knows how to run it. You upload the files from your own copy of the game straight in the browser, the engine converts them into something the web can use, and you can play it right there.
 
