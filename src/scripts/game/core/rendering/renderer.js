@@ -5,6 +5,7 @@ import { ProgramRegistery } from "./programs/index.js";
 const ASPECT_RATIO = {
     WIDTH: 1920,
     HEIGHT: 1080,
+    SELECTED_PRESET: "1080p",
     PRESETS: {
         "1080p": [1920, 1080],
         "720p": [1280, 720],
@@ -12,6 +13,7 @@ const ASPECT_RATIO = {
         "4:3": [1024, 768],
         "16:10": [1920, 1200],
         ultrawide: [2560, 1080],
+        custom: [-1, -1], // uses innerWidth/innerHeight for this one instead.
     },
     SET(value) {
         const preset = this.PRESETS[value];
@@ -19,7 +21,14 @@ const ASPECT_RATIO = {
 
         this.WIDTH = preset[0];
         this.HEIGHT = preset[1];
+        this.SELECTED_PRESET = value;
         Game.instance?.renderer.onResize();
+    },
+    GET(key) {
+        return this.PRESETS[key] ?? [-1, -1];
+    },
+    GET_NAME(index) {
+        return Object.keys(this.PRESETS)[index];
     },
 };
 
@@ -35,9 +44,10 @@ class Renderer extends GlobalEvents {
     /** @type {ProgramRegistery} */
     programs;
 
-    constructor(canvas) {
+    constructor(resolutionMode) {
         super();
-        this.canvas = canvas ?? buildCanvas();
+        if (resolutionMode) ASPECT_RATIO.SET(resolutionMode);
+        this.canvas = buildCanvas();
         this.gl = this.canvas.getContext("webgl2", {
             alpha: true,
             antialias: true,
@@ -72,28 +82,31 @@ class Renderer extends GlobalEvents {
     }
 
     onResize() {
-        const dpr = window.devicePixelRatio || 1;
-        const scale = Math.min(
-            screen.width / ASPECT_RATIO.WIDTH,
-            screen.height / ASPECT_RATIO.HEIGHT,
-        );
-
-        this.canvas.width = Math.floor(ASPECT_RATIO.WIDTH * scale * dpr);
-        this.canvas.height = Math.floor(ASPECT_RATIO.HEIGHT * scale * dpr);
+        resizeCanvas(this.canvas);
 
         this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
     }
+}
+
+function resizeCanvas(canvas) {
+    const dpr = window.devicePixelRatio || 1;
+
+    if (ASPECT_RATIO.SELECTED_PRESET === "custom") {
+        canvas.width = Math.floor(window.innerWidth * dpr);
+        canvas.height = Math.floor(window.innerHeight * dpr);
+        return;
+    }
+
+    const scale = Math.min(screen.width / ASPECT_RATIO.WIDTH, screen.height / ASPECT_RATIO.HEIGHT);
+    canvas.width = Math.floor(ASPECT_RATIO.WIDTH * scale * dpr);
+    canvas.height = Math.floor(ASPECT_RATIO.HEIGHT * scale * dpr);
 }
 
 function buildCanvas() {
     const c = document.createElement("canvas");
     c.id = "mainCanvas";
 
-    const dpr = window.devicePixelRatio || 1;
-    const scale = Math.min(screen.width / ASPECT_RATIO.WIDTH, screen.height / ASPECT_RATIO.HEIGHT);
-
-    c.width = Math.floor(ASPECT_RATIO.WIDTH * scale * dpr);
-    c.height = Math.floor(ASPECT_RATIO.HEIGHT * scale * dpr);
+    resizeCanvas(c);
 
     document.body.insertBefore(c, document.body.firstChild);
     Game.canvas = c;
@@ -101,4 +114,3 @@ function buildCanvas() {
 }
 
 export { Renderer };
-

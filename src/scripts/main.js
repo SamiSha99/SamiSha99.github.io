@@ -29,6 +29,7 @@ function updateHue(delta) {
 let game;
 
 class SiteAnimations extends Game {
+    static resolutionMode = "custom";
     // Pages marked `no-drawing` only animate the hue.
     drawing = document.body.getAttribute("no-drawing") !== "true";
     // Set by the page's `animation` (e.g. `animation: boids`), snow if not set.

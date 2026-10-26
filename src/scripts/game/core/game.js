@@ -35,6 +35,8 @@ class Game extends GlobalEvents {
 
     static assets = Assets;
 
+    static resolutionMode = "1080p";
+
     static entities = {
         /** @type {object[]} - instances */
         instances: [],
@@ -61,7 +63,8 @@ class Game extends GlobalEvents {
     constructor() {
         super();
         this.time = new Time();
-        this.renderer = new Renderer();
+        // `this.constructor` (not the imported `Game`) so a subclass's own override is used.
+        this.renderer = new Renderer(this.constructor.resolutionMode);
         this.time.update = this.update.bind(this);
         Game.instance = this;
     }
